@@ -1,0 +1,15 @@
+{
+  "Print to console": {
+    "scope": "vue",
+		"prefix": "v3",
+		"body": [
+			"<script setup lang=\"ts\" name=\"$1\">",
+      "</script>",
+      "\n<template>",
+      "\t<div class=\"page\">$2</div>",
+      "</template>",
+      "\n<style lang=\"less\" scoped></style>"
+		],
+		"description": "Vue3 setup sugar snippets"
+	}
+}

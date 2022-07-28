@@ -1,0 +1,5 @@
+node_modules
+dist
+hbs
+public
+.vscode/*.code-snippets

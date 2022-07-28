@@ -1,0 +1,29 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "eslint.workingDirectories": [
+    "src"
+  ],
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue",
+    "typescript",
+    "typescriptreact"
+  ],
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "sass",
+    "vue",
+    "html"
+  ],
+  // "windicss.sortOnSave": true,  // *存在bug
+  "windicss.enableCodeFolding": true,
+  "less.lint.unknownAtRules": "ignore"
+}

@@ -1,0 +1,9 @@
+{
+  "semi": false,
+  "endOfLine": "auto",
+  "singleQuote": true,
+  "arrowParens": "avoid",
+  "trailingComma": "none",
+  "eslintIntegration": true,
+  "vueIndentScriptAndStyle": true
+}
