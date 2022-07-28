@@ -6,7 +6,7 @@
  * @Description: 错误码提示
  */
 import { ErrorCodeEnum } from '@/enums/httpEnum'
-import { MessageKey, useMessage } from '@/hooks/web/useMessage'
+import { useMessage } from '@/hooks/web/useMessage'
 
 // 后端逻辑错误码展示格式（B+xxx）
 export type ErrorCode_B = `${ErrorCodeEnum.B}${number}`
@@ -18,17 +18,11 @@ export type ErrorCode_B = `${ErrorCodeEnum.B}${number}`
  */
 export const alertErrMsg: (
   code: ErrorCodeEnum | ErrorCode_B,
-  msg: UnDefable<string>,
-  key?: MessageKey
-) => void = (
-  code = ErrorCodeEnum.C100,
-  msg = '无异常',
-  key = MessageKey.LOADING_KEY
-) => {
-  const { createMessage } = useMessage()
-  createMessage.error({
-    key,
+  msg: UnDefable<string>
+) => void = (code = ErrorCodeEnum.C100, msg = '无异常') => {
+  const { message } = useMessage()
+  message.error({
     duration: 3,
-    content: `ERROR CODE ${code}: ${msg}`
+    message: `ERROR CODE ${code}: ${msg}`
   })
 }

@@ -1,6 +1,5 @@
 <script setup lang="ts" name="PageNotFound">
   import { useRouter } from 'vue-router'
-  import { LogoutOutlined } from '@ant-design/icons-vue'
   const router = useRouter()
 </script>
 
@@ -18,7 +17,7 @@
         >THE PAGE YOU ARE LOOKING FOR NOT AVAILABLE!</span
       >
       <a-button type="primary" @click="router.replace('/login?redirect=404')">
-        返回首页<logout-outlined />
+        返回首页
       </a-button>
     </div>
   </div>

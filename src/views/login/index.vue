@@ -1,12 +1,11 @@
 <script setup lang="ts" name="Login">
   import { reactive } from 'vue'
   import { LoginParams } from '@/api/_auth/model'
-  import { useMessage, MessageKey } from '@/hooks/web/useMessage'
   import { useUserStore } from '@/store/modules/user'
+  import { useMessage } from '@/hooks/web/useMessage'
   import config from '@/config'
 
-  const { createMessage } = useMessage()
-
+  const message = useMessage()
   const loginForm = reactive<LoginParams>({
     username: '',
     password: '',
@@ -22,15 +21,14 @@
     const userStore = useUserStore()
     try {
       loginStatus = true
-      createMessage.loading({
-        duration: 0,
-        content: '正在登录',
-        key: MessageKey.LOADING_KEY
-      })
+      // createMessage.loading({
+      //   duration: 0,
+      //   content: '正在登录',
+      //   key: MessageKey.LOADING_KEY
+      // })
       await userStore.login(value)
-      createMessage.success({
-        content: '登录成功',
-        key: MessageKey.LOADING_KEY
+      message.success({
+        message: '登录成功'
       })
     } finally {
       loginStatus = false
@@ -76,9 +74,7 @@
               class="w-360px flex justify-between items-center text-[#a5adc7] text-13px"
             >
               <a-checkbox v-model="loginForm.rememberMe">记住密码</a-checkbox>
-              <span
-                class="cursor-pointer"
-                @click="() => createMessage.warn('敬请期待!')"
+              <span class="cursor-pointer" @click="message.warning('敬请期待!')"
                 >忘记密码？</span
               >
             </div>

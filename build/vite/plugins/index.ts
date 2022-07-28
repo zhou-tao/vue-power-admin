@@ -7,10 +7,11 @@ import WindiCSS from 'vite-plugin-windicss'
 import VitePluginCertificate from 'vite-plugin-mkcert'
 import { configMockPlugin } from './mock'
 import { configVisualizer } from './visualizer'
-import {
-  createStyleImportPlugin,
-  AndDesignVueResolve
-} from 'vite-plugin-style-import'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
   const { VITE_USE_LEGACY, VITE_USE_MOCK } = viteEnv
@@ -34,9 +35,33 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
       source: 'coding'
     }),
 
-    // antd-vue 样式按需导入
-    createStyleImportPlugin({
-      resolves: [AndDesignVueResolve()]
+    AutoImport({
+      // 自动引入 vue 相关函数（ref、reactive...）
+      imports: ['vue'],
+
+      resolvers: [
+        // 自动导入 element-plus
+        ElementPlusResolver(),
+
+        // 自动导入 @element-plus/icons-vue
+        IconsResolver({
+          prefix: 'Icon'
+        })
+      ]
+    }),
+    Components({
+      resolvers: [
+        // 自动注册 element-plus
+        ElementPlusResolver(),
+
+        // 自动注册 @element-plus/icons-vue
+        IconsResolver({
+          enabledCollections: ['ep']
+        })
+      ]
+    }),
+    Icons({
+      autoInstall: true
     })
   ]
 
@@ -47,7 +72,7 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
   process.env.REPORT === 'true' && vitePlugins.push(configVisualizer())
 
   if (isBuild) {
-    // 兼容不支持原生ES Modules浏览器
+    // 打包后兼容不支持原生ES Modules浏览器
     VITE_USE_LEGACY && vitePlugins.push(legacy())
   }
 
