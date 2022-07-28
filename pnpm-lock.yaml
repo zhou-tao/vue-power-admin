@@ -9,7 +9,6 @@ specifiers:
   '@types/node': ^18.6.2
   '@types/nprogress': ^0.2.0
   '@types/qs': ^6.9.7
-  '@types/sm-crypto': ^0.3.0
   '@typescript-eslint/eslint-plugin': ^5.31.0
   '@typescript-eslint/parser': ^5.31.0
   '@vitejs/plugin-legacy': ^2.0.0
@@ -45,7 +44,6 @@ specifiers:
   qs: ^6.11.0
   rollup: ^2.77.2
   rollup-plugin-visualizer: ^5.7.1
-  sm-crypto: ^0.3.10
   stylelint: ^14.9.1
   stylelint-config-html: ^1.1.0
   stylelint-config-prettier: ^9.0.3
@@ -76,7 +74,6 @@ dependencies:
   pinia: 2.0.17_j6bzmzd4ujpabbp5objtwxyjp4
   pinia-plugin-persistedstate: 1.6.3_pinia@2.0.17
   qs: 6.11.0
-  sm-crypto: 0.3.10
   vue: 3.2.37
   vue-router: 4.0.12_vue@3.2.37
 
@@ -88,7 +85,6 @@ devDependencies:
   '@types/node': 18.6.2
   '@types/nprogress': 0.2.0
   '@types/qs': 6.9.7
-  '@types/sm-crypto': 0.3.0
   '@typescript-eslint/eslint-plugin': 5.31.0_d5zwcxr4bwkhmuo464cb3a2puu
   '@typescript-eslint/parser': 5.31.0_he2ccbldppg44uulnyq4rwocfa
   '@vitejs/plugin-legacy': 2.0.0_vite@3.0.3
@@ -1021,10 +1017,6 @@ packages:
     resolution: {integrity: sha1-Qjx3h30Fadsg4fyAiFrEEYMUAQ4=}
     dev: true
 
-  /@types/bigi/1.4.2:
-    resolution: {integrity: sha512-St8Vm0x1ApYlU9yNaFx3jBis5JVU6oR/5Xtgvn8+N8Ts8f3ze6kOvAAg0aNkbGMGhhG6PrP0nMOgDI9NMFETkA==}
-    dev: true
-
   /@types/estree/0.0.39:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
@@ -1079,12 +1071,6 @@ packages:
     resolution: {integrity: sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw==}
     dependencies:
       '@types/node': 18.6.2
-    dev: true
-
-  /@types/sm-crypto/0.3.0:
-    resolution: {integrity: sha512-fXjWSOfDFYz5WUWEmE/qwqcRZewgU5IBkSjpkFDSoqbbfAfFkSJvJlGxJgouVbYkFoJ34Db+uclw/PpXU+puCA==}
-    dependencies:
-      '@types/bigi': 1.4.2
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.31.0_d5zwcxr4bwkhmuo464cb3a2puu:
@@ -3219,10 +3205,6 @@ packages:
       argparse: 2.0.1
     dev: true
 
-  /jsbn/1.1.0:
-    resolution: {integrity: sha1-sBMHyym2GKHtJux56RH4A8TaAEA=}
-    dev: false
-
   /jsesc/2.5.2:
     resolution: {integrity: sha1-gFZNLkg9rPbo7yCWUKZ98/DCg6Q=}
     engines: {node: '>=4'}
@@ -4308,12 +4290,6 @@ packages:
       ansi-styles: 6.1.0
       is-fullwidth-code-point: 4.0.0
     dev: true
-
-  /sm-crypto/0.3.10:
-    resolution: {integrity: sha512-JTuSQJvDUZauN9rWinGZlyCB175Us82/st7vczTeuK/WF/YULnH2mZ5XVQaEoTfs+rYQJH4pQAP0+IZpsmx0oA==}
-    dependencies:
-      jsbn: 1.1.0
-    dev: false
 
   /snake-case/3.0.4:
     resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}

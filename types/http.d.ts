@@ -15,7 +15,6 @@ export interface RequestConfig<T = any> extends AxiosRequestConfig {
   params?: T
   headers?: RequestHeaders
   withToken?: boolean
-  SM2Encrypt?: boolean
   isTransformResponse?: boolean
   responseType?: ResponseTypeEnum
   ignoreCancelToken?: boolean

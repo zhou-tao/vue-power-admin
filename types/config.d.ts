@@ -17,13 +17,6 @@ export interface Oauth {
   client_secret: string
 }
 
-export interface Sm2 {
-  publicKey: string
-  privateKey: string
-  appKey: string
-  cipherMode: CipherMode
-}
-
 export interface Map {
   key: string
   src: string
@@ -34,7 +27,6 @@ export interface AppConfig {
   APP: App
   HTTP: Http
   OAUTH: Oauth
-  SM2: Sm2
   MAP?: {
     AMap?: Map
     BMap?: Map

@@ -31,9 +31,6 @@ export const useFetch = new CustomAxios({
   // 是否携带token
   withToken: true,
 
-  // 是否sm2加密
-  SM2Encrypt: false,
-
   // 是否进行响应数据转换
   isTransformResponse: true,
 
