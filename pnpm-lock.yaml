@@ -24,7 +24,6 @@ specifiers:
   element-plus: ^2.2.11
   eslint: ^8.20.0
   eslint-config-prettier: ^8.5.0
-  eslint-define-config: ^1.5.1
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-vue: ^9.3.0
   husky: ^8.0.1
@@ -99,7 +98,6 @@ devDependencies:
   cross-env: 7.0.3
   eslint: 8.20.0
   eslint-config-prettier: 8.5.0_eslint@8.20.0
-  eslint-define-config: 1.5.1
   eslint-plugin-prettier: 4.2.1_g4fztgbwjyq2fvmcscny2sj6fy
   eslint-plugin-vue: 9.3.0_eslint@8.20.0
   husky: 8.0.1
@@ -2336,11 +2334,6 @@ packages:
       eslint: '>=7.0.0'
     dependencies:
       eslint: 8.20.0
-    dev: true
-
-  /eslint-define-config/1.5.1:
-    resolution: {integrity: sha512-6gxrmN7aKGffaO8dCtMMKyo3IxbWymMQ248p4lf8GbaFRcLsqOXHFdUhhM0Hcy1NudvnpwHcfbDf7Nh9pIm1TA==}
-    engines: {node: '>= 14.6.0', npm: '>= 6.0.0', pnpm: '>= 7.0.0'}
     dev: true
 
   /eslint-plugin-prettier/4.2.1_g4fztgbwjyq2fvmcscny2sj6fy:

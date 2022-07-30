@@ -1,25 +1,21 @@
-// @ts-check
-const { defineConfig } = require('eslint-define-config')
 const isProduction = process.env.NODE_ENV === 'production'
 
-module.exports = defineConfig({
+module.exports = {
   root: true,
   env: {
     browser: true,
     node: true,
-    es6: true
+    es2022: true
   },
   extends: [
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier',
     'plugin:prettier/recommended'
   ],
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
     sourceType: 'module',
-    ecmaVersion: 2021,
     ecmaFeatures: {
       jsx: true
     }
@@ -77,4 +73,4 @@ module.exports = defineConfig({
       }
     ]
   }
-})
+}
