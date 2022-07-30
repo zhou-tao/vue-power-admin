@@ -27,5 +27,5 @@ export async function addAsyncRoutes() {
   if (!menuStore.routes || menuStore.routes.length === 0) {
     await menuStore.generateRoutes()
   }
-  menuStore.routes.forEach(route => router.addRoute(route))
+  menuStore.routes.forEach(route => router.addRoute(route as any))
 }

@@ -19,9 +19,10 @@ function componentMap(path: string): RawRouteComponent {
       return PageLayout
     case 'Fake':
       return FakeLayout
-    default:
+    default: {
       const joinPath = `backstage/${path}`.replace(/\/\//, '/')
       return () => import(`../../views/${joinPath}.vue`)
+    }
   }
 }
 

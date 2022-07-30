@@ -8,7 +8,7 @@ type CookieKey = TokenTypeEnum
 
 export function createCookie(
   key: CookieKey,
-  value: string | object,
+  value: string,
   options?: CookieAttributes
 ) {
   Cookie.set(key, value, options)

@@ -39,9 +39,8 @@ export default ({ mode }: ConfigEnv) => {
       pure: VITE_DROP_CONSOLE ? ['console.log', 'debugger', 'alert'] : []
     },
     build: {
-      sourcemap: false,
-      brotliSize: false,
-      chunkSizeWarningLimit: 1000
+      reportCompressedSize: false,
+      chunkSizeWarningLimit: 800
     },
     css: {
       preprocessorOptions: {
