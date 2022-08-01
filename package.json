@@ -26,7 +26,7 @@
     "pinia": "^2.0.17",
     "pinia-plugin-persistedstate": "^1.6.3",
     "qs": "^6.11.0",
-    "vue": "^3.2.37",
+    "vue": "3.2.37",
     "vue-router": "4"
   },
   "devDependencies": {
@@ -39,12 +39,11 @@
     "@types/qs": "^6.9.7",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
+    "@unocss/preset-uno": "^0.45.1",
     "@vitejs/plugin-legacy": "^2.0.0",
     "@vitejs/plugin-vue": "^3.0.1",
     "@vitejs/plugin-vue-jsx": "^2.0.0",
     "@vue/compiler-sfc": "^3.2.37",
-    "@windicss/plugin-animations": "^1.0.9",
-    "@windicss/plugin-scrollbar": "^1.2.3",
     "autoprefixer": "^10.4.7",
     "consola": "^2.15.3",
     "cross-env": "^7.0.3",
@@ -69,6 +68,7 @@
     "stylelint-order": "^5.0.0",
     "terser": "^5.4.0",
     "typescript": "^4.7.4",
+    "unocss": "^0.45.1",
     "unplugin-auto-import": "^0.10.2",
     "unplugin-icons": "^0.14.7",
     "unplugin-vue-components": "^0.21.2",
@@ -76,9 +76,7 @@
     "vite-plugin-mkcert": "^1.9.0",
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-vue-setup-extend": "^0.4.0",
-    "vite-plugin-windicss": "^1.8.7",
-    "vue-tsc": "^0.39.2",
-    "windicss": "^3.5.6"
+    "vue-tsc": "^0.39.2"
   },
   "engines": {
     "node": ">=14"

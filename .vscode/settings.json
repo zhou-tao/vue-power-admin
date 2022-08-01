@@ -23,7 +23,5 @@
     "vue",
     "html"
   ],
-  // "windicss.sortOnSave": true,  // *存在bug
-  "windicss.enableCodeFolding": true,
   "less.lint.unknownAtRules": "ignore"
 }

@@ -4,7 +4,6 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "esbenp.prettier-vscode",
-    "voorjaar.windicss-intellisense",
     "mikestead.dotenv"
   ]
 }

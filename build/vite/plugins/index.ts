@@ -3,8 +3,8 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import legacy from '@vitejs/plugin-legacy'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
-import WindiCSS from 'vite-plugin-windicss'
 import VitePluginCertificate from 'vite-plugin-mkcert'
+import { configUnocss } from './unocss'
 import { configMockPlugin } from './mock'
 import { configVisualizer } from './visualizer'
 import { configAutoImportPlugins } from './auto-imports'
@@ -23,13 +23,13 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
     // 使setup标签支持name属性配置
     vueSetupExtend(),
 
-    // 样式辅助插件：https://windicss.org/
-    WindiCSS(),
-
     // 开发环境时https证书
     VitePluginCertificate({
       source: 'coding'
     }),
+
+    // unocss 配置
+    configUnocss(),
 
     // element-plus 自动导入
     ...configAutoImportPlugins()
