@@ -4,8 +4,10 @@ import { registerGlobComp } from '@c/register'
 import { setupStore } from '@/store'
 import { router, setupRouter } from '@/router'
 import { setupRouterGuard } from '@/router/guard'
-import '@/styles/index.less'
+import 'uno:components.css'
 import 'uno.css'
+import '@/styles/index.less'
+import 'uno:utilities.css'
 
 const app = createApp(App)
 

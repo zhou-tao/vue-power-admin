@@ -4,6 +4,7 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "esbenp.prettier-vscode",
-    "mikestead.dotenv"
+    "mikestead.dotenv",
+    "antfu.unocss"
   ]
 }

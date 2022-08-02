@@ -1,8 +1,6 @@
 import Unocss from 'unocss/vite'
-import presetUno from '@unocss/preset-uno'
+import UnocssConfig from '../../../uno.config'
 
 export const configUnocss = () => {
-  return Unocss({
-    presets: [presetUno()]
-  })
+  return Unocss(UnocssConfig)
 }
