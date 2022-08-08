@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
   :deep(.ant-btn) {
     @apply mt-24 w-48 h-12 text-xl tracking-3px;
   }
