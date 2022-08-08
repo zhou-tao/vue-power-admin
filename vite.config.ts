@@ -44,9 +44,8 @@ export default ({ mode }: ConfigEnv) => {
     },
     css: {
       preprocessorOptions: {
-        less: {
-          javascriptEnabled: true,
-          additionalData: '@import "./src/styles/common/index.less";'
+        scss: {
+          additionalData: '@use "./src/styles/common/index.scss" as *;'
         }
       }
     },
