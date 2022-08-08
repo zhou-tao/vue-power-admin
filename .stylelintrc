@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-recess-order",
@@ -11,7 +12,9 @@
       true,
       {
         "ignoreAtRules": [
+          "forward",
           "apply",
+          "use",
           "variants",
           "responsive",
           "screen",
@@ -63,10 +66,10 @@
   "overrides": [
     {
       "files": [
-        "*.less",
-        "**/*.less"
+        "*.scss",
+        "**/*.scss"
       ],
-      "customSyntax": "postcss-less"
+      "customSyntax": "postcss-scss"
     },
     {
       "files": [

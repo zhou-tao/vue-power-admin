@@ -22,6 +22,5 @@
     "sass",
     "vue",
     "html"
-  ],
-  "less.lint.unknownAtRules": "ignore"
+  ]
 }
