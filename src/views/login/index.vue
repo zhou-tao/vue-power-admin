@@ -41,10 +41,13 @@
     w="full"
     h="screen"
     overflow="hidden"
-    class="flex justify-around items-center"
+    bg="skyblue-gradient"
+    flex
+    justify="around"
+    items="center"
   >
     <img min-w="[200px]" w="1/3" src="@/assets/images/login_banner.svg" />
-    <div w="[480px]">
+    <div w="[400px]">
       <h2 text="2xl [#788fac]" font="bold" m="0">welcome to login</h2>
       <h1 text="[40px] [#103059] -2xl:text-36px" font="bold" m="0 t-3">
         {{ config.APP.title }}
@@ -70,7 +73,9 @@
             <div
               w="360px"
               text="13px #a5adc7"
-              class="flex justify-between items-center"
+              flex
+              justify="between"
+              items="center"
             >
               <el-checkbox v-model="loginForm.rememberMe">记住密码</el-checkbox>
               <span cursor="pointer" @click="$message.info('敬请期待！')"
