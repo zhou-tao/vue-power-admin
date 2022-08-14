@@ -1,10 +1,10 @@
 <div align="center">
-  <p align="center"><img alt="Novel" align="center" src="./.github/logo.svg"/></p><br>
+  <p align="center"><img alt="Bo-Admin" align="center" src="./.github/logo.svg"/></p><br>
   <p align="center">
     <a href="https://img.shields.io/badge/node-%3E%3D14-orange"><img src="https://img.shields.io/badge/node-%3E%3D14-orange" alt="Node"></a>
-    <a href="https://github.com/zhou-tao/novel-web/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="MIT"></a>
+    <a href="https://github.com/zhou-tao/bo-admin/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="MIT"></a>
   </p>
-  <h1>Novel Web</h1>
+  <h1>Bo Admin</h1>
 </div>
 
 ### :loudspeaker: Introduction
@@ -25,12 +25,12 @@
 ```shell
 # clone
 # if no degit can run `npm i -g degit`
-degit zhou-tao/novel-web
+degit zhou-tao/bo-admin
 # or
-git clone https://github.com/zhou-tao/novel-web.git
+git clone https://github.com/zhou-tao/bo-admin.git
 
-# cd novel-web
-cd novel-web
+# cd bo-admin
+cd bo-admin
 
 # install dependencies
 pnpm i
@@ -42,4 +42,4 @@ pnpm dev
 
 ### :bookmark_tabs: License
 
-[MIT](https://github.com/zhou-tao/novel-web/LICENSE)
+[MIT](https://github.com/zhou-tao/bo-admin/LICENSE)

@@ -1,5 +1,5 @@
 {
-  "name": "novel-web",
+  "name": "bo-admin",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
