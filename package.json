@@ -2,6 +2,7 @@
   "name": "bo-admin",
   "version": "0.0.1",
   "scripts": {
+    "commit": "czg",
     "dev": "vite",
     "serve": "npm run dev",
     "build": "vue-tsc && vite build",
@@ -50,6 +51,8 @@
     "autoprefixer": "^10.4.7",
     "consola": "^2.15.3",
     "cross-env": "^7.0.3",
+    "cz-git": "^1.3.10",
+    "czg": "^1.3.10",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -108,5 +111,10 @@
     "*.md": [
       "prettier --write"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   }
 }
