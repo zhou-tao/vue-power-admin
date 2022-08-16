@@ -7,13 +7,13 @@
   <h1>Bo Admin</h1>
 </div>
 
-**English** | [简体中文](./README.zh-CN.md)
+[English](./README.md) | **简体中文**
 
-### :loudspeaker: Introduction
+### :loudspeaker: 简介
 
-> [Bo Admin](zhou-tao.github.io/bo-admin) is a standard template for middle and back end front-end development. It's based on [vue3](https://staging-cn.vuejs.org/) + [typescript](https://www.typescriptlang.org/) and use [elements-plus](https://element-plus.org/zh-CN/) as the UI library.
+> [Bo Admin](zhou-tao.github.io/bo-admin) 是一个标准的中后台前端开发模板。基于当下最流行的 Vue3 + Typescript 技术栈构建，使用 Element-Plus 作为 UI 库。
 
-### :rocket: Features
+### :rocket: 特性
 
 - **vite:** Next Generation Frontend Tooling.
 - **vue3:** use composition-api to build a modern web application.
@@ -22,11 +22,11 @@
 - **unocss:** The instant on-demand Atomic CSS engine.
 - **husky:** combine eslint + prettier + stylelint + commitlint + lint-staged + cz-git to standardize the code full flow.
 
-### :alarm_clock: Getting started
+### :alarm_clock: 使用
 
 ```shell
 # clone
-# if no degit can run `npm i -g degit`
+# 如果未安装 degit 可以运行 `npm i -g degit`
 degit zhou-tao/bo-admin
 # or
 git clone https://github.com/zhou-tao/bo-admin.git
