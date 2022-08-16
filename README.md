@@ -11,7 +11,7 @@
 
 ### :loudspeaker: Introduction
 
-> [Bo Admin](zhou-tao.github.io/bo-admin) is a standard template for middle and back end front-end development. It's based on [vue3](https://staging-cn.vuejs.org/) + [typescript](https://www.typescriptlang.org/) and use [elements-plus](https://element-plus.org/zh-CN/) as the UI library.
+> [Bo Admin](https://zhou-tao.github.io/bo-admin) is a standard template for middle and back end front-end development. It's based on [vue3](https://staging-cn.vuejs.org/) + [typescript](https://www.typescriptlang.org/) and use [elements-plus](https://element-plus.org/zh-CN/) as the UI library.
 
 ### :rocket: Features
 

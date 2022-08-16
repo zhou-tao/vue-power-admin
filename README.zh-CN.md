@@ -11,7 +11,7 @@
 
 ### :loudspeaker: 简介
 
-> [Bo Admin](zhou-tao.github.io/bo-admin) 是一个标准的中后台前端开发模板。基于当下最流行的 Vue3 + Typescript 技术栈构建，使用 Element-Plus 作为 UI 库。
+> [Bo Admin](https://zhou-tao.github.io/bo-admin) 是一个标准的中后台前端开发模板。基于当下最流行的 Vue3 + Typescript 技术栈构建，使用 Element-Plus 作为 UI 库。
 
 ### :rocket: 特性
 
