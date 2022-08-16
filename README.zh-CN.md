@@ -15,12 +15,15 @@
 
 ### :rocket: 特性
 
-- **vite:** Next Generation Frontend Tooling.
-- **vue3:** use composition-api to build a modern web application.
-- **typescript:** Application-level JavaScript language
-- **element-plus:** One of the most popular Vue3 component libraries.
-- **unocss:** The instant on-demand Atomic CSS engine.
-- **husky:** combine eslint + prettier + stylelint + commitlint + lint-staged + cz-git to standardize the code full flow.
+- **技术栈** 采用当下最流行的 Vite + Vue3 + Typescript 技术栈组合。
+- **主题** 可配置的运行时多主题。
+- **国际化** 内置主流的国际化方案。
+- **多布局** 封装多种经典布局通过配置切换且支持新增自定义布局。
+- **权限** 封装多层级权限控制，包括角色权限、菜单权限、按钮权限。
+- **Mock** 使用 Mock 服务模拟后端数据。
+- **Unocss** 使用最轻量的原子化 CSS 解决方案。
+- **组件** 封装大量中后台常用组件。
+- **规范** 使用 husky 集成 eslint + prettier + stylelint 统一代码规范，搭配 commitlint 校验 git message（内置 cz-git 交互）。
 
 ### :alarm_clock: 使用
 

@@ -15,12 +15,15 @@
 
 ### :rocket: Features
 
-- **vite:** Next Generation Frontend Tooling.
-- **vue3:** use composition-api to build a modern web application.
-- **typescript:** Application-level JavaScript language
-- **element-plus:** One of the most popular Vue3 component libraries.
-- **unocss:** The instant on-demand Atomic CSS engine.
-- **husky:** combine eslint + prettier + stylelint + commitlint + lint-staged + cz-git to standardize the code full flow.
+- **Technology stack:** Adopt the most popular Vite + Vue3 + Typescript stack combination.
+- **Theme:** Configurable runtime multiple themes.
+- **International:** Built-in mainstream internationalization solutions.
+- **Layouts:** Multiple classic layouts can be switched by configuration and can be customized.
+- **Permissions:** Multi-level permission control, including role permission, menu permission, and button permission.
+- **Mock:** Mock services are used to simulate back-end data.
+- **Unocss:** Use the lightest atomized CSS solution.
+- **Components:** Encapsulate a large number of common background components.
+- **Spec:** Husky integrates ESLint + Prettier + Stylelint Unified code specification with CommitLint check Git Message (built-in CZ-Git interactions).
 
 ### :alarm_clock: Getting started
 
