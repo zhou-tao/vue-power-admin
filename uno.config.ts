@@ -10,10 +10,17 @@ export default {
   // 自定义规则
   rules: [
     [
-      'bg-skyblue-gradient',
+      'bg-gradient-light',
       {
         'background-image':
           'linear-gradient( 135deg, #ABDCFF30 20%, #0396FF20 100%)'
+      }
+    ],
+    [
+      'bg-gradient-dark',
+      {
+        'background-image':
+          'linear-gradient( 135deg, #2A5470 20%, #4C4177 100%)'
       }
     ]
   ]
