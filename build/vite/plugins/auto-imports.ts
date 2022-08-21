@@ -1,7 +1,5 @@
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import Icons from 'unplugin-icons/vite'
-import IconsResolver from 'unplugin-icons/resolver'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export const configAutoImportPlugins = () => [
@@ -13,12 +11,7 @@ export const configAutoImportPlugins = () => [
 
     resolvers: [
       // 自动导入 element-plus
-      ElementPlusResolver(),
-
-      // 自动导入 @element-plus/icons-vue
-      IconsResolver({
-        prefix: 'Icon'
-      })
+      ElementPlusResolver()
     ]
   }),
 
@@ -26,16 +19,7 @@ export const configAutoImportPlugins = () => [
     dts: 'types/components.d.ts',
     resolvers: [
       // 自动注册 element-plus
-      ElementPlusResolver(),
-
-      // 自动注册 @element-plus/icons-vue
-      IconsResolver({
-        enabledCollections: ['ep']
-      })
+      ElementPlusResolver()
     ]
-  }),
-
-  Icons({
-    autoInstall: true
   })
 ]
