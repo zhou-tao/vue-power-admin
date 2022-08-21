@@ -5,7 +5,7 @@ export default defineConfig({
   //系统设置
   APP: {
     //业务中心侧边菜单标题
-    title: 'Bo-Admin',
+    title: 'Bo Admin',
     //主题类型
     theme: ThemeEnum.LIGHT,
     // 是否显示底部版权（包括Footer的显示）
