@@ -42,8 +42,14 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
   process.env.REPORT === 'true' && vitePlugins.push(configVisualizer())
 
   if (isBuild) {
-    // 生产环境兼容不支持原生ES Modules浏览器（vite兼容而非vue3）
-    VITE_USE_LEGACY && vitePlugins.push(legacy() as unknown as Plugin)
+    // 生产环境兼容不支持ESM浏览器以及内置babel
+    VITE_USE_LEGACY &&
+      vitePlugins.push(
+        legacy({
+          // 无需对IE11进行polyfill 因为vue3无法支持
+          targets: ['defaults', 'not IE 11']
+        }) as unknown as Plugin
+      )
   }
 
   return vitePlugins
