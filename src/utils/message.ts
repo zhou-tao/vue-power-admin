@@ -21,8 +21,5 @@ export const alertErrMsg: (
   msg: UnDefable<string>
 ) => void = (code = ErrorCodeEnum.C100, msg = '无异常') => {
   const { $message } = useMessage()
-  $message.error({
-    duration: 3,
-    message: `ERROR CODE ${code}: ${msg}`
-  })
+  $message.error(`ERROR ${code}: ${msg}`)
 }

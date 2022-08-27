@@ -6,7 +6,7 @@ enum Api {
 }
 
 export const buildMenuApi = () => {
-  return useFetch.get<BuildMenuModel[]>({
+  return useFetch.GET<BuildMenuModel[]>({
     url: Api.BUILD_MENU
   })
 }

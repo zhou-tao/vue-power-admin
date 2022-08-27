@@ -20,10 +20,9 @@ const createAuthHeader = () => {
 }
 
 export const loginApi = (data: LoginParams) => {
-  return useFetch.post<LoginResultModel>({
+  return useFetch.POST<LoginResultModel>({
     url: Api.Auth,
     headers: createAuthHeader(),
-    isTransformResponse: false,
     withToken: false,
     data: {
       ...data,
@@ -33,10 +32,9 @@ export const loginApi = (data: LoginParams) => {
 }
 
 export const tokenRefresh = () => {
-  return useFetch.post<LoginResultModel>({
+  return useFetch.POST<LoginResultModel>({
     url: Api.Auth,
     headers: createAuthHeader(),
-    isTransformResponse: false,
     withToken: false,
     data: {
       refresh_token: useCookie(TokenTypeEnum.REFRESH_TOKEN),

@@ -1,6 +1,6 @@
 import type { AxiosResponse } from 'axios'
 import type { RequestConfig, Result } from '#/http'
-import { ErrorCodeEnum, HttpMethodEnum, ResultCodeEnum } from '@/enums/httpEnum'
+import { ErrorCodeEnum, HttpMethodEnum, CodeEnum } from '@/enums/httpEnum'
 import { alertErrMsg } from '@/utils/message'
 import { isDevMode } from '@/utils/env'
 import { envParse } from '../../../build/utils'
@@ -36,14 +36,14 @@ export const transformResponse = (
   res: AxiosResponse<Result>,
   config: RequestConfig
 ) => {
-  const { transformResponse } = config
-  if (!transformResponse) {
+  if (!config.isTransformResponse) {
     return res.data
   }
-  const { resultCode, data, message: msg } = res.data
-  if (resultCode === ResultCodeEnum.SUCCESS) {
+  const { code, data, message: msg } = res.data
+  if (code === CodeEnum.SUCCESS) {
     return data
   } else {
-    alertErrMsg(`${ErrorCodeEnum.B}${resultCode}`, msg)
+    alertErrMsg(`${ErrorCodeEnum.B}${code}`, msg)
+    throw new Error(code.toString())
   }
 }

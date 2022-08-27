@@ -59,10 +59,11 @@ export default [
     url: '/oauth/token',
     method: 'post',
     response: ({ body }: any) => {
+      console.log('body>>>>>>>>', body)
       // 参数将获取失败：待插件兼容 https://github.com/vbenjs/vite-plugin-mock/issues/57
-      const { username, password } = body
       const checkUser = createFakeUserList().find(
-        user => user.username === username && password === user.password
+        user =>
+          user.username === body?.username && user.password === body?.password
       )
       if (!checkUser) {
         return resultError('用户名或密码不正确！')

@@ -12,7 +12,6 @@ import {
   transformRequest,
   transformResponse
 } from '@/utils/http/helper'
-import { merge } from 'lodash-es'
 import axios from 'axios'
 import qs from 'qs'
 
@@ -65,7 +64,7 @@ export class CustomAxios {
             ? ignoreCancelToken
             : this.options?.ignoreCancelToken
         !ignoreCancel && axiosCanceler.addPending(config)
-        if (appConfig.OAUTH.excute && withToken) {
+        if (appConfig.OAUTH.execute && withToken) {
           let accessToken = useCookie(TokenTypeEnum.ACCESS_TOKEN)
           if (!accessToken) {
             // 取消上次请求
@@ -129,26 +128,26 @@ export class CustomAxios {
 
   downloadFile() {}
 
-  get<T = any>(config: RequestConfig): Promise<T> {
+  GET<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: HttpMethodEnum.GET })
   }
 
-  post<T = any>(config: RequestConfig): Promise<T> {
+  POST<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: HttpMethodEnum.POST })
   }
 
-  put<T = any>(config: RequestConfig): Promise<T> {
+  PUT<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: HttpMethodEnum.PUT })
   }
 
-  delete<T = any>(config: RequestConfig): Promise<T> {
+  DELETE<T = any>(config: RequestConfig): Promise<T> {
     return this.request({ ...config, method: HttpMethodEnum.DELETE })
   }
 
   request<T = any>(config: RequestConfig): Promise<T> {
     // 合并请求配置，优先级由低到高为：options(初始化实例参数) -> config(具体请求参数)
-    let conf: RequestConfig = merge({}, config, this.options)
-    conf = this.supportFormData(config)
+    let conf: RequestConfig = Object.assign({}, this.options, config)
+    conf = this.supportFormData(conf)
     conf = transformRequest(conf)
     return new Promise((resolve, reject) => {
       this.axiosInstance
