@@ -12,7 +12,7 @@ export interface Http {
 }
 
 export interface Oauth {
-  excute: boolean
+  execute: boolean
   client_id: string
   client_secret: string
 }

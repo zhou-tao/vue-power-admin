@@ -10,7 +10,7 @@ enum Api {
 }
 
 export const getAccountInfo = () => {
-  return useFetch.get<UserInfoModel>({
+  return useFetch.GET<UserInfoModel>({
     url: Api.ACCOUNT_INFO
   })
 }

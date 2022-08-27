@@ -19,7 +19,7 @@ export default defineConfig({
   },
   OAUTH: {
     //是否执行Auth登录（包括路由、接口检查token有效性）
-    excute: true,
+    execute: true,
     //oauth中请求头内需加密的client_id
     client_id: 'client',
     //oauth中请求头内需加密的client_secret

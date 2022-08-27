@@ -22,7 +22,6 @@ export interface RequestConfig<T = any> extends AxiosRequestConfig {
 
 export interface Result<T = any> {
   data: T
-  resultCode: number
+  code: number
   message?: string
-  detailMessage?: Nullable<string>
 }

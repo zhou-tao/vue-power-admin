@@ -3,10 +3,9 @@ export function resultSuccess<T = Recordable>(
   { message = 'ok' } = {}
 ) {
   return {
-    resultCode: 0,
+    code: 0,
     data,
-    message,
-    detailMessage: null
+    message
   }
 }
 
@@ -32,13 +31,12 @@ export function resultPageSuccess<T = any>(
 
 export function resultError(
   message = 'Request failed',
-  { resultCode = -1, data = null } = {}
+  { code = -1, data = null } = {}
 ) {
   return {
-    resultCode,
+    code,
     data,
-    message,
-    detailMessage: null
+    message
   }
 }
 

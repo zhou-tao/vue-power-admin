@@ -8,7 +8,7 @@ export enum HttpMethodEnum {
 export enum ErrorCodeEnum {
   A100 = 'A100', // HTTP发送失败（axios内部未知 Error）
   A200 = 'A200', // HTTP无响应 (超时)
-  B = 'B', // HTTP接口状态码异常(resultCode不为0)
+  B = 'B', // HTTP接口状态码异常(code不为0)
   H400 = 'H400', // HTTP响应异常(400、401、403、404、500...)
   H401 = 'H401',
   H403 = 'H403',
@@ -22,7 +22,7 @@ export enum ErrorCodeEnum {
   C100 = 'C100' // 客户端内部程序错误
 }
 
-export enum ResultCodeEnum {
+export enum CodeEnum {
   SUCCESS = 0
 }
 
