@@ -1,9 +1,13 @@
 import type { HttpMethodEnum, ResponseTypeEnum } from '@/enums/httpEnum'
-import type { AxiosError, AxiosRequestConfig, AxiosRequestHeaders } from 'axios'
+import type {
+  AxiosError,
+  AxiosRequestConfig,
+  RawAxiosRequestHeaders
+} from 'axios'
 
 export type ResponseError = Error | AxiosError
 
-export interface RequestHeaders extends AxiosRequestHeaders {
+export interface RequestHeaders extends RawAxiosRequestHeaders {
   Authorization?: string
   appKey?: string
 }

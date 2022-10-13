@@ -85,14 +85,14 @@ export class CustomAxios {
     // 响应拦截
     this.axiosInstance.interceptors.response.use(
       res => {
-        axiosCanceler.removePending(res)
+        axiosCanceler.removePending(res.config)
         return res
       },
       async err => {
         const response: AxiosResponse<Result, any> = err.response
         // 满足 isAxiosError 或 isCancel 的请求均已被 axios取消
         const canBeRemove = !axios.isAxiosError(err) && !axios.isCancel(err)
-        canBeRemove && axiosCanceler.removePending(response)
+        canBeRemove && axiosCanceler.removePending(response.config)
         checkStatus(
           response?.status,
           response?.data?.message || err?.message || '',

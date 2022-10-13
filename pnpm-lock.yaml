@@ -6,7 +6,7 @@ specifiers:
   '@element-plus/icons-vue': ^2.0.10
   '@types/js-cookie': ^3.0.2
   '@types/lodash-es': ^4.17.6
-  '@types/node': ^18.8.5
+  '@types/node': 18.8.0
   '@types/nprogress': ^0.2.0
   '@types/qs': ^6.9.7
   '@typescript-eslint/eslint-plugin': ^5.40.0
@@ -86,7 +86,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.1.0
   '@types/js-cookie': 3.0.2
   '@types/lodash-es': 4.17.6
-  '@types/node': 18.8.5
+  '@types/node': 18.8.0
   '@types/nprogress': 0.2.0
   '@types/qs': 6.9.7
   '@typescript-eslint/eslint-plugin': 5.40.0_25sstg4uu2sk4pm7xcyzuov7xq
@@ -1029,6 +1029,10 @@ packages:
 
   /@types/node/14.18.32:
     resolution: {integrity: sha512-Y6S38pFr04yb13qqHf8uk1nHE3lXgQ30WZbv1mLliV9pt0NjvqdWttLcrOYLnXbOafknVYRHZGoMSpR9UwfYow==}
+    dev: true
+
+  /@types/node/18.8.0:
+    resolution: {integrity: sha512-u+h43R6U8xXDt2vzUaVP3VwjjLyOJk6uEciZS8OSyziUQGOwmk+l+4drxcsDboHXwyTaqS1INebghmWMRxq3LA==}
     dev: true
 
   /@types/node/18.8.5:
