@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import legacy from '@vitejs/plugin-legacy'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
-import VitePluginCertificate from 'vite-plugin-mkcert'
+// import VitePluginCertificate from 'vite-plugin-mkcert'
 import { configUnocss } from './unocss'
 import { configMockPlugin } from './mock'
 import { configVisualizer } from './visualizer'
@@ -24,9 +24,9 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
     vueSetupExtend(),
 
     // 开发环境时https证书
-    VitePluginCertificate({
-      source: 'coding'
-    }),
+    // VitePluginCertificate({
+    //   source: 'coding'
+    // }),
 
     // unocss 配置
     configUnocss(),
@@ -39,7 +39,8 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
   VITE_USE_MOCK && vitePlugins.push(configMockPlugin(isBuild))
 
   // rollup-plugin-visualizer: vite打包体积分析
-  process.env.REPORT === 'true' && vitePlugins.push(configVisualizer())
+  process.env.REPORT === 'true' &&
+    vitePlugins.push(configVisualizer() as Plugin)
 
   if (isBuild) {
     // 生产环境兼容不支持ESM浏览器以及内置babel
