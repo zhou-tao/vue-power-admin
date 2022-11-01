@@ -1,5 +1,5 @@
 import type { MockMethod } from 'vite-plugin-mock'
-import { resultError } from '../utils'
+import { resultError, resultSuccess } from '../utils'
 
 // mock 用户登录账号
 export const createFakeUserList = () => [
@@ -17,24 +17,6 @@ export const createFakeUserList = () => [
         id: 1,
         name: '管理员',
         code: 'ROLE_ADMIN',
-        parentId: 0
-      }
-    ]
-  },
-  {
-    name: 'mock_2',
-    userId: '2',
-    username: 'test',
-    password: '123456',
-    deptCode: '0',
-    deptName: null,
-    mobile: '18828285656',
-    posts: [],
-    roles: [
-      {
-        id: 2,
-        name: 'test',
-        code: 'ROLE_TEST',
         parentId: 0
       }
     ]
@@ -59,8 +41,7 @@ export default [
     url: '/oauth/token',
     method: 'post',
     response: ({ body }: any) => {
-      console.log('body>>>>>>>>', body)
-      // 参数将获取失败：待插件兼容 https://github.com/vbenjs/vite-plugin-mock/issues/57
+      console.log(JSON.stringify(body))
       const checkUser = createFakeUserList().find(
         user =>
           user.username === body?.username && user.password === body?.password
@@ -68,7 +49,7 @@ export default [
       if (!checkUser) {
         return resultError('用户名或密码不正确！')
       }
-      return createAuthData()
+      return resultSuccess(createAuthData())
     }
   }
 ] as MockMethod[]

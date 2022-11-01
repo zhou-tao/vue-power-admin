@@ -69,7 +69,6 @@ export class CustomAxios {
           if (!accessToken) {
             // 取消上次请求
             axiosCanceler.removePending(config)
-            console.info('请求拦截器：refreshToken')
             const userStore = useUserStore()
             const { access_token } = await userStore.reLogin()
             accessToken = access_token
