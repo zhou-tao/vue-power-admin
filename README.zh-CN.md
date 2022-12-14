@@ -1,5 +1,5 @@
 <div align="center">
-  <p align="center"><img alt="Bo-Admin" align="center" src="./.github/logo.svg"/></p><br>
+  <p align="center"><img alt="Bo-Admin" align="center" src="./.github/logo.svg" width="100" /></p><br>
   <p align="center">
     <a href="https://img.shields.io/badge/node-%3E%3D14-orange"><img src="https://img.shields.io/badge/node-%3E%3D14-orange" alt="Node"></a>
     <a href="https://github.com/zhou-tao/bo-admin/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="MIT"></a>
