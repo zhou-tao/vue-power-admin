@@ -8,6 +8,7 @@
   ],
   "rules": {
     "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["deep", "slotted", "global"] }],
+    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["v-deep"] }],
     "at-rule-no-unknown": [
       true,
       {
@@ -34,7 +35,7 @@
     ],
     "no-empty-source": null,
     "declaration-block-no-duplicate-properties": true,
-    "declaration-block-trailing-semicolon": "always",
+    "declaration-block-trailing-semicolon": ["always", { "ignore": ["single-declaration"] }],
     "declaration-block-semicolon-space-before": "never",
     "declaration-colon-space-before": "never",
     "declaration-colon-space-after": "always",

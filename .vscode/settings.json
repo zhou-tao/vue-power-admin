@@ -22,5 +22,6 @@
     "sass",
     "vue",
     "html"
-  ]
+  ],
+  "scss.validate": false
 }

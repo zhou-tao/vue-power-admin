@@ -8,7 +8,7 @@
       "\n<template>",
       "\t<div class=\"page\">$2</div>",
       "</template>",
-      "\n<style lang=\"less\" scoped></style>"
+      "\n<style lang=\"scss\" scoped></style>"
 		],
 		"description": "Vue3 setup sugar snippets"
 	}
