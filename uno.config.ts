@@ -22,6 +22,12 @@ export default {
         'background-image':
           'linear-gradient( 135deg, #2A5470 20%, #4C4177 100%)'
       }
+    ],
+    [
+      'shadow-card-dark',
+      {
+        'box-shadow': '0 0 12px 0 rgb(0 0 0 / 9%)'
+      }
     ]
   ]
 }

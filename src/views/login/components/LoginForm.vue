@@ -4,7 +4,9 @@
   import { useMessage } from '@/hooks/web/useMessage'
   import { useLoginByPassword } from '@/hooks/logic/useLogin'
   import type { FormInstance, FormRules } from 'element-plus'
+  import { useRouter } from 'vue-router'
 
+  const router = useRouter()
   const { $message } = useMessage()
   const loginForm = reactive<LoginParams>({
     username: '',
@@ -30,6 +32,7 @@
         $message.success({
           message: '登录成功'
         })
+        router.push('/home/index')
       }
     })
   }
@@ -56,6 +59,7 @@
             size="large"
             placeholder="密码"
             show-password
+            @keyup.enter="doLogin(loginFormRef)"
           />
         </el-form-item>
         <el-form-item>

@@ -15,7 +15,6 @@ export interface MenuModel
     DateLogModel {
   title: string
   type: MenuType
-  app: string
   orderNum: number
   parentId: number
   icon: string
