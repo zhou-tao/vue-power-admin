@@ -13,6 +13,8 @@ interface MenuState {
 
 type RawRouteComponent = RouteComponent | (() => Promise<RouteComponent>)
 
+const pages = import.meta.glob('../../views/**/*.vue')
+
 function componentMap(path: string): RawRouteComponent {
   switch (path) {
     case 'Layout':
@@ -21,7 +23,7 @@ function componentMap(path: string): RawRouteComponent {
       return FakeLayout
     default: {
       const joinPath = `backstage/${path}`.replace(/\/\//, '/')
-      return () => import(`../../views/${joinPath}.vue`)
+      return pages[`../../views/${joinPath}.vue`]
     }
   }
 }
@@ -39,7 +41,7 @@ function mapRoutes(serverRoutes: BuildMenuModel[]): AppRouteConfig[] {
   return routes as AppRouteConfig[]
 }
 
-export const useMenuStore = defineStore('app', {
+export const useMenuStore = defineStore('menu', {
   state: (): MenuState => ({
     routes: []
   }),

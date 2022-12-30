@@ -19,7 +19,8 @@ export function isBasicRoute(route: RouteLocationNormalized) {
 }
 
 export function isRequiresAuthRoute(route: RouteLocationNormalized) {
-  return !route.matched.some(r => r.meta?.requiresAuth === false)
+  const matched = route.matched.filter(r => r.name !== 'PageNotFound')
+  return !matched.some(r => r.meta?.requiresAuth === false)
 }
 
 export async function addAsyncRoutes() {

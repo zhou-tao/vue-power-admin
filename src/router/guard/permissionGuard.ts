@@ -22,7 +22,7 @@ export const createPermissionGuard = (router: Router) => {
         next(to.fullPath)
       } else {
         userStore.invalid && (await userStore.setUserInfo())
-        if (menuStore.hasRoutes) {
+        if (!menuStore.hasRoutes) {
           await addAsyncRoutes()
           next(to.fullPath)
         } else {
