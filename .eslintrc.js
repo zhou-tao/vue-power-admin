@@ -15,19 +15,18 @@ module.exports = {
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true
-    }
+    sourceType: 'module'
   },
   rules: {
     'no-debugger': isProduction ? 2 : 0,
     'no-alert': isProduction ? 2 : 0,
-    "semi": [2, "never"],
-    "no-multi-spaces": 2,
-    "indent": ["error", 2],
-    "eol-last": [2, "always"],
-    "no-multiple-empty-lines": [2, { "max": 1 }],
+    'semi': [2, 'never'],
+    'no-multi-spaces': 2,
+    'indent': [2, 2, { SwitchCase: 1 }],
+    'quotes': [2, 'single'],
+    'quote-props': [2, 'consistent-as-needed'],
+    'eol-last': [2, 'always'],
+    'no-multiple-empty-lines': [2, { max: 1 }],
     'space-before-function-paren': 0,
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
@@ -40,20 +39,21 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/explicit-module-boundary-types': 0,
     '@typescript-eslint/no-unused-vars': [
-      'error',
+      2,
       {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_'
       }
     ],
     'no-unused-vars': [
-      'error',
+      2,
       {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_'
       }
     ],
-    'vue/script-setup-uses-vars': 'error',
+    'vue/script-indent': [2, 2, { baseIndent: 1 }],
+    'vue/script-setup-uses-vars': 2,
     'vue/custom-event-name-casing': 0,
     'vue/attributes-order': 0,
     'vue/one-component-per-file': 0,
@@ -66,7 +66,7 @@ module.exports = {
     'vue/require-explicit-emits': 0,
     'vue/multi-word-component-names': 0,
     'vue/html-self-closing': [
-      'error',
+      2,
       {
         html: {
           void: 'always',
@@ -77,5 +77,17 @@ module.exports = {
         math: 'always'
       }
     ]
+  },
+  overrides: [
+    {
+      files: ['*.vue'],
+      rules: {
+        indent: 'off'
+      }
+    }
+  ],
+  globals: {
+    $ref: 'readonly',
+    $computed: 'readonly'
   }
 }

@@ -13,7 +13,7 @@ const createAuthHeader = () => {
   const { client_id, client_secret } = config.OAUTH
   return {
     'content-type': ContentTypeEnum.JSON,
-    Authorization: `${AuthTypeEnum.BASIC} ${window.btoa(
+    'Authorization': `${AuthTypeEnum.BASIC} ${window.btoa(
       `${client_id}:${client_secret}`
     )}`
   }

@@ -1,4 +1,5 @@
 <script setup lang="ts" name="LoginForm">
+  import { reactive } from 'vue'
   import config from '@/config'
   import { LoginParams } from '@/api/_auth/model'
   import { useMessage } from '@/hooks/web/useMessage'
@@ -13,7 +14,7 @@
     password: '',
     rememberMe: false
   })
-  const loginFormRef = ref<FormInstance>()
+  const loginFormRef = $ref<FormInstance>()
   const loginRules = reactive<FormRules>({
     username: [{ required: true, message: '请输入账号', trigger: 'blur' }],
     password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
@@ -69,7 +70,7 @@
               text="sm blue-5"
               cursor="pointer"
               @click="$message.info('敬请期待！')"
-              >忘记密码？</span
+            >忘记密码？</span
             >
           </div>
         </el-form-item>

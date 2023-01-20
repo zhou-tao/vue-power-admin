@@ -14,7 +14,7 @@
       type="primary"
       :icon="ArrowLeftBold"
       @click="router.replace('/login?redirect=404')"
-      >返回首页</el-button
+    >返回首页</el-button
     >
   </div>
 </template>
