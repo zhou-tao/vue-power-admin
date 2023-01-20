@@ -23,6 +23,11 @@ module.exports = {
   rules: {
     'no-debugger': isProduction ? 2 : 0,
     'no-alert': isProduction ? 2 : 0,
+    "semi": [2, "never"],
+    "no-multi-spaces": 2,
+    "indent": ["error", 2],
+    "eol-last": [2, "always"],
+    "no-multiple-empty-lines": [2, { "max": 1 }],
     'space-before-function-paren': 0,
     '@typescript-eslint/ban-ts-ignore': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
