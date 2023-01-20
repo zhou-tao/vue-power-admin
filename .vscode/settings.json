@@ -1,11 +1,7 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": true
   },
-  "eslint.workingDirectories": [
-    "src"
-  ],
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.validate": [
     "javascript",
@@ -13,15 +9,5 @@
     "vue",
     "typescript",
     "typescriptreact"
-  ],
-  "stylelint.validate": [
-    "css",
-    "less",
-    "postcss",
-    "scss",
-    "sass",
-    "vue",
-    "html"
-  ],
-  "scss.validate": false
+  ]
 }

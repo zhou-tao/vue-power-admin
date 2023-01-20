@@ -56,6 +56,6 @@ module.exports = {
     useEmoji: true,
     customScopesAlign: !scopeComplete ? 'top' : 'bottom',
     defaultScope: scopeComplete,
-    scopes: [...scopes, 'mock']
+    scopes: [...scopes]
   }
 }
