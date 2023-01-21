@@ -1,8 +1,5 @@
-import type { ThemeEnum } from '@/enums/appEnum'
-
 export interface App {
   title: string
-  theme: ThemeEnum
   copyright: boolean
   security: boolean
 }

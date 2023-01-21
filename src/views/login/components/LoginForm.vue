@@ -41,8 +41,8 @@
 </script>
 
 <template>
-  <div w="xs" bg="white" px="8" py="6" rounded shadow-xl>
-    <h1 text="5xl indigo-4 center" font="bold mono" m="t-lg b-0">
+  <div w="xs" bg="white" dark:bg="dark-2" px="8" py="6" rounded-4 shadow-xl>
+    <h1 text="5xl primary center" font="bold mono" m="t-lg b-0">
       {{ config.APP.title }}
     </h1>
     <div m="t-16 mt-11" flex="~ col">
@@ -93,10 +93,8 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-  .login-btn {
-    --el-color-primary: #818cf8;
-    --el-button-hover-border-color: #a5b4fc;
-    --el-button-hover-bg-color: #a5b4fc;
-  }
+<style lang="scss" scoped>
+:deep(.el-checkbox__label) {
+  font-weight: 400;
+}
 </style>

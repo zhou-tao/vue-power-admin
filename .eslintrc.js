@@ -22,6 +22,7 @@ module.exports = {
     'no-alert': isProduction ? 2 : 0,
     'semi': [2, 'never'],
     'no-multi-spaces': 2,
+    'no-trailing-spaces': 2,
     'indent': [2, 2, { SwitchCase: 1 }],
     'quotes': [2, 'single'],
     'quote-props': [2, 'consistent-as-needed'],

@@ -19,7 +19,9 @@ export const configAutoImportPlugins = () => [
     dts: 'types/components.d.ts',
     resolvers: [
       // 自动注册 element-plus
-      ElementPlusResolver()
+      ElementPlusResolver({
+        importStyle: 'sass'
+      })
     ]
   })
 ]

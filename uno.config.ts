@@ -7,6 +7,16 @@ export default {
   presets: [presetUno(), presetAttributify()],
   // 提供指令功能
   transformers: [transformerDirective()],
+  theme: {
+    colors: {
+      primary: '#377dff'
+    }
+  },
+  shortcuts: [
+    {
+      'transition-base': 'transition-all duration-150 ease-in-out'
+    }
+  ],
   // 自定义规则
   rules: [
     [

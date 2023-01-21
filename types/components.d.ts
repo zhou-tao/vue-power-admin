@@ -26,5 +26,6 @@ declare module '@vue/runtime-core' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ThemeSwitch: typeof import('./../src/components/ThemeSwitch/index.vue')['default']
   }
 }

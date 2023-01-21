@@ -1,4 +1,3 @@
-import { ThemeEnum } from '@/enums/appEnum'
 import { defineConfig } from './utils'
 
 export default defineConfig({
@@ -6,8 +5,6 @@ export default defineConfig({
   APP: {
     //业务中心侧边菜单标题
     title: 'Bo Admin',
-    //主题类型
-    theme: ThemeEnum.LIGHT,
     // 是否显示底部版权（包括Footer的显示）
     copyright: true,
     // 密码安全检查
