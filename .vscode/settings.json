@@ -9,5 +9,6 @@
     "vue",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "scss.lint.unknownAtRules": "ignore"
 }

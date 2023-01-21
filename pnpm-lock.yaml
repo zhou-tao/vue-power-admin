@@ -32,7 +32,6 @@ specifiers:
   nprogress: ^0.2.0
   pinia: ^2.0.23
   pinia-plugin-persistedstate: ^2.3.0
-  postcss: ^8.4.21
   qs: ^6.11.0
   sass: ^1.55.0
   terser: ^5.16.1
@@ -76,14 +75,13 @@ devDependencies:
   '@vitejs/plugin-legacy': 2.2.0_terser@5.16.1+vite@4.0.4
   '@vitejs/plugin-vue': 3.1.2_vite@4.0.4+vue@3.2.45
   '@vue/compiler-sfc': 3.2.45
-  autoprefixer: 10.4.13_postcss@8.4.21
+  autoprefixer: 10.4.13
   commitizen: 4.3.0
   cz-git: 1.4.1
   eslint: 8.25.0
   eslint-plugin-vue: 9.6.0_eslint@8.25.0
   husky: 8.0.1
   lint-staged: 13.0.3
-  postcss: 8.4.21
   sass: 1.55.0
   terser: 5.16.1
   typescript: 4.8.4
@@ -1369,7 +1367,7 @@ packages:
     engines: {node: '>= 4.0.0'}
     dev: true
 
-  /autoprefixer/10.4.13_postcss@8.4.21:
+  /autoprefixer/10.4.13:
     resolution: {integrity: sha512-49vKpMqcZYsJjwotvt4+h/BCjJVnhGwcLpDt5xkcaOG3eLrG/HUYLagrihYsQ+qrIBgIzX1Rw7a6L8I/ZA1Atg==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -1381,7 +1379,6 @@ packages:
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.21
       postcss-value-parser: 4.2.0
     dev: true
 

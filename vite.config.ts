@@ -43,11 +43,17 @@ export default ({ mode }: ConfigEnv) => {
       chunkSizeWarningLimit: 800
     },
     css: {
+      devSourcemap: false,
       preprocessorOptions: {
         scss: {
           additionalData: '@use "./src/styles/common/index.scss" as *;'
         }
-      }
+      },
+      postcss: {
+        plugins: [
+          require('autoprefixer')
+        ]
+      },
     },
     plugins: createVitePlugins(env, mode === 'production')
   })
