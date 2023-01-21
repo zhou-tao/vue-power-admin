@@ -52,7 +52,7 @@
     box-shadow: 0 0 12px 0 rgb(0 0 0 / 9%);
   }
 
-  ::v-deep .el-menu {
+  :deep(.el-menu) {
     border-right: none;
   }
 </style>

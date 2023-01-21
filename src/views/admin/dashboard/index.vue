@@ -1,8 +1,8 @@
-<script setup lang="ts" name="home"></script>
+<script setup lang="ts" name="Dashboard"></script>
 
 <template>
   <div class="page">
-    <h1>HOME PAGE</h1>
+    <h1>DASHBOARD PAGE</h1>
   </div>
 </template>
 

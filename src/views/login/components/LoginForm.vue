@@ -3,7 +3,7 @@
   import config from '@/config'
   import { LoginParams } from '@/api/_auth/model'
   import { useMessage } from '@/hooks/web/useMessage'
-  import { useLoginByPassword } from '@/hooks/logic/useLogin'
+  // import { useLoginByPassword } from '@/hooks/logic/useLogin'
   import type { FormInstance, FormRules } from 'element-plus'
   import { useRouter } from 'vue-router'
 
@@ -25,16 +25,17 @@
     if (!formEl) return
     await formEl.validate(async valid => {
       if (!valid) return false
-      loginLoading = true
-      const [success, data] = await useLoginByPassword(loginForm)
-      console.log(data)
-      loginLoading = false
-      if (success) {
-        $message.success({
-          message: '登录成功'
-        })
-        router.push('/home/index')
-      }
+      // loginLoading = true
+      // const [success, data] = await useLoginByPassword(loginForm)
+      // console.log(data)
+      // loginLoading = false
+      // if (success) {
+      //   $message.success({
+      //     message: '登录成功'
+      //   })
+      //   router.push('/home/index')
+      // }
+      router.push('/admin')
     })
   }
 </script>

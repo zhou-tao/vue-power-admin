@@ -31,7 +31,7 @@
 </template>
 
 <style lang="scss" scoped>
-  ::v-deep {
+  :deep {
     .el-header {
       background-color: var(--el-color-primary);
     }

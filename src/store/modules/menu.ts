@@ -22,7 +22,7 @@ function componentMap(path: string): RawRouteComponent {
     case 'Fake':
       return FakeLayout
     default: {
-      const joinPath = `backstage/${path}`.replace(/\/\//, '/')
+      const joinPath = `admin/${path}`.replace(/\/\//, '/')
       return pages[`../../views/${joinPath}.vue`]
     }
   }

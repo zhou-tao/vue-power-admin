@@ -1,4 +1,5 @@
 import type { AppRouteConfig } from '../types'
+import AdminRoutes from './modules/admin'
 import { PageNotFoundRoute } from './modules/error'
 import ScreenRoute from './modules/screen'
 
@@ -25,5 +26,6 @@ export const basicRoutes = [
   RootRoute,
   LoginRoute,
   ScreenRoute,
+  ...AdminRoutes,
   PageNotFoundRoute
 ]
