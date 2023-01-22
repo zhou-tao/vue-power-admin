@@ -7,6 +7,8 @@
     Connection,
     Setting
   } from '@element-plus/icons-vue'
+  import config from '@/config'
+
   const handleOpen = (key: string, keyPath: string[]) => {
     console.log(key, keyPath)
   }
@@ -16,7 +18,13 @@
 </script>
 
 <template>
-  <div class="sidebar" h="full" bg="white">
+  <div class="sidebar" h="full" bg="white" dark:bg="#222338">
+    <div class="logo" flex justify="center" items="center">
+      <img src="@/assets/icons/logo.png" alt="LOGO" width="32" />
+      <h1 text="3xl dtl" ml="2" font="bold mono" dark:text="white">
+        {{ config.APP.title }}
+      </h1>
+    </div>
     <el-menu
       default-active="1"
       class="el-menu-vertical-demo"

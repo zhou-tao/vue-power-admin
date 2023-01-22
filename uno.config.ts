@@ -9,7 +9,10 @@ export default {
   transformers: [transformerDirective()],
   theme: {
     colors: {
-      primary: '#377dff'
+      primary: '#377dff',
+      dtl: '#333333', // dark-text-l
+      dtm: '#666666',
+      dts: '#999999'
     }
   },
   shortcuts: [

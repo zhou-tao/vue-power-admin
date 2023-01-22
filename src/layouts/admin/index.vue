@@ -9,14 +9,14 @@
 
 <template>
   <div class="admin-layout" h="full">
-    <el-container h="full" bg="#f0f2f5">
-      <el-header>
-        <app-header />
-      </el-header>
-      <el-container style="height: calc(100vh - 60px)">
-        <el-aside width="220px" shadow="card-dark">
-          <sidebar />
-        </el-aside>
+    <el-container h="full" bg="#f5f6fa" dark:bg="#1B1C31">
+      <el-aside width="260px" shadow="card-dark">
+        <sidebar />
+      </el-aside>
+      <el-container>
+        <el-header>
+          <app-header />
+        </el-header>
         <el-container>
           <el-main>
             <app-main />
@@ -33,7 +33,7 @@
 <style lang="scss" scoped>
   :deep {
     .el-header {
-      background-color: var(--el-color-primary);
+      @apply: bg-white dark:bg-#222338;
     }
   }
 </style>

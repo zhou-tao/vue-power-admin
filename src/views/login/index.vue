@@ -17,7 +17,7 @@
   >
     <img src="@/assets/images/login_banner.svg" w="lg" />
     <div fixed top="2%" right="2%">
-      <ThemeSwitch simply />
+      <ThemeSwitch />
     </div>
     <LoginForm />
   </div>

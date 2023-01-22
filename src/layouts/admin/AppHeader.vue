@@ -1,5 +1,5 @@
 <script setup lang="ts" name="AppHeader">
-  import config from '@/config'
+  import ThemeSwitch from '@c/ThemeSwitch/index.vue'
   import { Lock, SwitchButton } from '@element-plus/icons-vue'
   import { useUserStore } from '@/store/modules/user'
 
@@ -7,13 +7,8 @@
 </script>
 
 <template>
-  <div h="full" flex items="center" justify="between">
-    <div class="logo" flex items="center">
-      <img src="@/assets/icons/logo.png" alt="LOGO" width="32" />
-      <h1 text="3xl #ecf0f1" ml="6" font="bold mono">
-        {{ config.APP.title }}
-      </h1>
-    </div>
+  <div h="full" flex items="center" justify="end" gap="6">
+    <ThemeSwitch />
     <div class="avatar" cursor="pointer">
       <el-dropdown>
         <span class="el-dropdown-link" flex items="center">

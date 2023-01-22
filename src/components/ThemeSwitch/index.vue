@@ -1,10 +1,7 @@
-<script setup lang="ts" name="Theme-Switch">
+<script setup lang="ts" name="ThemeSwitch">
   import { useDark, useToggle } from '@vueuse/core'
   import { Sunny, Moon } from '@element-plus/icons-vue'
 
-  const props = defineProps({
-    simply: Boolean
-  })
   const isDark = useDark()
   const toggleDark = useToggle(isDark)
 
@@ -13,7 +10,6 @@
 <template>
   <div @click="toggleDark()" cursor="pointer" text="base gray-2" dark:text="gray-8">
     <div
-      v-if="props.simply"
       w="24px"
       h="24px"
       flex
@@ -28,13 +24,6 @@
       <el-icon>
         <component :is="isDark ? Sunny : Moon" />
       </el-icon>
-    </div>
-    <div v-else relative w="40px" h="22px" rounded-3 border="1px solid gray" bg="white" dark:border="white" dark:bg="black">
-      <div>
-        <el-icon>
-          <component :is="isDark ? Sunny : Moon" />
-        </el-icon>
-      </div>
     </div>
   </div>
 </template>
