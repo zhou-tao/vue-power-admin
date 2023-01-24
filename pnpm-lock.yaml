@@ -5,6 +5,7 @@ specifiers:
   '@commitlint/config-conventional': ^17.1.0
   '@iconify-json/ep': ^1.1.8
   '@iconify-json/fluent-emoji-flat': ^1.1.8
+  '@iconify-json/ri': ^1.1.4
   '@types/js-cookie': ^3.0.2
   '@types/lodash-es': ^4.17.6
   '@types/node': 18.8.0
@@ -65,6 +66,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.1.0
   '@iconify-json/ep': 1.1.8
   '@iconify-json/fluent-emoji-flat': 1.1.8
+  '@iconify-json/ri': 1.1.4
   '@types/js-cookie': 3.0.2
   '@types/lodash-es': 4.17.6
   '@types/node': 18.8.0
@@ -607,6 +609,12 @@ packages:
 
   /@iconify-json/fluent-emoji-flat/1.1.8:
     resolution: {integrity: sha512-8NBv13Rgrzj/ZTj4+MGYRw+wOXco1LTaS/doIa3X+pTTwdgIm9vrM75lMNWk6PnAZKItGH32SBbcVUDxiSFo8g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/ri/1.1.4:
+    resolution: {integrity: sha512-gAk2gQBVghgbMLOmbUCc3l4COMMH5sR3HhBqpjaPUFBbC4WsNNRyOD4RZgjlanU7DTgFrj4NarY5K2EkXaVxuw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

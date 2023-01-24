@@ -35,7 +35,7 @@ export const configAutoImportPlugins = () => [
 
       // 自动注册图标组件
       IconsResolver({
-        enabledCollections: ['ep', 'fluent-emoji-flat'],
+        enabledCollections: ['ep', 'ri', 'fluent-emoji-flat'],
         alias: {
           emoji: 'fluent-emoji-flat'
         }
