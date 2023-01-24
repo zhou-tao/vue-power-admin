@@ -1,12 +1,4 @@
 <script setup lang="ts" name="Sidebar">
-  import {
-    User,
-    // Menu as IconMenu,
-    Operation,
-    Odometer,
-    Connection,
-    Setting
-  } from '@element-plus/icons-vue'
   import config from '@/config'
 
   const handleOpen = (key: string, keyPath: string[]) => {
@@ -21,7 +13,7 @@
   <div class="sidebar" h="full" bg="white" dark:bg="#222338">
     <div class="logo" flex justify="center" items="center">
       <img src="@/assets/icons/logo.png" alt="LOGO" width="32" />
-      <h1 text="3xl dtl" ml="2" font="bold mono" dark:text="white">
+      <h1 text="3xl dtl" ml="2" font="medium mono" dark:text="white">
         {{ config.APP.title }}
       </h1>
     </div>
@@ -32,23 +24,23 @@
       @close="handleClose"
     >
       <el-menu-item index="1">
-        <el-icon><odometer /></el-icon>
+        <i-ep-odometer />
         <span>仪表盘</span>
       </el-menu-item>
       <el-menu-item index="2">
-        <el-icon><user /></el-icon>
+        <i-ep-user />
         <span>用户管理</span>
       </el-menu-item>
       <el-menu-item index="3">
-        <el-icon><connection /></el-icon>
+        <i-ep-connection />
         <span>权限管理</span>
       </el-menu-item>
       <el-menu-item index="4">
-        <el-icon><operation /></el-icon>
+        <i-ep-operation />
         <span>菜单管理</span>
       </el-menu-item>
       <el-menu-item index="5">
-        <el-icon><setting /></el-icon>
+        <i-ep-setting />
         <span>系统设置</span>
       </el-menu-item>
     </el-menu>

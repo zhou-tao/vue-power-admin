@@ -1,5 +1,4 @@
 <script setup lang="ts" name="PageNotFound">
-  import { ArrowLeftBold } from '@element-plus/icons-vue'
   import { useRouter } from 'vue-router'
   const router = useRouter()
 </script>
@@ -12,9 +11,12 @@
       round
       size="large"
       type="primary"
-      :icon="ArrowLeftBold"
       @click="router.replace('/login?redirect=404')"
-    >返回首页</el-button
     >
+      <template #icon>
+        <i-ep-arrow-left-bold />
+      </template>
+      返回首页
+    </el-button>
   </div>
 </template>

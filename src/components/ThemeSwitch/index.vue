@@ -1,6 +1,5 @@
 <script setup lang="ts" name="ThemeSwitch">
   import { useDark, useToggle } from '@vueuse/core'
-  import { Sunny, Moon } from '@element-plus/icons-vue'
 
   const isDark = useDark()
   const toggleDark = useToggle(isDark)
@@ -21,9 +20,8 @@
       transition="base"
       :style="{ backgroundColor: isDark ? '#E5E7EB' : '#1F2937' }"
     >
-      <el-icon>
-        <component :is="isDark ? Sunny : Moon" />
-      </el-icon>
+      <i-ep-sunny v-show="isDark" />
+      <i-ep-moon v-show="!isDark" />
     </div>
   </div>
 </template>

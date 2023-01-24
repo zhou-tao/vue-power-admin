@@ -3,7 +3,8 @@ lockfileVersion: 5.4
 specifiers:
   '@commitlint/cli': ^17.1.2
   '@commitlint/config-conventional': ^17.1.0
-  '@element-plus/icons-vue': ^2.0.10
+  '@iconify-json/ep': ^1.1.8
+  '@iconify-json/fluent-emoji-flat': ^1.1.8
   '@types/js-cookie': ^3.0.2
   '@types/lodash-es': ^4.17.6
   '@types/node': 18.8.0
@@ -38,6 +39,7 @@ specifiers:
   typescript: ^4.8.4
   unocss: ^0.45.29
   unplugin-auto-import: ^0.11.2
+  unplugin-icons: ^0.15.1
   unplugin-vue-components: ^0.22.8
   vite: 4.0.4
   vite-plugin-vue-setup-extend: ^0.4.0
@@ -46,7 +48,6 @@ specifiers:
   vue-tsc: ^1.0.9
 
 dependencies:
-  '@element-plus/icons-vue': 2.0.10_vue@3.2.45
   '@vueuse/core': 9.3.0_vue@3.2.45
   axios: 1.1.2
   element-plus: 2.2.18_vue@3.2.45
@@ -62,6 +63,8 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 17.1.2
   '@commitlint/config-conventional': 17.1.0
+  '@iconify-json/ep': 1.1.8
+  '@iconify-json/fluent-emoji-flat': 1.1.8
   '@types/js-cookie': 3.0.2
   '@types/lodash-es': 4.17.6
   '@types/node': 18.8.0
@@ -87,6 +90,7 @@ devDependencies:
   typescript: 4.8.4
   unocss: 0.45.29_vite@4.0.4
   unplugin-auto-import: 0.11.2_@vueuse+core@9.3.0
+  unplugin-icons: 0.15.1_@vue+compiler-sfc@3.2.45
   unplugin-vue-components: 0.22.8_vue@3.2.45
   vite: 4.0.4_t4ssmjgyd7seksthvg3g5ivy6m
   vite-plugin-vue-setup-extend: 0.4.0_vite@4.0.4
@@ -109,8 +113,19 @@ packages:
       find-up: 5.0.0
     dev: true
 
+  /@antfu/install-pkg/0.1.1:
+    resolution: {integrity: sha512-LyB/8+bSfa0DFGC06zpCEfs89/XoWZwws5ygEa5D+Xsm3OfI+aXQ86VgVG7Acyef+rSZ5HE7J8rrxzrQeM3PjQ==}
+    dependencies:
+      execa: 5.1.1
+      find-up: 5.0.0
+    dev: true
+
   /@antfu/utils/0.5.2:
     resolution: {integrity: sha512-CQkeV+oJxUazwjlHD0/3ZD08QWKuGQkhnrKo3e6ly5pd48VUpXbb77q0xMU4+vc2CkJnDS02Eq/M9ugyX20XZA==}
+    dev: true
+
+  /@antfu/utils/0.7.2:
+    resolution: {integrity: sha512-vy9fM3pIxZmX07dL+VX1aZe7ynZ+YyB0jY+jE6r3hOK6GNY2t6W8rzpFC4tgpbXUYABkFQwgJq2XYXlxbXAI0g==}
     dev: true
 
   /@babel/code-frame/7.18.6:
@@ -584,6 +599,18 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
+  /@iconify-json/ep/1.1.8:
+    resolution: {integrity: sha512-pHCrsWU1R9/pTDU+Fps4+mjqOQFLtpGdXWegkhQ1P1DlgQAlCPyICtl6E1s8b7VwJMeZXaK84HA02UF6WD0o/Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/fluent-emoji-flat/1.1.8:
+    resolution: {integrity: sha512-8NBv13Rgrzj/ZTj4+MGYRw+wOXco1LTaS/doIa3X+pTTwdgIm9vrM75lMNWk6PnAZKItGH32SBbcVUDxiSFo8g==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: true
@@ -596,6 +623,19 @@ packages:
       '@iconify/types': 2.0.0
       debug: 4.3.4
       kolorist: 1.5.1
+      local-pkg: 0.4.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@iconify/utils/2.0.12:
+    resolution: {integrity: sha512-hhUyt1/k5RRhfcW/PRRdBw8e1ACehJT5QEZJRm7HnkCiUx11/0ccLr7K0OMlPSwjnfYcBS2gAUD3EpmL0iJCkQ==}
+    dependencies:
+      '@antfu/install-pkg': 0.1.1
+      '@antfu/utils': 0.7.2
+      '@iconify/types': 2.0.0
+      debug: 4.3.4
+      kolorist: 1.6.0
       local-pkg: 0.4.2
     transitivePeerDependencies:
       - supports-color
@@ -1253,6 +1293,12 @@ packages:
 
   /acorn/8.8.0:
     resolution: {integrity: sha512-QOxyigPVrpZ2GXT+PFyZTl6TtOFc5egxHIP9IlQ+RbupQuX4RkT/Bee4/kQuC02Xkzg84JcT7oLYtDIQxp+v7w==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+    dev: true
+
+  /acorn/8.8.2:
+    resolution: {integrity: sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==}
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
@@ -2755,6 +2801,10 @@ packages:
     resolution: {integrity: sha512-lxpCM3HTvquGxKGzHeknB/sUjuVoUElLlfYnXZT73K8geR9jQbroGlSCFBax9/0mpGoD3kzcMLnOlGQPJJNyqQ==}
     dev: true
 
+  /kolorist/1.6.0:
+    resolution: {integrity: sha512-dLkz37Ab97HWMx9KTes3Tbi3D1ln9fCAy2zr2YVExJasDRPGRaKcoE4fycWNtnCAJfjFqe0cnY+f8KT2JePEXQ==}
+    dev: true
+
   /levn/0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -4010,6 +4060,35 @@ packages:
       unplugin: 0.9.6
     dev: true
 
+  /unplugin-icons/0.15.1_@vue+compiler-sfc@3.2.45:
+    resolution: {integrity: sha512-d4Gc8A4qIJYIXKueltTwoHfR3Cxsdfnmz8lSN5dsITEyai5tdb0uWpbQkn3j9HUlLDSB1ybdQIf5CItxJT3UDw==}
+    peerDependencies:
+      '@svgr/core': '>=5.5.0'
+      '@vue/compiler-sfc': ^3.0.2 || ^2.7.0
+      vue-template-compiler: ^2.6.12
+      vue-template-es2015-compiler: ^1.9.0
+    peerDependenciesMeta:
+      '@svgr/core':
+        optional: true
+      '@vue/compiler-sfc':
+        optional: true
+      vue-template-compiler:
+        optional: true
+      vue-template-es2015-compiler:
+        optional: true
+    dependencies:
+      '@antfu/install-pkg': 0.1.1
+      '@antfu/utils': 0.7.2
+      '@iconify/utils': 2.0.12
+      '@vue/compiler-sfc': 3.2.45
+      debug: 4.3.4
+      kolorist: 1.6.0
+      local-pkg: 0.4.2
+      unplugin: 1.0.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /unplugin-vue-components/0.22.8_vue@3.2.45:
     resolution: {integrity: sha512-Musnwdtr6uj9Zopo4oeh4lp9+fJ2ArXVDzSiZxF4YC9v+pLnasKVKEEAjdXuQQ3u3KtntVw6PCscyAt52eS75g==}
     engines: {node: '>=14'}
@@ -4042,6 +4121,15 @@ packages:
       chokidar: 3.5.3
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.4.5
+    dev: true
+
+  /unplugin/1.0.1:
+    resolution: {integrity: sha512-aqrHaVBWW1JVKBHmGo33T5TxeL0qWzfvjWokObHA9bYmN7eNDkwOxmLjhioHl9878qDFMAaT51XNroRyuz7WxA==}
+    dependencies:
+      acorn: 8.8.2
+      chokidar: 3.5.3
+      webpack-sources: 3.2.3
+      webpack-virtual-modules: 0.5.0
     dev: true
 
   /update-browserslist-db/1.0.10_browserslist@4.21.4:
@@ -4203,6 +4291,10 @@ packages:
 
   /webpack-virtual-modules/0.4.5:
     resolution: {integrity: sha512-8bWq0Iluiv9lVf9YaqWQ9+liNgXSHICm+rg544yRgGYaR8yXZTVBaHZkINZSB2yZSWo4b0F6MIxqJezVfOEAlg==}
+    dev: true
+
+  /webpack-virtual-modules/0.5.0:
+    resolution: {integrity: sha512-kyDivFZ7ZM0BVOUteVbDFhlRt7Ah/CSPwJdi8hBpkK7QLumUqdLtVfm/PX/hkcnrvr0i77fO5+TjZ94Pe+C9iw==}
     dev: true
 
   /which/1.3.1:
