@@ -34,6 +34,21 @@
         </el-dropdown-menu>
       </template>
     </el-dropdown>
+    <el-dropdown>
+      <i-app-locale cursor="pointer" text="xl" />
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item>
+            中文简体
+          </el-dropdown-item>
+          <el-dropdown-item
+            divided
+          >
+            English
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
     <ThemeSwitch />
     <div class="avatar" cursor="pointer">
       <el-dropdown>
@@ -59,5 +74,3 @@
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped></style>
