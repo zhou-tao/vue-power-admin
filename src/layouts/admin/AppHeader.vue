@@ -1,9 +1,10 @@
 <script setup lang="ts" name="AppHeader">
   import ThemeSwitch from '@c/ThemeSwitch/index.vue'
   import { useUserStore } from '@/store/modules/user'
-  import { isSupported, isFullScreen, toggleFullScreen } from '@/hooks/web/useFullScreen'
+  import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'
 
   const userStore = useUserStore()
+  autoRemoveListener()
 </script>
 
 <template>
