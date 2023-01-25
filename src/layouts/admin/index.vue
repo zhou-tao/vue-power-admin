@@ -10,11 +10,11 @@
 <template>
   <div class="admin-layout" h="full">
     <el-container h="full" bg="#f5f6fa" dark:bg="#1B1C31">
-      <el-aside width="260px" shadow="card-dark">
+      <el-aside w="260px" shadow="card-dark">
         <sidebar />
       </el-aside>
       <el-container>
-        <el-header>
+        <el-header h="80px" bg="white" dark:bg="#222338">
           <app-header />
         </el-header>
         <el-container>
@@ -29,11 +29,3 @@
     </el-container>
   </div>
 </template>
-
-<style lang="scss" scoped>
-  :deep {
-    .el-header {
-      @apply: bg-white dark:bg-#222338;
-    }
-  }
-</style>

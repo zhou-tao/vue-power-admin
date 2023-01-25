@@ -3,6 +3,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 export const configAutoImportPlugins = () => [
   AutoImport({
@@ -35,6 +36,7 @@ export const configAutoImportPlugins = () => [
 
       // 自动注册图标组件
       IconsResolver({
+        customCollections: ['app'],
         enabledCollections: ['ep', 'ri', 'fluent-emoji-flat'],
         alias: {
           emoji: 'fluent-emoji-flat'
@@ -44,7 +46,12 @@ export const configAutoImportPlugins = () => [
   }),
 
   Icons({
+    compiler: 'vue3',
     autoInstall: true,
-    defaultClass: 'icon'
+    defaultClass: 'icon',
+    customCollections: {
+      // 路径需要相对于根目录设置
+      app: FileSystemIconLoader('src/assets/icons', svg => svg.replace(/^<svg /, '<svg fill="currentColor" '))
+    }
   })
 ]
