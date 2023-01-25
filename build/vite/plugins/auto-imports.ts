@@ -51,7 +51,7 @@ export const configAutoImportPlugins = () => [
     defaultClass: 'icon',
     customCollections: {
       // 路径需要相对于根目录设置
-      app: FileSystemIconLoader('src/assets/icons', svg => svg.replace(/^<svg /, '<svg fill="currentColor" '))
+      app: FileSystemIconLoader('src/assets/icons')
     }
   })
 ]

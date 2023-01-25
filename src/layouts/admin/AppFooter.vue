@@ -2,7 +2,7 @@
 
 <template>
   <div h="full" flex items="center" justify="center" text="placeholder">
-    MIT Licensed | Copyright © 2022-present bo-admin
+    MIT Licensed | Copyright © 2022-present vue-power-admin
   </div>
 </template>
 

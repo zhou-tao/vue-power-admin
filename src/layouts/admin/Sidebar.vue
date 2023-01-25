@@ -10,10 +10,10 @@
 </script>
 
 <template>
-  <div h="full" p-x-3 bg="white" dark:bg="#222338" shadow-card-dark>
-    <div class="logo" flex justify="center" items="center">
-      <img src="@/assets/icons/logo.png" alt="LOGO" width="32" />
-      <h1 text="3xl dtl" ml="2" font="medium mono" dark:text="white">
+  <div h="full" overflow="hidden" p-x-3 bg="white" dark:bg="#222338" shadow-card-dark>
+    <div my-3 flex justify="center" items="center">
+      <i-app-logo text="3xl" />
+      <h1 text="xl dtl" ml="2" font="bold mono" dark:text="white">
         {{ config.APP.title }}
       </h1>
     </div>

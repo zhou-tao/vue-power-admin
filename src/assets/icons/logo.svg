@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="219.5839335809748" height="267.1625" viewBox="0 0 200 243.33519820244948" class="css-1j8o68f">
+  <defs id="SvgjsDefs3763">
+    <linearGradient id="SvgjsLinearGradient3768">
+      <stop id="SvgjsStop3769" stop-color="#00ff8f" offset="0"></stop>
+      <stop id="SvgjsStop3770" stop-color="#00a1ff" offset="1"></stop>
+    </linearGradient>
+  </defs>
+  <g id="SvgjsG3764" featurekey="symbolFeature-0" transform="matrix(1.0588307523065164,0,0,1.0588307523065164,52.814960429202145,26.35337802498581)" fill="#8dc6ff">
+    <path d="M65.532,53.661c2.473-2.341,2.081-5.645-0.869-7.341L59.1,43.118c-2.95-1.697-4.723-5.797-3.941-9.109l6.699-28.398  c0.781-3.312-0.602-4.108-3.073-1.767L24.467,36.339c-2.472,2.341-2.08,5.644,0.87,7.342l5.562,3.2  c2.949,1.698,4.724,5.798,3.943,9.109l-6.701,28.398c-0.78,3.312,0.602,4.107,3.074,1.767L65.532,53.661z"></path>
+  </g>
+  <g id="SvgjsG3765" featurekey="nameFeature-0" transform="matrix(5.544774097369857,0,0,5.544774097369857,-8.085931476741557,-16.057663163180408)" fill="url(#SvgjsLinearGradient3768)">
+    <path d="M31.717 17.324 l5.8113 0 l-18.034 24.047 l-18.036 -24.047 l5.8116 0 l12.224 16.298 z"></path>
+  </g>
+</svg>

@@ -4,7 +4,7 @@ export default defineConfig({
   //系统设置
   APP: {
     //业务中心侧边菜单标题
-    title: 'Bo Admin',
+    title: 'Vue Power Admin',
     // 是否显示底部版权（包括Footer的显示）
     copyright: true,
     // 密码安全检查

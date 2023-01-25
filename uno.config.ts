@@ -13,9 +13,11 @@ export default {
       dtl: '#333333', // dark-text-l
       dtm: '#666666',
       dts: '#999999',
+      lbg: '#f5f6fa',
+      dbg: '#1B1C31',
       regular: 'var(--el-text-color-regular)',
       secondary: 'var(--el-text-color-secondary)',
-      placeholder: 'var(--el-text-color-placeholder)'
+      placeholder: 'var(--el-text-color-placeholder)',
     }
   },
   shortcuts: [
@@ -25,6 +27,14 @@ export default {
   ],
   // 自定义规则
   rules: [
+    [
+      'text-brand-gradient',
+      {
+        'color': 'transparent',
+        'background-image': 'linear-gradient(to right, #00ff8f, #00a1ff)',
+        'background-clip': 'text'
+      }
+    ],
     [
       'bg-gradient-light',
       {

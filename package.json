@@ -1,5 +1,5 @@
 {
-  "name": "bo-admin",
+  "name": "vue-power-admin",
   "scripts": {
     "dev": "vite",
     "commit": "git cz",

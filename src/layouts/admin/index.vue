@@ -9,8 +9,8 @@
 
 <template>
   <div class="admin-layout" h="full">
-    <el-container h="full" bg="#f5f6fa" dark:bg="#1B1C31">
-      <el-aside w="260px" shadow="card-dark">
+    <el-container h="full" bg="lbg" dark:bg="dbg">
+      <el-aside w="260px" shadow="card-dark" border-r="solid lbg" dark:border-r="dbg">
         <sidebar />
       </el-aside>
       <el-container>

@@ -24,6 +24,7 @@ declare module '@vue/runtime-core' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     IAppLocale: typeof import('~icons/app/locale')['default']
+    IAppLogo: typeof import('~icons/app/logo')['default']
     IEmojiChicken: typeof import('~icons/fluent-emoji-flat/chicken')['default']
     IEpArrowLeftBold: typeof import('~icons/ep/arrow-left-bold')['default']
     IEpBellFilled: typeof import('~icons/ep/bell-filled')['default']
