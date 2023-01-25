@@ -12,7 +12,10 @@ export default {
       primary: '#377dff',
       dtl: '#333333', // dark-text-l
       dtm: '#666666',
-      dts: '#999999'
+      dts: '#999999',
+      regular: 'var(--el-text-color-regular)',
+      secondary: 'var(--el-text-color-secondary)',
+      placeholder: 'var(--el-text-color-placeholder)'
     }
   },
   shortcuts: [

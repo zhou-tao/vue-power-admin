@@ -1,7 +1,7 @@
 <script setup lang="ts" name="AppFooter"></script>
 
 <template>
-  <div h="full" flex items="center" justify="center" text="#a4b0be">
+  <div h="full" flex items="center" justify="center" text="placeholder">
     MIT Licensed | Copyright © 2022-present bo-admin
   </div>
 </template>

@@ -18,6 +18,5 @@ body,
 }
 
 .icon {
-  @apply m-x-1 outline-none;
-  color: var(--el-text-color-regular);
+  @apply m-x-1 text-current outline-none;
 }

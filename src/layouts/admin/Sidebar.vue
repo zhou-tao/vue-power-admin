@@ -10,7 +10,7 @@
 </script>
 
 <template>
-  <div class="sidebar" h="full" bg="white" dark:bg="#222338">
+  <div h="full" p-x-3 bg="white" dark:bg="#222338" shadow-card-dark>
     <div class="logo" flex justify="center" items="center">
       <img src="@/assets/icons/logo.png" alt="LOGO" width="32" />
       <h1 text="3xl dtl" ml="2" font="medium mono" dark:text="white">
@@ -18,29 +18,30 @@
       </h1>
     </div>
     <el-menu
+      border-r="0"
       default-active="1"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
     >
       <el-menu-item index="1">
-        <i-ep-odometer />
+        <i-ep-menu />
         <span>仪表盘</span>
       </el-menu-item>
       <el-menu-item index="2">
-        <i-ep-user />
+        <i-ep-user-filled />
         <span>用户管理</span>
       </el-menu-item>
       <el-menu-item index="3">
-        <i-ep-connection />
+        <i-ri-admin-fill />
         <span>权限管理</span>
       </el-menu-item>
       <el-menu-item index="4">
-        <i-ep-operation />
+        <i-ri-apps-fill />
         <span>菜单管理</span>
       </el-menu-item>
       <el-menu-item index="5">
-        <i-ep-setting />
+        <i-ep-tools />
         <span>系统设置</span>
       </el-menu-item>
     </el-menu>
@@ -48,11 +49,27 @@
 </template>
 
 <style lang="scss" scoped>
-  .sidebar {
-    box-shadow: 0 0 12px 0 rgb(0 0 0 / 9%);
-  }
+  :deep(.el-menu-item) {
+    @apply h-52px text-dtm dark:text-dts rounded-lg;
 
-  :deep(.el-menu) {
-    border-right: none;
+    .icon {
+      @apply m-r-3 text-base;
+    }
+
+    &:hover {
+      @apply bg-transparent text-primary;
+    }
+
+    &::before {
+      @apply absolute w-full h-full content-none bg-transparent rounded-r-lg -translate-x-263px transition-base;
+    }
+
+    &.is-active {
+      @apply bg-primary text-white;
+
+      &::before {
+        @apply bg-primary;
+      }
+    }
   }
 </style>
