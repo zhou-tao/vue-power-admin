@@ -1,5 +1,6 @@
 <script setup lang="ts" name="Sidebar">
   import config from '@/config'
+  import { isCollapse } from '@/hooks/setting/useCollapse'
 
   const handleOpen = (key: string, keyPath: string[]) => {
     console.log(key, keyPath)
@@ -10,17 +11,17 @@
 </script>
 
 <template>
-  <div h="full" overflow="hidden" p-x-3 bg="white" dark:bg="#222338" shadow-card-dark>
-    <div my-3 flex justify="center" items="center">
+  <div :style="{ width: isCollapse ? '54px' : '260px' }" h="full" overflow="hidden" box="border" bg="white" dark:bg="#222338" transition-width duration-400 ease-in-out>
+    <div h="15" mb-2 flex justify="center" items="center">
       <i-app-logo text="3xl" />
-      <h1 text="xl dtl" ml="2" font="bold mono" dark:text="white">
+      <h1 v-show="!isCollapse" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
         {{ config.APP.title }}
       </h1>
     </div>
     <el-menu
       border-r="0"
       default-active="1"
-      class="el-menu-vertical-demo"
+      :collapse="isCollapse"
       @open="handleOpen"
       @close="handleClose"
     >
@@ -49,26 +50,48 @@
 </template>
 
 <style lang="scss" scoped>
-  :deep(.el-menu-item) {
-    @apply h-52px text-dtm dark:text-dts rounded-lg;
+  :deep(.el-menu) {
+    @apply p-x-3;
+    .el-menu-item {
+      @apply h-12 text-dtm dark:text-dts rounded;
+      padding: 0 18px !important;
+      .icon {
+        @apply m-r-3 text-base;
+      }
 
-    .icon {
-      @apply m-r-3 text-base;
-    }
-
-    &:hover {
-      @apply bg-transparent text-primary;
-    }
-
-    &::before {
-      @apply absolute w-full h-full content-none bg-transparent rounded-r-lg -translate-x-263px transition-base;
-    }
-
-    &.is-active {
-      @apply bg-primary text-white;
+      &:hover {
+        @apply bg-transparent text-primary;
+      }
 
       &::before {
-        @apply bg-primary;
+        @apply absolute w-1 h-full content-none bg-transparent rounded-r -left-3 transition-base;
+      }
+
+      &.is-active {
+        @apply bg-primary text-white;
+
+        &::before {
+          @apply bg-primary;
+        }
+      }
+    }
+
+    &.el-menu--collapse {
+      @apply p-0 w-full;
+
+      .el-menu-item {
+        @apply p-0;
+
+        .icon {
+          @apply my-0 mx-auto;
+        }
+        &::before {
+          @apply left-0 rounded-r-none;
+        }
+
+        &.is-active {
+          @apply bg-transparent;
+        }
       }
     }
   }

@@ -10,11 +10,11 @@
 <template>
   <div class="admin-layout" h="full">
     <el-container h="full" bg="lbg" dark:bg="dbg">
-      <el-aside w="260px" shadow="card-dark" border-r="solid lbg" dark:border-r="dbg">
+      <el-aside w-auto border-r="solid lbg" dark:border-r="dbg">
         <sidebar />
       </el-aside>
       <el-container>
-        <el-header h="80px" bg="white" dark:bg="#222338">
+        <el-header h="16" bg="white" dark:bg="#222338">
           <app-header />
         </el-header>
         <el-container>
