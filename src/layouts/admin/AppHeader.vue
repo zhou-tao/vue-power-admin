@@ -1,4 +1,5 @@
 <script setup lang="ts" name="AppHeader">
+  import Breadcrumb from './Breadcrumb.vue'
   import ThemeSwitch from '@c/ThemeSwitch/index.vue'
   import { useUserStore } from '@/store/modules/user'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/event/useFullScreen'
@@ -10,12 +11,15 @@
 
 <template>
   <div h="full" flex items="center" justify="between">
-    <span cursor="pointer" @click="setCollapse">
-      <i-ep-expand v-show="isCollapse" />
-      <i-ep-fold v-show="!isCollapse" />
-    </span>
-    <div flex items="center" gap="5">
-      <span v-if="isSupported" cursor="pointer" leading="none" @click="toggleFullScreen">
+    <div flex items="center" gap="6">
+      <span cursor="pointer" leading="0" @click="setCollapse">
+        <i-ep-expand v-show="isCollapse" />
+        <i-ep-fold v-show="!isCollapse" />
+      </span>
+      <Breadcrumb />
+    </div>
+    <div flex items="center" gap="6">
+      <span v-if="isSupported" cursor="pointer" leading="0" @click="toggleFullScreen">
         <i-ri-fullscreen-fill v-show="!isFullScreen" />
         <i-ri-fullscreen-exit-fill v-show="isFullScreen" />
       </span>

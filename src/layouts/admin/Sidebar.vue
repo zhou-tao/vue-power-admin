@@ -27,7 +27,7 @@
     >
       <el-menu-item index="1">
         <i-ep-menu />
-        <span>仪表盘</span>
+        <span>首页</span>
       </el-menu-item>
       <el-menu-item index="2">
         <i-ep-user-filled />
@@ -82,6 +82,10 @@
       .el-menu-item {
         @apply p-0;
 
+        &:hover {
+          @apply text-regular;
+        }
+
         .icon {
           @apply my-0 mx-auto;
         }
@@ -90,7 +94,7 @@
         }
 
         &.is-active {
-          @apply bg-transparent;
+          @apply text-primary bg-transparent;
         }
       }
     }
