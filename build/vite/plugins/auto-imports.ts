@@ -8,7 +8,7 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 export const configAutoImportPlugins = () => [
   AutoImport({
     // 自动引入 vue 相关函数（ref、reactive...）
-    imports: ['vue'],
+    imports: ['vue', 'vue-router'],
 
     dts: 'types/auto-imports.d.ts',
 

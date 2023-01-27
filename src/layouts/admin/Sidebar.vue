@@ -2,12 +2,8 @@
   import config from '@/config'
   import { isCollapse } from '@/hooks/setting/useCollapse'
 
-  const handleOpen = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-  }
-  const handleClose = (key: string, keyPath: string[]) => {
-    console.log(key, keyPath)
-  }
+  const route = useRoute()
+  console.log(route.matched)
 </script>
 
 <template>
@@ -20,30 +16,39 @@
     </div>
     <el-menu
       border-r="0"
-      default-active="1"
+      router
       :collapse="isCollapse"
-      @open="handleOpen"
-      @close="handleClose"
+      :default-active="route.path"
     >
-      <el-menu-item index="1">
+      <el-menu-item index="/admin/dashboard">
         <i-ep-menu />
-        <span>首页</span>
+        <template #title>
+          <span>首页</span>
+        </template>
       </el-menu-item>
-      <el-menu-item index="2">
+      <el-menu-item index="/admin/user">
         <i-ep-user-filled />
-        <span>用户管理</span>
+        <template #title>
+          <span>用户管理</span>
+        </template>
       </el-menu-item>
-      <el-menu-item index="3">
+      <el-menu-item index="/admin/role">
         <i-ri-admin-fill />
-        <span>权限管理</span>
+        <template #title>
+          <span>权限管理</span>
+        </template>
       </el-menu-item>
-      <el-menu-item index="4">
+      <el-menu-item index="/admin/menu">
         <i-ri-apps-fill />
-        <span>菜单管理</span>
+        <template #title>
+          <span>菜单管理</span>
+        </template>
       </el-menu-item>
-      <el-menu-item index="5">
+      <el-menu-item index="/admin/setting">
         <i-ep-tools />
-        <span>系统设置</span>
+        <template #title>
+          <span>系统设置</span>
+        </template>
       </el-menu-item>
     </el-menu>
   </div>
@@ -80,14 +85,18 @@
       @apply p-0 w-full;
 
       .el-menu-item {
-        @apply p-0;
+        padding: 0 !important;
 
         &:hover {
           @apply text-regular;
         }
 
+        .el-menu-tooltip__trigger  {
+          @apply p-0;
+        }
+
         .icon {
-          @apply my-0 mx-auto;
+          @apply my-0 mx-auto text-base;
         }
         &::before {
           @apply left-0 rounded-r-none;

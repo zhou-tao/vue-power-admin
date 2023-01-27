@@ -7,9 +7,9 @@
 </script>
 
 <template>
-  <span @click="toggleDark()" text="regular" cursor="pointer" leading="none">
-    <i-ri-sun-fill v-show="isDark" />
-    <i-ri-moon-fill v-show="!isDark" />
+  <span @click="toggleDark()" text="regular xl" cursor="pointer" leading="none">
+    <i-app-sun v-if="isDark" />
+    <i-app-moon v-else />
   </span>
 </template>
 

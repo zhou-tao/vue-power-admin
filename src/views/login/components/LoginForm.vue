@@ -42,7 +42,7 @@
 
 <template>
   <div w="xs" bg="white" dark:bg="dark-2" px="8" py="6" rounded-4 shadow-xl>
-    <h1 text="3xl brand-gradient center" font="bold mono" m="t-lg b-0">
+    <h1 text="3xl brand-gradient center" font="bold mono" m="t-lg b-0" select-none>
       {{ config.APP.title }}
     </h1>
     <div m="t-12 mt-11" flex="~ col">

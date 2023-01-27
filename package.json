@@ -5,7 +5,7 @@
     "commit": "git cz",
     "build": "vue-tsc && vite build",
     "build:test": "vue-tsc && vite build --mode test",
-    "prepare": "husky install",
+    "prepare": "husky install && chmod ug+x .husky/*",
     "preview": "yarn build && vite preview",
     "preview:test": "yarn build:test && vite preview",
     "lint": "lint-staged"
@@ -21,7 +21,7 @@
     "pinia-plugin-persistedstate": "^2.3.0",
     "qs": "^6.11.0",
     "vue": "3.2.45",
-    "vue-router": "4"
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
