@@ -23,7 +23,13 @@ export const configAutoImportPlugins = () => [
       })
     ],
 
-    vueTemplate: true
+    vueTemplate: true,
+
+    eslintrc: {
+      enabled: true,
+      filepath: './.eslintrc-auto-import.json',
+      globalsPropValue: true
+    }
   }),
 
   Components({

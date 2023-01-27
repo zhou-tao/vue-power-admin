@@ -10,7 +10,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
+    './.eslintrc-auto-import.json'
   ],
   parser: 'vue-eslint-parser',
   parserOptions: {
@@ -89,6 +90,9 @@ module.exports = {
   ],
   globals: {
     $ref: 'readonly',
-    $computed: 'readonly'
+    $computed: 'readonly',
+    $shallowRef: 'readonly',
+    $customRef: 'readonly',
+    $toRef: 'readonly'
   }
 }
