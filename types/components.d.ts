@@ -25,6 +25,7 @@ declare module '@vue/runtime-core' {
     ElMain: typeof import('element-plus/es')['ElMain']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
+    ElTag: typeof import('element-plus/es')['ElTag']
     IAnimateMoonFilledLoop: typeof import('~icons/line-md/moon-filled-loop')['default']
     IAnimateMoonFilledLoopToSunnyFilledLoopTransition: typeof import('~icons/line-md/moon-filled-loop-to-sunny-filled-loop-transition')['default']
     IAnimateMoonFilledToSunnyFilledLoopTransition: typeof import('~icons/line-md/moon-filled-to-sunny-filled-loop-transition')['default']

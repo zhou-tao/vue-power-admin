@@ -1,6 +1,7 @@
 <script setup lang="ts" name="AdminLayout">
   import AppHeader from './AppHeader.vue'
   import Sidebar from './Sidebar.vue'
+  import TagsView from './TagsView.vue'
   import AppMain from './AppMain.vue'
   import AppFooter from './AppFooter.vue'
 
@@ -14,8 +15,9 @@
         <sidebar />
       </el-aside>
       <el-container>
-        <el-header h="16" bg="white" dark:bg="#222338">
+        <el-header h="26" p-0 bg="white" dark:bg="#222338">
           <app-header />
+          <tags-view />
         </el-header>
         <el-container>
           <el-main>
