@@ -36,6 +36,11 @@
       //   router.push('/home/index')
       // }
       router.push('/admin')
+      ElNotification({
+        title: 'Welcome',
+        message: '尊贵的VIP用户，您已登录成功！',
+        type: 'success',
+      })
     })
   }
 </script>
