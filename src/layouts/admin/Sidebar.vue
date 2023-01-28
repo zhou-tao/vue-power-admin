@@ -1,23 +1,23 @@
 <script setup lang="ts" name="Sidebar">
   import config from '@/config'
-  import { isCollapse } from '@/hooks/setting/useCollapse'
+  import { useAppStore } from '@/store/modules/app'
 
   const route = useRoute()
-  console.log(route.matched)
+  const appStore = useAppStore()
 </script>
 
 <template>
-  <div :style="{ width: isCollapse ? '54px' : '260px' }" h="full" overflow="hidden" box="border" bg="white" dark:bg="#222338" transition-width duration-400 ease-in-out>
+  <div :style="{ width: appStore.collapsed ? '54px' : '260px' }" h="full" overflow="hidden" box="border" bg="white" dark:bg="#222338" transition-width duration-400 ease-in-out>
     <div h="15" mb-2 flex justify="center" items="center">
       <i-app-logo text="3xl" />
-      <h1 v-show="!isCollapse" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
+      <h1 v-show="!appStore.collapsed" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
         {{ config.APP.title }}
       </h1>
     </div>
     <el-menu
       border-r="0"
       router
-      :collapse="isCollapse"
+      :collapse="appStore.collapsed"
       :default-active="route.path"
     >
       <el-menu-item index="/admin/dashboard">

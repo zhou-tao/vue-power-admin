@@ -40,12 +40,16 @@ export const useAppStore = defineStore('app', {
       viewIndex > -1 && this.cachedViews.splice(viewIndex, 1)
     },
 
-    setCollapsed(collapse: boolean) {
-      this.collapsed = collapse
+    setCollapsed() {
+      this.collapsed = !this.collapsed
     },
 
     clearAppState() {
       this.$reset()
     }
+  },
+  persist: {
+    key: 'APP_STORE',
+    storage: window.sessionStorage
   }
 })
