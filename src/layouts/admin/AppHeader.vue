@@ -66,7 +66,7 @@
         <el-dropdown>
           <span flex items="center">
             <i-emoji-chicken text="2xl" />
-            <span text="base #dfe6e9" ml="2">{{ username }}</span>
+            <span text="base" ml="2">{{ username }}</span>
           </span>
           <template #dropdown>
             <el-dropdown-menu>
