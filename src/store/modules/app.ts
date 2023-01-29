@@ -47,9 +47,5 @@ export const useAppStore = defineStore('app', {
     clearAppState() {
       this.$reset()
     }
-  },
-  persist: {
-    key: 'APP_STORE',
-    storage: window.sessionStorage
   }
 })
