@@ -93,6 +93,7 @@ module.exports = {
     $computed: 'readonly',
     $shallowRef: 'readonly',
     $customRef: 'readonly',
-    $toRef: 'readonly'
+    $toRef: 'readonly',
+    $: 'readonly'
   }
 }

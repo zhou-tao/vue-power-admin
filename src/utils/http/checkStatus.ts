@@ -41,8 +41,7 @@ const checkStatus: (status: number, msg: string, isCancel?: boolean) => void = (
       break
     case 401:
       alertErrMsg(ErrorCodeEnum.H401, ErrorMsgMap.get(ErrorCodeEnum.H401))
-      const userStore = useUserStore()
-      userStore.logout('expires_token')
+      useUserStore().logout('expires_token')
       break
     case 403:
       alertErrMsg(ErrorCodeEnum.H403, ErrorMsgMap.get(ErrorCodeEnum.H403))

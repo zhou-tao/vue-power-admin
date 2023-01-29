@@ -5,17 +5,17 @@
   import { useAppStore } from '@/store/modules/app'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/event/useFullScreen'
 
-  const userStore = useUserStore()
-  const appStore = useAppStore()
+  const { username } = $(useUserStore())
+  const { collapsed, setCollapsed } = $(useAppStore())
   autoRemoveListener()
 </script>
 
 <template>
   <div h="16" px-5 flex items="center" justify="between">
     <div flex items="center" gap="6">
-      <span cursor="pointer" leading="0" @click="appStore.setCollapsed()">
-        <i-ep-expand v-show="appStore.collapsed" />
-        <i-ep-fold v-show="!appStore.collapsed" />
+      <span cursor="pointer" leading="0" @click="setCollapsed()">
+        <i-ep-expand v-show="collapsed" />
+        <i-ep-fold v-show="!collapsed" />
       </span>
       <Breadcrumb />
     </div>
@@ -66,7 +66,7 @@
         <el-dropdown>
           <span flex items="center">
             <i-emoji-chicken text="2xl" />
-            <span text="18px #dfe6e9" ml="2">{{ userStore.username }}</span>
+            <span text="base #dfe6e9" ml="2">{{ username }}</span>
           </span>
           <template #dropdown>
             <el-dropdown-menu>

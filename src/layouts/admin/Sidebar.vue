@@ -2,22 +2,22 @@
   import config from '@/config'
   import { useAppStore } from '@/store/modules/app'
 
+  const { collapsed } = $(useAppStore())
   const route = useRoute()
-  const appStore = useAppStore()
 </script>
 
 <template>
-  <div :style="{ width: appStore.collapsed ? '54px' : '260px' }" h="full" overflow="hidden" box="border" bg="white" dark:bg="#222338" transition-width duration-400 ease-in-out>
+  <div :style="{ width: collapsed ? '54px' : '260px' }" h="full" overflow="hidden" box="border" bg="white" dark:bg="#222338" transition-width duration-400 ease-in-out>
     <div h="15" mb-2 flex justify="center" items="center">
       <i-app-logo text="3xl" />
-      <h1 v-show="!appStore.collapsed" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
+      <h1 v-show="!collapsed" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
         {{ config.APP.title }}
       </h1>
     </div>
     <el-menu
       border-r="0"
       router
-      :collapse="appStore.collapsed"
+      :collapse="collapsed"
       :default-active="route.path"
     >
       <el-menu-item index="/admin/dashboard">

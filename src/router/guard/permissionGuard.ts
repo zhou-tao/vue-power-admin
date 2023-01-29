@@ -12,16 +12,16 @@ import { ConsoleTypeEnum } from '@/enums/consoleEnum'
 export const createPermissionGuard = (router: Router) => {
   BConsole.SUCCESS(ConsoleTypeEnum.ROUTER, 'create permission guard')
   router.beforeEach(async (to, from, next) => {
-    const userStore = useUserStore()
+    const { invalid, setUserInfo, reLogin } = $(useUserStore())
     const menuStore = useMenuStore()
     if (isRequiresAuthRoute(to)) {
       if (!checkAccessToken()) {
         console.error('token expires')
-        await userStore.reLogin()
+        await reLogin()
         await addAsyncRoutes()
         next(to.fullPath)
       } else {
-        userStore.invalid && (await userStore.setUserInfo())
+        invalid && (await setUserInfo())
         if (!menuStore.hasRoutes) {
           await addAsyncRoutes()
           next(to.fullPath)
