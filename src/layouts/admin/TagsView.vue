@@ -1,13 +1,10 @@
 <script setup lang="ts" name="TagsView">
+  import type { AppRouteConfig } from '@/router/types'
   import { useAppStore } from '@/store/modules/app'
 
   const { visitedViews, addVisitedView, deleteVisitedView } = $(useAppStore())
   const router = useRouter()
   const route = useRoute()
-
-  onBeforeMount(() => {
-    initTag()
-  })
 
   watch(route, v => {
     const { path, meta } = v
@@ -15,9 +12,15 @@
       path,
       meta
     })
-  })
+  }, { immediate: true })
 
-  function initTag() {}
+  function removeTag(v: AppRouteConfig) {
+    deleteVisitedView(v)
+    if (v.path === route.path) {
+      const lastTag = visitedViews[visitedViews.length - 1]
+      router.push(lastTag.path)
+    }
+  }
 
 </script>
 
@@ -29,9 +32,9 @@
       :key="v.path"
       :class="{ active: v.path === route.path }"
       :type="v.path === route.path ? '' : 'info'"
-      :closable="v.path === route.path"
+      :closable="v.path === route.path && visitedViews.length > 1"
       @click="router.push(v.path)"
-      @close="deleteVisitedView(v)"
+      @close="removeTag(v)"
     >
       {{ v?.meta?.title }}
     </el-tag>
