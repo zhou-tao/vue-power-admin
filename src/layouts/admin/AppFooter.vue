@@ -1,7 +1,7 @@
 <script setup lang="ts" name="AppFooter"></script>
 
 <template>
-  <div h="full" flex items="center" justify="center" text="placeholder">
+  <div h="12" flex items="center" justify="center" text="placeholder">
     MIT Licensed | Copyright © 2022-present vue-power-admin
   </div>
 </template>

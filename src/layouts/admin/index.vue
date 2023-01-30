@@ -19,13 +19,11 @@
           <app-header />
           <tags-view />
         </el-header>
-        <el-container>
+        <el-container overflow-y="auto">
           <el-main>
             <app-main />
+            <app-footer v-if="config.APP.copyright" />
           </el-main>
-          <el-footer v-if="config.APP.copyright">
-            <app-footer />
-          </el-footer>
         </el-container>
       </el-container>
     </el-container>

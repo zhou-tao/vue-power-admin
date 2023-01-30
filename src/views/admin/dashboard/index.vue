@@ -2,7 +2,17 @@
 
 <template>
   <div class="page">
-    <h1>DASHBOARD PAGE</h1>
+    <el-row :gutter="16" mb="4">
+      <el-col :span="8"><div h="56" bg="placeholder" rounded></div></el-col>
+      <el-col :span="8"><div h="56" bg="placeholder" rounded></div></el-col>
+      <el-col :span="8"><div h="56" bg="placeholder" rounded></div></el-col>
+    </el-row>
+    <el-row :gutter="16" mb="4">
+      <el-col :span="24"><div h="56" bg="placeholder" rounded></div></el-col>
+    </el-row>
+    <el-row :gutter="16" mb="4">
+      <el-col :span="24"><div h="56" bg="placeholder" rounded></div></el-col>
+    </el-row>
   </div>
 </template>
 
