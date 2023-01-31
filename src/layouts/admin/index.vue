@@ -20,8 +20,8 @@
           <tags-view />
         </el-header>
         <el-container overflow-y="auto">
-          <el-main>
-            <app-main />
+          <el-main flex="~ col" justify="between" pb="0">
+            <app-main flex="1" />
             <app-footer v-if="config.APP.copyright" />
           </el-main>
         </el-container>

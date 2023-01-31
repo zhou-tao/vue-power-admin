@@ -1,8 +1,12 @@
 <script setup lang="ts" name="AppMain"></script>
 
 <template>
-  <div style="min-height: calc(100vh - 192px)">
-    <router-view />
+  <div>
+    <router-view v-slot="{ Component, route }">
+      <transition name="fade-slide">
+        <component :is="Component" :key="route.path" />
+      </transition>
+    </router-view>
   </div>
 </template>
 

@@ -18,11 +18,18 @@ export default {
       regular: 'var(--el-text-color-regular)',
       secondary: 'var(--el-text-color-secondary)',
       placeholder: 'var(--el-text-color-placeholder)',
+    },
+    height: {
+      header: '4rem',
+      footer: '3rem'
     }
   },
   shortcuts: [
     {
       'transition-base': 'transition-all duration-150 ease-in-out'
+    },
+    {
+      'full-page': 'h-full rounded px-6 py-5 bg-white dark:bg-#222338 overflow-hidden box-border'
     }
   ],
   // 自定义规则

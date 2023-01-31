@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <div h="16" px-5 flex items="center" justify="between">
+  <div h="header" px-5 flex items="center" justify="between">
     <div flex items="center" gap="6">
       <span cursor="pointer" leading="0" @click="setCollapsed()">
         <i-ep-expand v-show="collapsed" />
