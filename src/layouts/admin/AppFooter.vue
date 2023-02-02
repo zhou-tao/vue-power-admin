@@ -2,7 +2,7 @@
 
 <template>
   <div h="footer" flex items="center" justify="center" text="placeholder">
-    MIT Licensed | Copyright © 2022-present vue-power-admin
+    MIT Licensed <i-app-heart text="rose-600!" /> Copyright © 2022-present vue-power-admin
   </div>
 </template>
 
