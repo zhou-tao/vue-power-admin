@@ -4,6 +4,7 @@
   import TagsView from './TagsView.vue'
   import AppMain from './AppMain.vue'
   import AppFooter from './AppFooter.vue'
+  import ThemeSetting from '@c/ThemeSetting/index.vue'
 
   import config from '@/config'
 </script>
@@ -26,6 +27,7 @@
           <el-footer height="50px">
             <app-footer v-if="config.APP.copyright" />
           </el-footer>
+          <ThemeSetting />
         </el-container>
       </el-container>
     </el-container>
