@@ -1,3 +1,8 @@
+export enum MenuLayout {
+  VERTICAL = 'vertical',
+  HORIZONTAL = 'horizontal'
+}
+
 export enum MenuType {
   CATALOG = 'CATALOG',
   MENU = 'MENU',

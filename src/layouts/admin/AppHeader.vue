@@ -2,20 +2,25 @@
   import Breadcrumb from './Breadcrumb.vue'
   import ThemeSwitch from '@c/ThemeSwitch/index.vue'
   import { useUserStore } from '@/store/modules/user'
-  import { useAppStore } from '@/store/modules/app'
-  import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/event/useFullScreen'
+  import { useMenuCollapsed, setAppSetting } from '@h/setting/useSetting'
+  import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@h/event/useFullScreen'
 
   const { username } = $(useUserStore())
-  const { collapsed, setCollapsed } = $(useAppStore())
+  const collapse = useMenuCollapsed()
+  function collapsedToggle(collapse: boolean) {
+    setAppSetting({
+      menuCollapsed: collapse
+    })
+  }
   autoRemoveListener()
 </script>
 
 <template>
   <div h="header" px-5 flex items="center" justify="between">
     <div flex items="center" gap="6">
-      <span cursor="pointer" leading="0" @click="setCollapsed()">
-        <i-ep-expand v-show="collapsed" />
-        <i-ep-fold v-show="!collapsed" />
+      <span cursor="pointer" leading="0" @click="collapsedToggle(!collapse)">
+        <i-ep-expand v-show="collapse" />
+        <i-ep-fold v-show="!collapse" />
       </span>
       <Breadcrumb />
     </div>

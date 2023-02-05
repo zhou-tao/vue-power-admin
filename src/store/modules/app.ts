@@ -4,14 +4,12 @@ import { defineStore } from 'pinia'
 interface AppState {
   visitedViews: AppRouteConfig[]
   cachedViews: AppRouteConfig[]
-  collapsed: boolean
 }
 
 export const useAppStore = defineStore('app', {
   state: (): AppState => ({
     visitedViews: [],
-    cachedViews: [],
-    collapsed: false
+    cachedViews: []
   }),
   actions: {
     addVisitedView(view: AppRouteConfig) {
@@ -38,14 +36,6 @@ export const useAppStore = defineStore('app', {
         ({ path }) => path === view.path
       )
       viewIndex > -1 && this.cachedViews.splice(viewIndex, 1)
-    },
-
-    setCollapsed() {
-      this.collapsed = !this.collapsed
-    },
-
-    clearAppState() {
-      this.$reset()
     }
   }
 })

@@ -1,7 +1,7 @@
 import type { RouteLocationNormalized } from 'vue-router'
 import { useMenuStore } from '@/store/modules/menu'
 import { TokenTypeEnum } from '@/enums/authEnum'
-import { useCookie } from '@/hooks/web/useCookie'
+import { useCookie } from '@h/web/useCookie'
 import { basicRoutes } from '@/router/routes'
 import { router } from '@/router'
 import config from '@/config'

@@ -1,8 +1,8 @@
 <script setup lang="ts" name="Sidebar">
   import config from '@/config'
-  import { useAppStore } from '@/store/modules/app'
+  import { useMenuCollapsed } from '@h/setting/useSetting'
 
-  const { collapsed } = $(useAppStore())
+  const collapsed = useMenuCollapsed()
   const route = useRoute()
 </script>
 

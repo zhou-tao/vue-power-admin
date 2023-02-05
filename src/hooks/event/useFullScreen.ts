@@ -1,4 +1,4 @@
-import { useMessage } from '@/hooks/web/useMessage'
+import { useMessage } from '@h/web/useMessage'
 
 const Full_Screen_Event = 'fullscreenchange'
 

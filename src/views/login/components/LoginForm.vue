@@ -2,8 +2,8 @@
   import { reactive } from 'vue'
   import config from '@/config'
   import { LoginParams } from '@/api/_auth/model'
-  import { useMessage } from '@/hooks/web/useMessage'
-  // import { useLoginByPassword } from '@/hooks/logic/useLogin'
+  import { useMessage } from '@h/web/useMessage'
+  // import { useLoginByPassword } from '@h/logic/useLogin'
   import type { FormInstance, FormRules } from 'element-plus'
   import { useRouter } from 'vue-router'
 

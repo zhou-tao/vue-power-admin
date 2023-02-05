@@ -6,7 +6,7 @@
  * @Description: 错误码提示
  */
 import { ErrorCodeEnum } from '@/enums/httpEnum'
-import { useMessage } from '@/hooks/web/useMessage'
+import { useMessage } from '@h/web/useMessage'
 
 // 后端逻辑错误码展示格式（B+xxx）
 export type ErrorCode_B = `${ErrorCodeEnum.B}${number}`

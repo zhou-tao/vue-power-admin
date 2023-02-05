@@ -1,8 +1,25 @@
 <script setup lang="ts" name="ThemeSetting">
+  import ThemeSwitch from '@c/ThemeSwitch/index.vue'
+  import useAppSetting, { setAppSetting } from '@h/setting/useSetting'
+  import { MenuLayout } from '@/enums/menuEnum'
+
+  const {
+    menuLayout,
+    hasBreadcrumb,
+    hasTagsView,
+    hasFooter,
+    hasLocales
+  } = $(useAppSetting())
+  const isVerticalMenu = computed(() => menuLayout === MenuLayout.VERTICAL)
+
   const drawer = ref(false)
-  const breadcrumb = ref(false)
-  const tag = ref(false)
-  const footer = ref(false)
+
+  function menuToggle(layout: MenuLayout) {
+    setAppSetting({
+      menuLayout: layout
+    })
+  }
+
 </script>
 
 <template>
@@ -10,8 +27,8 @@
     fixed
     right-0
     top="1/3"
-    w-12
-    h-12
+    w-10
+    h-10
     bg-dark
     dark:bg="white"
     rounded-l
@@ -29,31 +46,62 @@
   </div>
   <el-drawer
     v-model="drawer"
-    title="面板设置"
+    title="项目设置"
     direction="rtl"
     size="20%"
   >
     <div flex="~ col" items="center">
       <el-divider>主题</el-divider>
-      <el-switch v-model="tag" size="large" />
-      <el-divider>导航栏</el-divider>
-      <el-divider>界面</el-divider>
-      <div w-full>
+      <ThemeSwitch type="switch" />
+      <el-divider mt-12>导航栏</el-divider>
+      <div flex items="center" gap="6" text="5xl regular">
+        <el-tooltip
+          effect="dark"
+          content="侧边菜单"
+          placement="bottom"
+        >
+          <span :class="{ active: isVerticalMenu }" @click="menuToggle(MenuLayout.VERTICAL)">
+            <i-app-layout cursor="pointer" />
+          </span>
+        </el-tooltip>
+        <el-tooltip
+          effect="dark"
+          content="顶部菜单"
+          placement="bottom"
+        >
+          <span :class="{ active: !isVerticalMenu }" @click="menuToggle(MenuLayout.HORIZONTAL)">
+            <i-app-layout transform rotate-90 cursor="pointer" />
+          </span>
+        </el-tooltip>
+      </div>
+      <el-divider mt-12>界面</el-divider>
+      <div w-full flex="~ col" gap="2">
         <div flex items="center" justify-between>
           <span>面包屑</span>
-          <el-switch v-model="breadcrumb" />
+          <el-switch v-model="hasBreadcrumb" />
         </div>
         <div flex items="center" justify-between>
           <span>标签页</span>
-          <el-switch v-model="tag" />
+          <el-switch v-model="hasTagsView" />
         </div>
         <div flex items="center" justify-between>
           <span>页脚</span>
-          <el-switch v-model="footer" />
+          <el-switch v-model="hasFooter" />
+        </div>
+      </div>
+      <el-divider mt-12>功能</el-divider>
+      <div w-full flex="~ col" gap="2">
+        <div flex items="center" justify-between>
+          <span>国际化</span>
+          <el-switch v-model="hasLocales" />
         </div>
       </div>
     </div>
   </el-drawer>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.active {
+  @apply text-primary;
+}
+</style>
