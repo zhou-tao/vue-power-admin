@@ -1,13 +1,12 @@
 <script setup lang="ts" name="ThemeSwitch">
-  import { useDark, useToggle } from '@vueuse/core'
+  import { useAppTheme } from '@/hooks/setting/useSetting'
   const props = withDefaults(defineProps<{
     type: 'base' | 'switch'
   }>(), {
     type: 'base'
   })
 
-  const isDark = useDark()
-  const toggleDark = useToggle(isDark)
+  const { isDark, toggleDark } = useAppTheme()
 
 </script>
 
@@ -23,7 +22,7 @@
     />
     <i-emoji-crescent-moon />
   </div>
-  <span v-else @click="toggleDark()" text="regular xl" cursor="pointer" leading="none">
+  <span v-else @click="toggleDark(isDark)" text="regular xl" cursor="pointer" leading="none">
     <i-app-sun v-if="isDark" />
     <i-app-moon v-else />
   </span>
