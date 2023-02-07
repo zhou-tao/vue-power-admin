@@ -1,7 +1,7 @@
 import type { RouteComponent } from 'vue-router'
 import type { AppRouteConfig } from '@/router/types'
 import type { BuildMenuModel } from '@/api/_system/model/menuModel'
-import { FakeLayout, PageLayout } from '@/router/constant'
+import { PageLayout } from '@/router/constant'
 import { alertErrMsg } from '@/utils/message'
 import { ErrorCodeEnum } from '@/enums/httpEnum'
 import { buildMenuApi } from '@/api/_system/menu'
@@ -19,8 +19,6 @@ function componentMap(path: string): RawRouteComponent {
   switch (path) {
     case 'Layout':
       return PageLayout
-    case 'Fake':
-      return FakeLayout
     default: {
       const joinPath = `admin/${path}`.replace(/\/\//, '/')
       return pages[`../../views/${joinPath}.vue`]

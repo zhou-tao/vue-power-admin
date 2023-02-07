@@ -1,32 +1,29 @@
 <script setup lang="ts" name="AdminLayout">
-  import AppHeader from './AppHeader.vue'
-  import Sidebar from './Sidebar.vue'
-  import TagsView from './TagsView.vue'
-  import AppMain from './AppMain.vue'
-  import AppFooter from './AppFooter.vue'
-  import ThemeSetting from '@c/ThemeSetting/index.vue'
+  import LayoutHeader from './header/index.vue'
+  import LayoutSider from './sider/index.vue'
+  import LayoutTabs from './tabs/index.vue'
+  import LayoutContent from './content/index.vue'
+  import LayoutFooter from './footer/index.vue'
 
-  import config from '@/config'
+  import ThemeSetting from '@c/ThemeSetting/index.vue'
+  import useSetting from '@/hooks/setting/useSetting'
+
+  const { hasTagsView } = $(useSetting())
+
 </script>
 
 <template>
   <div class="admin-layout" h="full">
     <el-container h="full" bg="lbg" dark:bg="dbg">
-      <el-aside w-auto border-r="solid lbg" dark:border-r="dbg">
-        <sidebar />
-      </el-aside>
+      <LayoutSider />
       <el-container>
-        <el-header h="26" p-0 bg="white" dark:bg="#222338">
-          <app-header />
-          <tags-view />
+        <el-header h="auto" p-0 bg="white" dark:bg="#222338">
+          <LayoutHeader />
+          <LayoutTabs v-if="hasTagsView" />
         </el-header>
-        <el-container overflow="hidden">
-          <el-main relative flex="~ col" justify="between" p="3" pb="0" overflow-y="auto">
-            <app-main />
-          </el-main>
-          <el-footer height="50px">
-            <app-footer v-if="config.APP.copyright" />
-          </el-footer>
+        <el-container direction="vertical" overflow="hidden">
+          <LayoutContent />
+          <LayoutFooter />
           <ThemeSetting />
         </el-container>
       </el-container>

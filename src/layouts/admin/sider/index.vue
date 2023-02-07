@@ -1,13 +1,15 @@
-<script setup lang="ts" name="Sidebar">
+<script setup lang="ts" name="LayoutSider">
   import config from '@/config'
-  import { useMenuCollapsed } from '@h/setting/useSetting'
+  import { useMenuCollapsed, useMenuLayout } from '@h/setting/useSetting'
 
-  const collapsed = useMenuCollapsed()
+  const { collapsed } = useMenuCollapsed()
+  const { isVertical } = useMenuLayout()
+
   const route = useRoute()
 </script>
 
 <template>
-  <div :style="{ width: collapsed ? '54px' : '260px' }" h="full" overflow="hidden" box="border" bg="white" dark:bg="#222338" transition-width duration-400 ease-in-out>
+  <el-aside v-if="isVertical" :width="collapsed ? '54px' : '260px'" border-r="solid lbg" dark:border-r="dbg" overflow="hidden" box="border" bg="white" dark:bg="#222338" transition-width duration-400 ease-in-out>
     <div h="15" mb-2 flex justify="center" items="center">
       <i-app-logo text="3xl" />
       <h1 v-show="!collapsed" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
@@ -51,7 +53,7 @@
         </template>
       </el-menu-item>
     </el-menu>
-  </div>
+  </el-aside>
 </template>
 
 <style lang="scss" scoped>

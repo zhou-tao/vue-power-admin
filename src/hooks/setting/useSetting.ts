@@ -42,9 +42,23 @@ export const useAppTheme = () => ({
     isDark.value = isRef(dark) ? !dark.value : !dark
   }
 })
-export const useMenuLayout = () => computed(() => appSettings.menuLayout)
-export const useMenuCollapsed = () => computed(() => appSettings.menuCollapsed)
+
+export const useMenuLayout = () => ({
+  layout: computed(() => appSettings.menuLayout),
+  isVertical: computed(() => appSettings.menuLayout === MenuLayout.VERTICAL),
+  setLayout: (layout: MenuLayout) => {
+    appSettings.menuLayout = layout
+  }
+})
+
+export const useMenuCollapsed = () => ({
+  collapsed: computed(() => appSettings.menuCollapsed),
+  toggleCollapse: () => {
+    appSettings.menuCollapsed = !appSettings.menuCollapsed
+  }
+})
 export const useBreadcrumb = () => computed(() => appSettings.hasBreadcrumb)
+export const useTagsView = () => computed(() => appSettings.hasTagsView)
 export const useFooter = () => computed(() => appSettings.hasFooter)
 export const useLocales = () => computed(() => appSettings.hasLocales)
 

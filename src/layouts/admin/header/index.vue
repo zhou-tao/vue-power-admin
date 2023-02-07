@@ -1,28 +1,24 @@
-<script setup lang="ts" name="AppHeader">
-  import Breadcrumb from './Breadcrumb.vue'
+<script setup lang="ts" name="LayoutHeader">
+  import Breadcrumb from './components/Breadcrumb.vue'
   import ThemeSwitch from '@c/ThemeSwitch/index.vue'
   import { useUserStore } from '@/store/modules/user'
-  import { useMenuCollapsed, setAppSetting } from '@h/setting/useSetting'
+  import useSetting, { useMenuCollapsed } from '@h/setting/useSetting'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@h/event/useFullScreen'
 
   const { username } = $(useUserStore())
-  const collapse = useMenuCollapsed()
-  function collapsedToggle(collapse: boolean) {
-    setAppSetting({
-      menuCollapsed: collapse
-    })
-  }
+  const { hasBreadcrumb, hasLocales } = $(useSetting())
+  const { collapsed, toggleCollapse } = useMenuCollapsed()
   autoRemoveListener()
 </script>
 
 <template>
   <div h="header" px-5 flex items="center" justify="between">
     <div flex items="center" gap="6">
-      <span cursor="pointer" leading="0" @click="collapsedToggle(!collapse)">
-        <i-ep-expand v-show="collapse" />
-        <i-ep-fold v-show="!collapse" />
+      <span cursor="pointer" leading="0" @click="toggleCollapse()">
+        <i-ep-expand v-show="collapsed" />
+        <i-ep-fold v-show="!collapsed" />
       </span>
-      <Breadcrumb />
+      <Breadcrumb v-show="hasBreadcrumb" />
     </div>
     <div flex items="center" gap="6">
       <span v-if="isSupported" cursor="pointer" leading="0" @click="toggleFullScreen">
@@ -51,7 +47,7 @@
           </el-dropdown-menu>
         </template>
       </el-dropdown>
-      <el-dropdown>
+      <el-dropdown v-show="hasLocales">
         <i-app-locale cursor="pointer" text="xl" />
         <template #dropdown>
           <el-dropdown-menu>

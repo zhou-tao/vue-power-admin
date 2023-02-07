@@ -1,4 +1,4 @@
-<script setup lang="ts" name="TagsView">
+<script setup lang="ts" name="LayoutTabs">
   import type { AppRouteConfig } from '@/router/types'
   import { useAppStore } from '@/store/modules/app'
 

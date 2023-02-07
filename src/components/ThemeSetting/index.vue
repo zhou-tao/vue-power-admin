@@ -1,24 +1,17 @@
 <script setup lang="ts" name="ThemeSetting">
   import ThemeSwitch from '@c/ThemeSwitch/index.vue'
-  import useAppSetting, { setAppSetting } from '@h/setting/useSetting'
+  import useAppSetting, { useMenuLayout } from '@h/setting/useSetting'
   import { MenuLayout } from '@/enums/menuEnum'
 
   const {
-    menuLayout,
     hasBreadcrumb,
     hasTagsView,
     hasFooter,
     hasLocales
   } = $(useAppSetting())
-  const isVerticalMenu = computed(() => menuLayout === MenuLayout.VERTICAL)
+  const { isVertical, setLayout } = useMenuLayout()
 
   const drawer = ref(false)
-
-  function menuToggle(layout: MenuLayout) {
-    setAppSetting({
-      menuLayout: layout
-    })
-  }
 
 </script>
 
@@ -60,7 +53,7 @@
           content="侧边菜单"
           placement="bottom"
         >
-          <span :class="{ active: isVerticalMenu }" @click="menuToggle(MenuLayout.VERTICAL)">
+          <span :class="{ active: isVertical }" @click="setLayout(MenuLayout.VERTICAL)">
             <i-app-layout cursor="pointer" />
           </span>
         </el-tooltip>
@@ -69,7 +62,7 @@
           content="顶部菜单"
           placement="bottom"
         >
-          <span :class="{ active: !isVerticalMenu }" @click="menuToggle(MenuLayout.HORIZONTAL)">
+          <span :class="{ active: !isVertical }" @click="setLayout(MenuLayout.HORIZONTAL)">
             <i-app-layout transform rotate-90 cursor="pointer" />
           </span>
         </el-tooltip>
