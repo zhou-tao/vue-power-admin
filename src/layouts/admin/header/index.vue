@@ -23,7 +23,7 @@
         <i-ep-fold v-show="!collapsed" />
       </span>
       <LogoView mb="0!" mr="6" v-else />
-      <Breadcrumb v-show="hasBreadcrumb" />
+      <Breadcrumb v-if="hasBreadcrumb && isVertical" />
     </div>
     <Menu v-if="!isVertical" :mode="MenuLayout.HORIZONTAL" />
     <div flex items="center" gap="6">

@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <div>
+  <div :class="`menu--${props.mode}`">
     <el-menu
       router
       border-r="0"
@@ -56,8 +56,20 @@
 </template>
 
 <style lang="scss" scoped>
+  .menu--horizontal {
+    @apply flex-1;
+
+    :deep(.el-menu) {
+      @apply justify-center;
+
+      &.el-menu--horizontal {
+        @apply border-b-0;
+      }
+    }
+  }
+
   // 顶层无法穿透样式
-  :deep(.el-menu) {
+  .menu--vertical :deep(.el-menu) {
     @apply p-x-3;
     .el-menu-item {
       @apply h-12 text-dtm dark:text-dts rounded;
