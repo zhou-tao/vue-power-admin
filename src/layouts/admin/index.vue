@@ -30,3 +30,11 @@
     </el-container>
   </div>
 </template>
+
+<style lang="scss" scoped>
+:deep(.el-main) {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+</style>

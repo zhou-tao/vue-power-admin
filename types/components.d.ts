@@ -41,7 +41,6 @@ declare module '@vue/runtime-core' {
     IEmojiArtistPalette: typeof import('~icons/fluent-emoji-flat/artist-palette')['default']
     IEmojiChicken: typeof import('~icons/fluent-emoji-flat/chicken')['default']
     IEmojiCrescentMoon: typeof import('~icons/fluent-emoji-flat/crescent-moon')['default']
-    IEmojiHeartFilled: typeof import('~icons/fluent-emoji-flat/heart-filled')['default']
     IEmojiSun: typeof import('~icons/fluent-emoji-flat/sun')['default']
     IEpBellFilled: typeof import('~icons/ep/bell-filled')['default']
     IEpExpand: typeof import('~icons/ep/expand')['default']

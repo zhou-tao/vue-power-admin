@@ -1,25 +1,31 @@
 <script setup lang="ts" name="LayoutHeader">
   import Breadcrumb from './components/Breadcrumb.vue'
   import ThemeSwitch from '@c/ThemeSwitch/index.vue'
+  import LogoView from '../sider/components/LogoView.vue'
+  import Menu from '../sider/components/Menu.vue'
   import { useUserStore } from '@/store/modules/user'
-  import useSetting, { useMenuCollapsed } from '@h/setting/useSetting'
+  import useSetting, { useMenuCollapsed, useMenuLayout } from '@h/setting/useSetting'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@h/event/useFullScreen'
+  import { MenuLayout } from '@/enums/menuEnum'
 
   const { username } = $(useUserStore())
   const { hasBreadcrumb, hasLocales } = $(useSetting())
   const { collapsed, toggleCollapse } = useMenuCollapsed()
+  const { isVertical } = useMenuLayout()
   autoRemoveListener()
 </script>
 
 <template>
   <div h="header" px-5 flex items="center" justify="between">
     <div flex items="center" gap="6">
-      <span cursor="pointer" leading="0" @click="toggleCollapse()">
+      <span v-if="isVertical" cursor="pointer" leading="0" @click="toggleCollapse()">
         <i-ep-expand v-show="collapsed" />
         <i-ep-fold v-show="!collapsed" />
       </span>
+      <LogoView mb="0!" mr="6" v-else />
       <Breadcrumb v-show="hasBreadcrumb" />
     </div>
+    <Menu v-if="!isVertical" :mode="MenuLayout.HORIZONTAL" />
     <div flex items="center" gap="6">
       <span v-if="isSupported" cursor="pointer" leading="0" @click="toggleFullScreen">
         <i-ri-fullscreen-fill v-show="!isFullScreen" />
