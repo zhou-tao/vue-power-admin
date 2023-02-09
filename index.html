@@ -7,7 +7,113 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <script>
+      (() => {
+        var htmlRoot = document.documentElement
+        var theme = window.localStorage.getItem('vueuse-color-scheme');
+        if (htmlRoot && theme) {
+          htmlRoot.setAttribute('data-theme', theme);
+          theme = htmlRoot = null;
+        }
+      })();
+    </script>
+    <div id="app">
+      <style>
+
+        html, body {
+          margin: 0;
+          padding: 0;
+        }
+
+        html[data-theme='dark'] .fp-loading-container {
+          background-color: black;
+        }
+
+        .fp-loading-container {
+          width: 100vw;
+          height: 100vh;
+        }
+
+        @keyframes rotate {
+          to {
+            transform: rotate(405deg)
+          }
+        }
+
+        .fp-loading {
+          width: 300px;
+          height: 300px;
+          position:absolute;
+          top: 45%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          filter: url(#gooey);
+        }
+
+        .fp-loading span {
+          position: absolute;
+          top: 20%;
+          left: 20%;
+          width: 60%;
+          height: 60%;
+          transform: rotate(45deg);
+          animation: rotate 2s ease-in-out infinite;
+        }
+
+        .fp-loading span:before{
+          content: '';
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-radius: 50%;
+          background: #377dff;
+          box-shadow: 0 0 30px #377dff;
+        }
+
+        .fp-loading span:nth-child(1){
+          animation-delay: 0.15s;
+        }
+
+        .fp-loading span:nth-child(2){
+          animation-delay: 0.3s;
+        }
+
+        .fp-loading span:nth-child(3){
+          animation-delay: 0.45s;
+        }
+
+        .fp-loading span:nth-child(4){
+          animation-delay: 0.6s;
+        }
+
+        .fp-loading span:nth-child(5){
+          animation-delay: 0.75s;
+        }
+
+        .fp-loading span:nth-child(6){
+          animation-delay: 0.9s;
+        }
+      </style>
+      <div class="fp-loading-container">
+        <div class="fp-loading">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <svg>
+          <filter id="gooey">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10"  result="blur"/>
+            <feColorMatrix in="blur" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -10"/>
+          </filter>
+        </svg>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
