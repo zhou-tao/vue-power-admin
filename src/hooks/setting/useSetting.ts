@@ -1,4 +1,3 @@
-// import type { Ref } from 'vue'
 import { ThemeEnum } from '@/enums/appEnum'
 import { MenuLayout } from '@/enums/menuEnum'
 import { useDark } from '@vueuse/core'
@@ -12,7 +11,10 @@ export interface AppSetting {
   hasBreadcrumb: boolean,
   hasTagsView: boolean,
   hasFooter: boolean,
-  hasLocales: boolean
+  hasLocales: boolean,
+  hasFpLoading: boolean,
+  hasPageAnimate: boolean,
+  hasProgress: boolean
 }
 
 const appSettings = reactive<AppSetting>({
@@ -22,7 +24,10 @@ const appSettings = reactive<AppSetting>({
   hasBreadcrumb: true,
   hasTagsView: true,
   hasFooter: true,
-  hasLocales: true
+  hasLocales: true,
+  hasFpLoading: true,
+  hasPageAnimate: true,
+  hasProgress: true
 })
 
 const isDark = useDark()
@@ -61,6 +66,27 @@ export const useBreadcrumb = () => computed(() => appSettings.hasBreadcrumb)
 export const useTagsView = () => computed(() => appSettings.hasTagsView)
 export const useFooter = () => computed(() => appSettings.hasFooter)
 export const useLocales = () => computed(() => appSettings.hasLocales)
+
+export const useFpLoading = () => ({
+  loading: computed(() => appSettings.hasFpLoading),
+  toggleLoading: () => {
+    appSettings.hasFpLoading = !appSettings.hasFpLoading
+  }
+})
+
+export const usePageAnimate = () => ({
+  animate: computed(() => appSettings.hasPageAnimate),
+  toggleAnimate: () => {
+    appSettings.hasPageAnimate = !appSettings.hasPageAnimate
+  }
+})
+
+export const useProgress = () => ({
+  progress: computed(() => appSettings.hasProgress),
+  toggleProgress: () => {
+    appSettings.hasProgress = !appSettings.hasProgress
+  }
+})
 
 export function setAppSetting(settings: Partial<AppSetting>) {
   Object.keys(settings).forEach(key => {

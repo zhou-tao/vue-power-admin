@@ -7,7 +7,10 @@
     hasBreadcrumb,
     hasTagsView,
     hasFooter,
-    hasLocales
+    hasLocales,
+    hasFpLoading,
+    hasPageAnimate,
+    hasProgress
   } = $(useAppSetting())
   const { isVertical, setLayout } = useMenuLayout()
 
@@ -71,22 +74,38 @@
       <div w-full flex="~ col" gap="2">
         <div flex items="center" justify-between>
           <span>面包屑</span>
-          <el-switch v-model="hasBreadcrumb" />
+          <el-switch
+            v-model="hasBreadcrumb" inline-prompt active-text="开" inactive-text="关" />
         </div>
         <div flex items="center" justify-between>
           <span>标签页</span>
-          <el-switch v-model="hasTagsView" />
+          <el-switch v-model="hasTagsView" inline-prompt active-text="开" inactive-text="关" />
         </div>
         <div flex items="center" justify-between>
           <span>页脚</span>
-          <el-switch v-model="hasFooter" />
+          <el-switch v-model="hasFooter" inline-prompt active-text="开" inactive-text="关" />
         </div>
       </div>
       <el-divider mt-12>功能</el-divider>
       <div w-full flex="~ col" gap="2">
         <div flex items="center" justify-between>
           <span>国际化</span>
-          <el-switch v-model="hasLocales" />
+          <el-switch v-model="hasLocales" inline-prompt active-text="开" inactive-text="关" />
+        </div>
+      </div>
+      <el-divider mt-12>动效</el-divider>
+      <div w-full flex="~ col" gap="2">
+        <div flex items="center" justify-between>
+          <span>首屏动画</span>
+          <el-switch v-model="hasFpLoading" inline-prompt active-text="开" inactive-text="关" />
+        </div>
+        <div flex items="center" justify-between>
+          <span>切换动画</span>
+          <el-switch v-model="hasPageAnimate" inline-prompt active-text="开" inactive-text="关" />
+        </div>
+        <div flex items="center" justify-between>
+          <span>进度条</span>
+          <el-switch v-model="hasProgress" inline-prompt active-text="开" inactive-text="关" />
         </div>
       </div>
     </div>
