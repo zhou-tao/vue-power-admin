@@ -7,7 +7,8 @@ import { resolve } from 'path'
 
 export default ({ mode }: ConfigEnv) => {
   const root = process.cwd()
-  const env = envParse(loadEnv(mode, root) as ImportMetaEnv)
+  const envDir = resolve(__dirname, 'env')
+  const env = envParse(loadEnv(mode, envDir) as ImportMetaEnv)
   const {
     VITE_PORT,
     VITE_BASE_API,
@@ -27,7 +28,7 @@ export default ({ mode }: ConfigEnv) => {
         '#': resolve(__dirname, 'types')
       }
     },
-    envDir: resolve(__dirname, '.env'),
+    envDir,
     server: {
       host: true,
       port: VITE_PORT,
