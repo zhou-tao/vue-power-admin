@@ -2,9 +2,9 @@ import type { Router } from 'vue-router'
 // import { createPermissionGuard } from '@/router/guard/permissionGuard'
 // import { isBasicRoute } from '@/router/helper'
 import { AxiosCanceler } from '@/utils/http/axiosCancel'
+import { useSettingStore } from '@/store/modules/setting'
 import NProgress from 'nprogress'
 import config from '@/config'
-import { useProgress } from '@/hooks/setting/useSetting'
 
 /**
  * @description 设置路由守卫
@@ -44,8 +44,8 @@ const createHttpGuard = (router: Router) => {
 const createNProgressGuard = (router: Router) => {
   router.beforeEach(() => {
     // !isBasicRoute(from) && NProgress.start()
-    const { progress } = useProgress()
-    progress.value && NProgress.start()
+    const { hasProgress } = $(useSettingStore())
+    hasProgress && NProgress.start()
   })
   router.afterEach(() => {
     NProgress.done()

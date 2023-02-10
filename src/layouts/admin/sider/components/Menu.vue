@@ -1,6 +1,6 @@
 <script setup lang="ts" name="Menu">
   import { MenuLayout } from '@/enums/menuEnum'
-  import { useMenuCollapsed } from '@/hooks/setting/useSetting'
+  import { useSettingStore } from '@/store/modules/setting'
 
   const props = withDefaults(defineProps<{
     mode: MenuLayout
@@ -8,7 +8,7 @@
     mode: MenuLayout.VERTICAL
   })
 
-  const { collapsed } = useMenuCollapsed()
+  const { menuCollapsed } = $(useSettingStore())
   const route = useRoute()
 </script>
 
@@ -18,7 +18,7 @@
       router
       border-r="0"
       :mode="props.mode"
-      :collapse="collapsed"
+      :collapse="menuCollapsed"
       :default-active="route.path"
     >
       <el-menu-item index="/admin/dashboard">

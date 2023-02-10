@@ -1,7 +1,7 @@
 <script setup lang="ts" name="LayoutContent">
-  import { usePageAnimate } from '@/hooks/setting/useSetting'
+  import { useSettingStore } from '@/store/modules/setting'
 
-  const { animate } = usePageAnimate()
+  const { hasPageAnimate } = $(useSettingStore())
 </script>
 
 <template>
@@ -14,7 +14,7 @@
     overflow-y="auto"
   >
     <router-view v-slot="{ Component, route }">
-      <transition :name="animate ? 'fade-slide' : ''">
+      <transition :name="hasPageAnimate ? 'fade-slide' : ''">
         <component :is="Component" :key="route.path" />
       </transition>
     </router-view>

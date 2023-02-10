@@ -4,28 +4,33 @@
   import LogoView from '../sider/components/LogoView.vue'
   import Menu from '../sider/components/Menu.vue'
   import { useUserStore } from '@/store/modules/user'
-  import useSetting, { useMenuCollapsed, useMenuLayout } from '@h/setting/useSetting'
+  import { useSettingStore } from '@/store/modules/setting'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@h/event/useFullScreen'
   import { MenuLayout } from '@/enums/menuEnum'
 
   const { username } = $(useUserStore())
-  const { hasBreadcrumb, hasLocales } = $(useSetting())
-  const { collapsed, toggleCollapse } = useMenuCollapsed()
-  const { isVertical } = useMenuLayout()
+  const {
+    hasBreadcrumb,
+    hasLocales,
+    menuCollapsed,
+    isVerticalMenu,
+    toggleCollapse
+  } = $(useSettingStore())
+
   autoRemoveListener()
 </script>
 
 <template>
-  <div h="header" px-5 flex items="center" justify="between">
+  <div h="header" px-6 flex items="center" justify="between">
     <div flex items="center" gap="6">
-      <span v-if="isVertical" cursor="pointer" leading="0" @click="toggleCollapse()">
-        <i-ep-expand v-show="collapsed" />
-        <i-ep-fold v-show="!collapsed" />
+      <span v-if="isVerticalMenu" cursor="pointer" leading="0" @click="toggleCollapse()">
+        <i-ep-expand v-show="menuCollapsed" />
+        <i-ep-fold v-show="!menuCollapsed" />
       </span>
       <LogoView mb="0!" mr="6" v-else />
-      <Breadcrumb v-if="hasBreadcrumb && isVertical" />
+      <Breadcrumb v-if="hasBreadcrumb && isVerticalMenu" />
     </div>
-    <Menu v-if="!isVertical" :mode="MenuLayout.HORIZONTAL" />
+    <Menu v-if="!isVerticalMenu" :mode="MenuLayout.HORIZONTAL" />
     <div flex items="center" gap="6">
       <span v-if="isSupported" cursor="pointer" leading="0" @click="toggleFullScreen">
         <i-ri-fullscreen-fill v-show="!isFullScreen" />

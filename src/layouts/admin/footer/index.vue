@@ -1,7 +1,7 @@
 <script setup lang="ts" name="LayoutFooter">
-  import { useFooter } from '@/hooks/setting/useSetting'
+  import { useSettingStore } from '@/store/modules/setting'
 
-  const hasFooter = useFooter()
+  const { hasFooter } = $(useSettingStore())
 </script>
 
 <template>

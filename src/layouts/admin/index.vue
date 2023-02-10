@@ -4,11 +4,11 @@
   import LayoutTabs from './tabs/index.vue'
   import LayoutContent from './content/index.vue'
   import LayoutFooter from './footer/index.vue'
-
   import ThemeSetting from '@c/ThemeSetting/index.vue'
-  import useSetting from '@/hooks/setting/useSetting'
 
-  const { hasTagsView } = $(useSetting())
+  import { useSettingStore } from '@/store/modules/setting'
+
+  const { hasTagsView } = $(useSettingStore())
 
 </script>
 

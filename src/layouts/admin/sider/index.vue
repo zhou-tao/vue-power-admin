@@ -1,16 +1,15 @@
 <script setup lang="ts" name="LayoutSider">
-  import LogoView from './components/LogoView.vue'
   import Menu from './components/Menu.vue'
-  import { useMenuCollapsed, useMenuLayout } from '@h/setting/useSetting'
+  import LogoView from './components/LogoView.vue'
+  import { useSettingStore } from '@/store/modules/setting'
 
-  const { collapsed } = useMenuCollapsed()
-  const { isVertical } = useMenuLayout()
+  const { isVerticalMenu, menuCollapsed } = $(useSettingStore())
 </script>
 
 <template>
   <el-aside
-    v-if="isVertical"
-    :width="collapsed ? '54px' : '260px'"
+    v-if="isVerticalMenu"
+    :width="menuCollapsed ? '54px' : '260px'"
     border-r="solid lbg"
     dark:border-r="dbg"
     overflow="hidden"

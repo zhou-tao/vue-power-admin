@@ -1,14 +1,15 @@
 <script setup lang="ts" name="LogoView">
   import config from '@/config'
-  import { useMenuCollapsed } from '@h/setting/useSetting'
+  import { useSettingStore } from '@/store/modules/setting'
 
-  const { collapsed } = useMenuCollapsed()
+  const { menuCollapsed } = $(useSettingStore())
+
 </script>
 
 <template>
-  <div h="15" mb-2 flex justify="center" items="center">
+  <div h="header" mb-2 flex justify="center" items="center">
     <i-app-logo text="3xl" />
-    <h1 v-show="!collapsed" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
+    <h1 v-show="!menuCollapsed" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
       {{ config.APP.title }}
     </h1>
   </div>
