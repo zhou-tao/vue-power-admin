@@ -5,7 +5,14 @@
 </script>
 
 <template>
-  <el-main relative flex="~ col" justify="between" p="3" pb="0" overflow-y="auto">
+  <el-main
+    p="3"
+    pb="0"
+    relative
+    flex="~ col"
+    justify="between"
+    overflow-y="auto"
+  >
     <router-view v-slot="{ Component, route }">
       <transition :name="animate ? 'fade-slide' : ''">
         <component :is="Component" :key="route.path" />

@@ -59,14 +59,28 @@ module.exports = {
     'vue/custom-event-name-casing': 0,
     'vue/attributes-order': 0,
     'vue/one-component-per-file': 0,
-    'vue/html-closing-bracket-newline': 0,
-    'vue/max-attributes-per-line': 0,
-    'vue/multiline-html-element-content-newline': 0,
     'vue/singleline-html-element-content-newline': 0,
     'vue/attribute-hyphenation': 0,
     'vue/require-default-prop': 0,
     'vue/require-explicit-emits': 0,
     'vue/multi-word-component-names': 0,
+    'vue/html-closing-bracket-newline': ['error', {
+      singleline: 'never',
+      multiline: 'always'
+    }],
+    'vue/max-attributes-per-line': ['error', {
+      singleline: {
+        max: 5
+      },
+      multiline: {
+        max: 1
+      }
+    }],
+    'vue/multiline-html-element-content-newline': ['error', {
+      ignoreWhenEmpty: true,
+      ignores: [],
+      allowEmptyLines: true
+    }],
     'vue/html-self-closing': [
       2,
       {

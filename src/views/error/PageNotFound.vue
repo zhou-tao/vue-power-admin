@@ -4,7 +4,14 @@
 </script>
 
 <template>
-  <div h-full bg-white flex flex-col justify-center items-center>
+  <div
+    h-full
+    bg-white
+    flex
+    flex-col
+    justify-center
+    items-center
+  >
     <img src="@/assets/images/not_found.svg" width="600" alt="not_found" />
     <el-button
       mt-12

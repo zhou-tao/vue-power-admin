@@ -75,7 +75,11 @@
         <div flex items="center" justify-between>
           <span>面包屑</span>
           <el-switch
-            v-model="hasBreadcrumb" inline-prompt active-text="开" inactive-text="关" />
+            v-model="hasBreadcrumb"
+            inline-prompt
+            active-text="开"
+            inactive-text="关"
+          />
         </div>
         <div flex items="center" justify-between>
           <span>标签页</span>

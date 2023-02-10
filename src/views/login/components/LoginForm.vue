@@ -46,7 +46,15 @@
 </script>
 
 <template>
-  <div w="xs" bg="white" dark:bg="dark-2" px="8" py="6" rounded-4 shadow-xl>
+  <div
+    w="xs"
+    bg="white"
+    dark:bg="dark-2"
+    px="8"
+    py="6"
+    rounded-4
+    shadow-xl
+  >
     <h1 text="3xl brand-gradient center" font="bold mono" m="t-lg b-0" select-none>
       {{ config.APP.title }}
     </h1>
@@ -76,8 +84,9 @@
               text="sm blue-5"
               cursor="pointer"
               @click="$message.info('敬请期待！')"
-            >忘记密码？</span
             >
+              忘记密码？
+            </span>
           </div>
         </el-form-item>
         <el-form-item :style="{ marginTop: '50px' }">
@@ -90,8 +99,8 @@
             class="login-btn"
             @click="doLogin(loginFormRef)"
           >
-            登录</el-button
-          >
+            登录
+          </el-button>
         </el-form-item>
       </el-form>
     </div>

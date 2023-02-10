@@ -33,7 +33,15 @@
 </script>
 
 <template>
-  <div flex items="center" gap="2" h="10" px-5 border-t="solid lbg" dark:border-t="dbg">
+  <div
+    flex
+    items="center"
+    gap="2"
+    h="10"
+    px-5
+    border-t="solid lbg"
+    dark:border-t="dbg"
+  >
     <el-dropdown
       v-for="v in visitedViews"
       :key="v.path"
