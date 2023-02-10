@@ -27,6 +27,7 @@ export default ({ mode }: ConfigEnv) => {
         '#': resolve(__dirname, 'types')
       }
     },
+    envDir: resolve(__dirname, '.env'),
     server: {
       host: true,
       port: VITE_PORT,
