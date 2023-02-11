@@ -1,6 +1,6 @@
 <script setup lang="ts" name="Login">
   import LoginForm from './components/LoginForm.vue'
-  import ThemeSwitch from '@c/ThemeSwitch/index.vue'
+  import ThemeSwitch from '@/components/ThemeSwitch'
 </script>
 
 <template>

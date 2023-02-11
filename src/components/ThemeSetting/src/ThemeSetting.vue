@@ -1,5 +1,5 @@
 <script setup lang="ts" name="ThemeSetting">
-  import ThemeSwitch from '@c/ThemeSwitch/index.vue'
+  import ThemeSwitch from '@/components/ThemeSwitch'
   import { MenuLayout } from '@/enums/menuEnum'
   import { useSettingStore } from '@/store/modules/setting'
 
@@ -22,8 +22,9 @@
 <template>
   <div
     fixed
+    z-3
     right-0
-    top="1/3"
+    top="1/4"
     w-10
     h-10
     bg-dark

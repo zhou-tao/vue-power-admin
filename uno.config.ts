@@ -29,7 +29,7 @@ export default {
       'transition-base': 'transition-all duration-150 ease-in-out'
     },
     {
-      'full-page': 'h-full rounded px-6 py-5 bg-white dark:bg-#222338 overflow-hidden box-border'
+      'full-page': 'min-h-full rounded px-6 py-5 bg-white dark:bg-#222338 overflow-x-hidden box-border'
     }
   ],
   // 自定义规则

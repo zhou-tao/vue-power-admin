@@ -1,6 +1,6 @@
 <script setup lang="ts" name="LayoutHeader">
   import Breadcrumb from './components/Breadcrumb.vue'
-  import ThemeSwitch from '@c/ThemeSwitch/index.vue'
+  import ThemeSwitch from '@/components/ThemeSwitch'
   import LogoView from '../sider/components/LogoView.vue'
   import Menu from '../sider/components/Menu.vue'
   import { useUserStore } from '@/store/modules/user'
