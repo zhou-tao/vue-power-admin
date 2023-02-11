@@ -2,7 +2,7 @@
   import { useSettingStore } from '@/store/modules/setting'
 
   const props = withDefaults(defineProps<{
-    type: 'base' | 'switch'
+    type?: 'base' | 'switch'
   }>(), {
     type: 'base'
   })
