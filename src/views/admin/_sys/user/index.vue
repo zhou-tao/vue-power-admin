@@ -4,14 +4,19 @@
 
   const { ElInput, ElSelect } = useComponent()
   const data = reactive({
+    username: '测试',
     name: '',
-    type: ''
+    gender: '',
+    deptName: '',
+    posts: ''
   })
 
   const config: SearchItemConfig[] = [
     { component: ElInput , label: '用户名', field: 'username', placeholder: '请输入' },
     { component: ElInput , label: '姓名', field: 'name', placeholder: '请输入' },
     { component: ElSelect , label: '性别', field: 'gender', options: [{ name: '男', value: '1' }, { name: '女', value: '0' }] },
+    { component: ElInput , label: '部门', field: 'deptName', placeholder: '请输入' },
+    { component: ElInput , label: '岗位', field: 'posts', placeholder: '请输入' }
   ]
 
   const tableData = Array(10).fill(0).map((r, i) => ({
@@ -28,11 +33,19 @@
   const pageData = reactive({
     current: 1
   })
+
+  function handleQuery() {
+    console.log('query...', toRaw(data))
+  }
+
+  function handleReset() {
+    console.log('reset...')
+  }
 </script>
 
 <template>
   <div full-page>
-    <SearchModel :model="data" :config="config" />
+    <SearchModel v-model="data" :config="config" :collapse="true" @query="handleQuery" @reset="handleReset" />
     <el-table
       size="large"
       :data="tableData"

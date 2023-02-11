@@ -1,13 +1,8 @@
 import { ComponentType } from './useComponent'
 
-export interface SearchConfig<T> {
-  model: T,
-  config: SearchItemConfig[]
-}
-
 interface SelectOptions {
   name: string,
-  value: string | number
+  value: string | number | boolean
 }
 
 export interface SearchItemConfig {

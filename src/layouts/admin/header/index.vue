@@ -5,7 +5,7 @@
   import Menu from '../sider/components/Menu.vue'
   import { useUserStore } from '@/store/modules/user'
   import { useSettingStore } from '@/store/modules/setting'
-  import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@h/event/useFullScreen'
+  import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'
   import { MenuLayout } from '@/enums/menuEnum'
 
   const { username } = $(useUserStore())
