@@ -3,7 +3,7 @@
   import { useSettingStore } from '@/store/modules/setting'
 
   const props = withDefaults(defineProps<{
-    mode: MenuLayout
+    mode?: MenuLayout
   }>(), {
     mode: MenuLayout.VERTICAL
   })
