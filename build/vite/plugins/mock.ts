@@ -27,11 +27,11 @@ const mockPlugin: (options?: MockOptions) => PluginOption = ({
 }
 
 const mockMiddleware: Connect.NextHandleFunction = function (req, res, next) {
+  // 接受的 MOCK 请求的 HTTP 方法列表
   const acceptMethods = ['POST', 'GET']
 
   const url = req.url?.split('?')[0] ?? ''
 
-  // 只接受 POST 请求
   if(req.method && !acceptMethods.includes(req.method)) {
     next()
     return
