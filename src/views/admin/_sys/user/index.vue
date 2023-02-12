@@ -2,6 +2,7 @@
   import SearchModel from '@/components/SearchModel'
   import { SearchItemConfig, useComponent } from '@/components/SearchModel'
 
+  const router = useRouter()
   const { ElInput, ElSelect, ElRadioButton } = useComponent()
   const data = reactive({
     username: '测试',
@@ -32,7 +33,8 @@
   }))
 
   const pageData = reactive({
-    current: 1
+    current: 1,
+    size: 10
   })
 
   function handleQuery() {
@@ -65,11 +67,12 @@
       <el-table-column prop="deptName" label="所在部门" />
       <el-table-column prop="posts" label="就职岗位" />
       <el-table-column fixed="right" label="操作" width="160">
-        <template #default>
+        <template #default="{ row }">
           <el-button
             link
             type="primary"
             size="small"
+            @click="router.push(`/admin/user/detail/${row.id}`)"
           >
             详情
           </el-button>
@@ -81,9 +84,9 @@
     <div mt-4 flex justify-end>
       <el-pagination
         v-model:current-page="pageData.current"
-        :page-size="10"
+        v-model:page-size="pageData.size"
         background
-        layout="total, prev, pager, next"
+        layout="total, sizes, prev, pager, next, jumper"
         :page-sizes="[10, 20, 50, 100]"
         :total="100"
       />

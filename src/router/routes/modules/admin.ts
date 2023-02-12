@@ -24,6 +24,14 @@ const AdminRoutes: AppRouteConfig[] = [
         }
       },
       {
+        path: 'user/detail/:id',
+        name: 'user_detail',
+        component: () => import('@/views/admin/_sys/user/detail.vue'),
+        meta: {
+          title: '用户详情'
+        }
+      },
+      {
         path: 'role',
         name: 'role',
         component: () => import('@/views/admin/_sys/roles/index.vue'),
