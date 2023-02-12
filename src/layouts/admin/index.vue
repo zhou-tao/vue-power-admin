@@ -14,10 +14,10 @@
 
 <template>
   <div class="admin-layout" h="full">
-    <el-container h="full" bg="lbg" dark:bg="dbg">
+    <el-container h="full" bg="root">
       <LayoutSider />
       <el-container>
-        <el-header h="auto" p-0 bg="white" dark:bg="#222338">
+        <el-header h="auto" p-0 bg="page">
           <LayoutHeader />
           <LayoutTabs v-if="hasTagsView" />
         </el-header>

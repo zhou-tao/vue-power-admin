@@ -10,11 +10,10 @@ export default {
   theme: {
     colors: {
       primary: '#377dff',
-      dtl: '#333333', // dark-text-l
-      dtm: '#666666',
-      dts: '#999999',
-      lbg: '#f5f6fa',
-      dbg: '#1B1C31',
+      root_light: '#f5f6fa', // 最底层背景
+      root_dark: '#1c1c1e',
+      page_light: '#ffffff', // 基础布局背景
+      page_dark: '#18181B',
       regular: 'var(--el-text-color-regular)',
       secondary: 'var(--el-text-color-secondary)',
       placeholder: 'var(--el-text-color-placeholder)',
@@ -26,10 +25,16 @@ export default {
   },
   shortcuts: [
     {
+      'bg-root': 'bg-root_light dark:bg-root_dark'
+    },
+    {
+      'bg-page': 'bg-page_light dark:bg-page_dark'
+    },
+    {
       'transition-base': 'transition-all duration-150 ease-in-out'
     },
     {
-      'full-page': 'min-h-full rounded px-6 py-5 bg-white dark:bg-#222338 overflow-x-hidden box-border'
+      'full-page': 'min-h-full rounded px-6 py-5 bg-page overflow-x-hidden box-border'
     }
   ],
   // 自定义规则

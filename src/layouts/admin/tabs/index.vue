@@ -39,8 +39,8 @@
     gap="2"
     h="10"
     px-5
-    border-t="solid lbg"
-    dark:border-t="dbg"
+    border-t="solid root_light"
+    dark:border-t="root_dark"
   >
     <el-dropdown
       v-for="v in visitedViews"

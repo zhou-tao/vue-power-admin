@@ -72,7 +72,7 @@
   .menu--vertical :deep(.el-menu) {
     @apply p-x-3;
     .el-menu-item {
-      @apply h-12 text-dtm dark:text-dts rounded;
+      @apply h-12 text-regular rounded;
       padding: 0 18px !important;
       .icon {
         @apply m-r-3 text-base;
