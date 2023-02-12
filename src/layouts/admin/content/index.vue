@@ -9,9 +9,6 @@
     p="3"
     pb="0"
     relative
-    flex="~ col"
-    justify="between"
-    overflow-y="auto"
   >
     <router-view v-slot="{ Component, route }">
       <transition :name="hasPageAnimate ? 'fade-slide' : ''">

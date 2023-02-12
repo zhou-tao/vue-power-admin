@@ -9,18 +9,21 @@ export default {
   transformers: [transformerDirective()],
   theme: {
     colors: {
-      primary: '#377dff',
       root_light: '#f5f6fa', // 最底层背景
       root_dark: '#1c1c1e',
       page_light: '#ffffff', // 基础布局背景
       page_dark: '#18181B',
+      primary: 'var(--el-color-primary)',
       regular: 'var(--el-text-color-regular)',
       secondary: 'var(--el-text-color-secondary)',
       placeholder: 'var(--el-text-color-placeholder)',
     },
     height: {
       header: '4rem',
-      footer: '3rem'
+      footer: '3rem',
+    },
+    minHeight: {
+      content: 'calc(100vh - 170px)'
     }
   },
   shortcuts: [
@@ -34,7 +37,7 @@ export default {
       'transition-base': 'transition-all duration-150 ease-in-out'
     },
     {
-      'full-page': 'min-h-full rounded px-6 py-5 bg-page overflow-x-hidden box-border'
+      'full-page': 'min-h-content rounded px-6 py-5 bg-page overflow-x-hidden box-border'
     }
   ],
   // 自定义规则

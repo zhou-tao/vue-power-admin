@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <el-footer height="50px" v-show="hasFooter">
+  <el-footer h="50px" v-show="hasFooter">
     <div h="footer" flex items="center" justify="center" text="placeholder">
       MIT Licensed <i-app-heart text="rose-600!" /> Copyright © 2022-present vue-power-admin
     </div>

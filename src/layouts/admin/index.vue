@@ -22,8 +22,10 @@
           <LayoutTabs v-if="hasTagsView" />
         </el-header>
         <el-container direction="vertical" overflow="hidden">
-          <LayoutContent />
-          <LayoutFooter />
+          <div overflow="auto">
+            <LayoutContent />
+            <LayoutFooter />
+          </div>
           <ThemeSetting />
         </el-container>
       </el-container>
