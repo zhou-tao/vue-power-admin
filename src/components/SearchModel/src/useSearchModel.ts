@@ -1,7 +1,7 @@
 import { ComponentType } from './useComponent'
 
-interface SelectOptions {
-  name: string,
+interface Option {
+  label: string,
   value: string | number | boolean
 }
 
@@ -9,6 +9,6 @@ export interface SearchItemConfig {
   component: ComponentType,
   label: string,
   field: string,
-  options?: SelectOptions[]
+  options?: Option[]
   [key: string]: any
 }

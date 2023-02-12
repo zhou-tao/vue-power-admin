@@ -2,7 +2,7 @@
   import SearchModel from '@/components/SearchModel'
   import { SearchItemConfig, useComponent } from '@/components/SearchModel'
 
-  const { ElInput, ElSelect } = useComponent()
+  const { ElInput, ElSelect, ElRadioButton } = useComponent()
   const data = reactive({
     username: '测试',
     name: '',
@@ -14,9 +14,10 @@
   const config: SearchItemConfig[] = [
     { component: ElInput , label: '用户名', field: 'username', placeholder: '请输入' },
     { component: ElInput , label: '姓名', field: 'name', placeholder: '请输入' },
-    { component: ElSelect , label: '性别', field: 'gender', options: [{ name: '男', value: '1' }, { name: '女', value: '0' }] },
+    { component: ElSelect , label: '性别', field: 'gender', options: [{ label: '男', value: '1' }, { label: '女', value: '0' }] },
     { component: ElInput , label: '部门', field: 'deptName', placeholder: '请输入' },
-    { component: ElInput , label: '岗位', field: 'posts', placeholder: '请输入' }
+    { component: ElInput , label: '岗位', field: 'posts', placeholder: '请输入' },
+    { component: ElRadioButton , label: '启用状态', field: 'enabled', options: [{ label: '是', value: '1' }, { label: '否', value: '0' }] }
   ]
 
   const tableData = Array(10).fill(0).map((r, i) => ({
@@ -45,7 +46,7 @@
 
 <template>
   <div full-page>
-    <SearchModel v-model="data" :config="config" :collapse="true" @query="handleQuery" @reset="handleReset" />
+    <SearchModel v-model="data" :config="config" :per-line-count="4" @query="handleQuery" @reset="handleReset" />
     <el-table
       size="large"
       :data="tableData"
