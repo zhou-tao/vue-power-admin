@@ -22,7 +22,7 @@
           <LayoutTabs v-if="hasTagsView" />
         </el-header>
         <el-container direction="vertical" overflow="hidden">
-          <div overflow="auto">
+          <div overflow="auto" scrollbar-hide>
             <LayoutContent />
             <LayoutFooter />
           </div>

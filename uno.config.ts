@@ -20,7 +20,7 @@ export default {
     },
     height: {
       header: '4rem',
-      footer: '3rem',
+      footer: '50px',
     },
     minHeight: {
       content: 'calc(100vh - 170px)'
