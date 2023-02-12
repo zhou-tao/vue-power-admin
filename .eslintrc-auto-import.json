@@ -1,7 +1,6 @@
 {
   "globals": {
     "EffectScope": true,
-    "ElNotification": true,
     "computed": true,
     "createApp": true,
     "customRef": true,
