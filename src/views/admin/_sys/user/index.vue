@@ -45,6 +45,14 @@
 <template>
   <div full-page>
     <SearchModel v-model="data" :config="config" :per-line-count="4" @query="handleQuery" @reset="handleReset" />
+    <div flex items="center">
+      <el-button type="primary">
+        <i-ri-add-fill /> 新增
+      </el-button>
+      <el-button type="danger">
+        <i-ri-delete-bin-line /> 删除
+      </el-button>
+    </div>
     <el-table
       size="large"
       :data="tableData"
@@ -54,6 +62,7 @@
       w-full
       mt-4
     >
+      <el-table-column fixed type="selection" width="50" />
       <el-table-column fixed prop="id" label="编号" width="80" align="center" />
       <el-table-column prop="username" label="用户名" width="180" />
       <el-table-column prop="name" label="姓名" width="140" />
