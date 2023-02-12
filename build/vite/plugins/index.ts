@@ -1,4 +1,4 @@
-import type { Plugin, PluginOption } from 'vite'
+import type { PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
@@ -35,7 +35,7 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
         legacy({
           // 无需对IE11进行polyfill 因为vue3无法支持
           targets: ['defaults', 'not IE 11']
-        }) as unknown as Plugin
+        })
       )
   }
 

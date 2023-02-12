@@ -1,6 +1,6 @@
 import Unocss from 'unocss/vite'
-import UnocssConfig from '../../../uno.config'
+import path from 'path'
 
 export const configUnocss = () => {
-  return Unocss(UnocssConfig as any)
+  return Unocss(path.resolve(process.cwd(), 'uno.config.ts'))
 }
