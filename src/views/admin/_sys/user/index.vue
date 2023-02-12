@@ -1,7 +1,8 @@
 <script setup lang="ts" name="User">
   import SearchModel from '@/components/SearchModel'
   import { SearchItemConfig, useComponent } from '@/components/SearchModel'
-
+  import { getUserList } from '@/api/_system/user'
+  import { UserInfoModel } from '@/api/_system/model/userModel'
   const router = useRouter()
   const { ElInput, ElSelect, ElRadioButton } = useComponent()
   const data = reactive({
@@ -21,16 +22,7 @@
     { component: ElRadioButton , label: '启用状态', field: 'enabled', options: [{ label: '是', value: '1' }, { label: '否', value: '0' }] }
   ]
 
-  const tableData = Array(10).fill(0).map((r, i) => ({
-    id: i+1,
-    username: 'ikun',
-    name: '坤坤',
-    gender: '男',
-    mobile: '18818186868',
-    roles: '用户',
-    deptName: '产品研发部',
-    posts: '前端'
-  }))
+  const tableData = ref<UserInfoModel[]>([])
 
   const pageData = reactive({
     current: 1,
@@ -44,6 +36,10 @@
   function handleReset() {
     console.log('reset...')
   }
+
+  getUserList().then(r => {
+    tableData.value = r.list
+  })
 </script>
 
 <template>

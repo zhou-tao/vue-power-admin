@@ -1,14 +1,15 @@
-import type { Plugin } from 'vite'
+import type { Plugin, PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { configUnocss } from './unocss'
 import { configAutoImportPlugins } from './auto-imports'
+import mockPlugin from './mock'
 
 export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
-  const { VITE_USE_LEGACY } = viteEnv
+  const { VITE_USE_LEGACY, VITE_USE_MOCK } = viteEnv
 
-  const vitePlugins: Plugin[] = [
+  const vitePlugins: PluginOption = [
     vue({
       reactivityTransform: true
     }),
@@ -22,6 +23,10 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
     // element-plus 自动导入
     ...configAutoImportPlugins()
   ]
+
+  if(VITE_USE_MOCK) {
+    vitePlugins.push(mockPlugin())
+  }
 
   if (isBuild) {
     // 生产环境兼容不支持ESM浏览器以及内置babel
