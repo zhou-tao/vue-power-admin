@@ -4,7 +4,8 @@
   import { LoginParams } from '@/api/_auth/model'
   import { useMessage } from '@h/web/useMessage'
   // import { useLoginByPassword } from '@h/logic/useLogin'
-  import type { FormInstance, FormRules } from 'element-plus'
+  import { FormInstance, FormRules, ElNotification } from 'element-plus'
+
   import { useRouter } from 'vue-router'
 
   const router = useRouter()
