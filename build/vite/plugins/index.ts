@@ -25,7 +25,9 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
   ]
 
   if(VITE_USE_MOCK) {
-    vitePlugins.push(mockPlugin())
+    vitePlugins.push(mockPlugin({
+      isBuild
+    }))
   }
 
   if (isBuild) {
