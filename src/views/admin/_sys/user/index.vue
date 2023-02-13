@@ -6,7 +6,7 @@
   const router = useRouter()
   const { ElInput, ElSelect, ElRadioButton } = useComponent()
   const data = reactive({
-    username: '测试',
+    username: '',
     name: '',
     gender: '',
     deptName: '',
@@ -22,6 +22,7 @@
     { component: ElRadioButton , label: '启用状态', field: 'enabled', options: [{ label: '是', value: '1' }, { label: '否', value: '0' }] }
   ]
 
+  const loading = ref(false)
   const tableData = ref<UserInfoModel[]>([])
 
   const pageData = reactive({
@@ -30,16 +31,30 @@
   })
 
   function handleQuery() {
+    loadData()
     console.log('query...', toRaw(data))
   }
 
   function handleReset() {
+    loadData()
     console.log('reset...')
   }
 
-  getUserList().then(r => {
-    tableData.value = r.list
-  })
+  function onPageChange(current: number) {
+    loadData()
+    console.log(`to page: ${current}`)
+  }
+
+  function loadData() {
+    loading.value = true
+    setTimeout(async () => {
+      const { list } = await getUserList()
+      loading.value = false
+      tableData.value = list
+    },300)
+  }
+
+  loadData()
 </script>
 
 <template>
@@ -54,8 +69,9 @@
       </el-button>
     </div>
     <el-table
-      size="large"
+      v-loading="loading"
       :data="tableData"
+      size="large"
       row-key="id"
       stripe
       border
@@ -94,6 +110,7 @@
         layout="total, sizes, prev, pager, next, jumper"
         :page-sizes="[10, 20, 50, 100]"
         :total="100"
+        @current-change="onPageChange"
       />
     </div>
   </div>

@@ -1,6 +1,7 @@
 <script setup lang="ts" name="SearchModel">
   import { SearchItemConfig } from './useSearchModel'
   import { ComponentName, getElComponent, isRadio } from './useComponent'
+  import type { FormInstance } from 'element-plus'
 
   const props = withDefaults(defineProps<{
     collapse?: boolean,
@@ -17,6 +18,7 @@
   })
   const emit = defineEmits(['update:modelValue', 'query', 'reset'])
 
+  const searchFormRef = ref<FormInstance>()
   const collapsed = ref(false)
   const colSpan = computed(() => 24 / props.perLineCount)
   const showCollapseBtn = computed(() => props.collapse && props.config.length > 3)
@@ -37,13 +39,18 @@
     formData.value[field] = value
   }
 
+  function handleReset() {
+    searchFormRef.value!.resetFields()
+    emit('reset')
+  }
+
 </script>
 
 <template>
-  <el-form :inline="true" :model="formData" label-position="top">
+  <el-form ref="searchFormRef" inline :model="formData" label-position="top">
     <el-row :gutter="24" flex-1>
       <el-col :span="colSpan" v-for="({ component, field, label, options, ...attrs }) in formConfig" :key="field">
-        <el-form-item :label="label">
+        <el-form-item :label="label" :prop="field">
           <component :is="getElComponent(component)" :model-value="formData[field]" v-bind="attrs" @input="handleChange(field, $event)" @change="handleChange(field, $event)">
             <template v-if="component.name === ComponentName.ElSelect">
               <el-option
@@ -72,7 +79,7 @@
             <el-button type="primary" @click="emit('query')">
               <i-ri-search-line />查询
             </el-button>
-            <el-button @click="emit('reset')">
+            <el-button @click="handleReset">
               <i-ri-refresh-line />重置
             </el-button>
             <el-button

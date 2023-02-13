@@ -78,4 +78,7 @@ declare module '@vue/runtime-core' {
     ThemeSetting: typeof import('./../src/components/ThemeSetting/src/ThemeSetting.vue')['default']
     ThemeSwitch: typeof import('./../src/components/ThemeSwitch/src/ThemeSwitch.vue')['default']
   }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
+  }
 }
