@@ -5,7 +5,7 @@
 
   const {
     hasBreadcrumb,
-    hasTagsView,
+    hasTabView,
     hasFooter,
     hasLocales,
     hasFpLoading,
@@ -17,27 +17,20 @@
 
   const drawer = ref(false)
 
+  function onTabViewChange(value: boolean) {
+    // calc content height and set css var
+    const CONTENT_BASE_HEIGHT_VAR = '--content-base-height'
+    const CONTENT_HEIGHT = `var(--content-${value ? 'min' : 'max'}-height)`
+    document.documentElement.style.setProperty(
+      CONTENT_BASE_HEIGHT_VAR, CONTENT_HEIGHT
+    )
+  }
+
 </script>
 
 <template>
   <div
-    fixed
-    z-3
-    right-0
-    top="1/4"
-    w-10
-    h-10
-    bg-dark
-    dark:bg="white"
-    rounded-l
-    cursor="pointer"
-    op="20"
-    hover:op="60"
-    transition-base
-    text="2xl"
-    flex
-    justify="center"
-    items="center"
+    class="flex items-center justify-center fixed z-3 right-0 top-1/4 w-10 h-10 bg-dark dark:bg-white text-2xl rounded-l cursor-pointer op-20 hover:op-60 transition-base"
     @click="drawer = true"
   >
     <i-emoji-artist-palette />
@@ -85,7 +78,7 @@
         </div>
         <div flex items="center" justify-between>
           <span>标签页</span>
-          <el-switch v-model="hasTagsView" inline-prompt active-text="开" inactive-text="关" />
+          <el-switch v-model="hasTabView" inline-prompt active-text="开" inactive-text="关" @change="onTabViewChange" />
         </div>
         <div flex items="center" justify-between>
           <span>页脚</span>

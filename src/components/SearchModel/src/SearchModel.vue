@@ -80,11 +80,10 @@
               type="primary"
               link
               m="l-1! b-1!"
-              text-xs
               @click="collapsed = !collapsed"
             >
-              <i-ep-arrow-down-bold v-show="collapsed" />
-              <i-ep-arrow-up-bold v-show="!collapsed" />
+              <i-ep-arrow-down-bold v-show="collapsed" text="xs!" />
+              <i-ep-arrow-up-bold v-show="!collapsed" text="xs!" />
               {{ collapsed ? '展开' : '收起' }}
             </el-button>
           </div>

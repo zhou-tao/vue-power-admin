@@ -1,9 +1,16 @@
 <script setup lang="ts" name="UserDetail">
+  const router = useRouter()
 </script>
 
 <template>
-  <div full-page>
-    <div text="lg" font="medium" mb-2>基础信息</div>
+  <div page-card>
+    <div flex items="center" mb-4>
+      <el-button @click="router.go(-1)">
+        <i-ri-arrow-go-back-fill />
+        返回
+      </el-button>
+    </div>
+    <!-- <div text="lg" font="medium" mb-2>基础信息</div> -->
     <el-descriptions
       :column="3"
       size="large"

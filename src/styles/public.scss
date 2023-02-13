@@ -20,3 +20,8 @@ body,
 .icon {
   @apply m-x-1 text-current outline-none;
 }
+
+// hide all scrollbar
+*::-webkit-scrollbar {
+  display: none;
+}

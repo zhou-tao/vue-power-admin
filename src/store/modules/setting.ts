@@ -11,7 +11,7 @@ interface SettingState {
   menuLayout: MenuLayout,
   menuCollapsed: boolean,
   hasBreadcrumb: boolean,
-  hasTagsView: boolean,
+  hasTabView: boolean,
   hasFooter: boolean,
   hasLocales: boolean,
   hasFpLoading: boolean,
@@ -25,7 +25,7 @@ export const useSettingStore = defineStore('setting', {
     menuLayout: MenuLayout.VERTICAL,
     menuCollapsed: false,
     hasBreadcrumb: true,
-    hasTagsView: true,
+    hasTabView: true,
     hasFooter: true,
     hasLocales: true,
     hasFpLoading: true,
@@ -43,6 +43,10 @@ export const useSettingStore = defineStore('setting', {
     },
 
     setLayout(layout: MenuLayout) {
+      if (layout === MenuLayout.HORIZONTAL) {
+        // 菜单为水平时避免折叠
+        this.menuCollapsed = false
+      }
       this.menuLayout = layout
     },
 

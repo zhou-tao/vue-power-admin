@@ -10,12 +10,11 @@
   <el-aside
     v-if="isVerticalMenu"
     :width="menuCollapsed ? '54px' : '260px'"
-    border-r="solid lbg"
-    dark:border-r="dbg"
+    border-r="solid root_light"
+    dark:border-r="root_dark"
     overflow="hidden"
     box="border"
-    bg="white"
-    dark:bg="#222338"
+    bg="page"
     transition-width
     duration-400
     ease-in-out

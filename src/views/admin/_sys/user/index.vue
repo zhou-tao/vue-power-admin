@@ -43,8 +43,16 @@
 </script>
 
 <template>
-  <div full-page>
+  <div page-card>
     <SearchModel v-model="data" :config="config" :per-line-count="4" @query="handleQuery" @reset="handleReset" />
+    <div flex items="center">
+      <el-button type="primary">
+        <i-ri-add-fill /> 新增
+      </el-button>
+      <el-button type="danger">
+        <i-ri-delete-bin-line /> 删除
+      </el-button>
+    </div>
     <el-table
       size="large"
       :data="tableData"
@@ -54,10 +62,11 @@
       w-full
       mt-4
     >
-      <el-table-column fixed prop="id" label="编号" width="80" align="center" />
+      <el-table-column fixed type="selection" width="50" />
+      <el-table-column fixed prop="id" label="编号" width="70" align="center" />
       <el-table-column prop="username" label="用户名" width="180" />
       <el-table-column prop="name" label="姓名" width="140" />
-      <el-table-column prop="gender" label="性别" width="100" />
+      <el-table-column prop="gender" label="性别" width="80" />
       <el-table-column prop="mobile" label="联系电话" />
       <el-table-column prop="roles" label="权限" />
       <el-table-column prop="deptName" label="所在部门" />
