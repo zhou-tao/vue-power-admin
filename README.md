@@ -1,5 +1,5 @@
 <div align="center">
-  <p align="center"><img alt="Vue-Power-Admin" align="center" src="./.github/logo.svg" width="100"/></p><br>
+  <p align="center"><img alt="Vue-Power-Admin" align="center" src="./.github/logo.svg" width="100" /></p><br>
   <p align="center">
     <a href="https://img.shields.io/badge/node-%3E%3D14-orange"><img src="https://img.shields.io/badge/node-%3E%3D14-orange" alt="Node"></a>
     <a href="https://github.com/zhou-tao/vue-power-admin/LICENSE"><img src="https://img.shields.io/badge/license-MIT-brightgreen" alt="MIT"></a>
@@ -24,6 +24,7 @@
 - **Components:** Encapsulate a large number of common background components.
 - **Generator:** Integrated code template generator to improve development efficiency.
 - **Spec:** Husky integrates ESLint Unified code specification with CommitLint check Git Message (built-in CZ-Git interactions).
+- **Mock** Mock for both development and production injection. You won't need to create mock data manually any more.
 
 ### :alarm_clock: Getting started
 

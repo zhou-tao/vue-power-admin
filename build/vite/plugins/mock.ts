@@ -5,14 +5,17 @@ import mockTemplates from '../../../mock'
 
 interface MockOptions {
   base?: string
+  isBuild?: boolean
 }
 
 const MOCK_DEFAULT_BASE = '/mock'
 
 const mockPlugin: (options?: MockOptions) => PluginOption = ({
-  base = MOCK_DEFAULT_BASE
+  base = MOCK_DEFAULT_BASE,
+  isBuild = false
 } = {
-  base: MOCK_DEFAULT_BASE
+  base: MOCK_DEFAULT_BASE,
+  isBuild: false
 }) => {
 
   return {
@@ -21,6 +24,18 @@ const mockPlugin: (options?: MockOptions) => PluginOption = ({
 
       return () => {
         server.middlewares.use(base, mockMiddleware)
+      }
+    },
+    transform(src, id) {
+      if(id.endsWith('/src/main.ts')) {
+        if(isBuild) {
+          const codeWithMockInjected = `
+import __injectMock from '../mock/production-inject';
+${src}
+__injectMock('${base}');
+`
+          return codeWithMockInjected
+        }
       }
     }
   }
