@@ -43,7 +43,7 @@
 </script>
 
 <template>
-  <div full-page>
+  <div page-card>
     <SearchModel v-model="data" :config="config" :per-line-count="4" @query="handleQuery" @reset="handleReset" />
     <div flex items="center">
       <el-button type="primary">

@@ -37,10 +37,8 @@
     flex
     items="center"
     gap="2"
-    h="10"
+    h="tab"
     px-5
-    border-t="solid root_light"
-    dark:border-t="root_dark"
   >
     <el-dropdown
       v-for="v in visitedViews"

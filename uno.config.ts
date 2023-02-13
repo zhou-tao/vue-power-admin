@@ -19,11 +19,12 @@ export default {
       placeholder: 'var(--el-text-color-placeholder)',
     },
     height: {
-      header: '4rem',
+      header: '64px',
       footer: '50px',
+      tab: 'var(--tab-view-height)'
     },
     minHeight: {
-      content: 'calc(100vh - 170px)'
+      content: 'var(--content-base-height)'
     }
   },
   shortcuts: [
@@ -37,7 +38,10 @@ export default {
       'transition-base': 'transition-all duration-150 ease-in-out'
     },
     {
-      'full-page': 'min-h-content rounded px-6 py-5 bg-page overflow-x-hidden box-border'
+      'page-base': 'min-h-content overflow-x-hidden box-border'
+    },
+    {
+      'page-card': 'page-base bg-page rounded px-6 py-5'
     }
   ],
   // 自定义规则

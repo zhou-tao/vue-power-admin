@@ -1,7 +1,7 @@
 <script setup lang="ts" name="Dashboard"></script>
 
 <template>
-  <div class="page">
+  <div page-base>
     <el-row :gutter="16" mb="4">
       <el-col :span="8"><div h="60" bg="page" rounded></div></el-col>
       <el-col :span="8"><div h="60" bg="page" rounded></div></el-col>

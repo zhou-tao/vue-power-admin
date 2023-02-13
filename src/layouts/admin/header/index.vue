@@ -21,7 +21,15 @@
 </script>
 
 <template>
-  <div h="header" px-6 flex items="center" justify="between">
+  <div
+    h="header"
+    px-6
+    flex
+    items="center"
+    justify="between"
+    border-b="solid root_light"
+    dark:border-b="root_dark"
+  >
     <div flex items="center" gap="6">
       <span v-if="isVerticalMenu" cursor="pointer" leading="0" @click="toggleCollapse()">
         <i-ep-expand v-show="menuCollapsed" />

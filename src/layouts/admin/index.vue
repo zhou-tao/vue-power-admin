@@ -8,7 +8,7 @@
 
   import { useSettingStore } from '@/store/modules/setting'
 
-  const { hasTagsView } = $(useSettingStore())
+  const { hasTabView } = $(useSettingStore())
 
 </script>
 
@@ -19,7 +19,7 @@
       <el-container>
         <el-header h="auto" p-0 bg="page">
           <LayoutHeader />
-          <LayoutTabs v-if="hasTagsView" />
+          <LayoutTabs v-if="hasTabView" />
         </el-header>
         <el-container direction="vertical" overflow="hidden">
           <div overflow="auto" scrollbar-hide>

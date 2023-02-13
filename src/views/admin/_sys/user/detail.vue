@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div full-page>
+  <div page-card>
     <div flex items="center" mb-4>
       <el-button @click="router.go(-1)">
         <i-ri-arrow-go-back-fill />
