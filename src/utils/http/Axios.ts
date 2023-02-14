@@ -148,6 +148,9 @@ export class CustomAxios {
     let conf: RequestConfig = Object.assign({}, this.options, config)
     conf = this.supportFormData(conf)
     conf = transformRequest(conf)
+    if(conf.useMock) {
+      conf.url = `/mock${conf.url}`
+    }
     return new Promise((resolve, reject) => {
       this.axiosInstance
         .request<any, AxiosResponse<Result>>(conf)

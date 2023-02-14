@@ -22,6 +22,7 @@ export interface RequestConfig<T = any> extends AxiosRequestConfig {
   isTransformResponse?: boolean
   responseType?: ResponseTypeEnum
   ignoreCancelToken?: boolean
+  useMock?: boolean
 }
 
 export interface Result<T = any> {
