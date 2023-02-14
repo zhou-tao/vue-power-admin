@@ -19,7 +19,8 @@ export const getUserList = () => {
   return useFetch.POST<{
     list: UserInfoModel[]
   }>({
-    url: '/mock' + Api.USER_LIST,
-    withToken: false
+    url: Api.USER_LIST,
+    withToken: false,
+    useMock: true
   })
 }
