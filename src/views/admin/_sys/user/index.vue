@@ -1,5 +1,6 @@
 <script setup lang="ts" name="User">
   import SearchModel from '@/components/SearchModel'
+  import TableModel, { ColumnAttrs, useSlotButton } from '@/components/TableModel'
   import { SearchItemConfig, useComponent } from '@/components/SearchModel'
   import { getUserList } from '@/api/_system/user'
   import { UserInfoModel } from '@/api/_system/model/userModel'
@@ -23,11 +24,40 @@
   ]
 
   const loading = ref(false)
+  const columns = ref([
+    { fixed: true, type: 'selection', width: '50' },
+    { fixed: true, prop:'id', label:'编号', width:'70', align:'center' },
+    { prop: 'username', label:'用户名', width:'180' },
+    { prop: 'name', label:'姓名', width:'140' },
+    { prop: 'gender', label:'性别', width:'80' },
+    { prop: 'mobile', label:'联系电话' },
+    { prop: 'roles', label:'权限' },
+    { prop: 'deptName', label:'所在部门' },
+    { prop: 'posts', label:'就职岗位' },
+    {
+      fixed:'right',
+      label:'操作',
+      width:'160',
+      slot: ({ row }: ColumnAttrs<UserInfoModel>) =>
+        [
+          useSlotButton('详情', () => {
+            router.push(`/admin/user/detail/${row.id}`)
+          }),
+          useSlotButton('编辑', () => {
+            console.log(`edit: ${row.id}`)
+          }),
+          useSlotButton('删除', () => {
+            console.log(`delete: ${row.id}`)
+          }, { type: 'danger' })
+        ]
+    }
+  ])
   const tableData = ref<UserInfoModel[]>([])
 
-  const pageData = reactive({
+  const pagination = reactive({
     current: 1,
-    size: 10
+    size: 10,
+    total: 100
   })
 
   function handleQuery() {
@@ -68,51 +98,14 @@
         <i-ri-delete-bin-line /> 删除
       </el-button>
     </div>
-    <el-table
-      v-loading="loading"
+    <TableModel
+      :loading="loading"
+      :columns="columns"
       :data="tableData"
-      size="large"
-      row-key="id"
-      stripe
-      border
-      w-full
-      mt-4
-    >
-      <el-table-column fixed type="selection" width="50" />
-      <el-table-column fixed prop="id" label="编号" width="70" align="center" />
-      <el-table-column prop="username" label="用户名" width="180" />
-      <el-table-column prop="name" label="姓名" width="140" />
-      <el-table-column prop="gender" label="性别" width="80" />
-      <el-table-column prop="mobile" label="联系电话" />
-      <el-table-column prop="roles" label="权限" />
-      <el-table-column prop="deptName" label="所在部门" />
-      <el-table-column prop="posts" label="就职岗位" />
-      <el-table-column fixed="right" label="操作" width="160">
-        <template #default="{ row }">
-          <el-button
-            link
-            type="primary"
-            size="small"
-            @click="router.push(`/admin/user/detail/${row.id}`)"
-          >
-            详情
-          </el-button>
-          <el-button link type="primary" size="small">编辑</el-button>
-          <el-button link type="danger" size="small">删除</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
-    <div mt-4 flex justify-end>
-      <el-pagination
-        v-model:current-page="pageData.current"
-        v-model:page-size="pageData.size"
-        background
-        layout="total, sizes, prev, pager, next, jumper"
-        :page-sizes="[10, 20, 50, 100]"
-        :total="100"
-        @current-change="onPageChange"
-      />
-    </div>
+      rowKey="id"
+      v-model:pagination="pagination"
+      @page-change="onPageChange"
+    />
   </div>
 </template>
 

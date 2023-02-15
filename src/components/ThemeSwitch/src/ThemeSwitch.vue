@@ -1,7 +1,7 @@
 <script setup lang="ts" name="ThemeSwitch">
   import { useSettingStore } from '@/store/modules/setting'
 
-  const props = withDefaults(defineProps<{
+  withDefaults(defineProps<{
     type?: 'base' | 'switch'
   }>(), {
     type: 'base'
@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <div v-if="props.type === 'switch'" text="2xl" flex items="center" gap="4">
+  <div v-if="type === 'switch'" text="2xl" flex items="center" gap="4">
     <i-emoji-sun />
     <el-switch
       v-model="isDark"

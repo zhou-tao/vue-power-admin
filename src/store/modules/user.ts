@@ -24,6 +24,7 @@ function setTokenHelper({
 }
 
 const initialUserState = {
+  id: 0,
   name: '',
   userId: -1,
   username: '知音',

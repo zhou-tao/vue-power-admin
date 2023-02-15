@@ -55,7 +55,7 @@
             权限
           </div>
         </template>
-        <el-tag size="small" type="primary">用户</el-tag>
+        <el-tag size="small">用户</el-tag>
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>

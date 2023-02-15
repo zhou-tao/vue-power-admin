@@ -15,13 +15,22 @@
     total: number
   }
 
-  defineProps<{
+  const props = defineProps<{
     loading?: boolean,
+    columns?: Column[],
     data: Array<Object>,
     rowKey: string,
-    columns: Column[],
-    pagination: Pagination
+    pagination?: Pagination
   }>()
+  const slots = useSlots()
+  const emit = defineEmits(['update:pagination', 'page-change'])
+
+  const pageData = computed({
+    set: v => {
+      emit('update:pagination', v)
+    },
+    get: () => props.pagination
+  })
 
 </script>
 
@@ -36,16 +45,26 @@
     w-full
     mt-4
   >
-    <el-table-column v-for="(col, i) in columns" :key="i" v-bind="col" />
+    <!-- slot(注释也算slot) 优先级高于 columns配置 -->
+    <slot v-if="slots.default"></slot>
+    <template v-else-if="columns">
+      <el-table-column v-for="(col, i) in columns" :key="i" v-bind="col">
+        <template #default="{ row }">
+          <component v-if="col.slot" :is="col.slot" :row="row" />
+        </template>
+      </el-table-column>
+    </template>
   </el-table>
   <div mt-4 flex justify-end>
     <el-pagination
-      :current-page="pagination.current"
-      :page-size="pagination.size"
+      v-if="pageData"
+      v-model:current-page="pageData.current"
+      v-model:page-size="pageData.size"
       background
       layout="total, sizes, prev, pager, next, jumper"
       :page-sizes="[10, 20, 50, 100]"
-      :total="pagination.total"
+      :total="pageData.total"
+      @current-change="$emit('page-change', $event)"
     />
   </div>
 </template>
