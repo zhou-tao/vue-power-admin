@@ -75,6 +75,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchModel: typeof import('./../src/components/SearchModel/src/SearchModel.vue')['default']
+    TableModel: typeof import('./../src/components/TableModel/src/TableModel.vue')['default']
     ThemeSetting: typeof import('./../src/components/ThemeSetting/src/ThemeSetting.vue')['default']
     ThemeSwitch: typeof import('./../src/components/ThemeSwitch/src/ThemeSwitch.vue')['default']
   }
