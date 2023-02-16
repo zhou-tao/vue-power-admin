@@ -1,0 +1,113 @@
+<script setup lang="ts" name="{{ camelCase name }}">
+  import SearchModel from '@/components/SearchModel'
+  import TableModel, { ColumnAttrs, useSlotButton } from '@/components/TableModel'
+  import { SearchItemConfig, useComponent } from '@/components/SearchModel'
+
+  const router = useRouter()
+
+  const { ElInput, ElSelect, ElRadioButton } = useComponent()
+  const config: SearchItemConfig[] = [
+    { component: ElInput , label: '字段1', field: 'field1', placeholder: '请输入' },
+    { component: ElSelect , label: '字段2', field: 'field2', options: [{ label: '是', value: '1' }, { label: '否', value: '0' }] },
+    { component: ElRadioButton , label: '字段3', field: 'field3', options: [{ label: '是', value: '1' }, { label: '否', value: '0' }] }
+  ]
+  const data = reactive({
+    field1: '',
+    field2: '',
+    field3: ''
+  })
+
+  const loading = ref(false)
+  const columns = ref([
+    { fixed: true, type: 'selection', width: '50' },
+    { fixed: true, prop:'id', label:'编号', width:'70', align:'center' },
+    { prop: 'field1', label:'字段1' },
+    { prop: 'field2', label:'字段2' },
+    {
+      fixed:'right',
+      label:'操作',
+      width:'160',
+      slot: ({ row }: ColumnAttrs<{{ model }}>) =>
+        [
+          useSlotButton('详情', () => {
+            router.push(`/admin/user/detail/${row.id}`)
+          }),
+          useSlotButton('编辑', () => {
+            console.log(`edit: ${row.id}`)
+          }),
+          useSlotButton('删除', () => {
+            console.log(`delete: ${row.id}`)
+          }, { type: 'danger' })
+        ]
+    }
+  ])
+  const tableData = ref<{{ model }}[]>([])
+
+  const pagination = reactive({
+    current: 1,
+    size: 10,
+    total: 100
+  })
+
+  function handleQuery() {
+    loadData()
+  }
+
+  function handleReset() {
+    loadData()
+    console.log('reset...')
+  }
+
+  function handlePageChange(current: number) {
+    pagination.current = current
+    loadData()
+  }
+
+  function handleSizeChange(size: number) {
+    pagination.size = size
+    loadData()
+  }
+
+  function loadData() {
+    loading.value = true
+    setTimeout(async () => {
+      const { list } = await {{ api }}({
+        ...data,
+        ...pagination
+      })
+      loading.value = false
+      tableData.value = list
+    },300)
+  }
+
+  loadData()
+</script>
+
+<template>
+  <div page-card>
+    <SearchModel
+      v-model="data"
+      :config="config"
+      :per-line-count="4"
+      @query="handleQuery"
+      @reset="handleReset"
+    />
+    <div flex items="center">
+      <el-button type="primary">
+        <i-ri-add-fill /> 新增
+      </el-button>
+      <el-button type="danger">
+        <i-ri-delete-bin-line /> 删除
+      </el-button>
+    </div>
+    <TableModel
+      :loading="loading"
+      :columns="columns"
+      :data="tableData"
+      row-key="id"
+      v-model:pagination="pagination"
+      @page-change="handlePageChange"
+      @size-change="handleSizeChange"
+    />
+  </div>
+</template>

@@ -1,0 +1,18 @@
+import { defineStore } from 'pinia'
+
+interface {{ camelCase name }}State {
+  foo: string
+}
+
+export const use{{ camelCase name }}Store = defineStore('{{ name }}', {
+  state: (): {{ camelCase name }}State => ({
+    foo: 'bar'
+  }),
+  getters: {},
+  actions: {},
+  {{#if hasPersist }}
+  persist: {
+    key: '{{ upperCase name }}_STORE',
+    storage: window.{{ persist }}Storage
+  }{{/if}}
+})
