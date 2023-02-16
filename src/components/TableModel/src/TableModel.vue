@@ -23,7 +23,7 @@
     pagination?: Pagination
   }>()
   const slots = useSlots()
-  const emit = defineEmits(['update:pagination', 'page-change'])
+  const emit = defineEmits(['update:pagination', 'page-change', 'size-change'])
 
   const pageData = computed({
     set: v => {
@@ -49,8 +49,8 @@
     <slot v-if="slots.default"></slot>
     <template v-else-if="columns">
       <el-table-column v-for="(col, i) in columns" :key="i" v-bind="col">
-        <template #default="{ row }">
-          <component v-if="col.slot" :is="col.slot" :row="row" />
+        <template v-if="col.slot" #default="{ row }">
+          <component :is="col.slot" :row="row" />
         </template>
       </el-table-column>
     </template>
@@ -65,6 +65,7 @@
       :page-sizes="[10, 20, 50, 100]"
       :total="pageData.total"
       @current-change="$emit('page-change', $event)"
+      @size-change="$emit('size-change', $event)"
     />
   </div>
 </template>

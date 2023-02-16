@@ -4,16 +4,10 @@
   import { SearchItemConfig, useComponent } from '@/components/SearchModel'
   import { getUserList } from '@/api/_system/user'
   import { UserInfoModel } from '@/api/_system/model/userModel'
-  const router = useRouter()
-  const { ElInput, ElSelect, ElRadioButton } = useComponent()
-  const data = reactive({
-    username: '',
-    name: '',
-    gender: '',
-    deptName: '',
-    posts: ''
-  })
 
+  const router = useRouter()
+
+  const { ElInput, ElSelect, ElRadioButton } = useComponent()
   const config: SearchItemConfig[] = [
     { component: ElInput , label: '用户名', field: 'username', placeholder: '请输入' },
     { component: ElInput , label: '姓名', field: 'name', placeholder: '请输入' },
@@ -22,6 +16,13 @@
     { component: ElInput , label: '岗位', field: 'posts', placeholder: '请输入' },
     { component: ElRadioButton , label: '启用状态', field: 'enabled', options: [{ label: '是', value: '1' }, { label: '否', value: '0' }] }
   ]
+  const data = reactive({
+    username: '',
+    name: '',
+    gender: '',
+    deptName: '',
+    posts: ''
+  })
 
   const loading = ref(false)
   const columns = ref([
@@ -70,9 +71,14 @@
     console.log('reset...')
   }
 
-  function onPageChange(current: number) {
+  function handlePageChange(current: number) {
     loadData()
     console.log(`to page: ${current}`)
+  }
+
+  function handleSizeChange(size: number) {
+    // loadData()
+    console.log(`to size: ${size}`)
   }
 
   function loadData() {
@@ -89,7 +95,13 @@
 
 <template>
   <div page-card>
-    <SearchModel v-model="data" :config="config" :per-line-count="4" @query="handleQuery" @reset="handleReset" />
+    <SearchModel
+      v-model="data"
+      :config="config"
+      :per-line-count="4"
+      @query="handleQuery"
+      @reset="handleReset"
+    />
     <div flex items="center">
       <el-button type="primary">
         <i-ri-add-fill /> 新增
@@ -102,11 +114,10 @@
       :loading="loading"
       :columns="columns"
       :data="tableData"
-      rowKey="id"
+      row-key="id"
       v-model:pagination="pagination"
-      @page-change="onPageChange"
+      @page-change="handlePageChange"
+      @size-change="handleSizeChange"
     />
   </div>
 </template>
-
-<style lang="scss" scoped></style>
