@@ -63,7 +63,6 @@
 
   function handleQuery() {
     loadData()
-    console.log('query...', toRaw(data))
   }
 
   function handleReset() {
@@ -72,19 +71,22 @@
   }
 
   function handlePageChange(current: number) {
+    pagination.current = current
     loadData()
-    console.log(`to page: ${current}`)
   }
 
   function handleSizeChange(size: number) {
-    // loadData()
-    console.log(`to size: ${size}`)
+    pagination.size = size
+    loadData()
   }
 
   function loadData() {
     loading.value = true
     setTimeout(async () => {
-      const { list } = await getUserList()
+      const { list } = await getUserList({
+        ...data,
+        ...pagination
+      })
       loading.value = false
       tableData.value = list
     },300)

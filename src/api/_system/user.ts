@@ -15,12 +15,13 @@ export const getAccountInfo = () => {
   })
 }
 
-export const getUserList = () => {
+export const getUserList = (data: Record<string, any>) => {
   return useFetch.POST<{
     list: UserInfoModel[]
   }>({
     url: Api.USER_LIST,
     withToken: false,
-    useMock: true
+    useMock: true,
+    data
   })
 }
