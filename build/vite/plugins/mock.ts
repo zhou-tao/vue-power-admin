@@ -42,7 +42,17 @@ __injectMock('${base}');
 }
 
 const mockMiddleware: Connect.NextHandleFunction = function (req, res, next) {
-  // 接受的 MOCK 请求的 HTTP 方法列表
+
+  const writeJson = (body: Record<string, any> = {}) => {
+    res.writeHead(200, { 'Content-Type': 'application/json' })
+    res.end(JSON.stringify({
+      code: 0,
+      data: Mock.mock(typeof mockTemplate === 'function' ? mockTemplate({ body }) : mockTemplate),
+      message: 'mock response success'
+    }))
+  }
+
+  // Accepted mock http methods
   const acceptMethods = ['POST', 'GET']
 
   const url = req.url?.split('?')[0] ?? ''
@@ -54,19 +64,25 @@ const mockMiddleware: Connect.NextHandleFunction = function (req, res, next) {
 
   const mockTemplate = mockTemplates[url]
 
-  // 请求的路由不在 mock 的配置路由中，不做任何处理
+  // If the url not in mock templates. Do nothing
   if(!mockTemplate) {
     next()
     return
   }
 
-  res.writeHead(200, { 'Content-Type': 'application/json' })
-  res.end(JSON.stringify({
-    code: 0,
-    data: Mock.mock(mockTemplate),
-    message: 'mock response success'
-  }))
+  let reqChunk = ''
 
+  if(req.headers['content-type']?.includes('application/json')) {
+    req.on('data', chunk => {
+      reqChunk += chunk
+    })
+    req.on('end', () => {
+      writeJson(JSON.parse(reqChunk))
+    })
+    return
+  }
+
+  writeJson()
 }
 
 export default mockPlugin
