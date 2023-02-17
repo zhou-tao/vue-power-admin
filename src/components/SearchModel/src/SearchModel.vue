@@ -30,9 +30,9 @@
     get: () => props.modelValue
   })
 
-  const formConfig = computed(() => {
-    if (!props.collapse || !collapsed.value) return props.config
-    return props.config.slice(0, props.showLines*props.perLineCount - 1)
+  const showConfigCount = computed(() => {
+    if (!props.collapse || !collapsed.value) return props.config.length
+    return props.showLines*props.perLineCount - 1
   })
 
   function handleChange(field: string, value: string | number) {
@@ -49,30 +49,32 @@
 <template>
   <el-form ref="searchFormRef" inline :model="formData" label-position="top">
     <el-row :gutter="24" flex-1>
-      <el-col :span="colSpan" v-for="({ component, field, label, options, ...attrs }) in formConfig" :key="field">
-        <el-form-item :label="label" :prop="field">
-          <component :is="getElComponent(component)" :model-value="formData[field]" v-bind="attrs" @input="handleChange(field, $event)" @change="handleChange(field, $event)">
-            <template v-if="component.name === ComponentName.ElSelect">
-              <el-option
-                v-for="opt in options"
-                :key="opt.value"
-                :label="opt.label"
-                :value="opt.value"
-              />
-            </template>
-            <template v-else-if="isRadio(component)">
-              <component
-                :is="component"
-                v-for="opt in options"
-                :key="opt.value"
-                :label="opt.value"
-              >
-                {{ opt.label }}
-              </component>
-            </template>
-          </component>
-        </el-form-item>
-      </el-col>
+      <template v-for="({ component, field, label, options, ...attrs }, index) in config" :key="field">
+        <el-col :span="colSpan" v-show="showConfigCount > index">
+          <el-form-item :label="label" :prop="field">
+            <component :is="getElComponent(component)" :model-value="formData[field]" v-bind="attrs" @input="handleChange(field, $event)" @change="handleChange(field, $event)">
+              <template v-if="component.name === ComponentName.ElSelect">
+                <el-option
+                  v-for="opt in options"
+                  :key="opt.value"
+                  :label="opt.label"
+                  :value="opt.value"
+                />
+              </template>
+              <template v-else-if="isRadio(component)">
+                <component
+                  :is="component"
+                  v-for="opt in options"
+                  :key="opt.value"
+                  :label="opt.value"
+                >
+                  {{ opt.label }}
+                </component>
+              </template>
+            </component>
+          </el-form-item>
+        </el-col>
+      </template>
       <el-col :span="colSpan" ml="auto">
         <el-form-item>
           <div flex h="15.5" items="end">
