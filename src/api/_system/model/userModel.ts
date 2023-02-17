@@ -9,6 +9,7 @@ export interface UserInfoModel {
   deptCode: Nullable<string>
   deptName: Nullable<string>
   mobile: Nullable<string>
+  enabled: boolean
   posts: PostModel[]
   roles: RoleModel[]
 }

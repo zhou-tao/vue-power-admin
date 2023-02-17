@@ -4,7 +4,9 @@
   import { SearchItemConfig, useComponent } from '@/components/SearchModel'
   import { getUserList } from '@/api/_system/user'
   import { UserInfoModel } from '@/api/_system/model/userModel'
+  import { useMessage } from '@/hooks/web/useMessage'
 
+  const tableModelRef = ref()
   const router = useRouter()
 
   const { ElInput, ElSelect, ElRadioButton } = useComponent()
@@ -14,14 +16,15 @@
     { component: ElSelect , label: '性别', field: 'gender', options: [{ label: '男', value: '1' }, { label: '女', value: '0' }] },
     { component: ElInput , label: '部门', field: 'deptName', placeholder: '请输入' },
     { component: ElInput , label: '岗位', field: 'posts', placeholder: '请输入' },
-    { component: ElRadioButton , label: '启用状态', field: 'enabled', options: [{ label: '是', value: '1' }, { label: '否', value: '0' }] }
+    { component: ElRadioButton , label: '启用状态', field: 'enabled', options: [{ label: '是', value: true }, { label: '否', value: false }] }
   ]
   const data = reactive({
     username: '',
     name: '',
     gender: '',
     deptName: '',
-    posts: ''
+    posts: '',
+    enabled: true
   })
 
   const loading = ref(false)
@@ -48,12 +51,13 @@
             console.log(`edit: ${row.id}`)
           }),
           useSlotButton('删除', () => {
-            console.log(`delete: ${row.id}`)
+            handleDelete([row])
           }, { type: 'danger' })
         ]
     }
   ])
   const tableData = ref<UserInfoModel[]>([])
+  const selectedData = ref<UserInfoModel[]>([])
 
   const pagination = reactive({
     current: 1,
@@ -67,7 +71,10 @@
 
   function handleReset() {
     loadData()
-    console.log('reset...')
+  }
+
+  function handleSelectionChange(rows: UserInfoModel[]) {
+    selectedData.value = rows
   }
 
   function handlePageChange(current: number) {
@@ -78,6 +85,22 @@
   function handleSizeChange(size: number) {
     pagination.size = size
     loadData()
+  }
+
+  function handleDelete(rows: UserInfoModel[]) {
+    const { $msgbox } = useMessage()
+    $msgbox.confirm(
+      '确认删除选中数据条目吗？',
+      '提示',
+      {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+      }
+    ).then(() => {
+      console.log('do delete:', rows)
+      loadData()
+    })
   }
 
   function loadData() {
@@ -108,15 +131,17 @@
       <el-button type="primary">
         <i-ri-add-fill /> 新增
       </el-button>
-      <el-button type="danger">
+      <el-button type="danger" :disabled="!selectedData.length" @click="handleDelete(selectedData)">
         <i-ri-delete-bin-line /> 删除
       </el-button>
     </div>
     <TableModel
+      ref="tableModelRef"
       :loading="loading"
       :columns="columns"
       :data="tableData"
       row-key="id"
+      @selection-change="handleSelectionChange"
       v-model:pagination="pagination"
       @page-change="handlePageChange"
       @size-change="handleSizeChange"

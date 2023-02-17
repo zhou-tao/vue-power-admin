@@ -4,12 +4,12 @@
   import { LoginParams } from '@/api/_auth/model'
   import { useMessage } from '@h/web/useMessage'
   // import { useLoginByPassword } from '@h/logic/useLogin'
-  import { FormInstance, FormRules, ElNotification } from 'element-plus'
+  import { FormInstance, FormRules } from 'element-plus'
 
   import { useRouter } from 'vue-router'
 
   const router = useRouter()
-  const { $message } = useMessage()
+  const { $message, $notify } = useMessage()
   const loginForm = reactive<LoginParams>({
     username: '',
     password: '',
@@ -37,7 +37,7 @@
       //   router.push('/home/index')
       // }
       router.push('/admin')
-      ElNotification({
+      $notify({
         title: 'Welcome',
         message: '尊贵的VIP用户，您已登录成功！',
         type: 'success',

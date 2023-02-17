@@ -1,5 +1,7 @@
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElMessageBox, ElNotification } from 'element-plus'
 
 export const useMessage = () => ({
-  $message: ElMessage
+  $message: ElMessage,
+  $msgbox: ElMessageBox,
+  $notify: ElNotification
 })

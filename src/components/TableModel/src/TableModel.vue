@@ -23,7 +23,13 @@
     pagination?: Pagination
   }>()
   const slots = useSlots()
-  const emit = defineEmits(['update:pagination', 'page-change', 'size-change'])
+  const emit = defineEmits(['update:pagination', 'selection-change', 'page-change', 'size-change'])
+
+  const tableRef = ref()
+
+  defineExpose({
+    tableRef
+  })
 
   const pageData = computed({
     set: v => {
@@ -36,10 +42,12 @@
 
 <template>
   <el-table
+    ref="tableRef"
     size="large"
     v-loading="loading"
     :data="data"
     :row-key="rowKey"
+    @selection-change="$emit('selection-change', $event)"
     stripe
     border
     w-full

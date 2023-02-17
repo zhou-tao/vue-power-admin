@@ -28,6 +28,7 @@ const initialUserState = {
   name: '',
   userId: -1,
   username: '知音',
+  enabled: true,
   deptCode: '',
   deptName: '',
   mobile: '',
