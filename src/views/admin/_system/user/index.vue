@@ -45,7 +45,7 @@
       slot: ({ row }: ColumnAttrs<UserInfoModel>) =>
         [
           useSlotButton('详情', () => {
-            router.push(`/admin/user/detail/${row.id}`)
+            router.push(`/system/user/detail/${row.id}`)
           }),
           useSlotButton('编辑', () => {
             console.log(`edit: ${row.id}`)

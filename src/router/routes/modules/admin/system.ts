@@ -1,11 +1,13 @@
 import AdminLayout from '@/layouts/admin/index.vue'
+import { AppRouteConfig } from '@/router/types'
 
-export default {
+const SystemRoute: AppRouteConfig = {
   path: '/system',
   name: 'system',
   component: AdminLayout,
   meta: {
-    title: '系统管理'
+    title: '系统管理',
+    icon: 'ri:settings-4-fill'
   },
   children: [{
     path: 'menu',
@@ -45,7 +47,7 @@ export default {
     component: () => import('@/views/admin/_system/user/detail.vue'),
     meta: {
       title: '用户详情',
-      hide: true
+      hideMenu: true
     }
   },
   {
@@ -65,3 +67,5 @@ export default {
     }
   }]
 }
+
+export default SystemRoute

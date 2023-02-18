@@ -1,11 +1,13 @@
 import AdminLayout from '@/layouts/admin/index.vue'
+import { AppRouteConfig } from '@/router/types'
 
-export default {
+const FeatRoute: AppRouteConfig = {
   path: '/feat',
   name: 'feat',
   component: AdminLayout,
   meta: {
-    title: '功能'
+    title: '功能',
+    icon: 'ri:rocket-2-fill'
   },
   children: [{
     path: 'image-preview',
@@ -32,3 +34,5 @@ export default {
     }
   }]
 }
+
+export default FeatRoute

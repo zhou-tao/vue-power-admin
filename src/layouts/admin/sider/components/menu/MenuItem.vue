@@ -1,19 +1,25 @@
 <script setup lang="ts" name="MenuItem">
   import type { RouteRecordName } from 'vue-router'
   import type { Menu, MenuItemComponent } from '@h/logic/useMenu'
+  import { Icon } from '@iconify/vue'
 
-  defineProps<{
+  const props = defineProps<{
     component: MenuItemComponent,
     title: string
     index: RouteRecordName | undefined
     icon?: string,
     children?: Menu[]
   }>()
+
+  const isSubMenu = computed(() => !!props.children?.length)
+
 </script>
 
 <template>
   <component :is="component" :index="index">
+    <Icon class="icon" v-if="icon && !isSubMenu" :icon="icon" />
     <template #title>
+      <Icon class="icon" v-if="icon && isSubMenu" :icon="icon" />
       <span>{{ title }}</span>
     </template>
     <template v-if="children?.length">

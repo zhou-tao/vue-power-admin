@@ -8,7 +8,7 @@ export interface Menu {
   component: MenuItemComponent
   title: string
   index: RouteRecordName | undefined
-  icon?: string,
+  icon?: string | undefined,
   children?: Menu[]
 }
 
@@ -20,10 +20,14 @@ export const resolveFullPath = (route: AppRouteConfig): string => {
 }
 
 export const routeToMenu = (routes: AppRouteConfig[]): Menu[] => {
-  return routes.filter(route => !route?.meta?.hide).map(r => ({
-    title: r?.meta?.title || 'title',
-    index: resolveFullPath(r) || r.name,
-    component: r?.children?.length ? ElSubMenu : ElMenuItem,
-    ...(r?.children?.length && { children: routeToMenu(r.children) })
-  }))
+  return routes.filter(route => !route?.meta?.hide).map(r => {
+    const childMenu = r.children && r.children.filter(child => !child.meta?.hideMenu)
+    return {
+      title: r?.meta?.title || 'title',
+      index: resolveFullPath(r) || r.name,
+      component: childMenu?.length ? ElSubMenu : ElMenuItem,
+      icon: r?.meta?.icon,
+      ...(childMenu?.length && { children: routeToMenu(childMenu) })
+    }
+  })
 }

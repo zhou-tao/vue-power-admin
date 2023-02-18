@@ -1,12 +1,14 @@
 import AdminLayout from '@/layouts/admin/index.vue'
+import { AppRouteConfig } from '@/router/types'
 
-export default {
+const HomeRoute: AppRouteConfig = {
   path: '/home',
   name: 'home',
   component: AdminLayout,
   redirect: '/home/dashboard',
   meta: {
-    title: '首页'
+    title: '首页',
+    icon: 'ep:home-filled'
   },
   children: [{
     path: 'dashboard',
@@ -24,3 +26,5 @@ export default {
     }
   }]
 }
+
+export default HomeRoute

@@ -12,6 +12,9 @@
   })
 
   const route = useRoute()
+  // @ts-ignore
+  const activeRoute = computed(() => route.matched.findLast(r => !r?.meta?.hideMenu) || route) // last route of no `hideMenu` in meta
+
   const settingStore = useSettingStore()
 
   const menuData = routeToMenu(AdminRoutes)
@@ -25,37 +28,13 @@
       border-r="0"
       :mode="props.mode"
       :collapse="settingStore.menuCollapsed"
-      :default-active="route.path"
+      :default-active="activeRoute.path"
     >
       <MenuItem
         v-for="menu in menuData"
         :key="menu.index"
         v-bind="menu"
       />
-      <!-- <el-menu-item index="/home">
-        <i-ep-menu />
-        <template #title>
-          <span>首页</span>
-        </template>
-      </el-menu-item>
-      <el-menu-item index="/system/user">
-        <i-ep-user-filled />
-        <template #title>
-          <span>用户管理</span>
-        </template>
-      </el-menu-item>
-      <el-menu-item index="/system/role">
-        <i-ri-admin-fill />
-        <template #title>
-          <span>权限管理</span>
-        </template>
-      </el-menu-item>
-      <el-menu-item index="/system/menu">
-        <i-ri-apps-fill />
-        <template #title>
-          <span>菜单管理</span>
-        </template>
-      </el-menu-item> -->
     </el-menu>
   </div>
 </template>
@@ -75,20 +54,14 @@
 
   // 顶层无法穿透样式
   .menu--vertical :deep(.el-menu) {
-    @apply p-x-3;
-    .el-menu-item {
-      @apply h-12 text-regular rounded;
-      padding: 0 18px !important;
+    .el-sub-menu__title, .el-menu-item {
+      @apply h-12 text-regular select-none;
       .icon {
-        @apply m-r-3 text-base;
+        @apply mr-10px text-base;
       }
 
       &:hover {
         @apply bg-transparent text-primary;
-      }
-
-      &::before {
-        @apply absolute w-1 h-full content-none bg-transparent rounded-r -left-3 transition-base;
       }
 
       &.is-active {
@@ -103,7 +76,7 @@
     &.el-menu--collapse {
       @apply p-0 w-full;
 
-      .el-menu-item {
+      .el-sub-menu__title, .el-menu-item {
         padding: 0 !important;
 
         &:hover {
@@ -117,13 +90,10 @@
         .icon {
           @apply my-0 mx-auto text-base;
         }
-        &::before {
-          @apply left-0 rounded-r-none;
-        }
 
-        &.is-active {
-          @apply text-primary bg-transparent;
-        }
+        // &.is-active {
+        //   @apply text-primary bg-transparent;
+        // }
       }
     }
   }

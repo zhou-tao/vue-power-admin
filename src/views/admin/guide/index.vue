@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div page-base>
+  <div page-card>
     引导页
   </div>
 </template>

@@ -1,11 +1,13 @@
 import AdminLayout from '@/layouts/admin/index.vue'
+import { AppRouteConfig } from '@/router/types'
 
-export default {
+const ComponentRoute: AppRouteConfig = {
   path: '/component',
   name: 'component',
   component: AdminLayout,
   meta: {
-    title: '组件'
+    title: '组件',
+    icon: 'ri:dashboard-fill'
   },
   children: [{
     path: 'form',
@@ -63,3 +65,5 @@ export default {
     }
   }]
 }
+
+export default ComponentRoute
