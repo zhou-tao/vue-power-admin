@@ -1,7 +1,7 @@
 import type { RouteComponent } from 'vue-router'
 import type { AppRouteConfig } from '@/router/types'
 import type { BuildMenuModel } from '@/api/_system/model/menuModel'
-import { PageLayout } from '@/router/constant'
+import AdminLayout from '@/layouts/admin/index.vue'
 import { alertErrMsg } from '@/utils/message'
 import { ErrorCodeEnum } from '@/enums/httpEnum'
 import { buildMenuApi } from '@/api/_system/menu'
@@ -18,7 +18,7 @@ const pages = import.meta.glob('../../views/**/*.vue')
 function componentMap(path: string): RawRouteComponent {
   switch (path) {
     case 'Layout':
-      return PageLayout
+      return AdminLayout
     default: {
       const joinPath = `admin/${path}`.replace(/\/\//, '/')
       return pages[`../../views/${joinPath}.vue`]
@@ -32,7 +32,7 @@ function mapRoutes(serverRoutes: BuildMenuModel[]): AppRouteConfig[] {
       name: name ?? '',
       redirect: redirect ?? '',
       component: componentMap(component),
-      ...(children?.length > 0 && { children: mapRoutes(children) }),
+      ...(children?.length && { children: mapRoutes(children) }),
       ...rest
     })
   )

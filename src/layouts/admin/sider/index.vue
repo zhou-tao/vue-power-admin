@@ -1,5 +1,5 @@
 <script setup lang="ts" name="LayoutSider">
-  import Menu from './components/Menu.vue'
+  import Menu from './components/menu/index.vue'
   import LogoView from './components/LogoView.vue'
   import { useSettingStore } from '@/store/modules/setting'
 

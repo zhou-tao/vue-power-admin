@@ -2,7 +2,7 @@
   import Breadcrumb from './components/Breadcrumb.vue'
   import ThemeSwitch from '@/components/ThemeSwitch'
   import LogoView from '../sider/components/LogoView.vue'
-  import Menu from '../sider/components/Menu.vue'
+  import Menu from '../sider/components/menu/index.vue'
   import { useUserStore } from '@/store/modules/user'
   import { useSettingStore } from '@/store/modules/setting'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'

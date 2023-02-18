@@ -1,5 +1,5 @@
 import type { AppRouteConfig } from '@/router/types'
-import { ScreenLayout } from '@/router/constant'
+import ScreenLayout from '@/layouts/screen/index.vue'
 
 const ScreenRoute: AppRouteConfig = {
   path: '/screen',

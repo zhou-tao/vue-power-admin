@@ -6,7 +6,7 @@
 			"<script setup lang=\"ts\" name=\"$1\">",
       "</script>",
       "\n<template>",
-      "\t<div class=\"page\">$2</div>",
+      "\t<div page-card>$2</div>",
       "</template>",
       "\n<style lang=\"scss\" scoped></style>",
       ""

@@ -1,5 +1,5 @@
 import type { AppRouteConfig } from '../types'
-import AdminRoutes from './modules/admin'
+import AdminRoutes from './modules/admin/index'
 import { PageNotFoundRoute } from './modules/error'
 import ScreenRoute from './modules/screen'
 

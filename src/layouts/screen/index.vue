@@ -1,7 +1,7 @@
 <script setup lang="ts" name="ScreenLayout"></script>
 
 <template>
-  <div class="page"></div>
+  <router-view />
 </template>
 
-<style lang="less" scoped></style>
+<style lang="scss" scoped></style>

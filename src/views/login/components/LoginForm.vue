@@ -34,9 +34,9 @@
       //   $message.success({
       //     message: '登录成功'
       //   })
-      //   router.push('/home/index')
+      //   router.push('/home')
       // }
-      router.push('/admin')
+      router.push('/home')
       $notify({
         title: 'Welcome',
         message: '尊贵的VIP用户，您已登录成功！',
