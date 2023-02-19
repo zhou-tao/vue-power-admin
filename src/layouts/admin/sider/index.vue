@@ -12,7 +12,8 @@
     :width="menuCollapsed ? '54px' : '260px'"
     border-r="solid root_light"
     dark:border-r="root_dark"
-    overflow="hidden"
+    overflow-x="hidden"
+    pb="12"
     box="border"
     bg="page"
     transition-width

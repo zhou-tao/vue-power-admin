@@ -15,6 +15,9 @@ export const useAppStore = defineStore('app', {
     addVisitedView(view: AppRouteConfig) {
       if (this.visitedViews.every(r => r.path !== view.path)) {
         this.visitedViews.push(view)
+        return true
+      } else {
+        return false
       }
     },
 

@@ -5,13 +5,17 @@
   let { visitedViews, addVisitedView, deleteVisitedView } = $(useAppStore())
   const router = useRouter()
   const route = useRoute()
+  const tabRef = ref<HTMLDivElement>()
 
   watch(route, v => {
     const { path, meta } = v
-    addVisitedView({
+    const success = addVisitedView({
       path,
       meta
     })
+    if (success) {
+      scrollToActiveTag()
+    }
   }, { immediate: true })
 
   function removeTag(v: AppRouteConfig) {
@@ -30,15 +34,23 @@
     if (v.path !== route.path) router.push(v.path)
   }
 
+  async function scrollToActiveTag() {
+    await nextTick()
+    // Todo: need handle -> active tag is existed & scroll to back
+    tabRef.value?.scrollTo({ behavior: 'smooth', left: tabRef.value.scrollWidth })
+  }
+
 </script>
 
 <template>
   <div
+    ref="tabRef"
     flex
     items="center"
     gap="2"
     h="tab"
     px-5
+    overflow-x="auto"
   >
     <el-dropdown
       v-for="v in visitedViews"

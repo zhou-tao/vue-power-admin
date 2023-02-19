@@ -35,7 +35,7 @@
         <i-ep-expand v-show="menuCollapsed" />
         <i-ep-fold v-show="!menuCollapsed" />
       </span>
-      <LogoView mb="0!" mr="6" v-else />
+      <LogoView mr="6" v-else />
       <Breadcrumb v-if="hasBreadcrumb && isVerticalMenu" />
     </div>
     <Menu v-if="!isVerticalMenu" :mode="MenuLayout.HORIZONTAL" />
