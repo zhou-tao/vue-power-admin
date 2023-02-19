@@ -47,7 +47,8 @@ const SystemRoute: AppRouteConfig = {
     component: () => import('@/views/admin/_system/user/detail.vue'),
     meta: {
       title: '用户详情',
-      hideMenu: true
+      hideMenu: true,
+      activeMenu: '/system/user'
     }
   },
   {

@@ -28,7 +28,7 @@
       border-r="0"
       :mode="props.mode"
       :collapse="settingStore.menuCollapsed"
-      :default-active="activeRoute.path"
+      :default-active="route?.meta?.activeMenu || activeRoute.path"
     >
       <MenuItem
         v-for="menu in menuData"
