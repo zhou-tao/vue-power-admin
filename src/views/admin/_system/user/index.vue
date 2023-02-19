@@ -1,43 +1,29 @@
 <script setup lang="ts" name="User">
+  import type { FormInstance, FormRules } from 'element-plus'
   import SearchModel from '@/components/SearchModel'
   import TableModel, { ColumnAttrs, useSlotButton } from '@/components/TableModel'
-  import { SearchItemConfig, useComponent } from '@/components/SearchModel'
   import { getUserList } from '@/api/_system/user'
   import { UserInfoModel } from '@/api/_system/model/userModel'
   import { useMessage } from '@/hooks/web/useMessage'
+  import { config, staticColumns, SubmitTypeEnum } from './usePage'
+  import { cloneDeep } from 'lodash-es'
 
   const tableModelRef = ref()
   const router = useRouter()
+  const { $message } = useMessage()
 
-  const { ElInput, ElSelect, ElRadioButton } = useComponent()
-  const config: SearchItemConfig[] = [
-    { component: ElInput , label: '用户名', field: 'username', placeholder: '请输入' },
-    { component: ElInput , label: '姓名', field: 'name', placeholder: '请输入' },
-    { component: ElSelect , label: '性别', field: 'gender', options: [{ label: '男', value: '1' }, { label: '女', value: '0' }] },
-    { component: ElInput , label: '部门', field: 'deptName', placeholder: '请输入' },
-    { component: ElInput , label: '岗位', field: 'posts', placeholder: '请输入' },
-    { component: ElRadioButton , label: '启用状态', field: 'enabled', options: [{ label: '是', value: true }, { label: '否', value: false }] }
-  ]
   const data = reactive({
     username: '',
     name: '',
     gender: '',
+    role: '',
     deptName: '',
-    posts: '',
-    enabled: true
+    posts: ''
   })
 
   const loading = ref(false)
   const columns = ref([
-    { fixed: true, type: 'selection', width: '50' },
-    { fixed: true, prop:'id', label:'编号', width:'70', align:'center' },
-    { prop: 'username', label:'用户名', width:'180' },
-    { prop: 'name', label:'姓名', width:'140' },
-    { prop: 'gender', label:'性别', width:'80' },
-    { prop: 'mobile', label:'联系电话' },
-    { prop: 'roles', label:'权限' },
-    { prop: 'deptName', label:'所在部门' },
-    { prop: 'posts', label:'就职岗位' },
+    ...staticColumns,
     {
       fixed:'right',
       label:'操作',
@@ -48,7 +34,7 @@
             router.push(`/system/user/detail/${row.id}`)
           }),
           useSlotButton('编辑', () => {
-            console.log(`edit: ${row.id}`)
+            handleUpdate(row)
           }),
           useSlotButton('删除', () => {
             handleDelete([row])
@@ -64,6 +50,9 @@
     size: 10,
     total: 100
   })
+
+  const visible = ref(false)
+  const submitType = ref(SubmitTypeEnum.ADD)
 
   function handleQuery() {
     loadData()
@@ -116,6 +105,66 @@
   }
 
   loadData()
+
+  let submitForm = reactive({
+    username: '',
+    name: '',
+    gender: null,
+    mobile: '',
+    roles: [],
+    deptName: '',
+    posts: []
+  })
+
+  function handleAdd() {
+    submitType.value = SubmitTypeEnum.ADD
+    submitForm = reactive({
+      username: '',
+      name: '',
+      gender: null,
+      mobile: '',
+      roles: [],
+      deptName: '',
+      posts: []
+    })
+    visible.value = true
+  }
+
+  const submitFormRef = ref<FormInstance>()
+
+  const rules = reactive<FormRules>({
+    username: [
+      { required: true, message: '请输入用户名', trigger: 'blur' }
+    ],
+    name: [
+      { required: true, message: '请输入姓名', trigger: 'blur' }
+    ],
+    gender: [
+      { required: true, message: '请选择性别', trigger: 'change' }
+    ],
+    roles: [
+      { required: true, message: '请选择权限', trigger: 'change' }
+    ],
+  })
+
+  function handleUpdate(row: UserInfoModel) {
+    submitType.value = SubmitTypeEnum.UPDATE
+    // @ts-ignore
+    submitForm = reactive(cloneDeep(toRaw(row)))
+    visible.value = true
+  }
+
+  function handleSubmit() {
+    submitFormRef.value?.validate(valid => {
+      if (valid) {
+        visible.value = false
+        $message.success('保存成功！')
+      } else {
+        $message.warning('请完善必填选项！')
+      }
+    })
+  }
+
 </script>
 
 <template>
@@ -128,7 +177,7 @@
       @reset="handleReset"
     />
     <div flex items="center">
-      <el-button type="primary">
+      <el-button type="primary" @click="handleAdd">
         <i-ri-add-fill /> 新增
       </el-button>
       <el-button type="danger" :disabled="!selectedData.length" @click="handleDelete(selectedData)">
@@ -146,5 +195,59 @@
       @page-change="handlePageChange"
       @size-change="handleSizeChange"
     />
+    <el-dialog
+      v-model="visible"
+      :title="submitType"
+      :show-close="false"
+      :close-on-click-modal="false"
+      @closed="submitFormRef?.resetFields()"
+    >
+      <el-form
+        ref="submitFormRef"
+        :model="submitForm"
+        :rules="rules"
+        label-width="100px"
+        style="width: 95%"
+        status-icon
+      >
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="submitForm.username" placeholder="请输入" />
+        </el-form-item>
+        <el-form-item label="姓名" prop="name">
+          <el-input v-model="submitForm.name" placeholder="请输入" />
+        </el-form-item>
+        <el-form-item label="性别" prop="gender">
+          <el-select v-model="submitForm.gender" style="width: 100%">
+            <el-option label="男" value="1" />
+            <el-option label="女" value="0" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="权限" prop="roles">
+          <el-select v-model="submitForm.roles" multiple style="width: 100%">
+            <el-option label="用户" value="0" />
+            <el-option label="管理员" value="1" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="部门" prop="deptName">
+          <el-input v-model="submitForm.deptName" placeholder="请输入" />
+        </el-form-item>
+        <el-form-item label="岗位" prop="posts">
+          <el-select v-model="submitForm.posts" multiple style="width: 100%">
+            <el-option label="前端" value="0" />
+            <el-option label="后端" value="1" />
+            <el-option label="产品" value="2" />
+            <el-option label="测试" value="3" />
+          </el-select>
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="visible = false">取消</el-button>
+          <el-button type="primary" @click="handleSubmit">
+            保存
+          </el-button>
+        </span>
+      </template>
+    </el-dialog>
   </div>
 </template>

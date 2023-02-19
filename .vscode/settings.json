@@ -10,5 +10,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "scss.lint.unknownAtRules": "ignore"
+  "scss.lint.unknownAtRules": "ignore",
+  "volar.inlayHints.eventArgumentInInlineHandlers": false
 }

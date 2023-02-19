@@ -6,10 +6,10 @@ export interface UserInfoModel {
   name: string
   userId: number
   username: string
+  gender: string
   deptCode: Nullable<string>
   deptName: Nullable<string>
   mobile: Nullable<string>
-  enabled: boolean
-  posts: PostModel[]
-  roles: RoleModel[]
+  posts: Partial<PostModel>[]
+  roles: Partial<RoleModel>[]
 }
