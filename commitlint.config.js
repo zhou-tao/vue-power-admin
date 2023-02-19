@@ -56,6 +56,10 @@ module.exports = {
     useEmoji: true,
     customScopesAlign: !scopeComplete ? 'top' : 'bottom',
     defaultScope: scopeComplete,
-    scopes: [...scopes]
+    scopes: [...scopes],
+    typesAppend: [
+      { value: 'wip', name: 'wip:      work in process' },
+      { value: 'types', name: 'types:    type definition file changes' }
+    ]
   }
 }
