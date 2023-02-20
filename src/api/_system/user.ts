@@ -1,3 +1,4 @@
+import type { ListQuery, ListResult } from '../model/baseModel'
 import type { UserInfoModel } from './model/userModel'
 import { useFetch } from '@/utils/http'
 
@@ -15,10 +16,8 @@ export const getAccountInfo = () => {
   })
 }
 
-export const getUserList = (data: Record<string, any>) => {
-  return useFetch.POST<{
-    list: UserInfoModel[]
-  }>({
+export const getUserList = (data: ListQuery) => {
+  return useFetch.POST<ListResult<UserInfoModel>>({
     url: Api.USER_LIST,
     withToken: false,
     useMock: true,

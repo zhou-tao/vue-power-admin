@@ -12,13 +12,13 @@
   const router = useRouter()
   const { $message } = useMessage()
 
-  const data = reactive({
+  const queryData = reactive({
     username: '',
     name: '',
     gender: '',
     role: '',
     deptName: '',
-    posts: ''
+    post: ''
   })
 
   const loading = ref(false)
@@ -45,7 +45,7 @@
   const tableData = ref<UserInfoModel[]>([])
   const selectedData = ref<UserInfoModel[]>([])
 
-  const pagination = reactive({
+  let pagination = reactive({
     current: 1,
     size: 10,
     total: 100
@@ -95,10 +95,11 @@
   function loadData() {
     loading.value = true
     setTimeout(async () => {
-      const { list } = await getUserList({
-        ...data,
+      const { list, current, total, size } = await getUserList({
+        query: queryData,
         ...pagination
       })
+      pagination = { current, size, total }
       loading.value = false
       tableData.value = list
     },300)
@@ -106,7 +107,7 @@
 
   loadData()
 
-  let submitForm = reactive({
+  let submitForm = reactive<Record<string, any>>({
     username: '',
     name: '',
     gender: null,
@@ -142,6 +143,9 @@
     gender: [
       { required: true, message: '请选择性别', trigger: 'change' }
     ],
+    mobile: [
+      { required: true, message: '请输入联系电话', trigger: 'blur' }
+    ],
     roles: [
       { required: true, message: '请选择权限', trigger: 'change' }
     ],
@@ -150,7 +154,10 @@
   function handleUpdate(row: UserInfoModel) {
     submitType.value = SubmitTypeEnum.UPDATE
     // @ts-ignore
-    submitForm = reactive(cloneDeep(toRaw(row)))
+    const rowData: Record<string, any> = reactive(cloneDeep(toRaw(row)))
+    rowData.roles = row.roles.map(r => r.code)
+    rowData.posts = row.posts.map(p => p.code)
+    submitForm = rowData
     visible.value = true
   }
 
@@ -170,7 +177,7 @@
 <template>
   <div page-card>
     <SearchModel
-      v-model="data"
+      v-model="queryData"
       :config="config"
       :per-line-count="4"
       @query="handleQuery"
@@ -197,6 +204,7 @@
     />
     <el-dialog
       v-model="visible"
+      :width="600"
       :title="submitType"
       :show-close="false"
       :close-on-click-modal="false"
@@ -222,10 +230,13 @@
             <el-option label="女" value="0" />
           </el-select>
         </el-form-item>
+        <el-form-item label="电话" prop="mobile">
+          <el-input v-model="submitForm.mobile" placeholder="请输入" />
+        </el-form-item>
         <el-form-item label="权限" prop="roles">
           <el-select v-model="submitForm.roles" multiple style="width: 100%">
-            <el-option label="用户" value="0" />
-            <el-option label="管理员" value="1" />
+            <el-option label="用户" value="1" />
+            <el-option label="管理员" value="0" />
           </el-select>
         </el-form-item>
         <el-form-item label="部门" prop="deptName">
