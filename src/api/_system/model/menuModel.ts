@@ -1,4 +1,3 @@
-import type { MenuType } from '@/enums/menuEnum'
 import type { DateLogModel } from '@/api/model/baseModel'
 import type { AppRouteConfig } from '@/router/types'
 
@@ -14,10 +13,9 @@ export interface MenuModel
   extends Omit<BuildMenuModel, 'meta' | 'children'>,
     DateLogModel {
   title: string
-  type: MenuType
-  orderNum: number
+  order: number
   parentId: number
   icon: string
-  hasChildren: boolean
-  [key: string]: unknown
+  leaf: boolean
+  [key: string]: any
 }

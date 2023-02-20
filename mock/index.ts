@@ -24,7 +24,22 @@ const mockTemplates: Mock = {
       'mobile': /1[1-9]{2}\d{8}/,
       'roles': [RoleTemplate],
       'deptName': '@cword(3,5)部',
-      'posts|1-2': [PostTemplate]
+      'posts': [PostTemplate]
+    }
+  }),
+  ...useListTemplate('/sysadmin/menu/list', () => {
+    return {
+      'id|+1': 1,
+      'title': '@cword(2, 4)',
+      'path': '/system/@word(2, 4)',
+      'name': '@word(2, 4)',
+      'icon': '@pick(["ri:dashboard-fill", "ep:home-filled", "ri:settings-4-fill", "ri:rocket-2-fill", "ri:checkbox-multiple-fill"])',
+      'leaf|1': true,
+      'order|+1': 1,
+      'component': 'src/views/admin/@word(2,4)',
+      'parentId|+1': 100,
+      'redirect': '/system/@word(2, 4)/index',
+      'children': []
     }
   })
 }
