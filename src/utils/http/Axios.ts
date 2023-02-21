@@ -1,4 +1,4 @@
-import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import type { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse } from 'axios'
 import type { RequestConfig, ResponseError, Result } from '#/http'
 import { ContentTypeEnum, HttpMethodEnum } from '@/enums/httpEnum'
 import { TokenTypeEnum } from '@/enums/authEnum'
@@ -55,7 +55,7 @@ export class CustomAxios {
     const axiosCanceler = new AxiosCanceler()
     // 请求拦截
     this.axiosInstance.interceptors.request.use(
-      async (config: AxiosRequestConfig) => {
+      async (config: InternalAxiosRequestConfig) => {
         // @ts-ignore
         const { headers, withToken, ignoreCancelToken } = config
         // 当请求函数内未设置 ignoreCancelToken 时才采用默认初始化配置

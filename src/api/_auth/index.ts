@@ -12,7 +12,7 @@ enum Api {
 const createAuthHeader = () => {
   const { client_id, client_secret } = config.OAUTH
   return {
-    'content-type': ContentTypeEnum.JSON,
+    'Content-Type': ContentTypeEnum.FORM_URLENCODED,
     'Authorization': `${AuthTypeEnum.BASIC} ${window.btoa(
       `${client_id}:${client_secret}`
     )}`

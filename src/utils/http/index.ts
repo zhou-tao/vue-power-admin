@@ -25,7 +25,7 @@ export const useFetch = new CustomAxios({
 
   // 请求头
   headers: {
-    'content-type': ContentTypeEnum.JSON
+    'Content-Type': ContentTypeEnum.JSON
   },
 
   // 是否携带token
