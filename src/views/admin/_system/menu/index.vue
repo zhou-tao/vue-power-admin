@@ -205,10 +205,10 @@
         status-icon
       >
         <el-form-item label="名称" prop="title">
-          <el-input v-model="submitForm.username" placeholder="请输入" />
+          <el-input v-model="submitForm.title" placeholder="请输入" />
         </el-form-item>
         <el-form-item label="类型" prop="leaf">
-          <el-select v-model="submitForm.gender" style="width: 100%">
+          <el-select v-model="submitForm.leaf" style="width: 100%">
             <el-option label="目录" :value="false" />
             <el-option label="菜单" :value="true" />
           </el-select>

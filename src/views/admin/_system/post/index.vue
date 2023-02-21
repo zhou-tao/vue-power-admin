@@ -1,24 +1,18 @@
-<script setup lang="ts" name="Post">
+<script setup lang="ts" name="Department">
   import type { FormInstance, FormRules } from 'element-plus'
   import SearchModel from '@/components/SearchModel'
   import TableModel, { ColumnAttrs, useSlotButton } from '@/components/TableModel'
-  import { getUserList } from '@/api/_system/user'
-  import { UserInfoModel } from '@/api/_system/model/userModel'
+  import { getPostList } from '@/api/_system/post'
+  import { PostModel } from '@/api/_system/model/postModel'
   import { useMessage } from '@/hooks/web/useMessage'
   import { config, staticColumns, SubmitTypeEnum } from './usePage'
   import { cloneDeep } from 'lodash-es'
 
   const tableModelRef = ref()
-  const router = useRouter()
   const { $message } = useMessage()
 
   const queryData = reactive({
-    username: '',
-    name: '',
-    gender: '',
-    role: '',
-    deptName: '',
-    post: ''
+    name: ''
   })
 
   const loading = ref(false)
@@ -28,11 +22,8 @@
       fixed:'right',
       label:'操作',
       width:'160',
-      slot: ({ row }: ColumnAttrs<UserInfoModel>) =>
+      slot: ({ row }: ColumnAttrs<PostModel>) =>
         [
-          useSlotButton('详情', () => {
-            router.push(`/system/user/detail/${row.id}`)
-          }),
           useSlotButton('编辑', () => {
             handleUpdate(row)
           }),
@@ -42,8 +33,8 @@
         ]
     }
   ])
-  const tableData = ref<UserInfoModel[]>([])
-  const selectedData = ref<UserInfoModel[]>([])
+  const tableData = ref<PostModel[]>([])
+  const selectedData = ref<PostModel[]>([])
 
   let pagination = reactive({
     current: 1,
@@ -62,7 +53,7 @@
     loadData()
   }
 
-  function handleSelectionChange(rows: UserInfoModel[]) {
+  function handleSelectionChange(rows: PostModel[]) {
     selectedData.value = rows
   }
 
@@ -76,7 +67,7 @@
     loadData()
   }
 
-  function handleDelete(rows: UserInfoModel[]) {
+  function handleDelete(rows: PostModel[]) {
     const { $msgbox } = useMessage()
     $msgbox.confirm(
       '确认删除选中数据条目吗？',
@@ -95,7 +86,7 @@
   function loadData() {
     loading.value = true
     setTimeout(async () => {
-      const { list, current, total, size } = await getUserList({
+      const { list, current, total, size } = await getPostList({
         query: queryData,
         ...pagination
       })
@@ -108,25 +99,17 @@
   loadData()
 
   let submitForm = reactive<Record<string, any>>({
-    username: '',
     name: '',
-    gender: null,
-    mobile: '',
-    roles: [],
-    deptName: '',
-    posts: []
+    code: '',
+    description: ''
   })
 
   function handleAdd() {
     submitType.value = SubmitTypeEnum.ADD
     submitForm = reactive({
-      username: '',
       name: '',
-      gender: null,
-      mobile: '',
-      roles: [],
-      deptName: '',
-      posts: []
+      code: '',
+      description: ''
     })
     visible.value = true
   }
@@ -134,30 +117,18 @@
   const submitFormRef = ref<FormInstance>()
 
   const rules = reactive<FormRules>({
-    username: [
-      { required: true, message: '请输入用户名', trigger: 'blur' }
-    ],
     name: [
-      { required: true, message: '请输入姓名', trigger: 'blur' }
+      { required: true, message: '请输入名称', trigger: 'blur' }
     ],
-    gender: [
-      { required: true, message: '请选择性别', trigger: 'change' }
-    ],
-    mobile: [
-      { required: true, message: '请输入联系电话', trigger: 'blur' }
-    ],
-    roles: [
-      { required: true, message: '请选择权限', trigger: 'change' }
-    ],
+    code: [
+      { required: true, message: '请输入代码', trigger: 'blur' }
+    ]
   })
 
-  function handleUpdate(row: UserInfoModel) {
+  function handleUpdate(row: PostModel) {
     submitType.value = SubmitTypeEnum.UPDATE
     // @ts-ignore
-    const rowData: Record<string, any> = reactive(cloneDeep(toRaw(row)))
-    rowData.roles = row.roles.map(r => r.code)
-    rowData.posts = row.posts.map(p => p.code)
-    submitForm = rowData
+    submitForm = reactive(cloneDeep(toRaw(row)))
     visible.value = true
   }
 
@@ -218,37 +189,14 @@
         style="width: 95%"
         status-icon
       >
-        <el-form-item label="用户名" prop="username">
-          <el-input v-model="submitForm.username" placeholder="请输入" />
-        </el-form-item>
-        <el-form-item label="姓名" prop="name">
+        <el-form-item label="名称" prop="name">
           <el-input v-model="submitForm.name" placeholder="请输入" />
         </el-form-item>
-        <el-form-item label="性别" prop="gender">
-          <el-select v-model="submitForm.gender" style="width: 100%">
-            <el-option label="男" value="1" />
-            <el-option label="女" value="0" />
-          </el-select>
+        <el-form-item label="代码" prop="code">
+          <el-input v-model="submitForm.code" placeholder="请输入" />
         </el-form-item>
-        <el-form-item label="电话" prop="mobile">
-          <el-input v-model="submitForm.mobile" placeholder="请输入" />
-        </el-form-item>
-        <el-form-item label="权限" prop="roles">
-          <el-select v-model="submitForm.roles" multiple style="width: 100%">
-            <el-option label="用户" value="1" />
-            <el-option label="管理员" value="0" />
-          </el-select>
-        </el-form-item>
-        <el-form-item label="部门" prop="deptName">
-          <el-input v-model="submitForm.deptName" placeholder="请输入" />
-        </el-form-item>
-        <el-form-item label="岗位" prop="posts">
-          <el-select v-model="submitForm.posts" multiple style="width: 100%">
-            <el-option label="前端" value="0" />
-            <el-option label="后端" value="1" />
-            <el-option label="产品" value="2" />
-            <el-option label="测试" value="3" />
-          </el-select>
+        <el-form-item label="描述" prop="description">
+          <el-input v-model="submitForm.description" type="textarea" placeholder="请输入" />
         </el-form-item>
       </el-form>
       <template #footer>
