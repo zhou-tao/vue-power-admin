@@ -5,6 +5,10 @@ import { createProxy } from './build/vite/proxy'
 import { envParse } from './build/utils'
 import { resolve } from 'path'
 
+// eslint-disable-next-line no-control-regex
+const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,]/g
+const DRIVE_LETTER_REGEX = /^[a-z]:/i
+
 export default ({ mode }: ConfigEnv) => {
   const root = process.cwd()
   const envDir = resolve(__dirname, 'env')
@@ -43,7 +47,20 @@ export default ({ mode }: ConfigEnv) => {
     },
     build: {
       reportCompressedSize: false,
-      chunkSizeWarningLimit: 800
+      chunkSizeWarningLimit: 800,
+      rollupOptions: {
+        output: {
+          // fix: github page not found _plugin-vue_export-helper.xxx.js
+          sanitizeFileName(name) {
+            const match = DRIVE_LETTER_REGEX.exec(name)
+            const driveLetter = match ? match[0] : ''
+            return (
+              driveLetter +
+              name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
+            )
+          },
+        },
+      }
     },
     css: {
       devSourcemap: false,
