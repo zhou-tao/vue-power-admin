@@ -63,6 +63,7 @@ declare module '@vue/runtime-core' {
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpSwitchButton: typeof import('~icons/ep/switch-button')['default']
     IRiAddFill: typeof import('~icons/ri/add-fill')['default']
+    IRiAlarmFill: typeof import('~icons/ri/alarm-fill')['default']
     IRiArrowGoBackFill: typeof import('~icons/ri/arrow-go-back-fill')['default']
     IRiDeleteBinLine: typeof import('~icons/ri/delete-bin-line')['default']
     IRiFullscreenExitFill: typeof import('~icons/ri/fullscreen-exit-fill')['default']
