@@ -11,19 +11,19 @@
       w="16"
       h="16"
       rounded
-      bg="dark-9"
-      op="60"
+      bg="stone-1"
+      dark:bg="#282C35"
       flex
       items="center"
-      justify-center
+      justify="center"
       text="3xl primary"
       mr="12"
     >
       <slot name="icon"></slot>
     </div>
     <div flex="~ col">
-      <span text="base secondary">{{ title }}</span>
-      <span text="3xl" font="mono" mt="2">${{ total }}</span>
+      <span text="base secondary" tracking="wide">{{ title }}</span>
+      <span text="3xl" font="mono" mt="2">{{ total }}</span>
     </div>
   </div>
 </template>
