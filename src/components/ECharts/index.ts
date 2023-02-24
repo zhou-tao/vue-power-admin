@@ -1,4 +1,4 @@
-import AreaChart from './src/Area.vue'
+import AreaChart from './src/Area/index.vue'
 
 export {
   AreaChart

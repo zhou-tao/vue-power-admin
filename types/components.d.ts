@@ -7,7 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Area: typeof import('./../src/components/ECharts/src/Area.vue')['default']
+    Area: typeof import('./../src/components/ECharts/src/Area/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
@@ -75,7 +75,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchModel: typeof import('./../src/components/SearchModel/src/SearchModel.vue')['default']
-    Src: typeof import('../src/components/ECharts/src/Area.vue')['default']
+    Src: typeof import('../src/components/ECharts/src/Area/index.vue')['default']
     TableModel: typeof import('./../src/components/TableModel/src/TableModel.vue')['default']
     ThemeSetting: typeof import('./../src/components/ThemeSetting/src/ThemeSetting.vue')['default']
     ThemeSwitch: typeof import('./../src/components/ThemeSwitch/src/ThemeSwitch.vue')['default']
