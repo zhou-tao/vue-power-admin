@@ -20,6 +20,7 @@ import { LabelLayout, UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
 
 import { useSettingStore } from '@/store/modules/setting'
+import { useThrottle } from '@/hooks/logic/useDelay'
 
 export type ECOption = echarts.ComposeOption<
   | LineSeriesOption
@@ -58,11 +59,12 @@ export function initChart(root: HTMLDivElement, options: ECOption) {
 }
 
 export function onResize(root: HTMLDivElement, chart: echarts.ECharts) {
-  const resizeObserver = new ResizeObserver(() => {
+  const throttleResize = useThrottle(() => {
     chart.resize({
       width: 'auto',
       height: 'auto',
     })
-  })
+  }, 400)
+  const resizeObserver = new ResizeObserver(() => throttleResize())
   resizeObserver.observe(root)
 }
