@@ -1,11 +1,10 @@
 <script setup lang="ts" name="Area">
   import { initChart } from '../useECharts'
-  import { useOption } from './options'
+  import { options } from './options'
 
   const areaChartRef = ref<HTMLDivElement>()
   onMounted(() => {
-    const option = useOption()
-    initChart(areaChartRef.value!, option)
+    initChart(areaChartRef.value!, options)
   })
 </script>
 

@@ -30,7 +30,22 @@
 
 <template>
   <div
-    class="flex items-center justify-center fixed z-3 right-0 top-1/4 w-10 h-10 bg-dark dark:bg-white text-2xl rounded-l cursor-pointer op-20 hover:op-60 transition-base"
+    flex
+    items-center
+    justify-center
+    fixed
+    z-3
+    right-0
+    top="30%"
+    w-12
+    h-12
+    bg-gray-5
+    text="1.7rem"
+    rounded-l
+    cursor-pointer
+    op-60
+    hover:op-100
+    transition-base
     @click="drawer = true"
   >
     <i-emoji-artist-palette />

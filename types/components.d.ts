@@ -8,6 +8,9 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Area: typeof import('./../src/components/ECharts/src/Area/index.vue')['default']
+    Bar: typeof import('./../src/components/ECharts/src/Bar/index.vue')['default']
+    Card: typeof import('./../src/components/Card/src/Card.vue')['default']
+    copy: typeof import('./../src/components/ECharts/src/Bar copy/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
@@ -35,6 +38,8 @@ declare module '@vue/runtime-core' {
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElOption: typeof import('element-plus/es')['ElOption']
     ElPagination: typeof import('element-plus/es')['ElPagination']
+    ElRadioButton: typeof import('element-plus/es')['ElRadioButton']
+    ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
@@ -45,6 +50,7 @@ declare module '@vue/runtime-core' {
     ElTimelineItem: typeof import('element-plus/es')['ElTimelineItem']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElTree: typeof import('element-plus/es')['ElTree']
+    IAppGrowth: typeof import('~icons/app/growth')['default']
     IAppHeart: typeof import('~icons/app/heart')['default']
     IAppLayout: typeof import('~icons/app/layout')['default']
     IAppLocale: typeof import('~icons/app/locale')['default']
@@ -72,6 +78,9 @@ declare module '@vue/runtime-core' {
     IRiRefreshLine: typeof import('~icons/ri/refresh-line')['default']
     IRiSearchLine: typeof import('~icons/ri/search-line')['default']
     IRiUser3Line: typeof import('~icons/ri/user3-line')['default']
+    Line: typeof import('./../src/components/ECharts/src/Line/index.vue')['default']
+    Pie: typeof import('./../src/components/ECharts/src/Pie/index.vue')['default']
+    Radar: typeof import('./../src/components/ECharts/src/Radar/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchModel: typeof import('./../src/components/SearchModel/src/SearchModel.vue')['default']
@@ -79,6 +88,7 @@ declare module '@vue/runtime-core' {
     TableModel: typeof import('./../src/components/TableModel/src/TableModel.vue')['default']
     ThemeSetting: typeof import('./../src/components/ThemeSetting/src/ThemeSetting.vue')['default']
     ThemeSwitch: typeof import('./../src/components/ThemeSwitch/src/ThemeSwitch.vue')['default']
+    TotalCard: typeof import('./../src/components/Card/src/TotalCard.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
