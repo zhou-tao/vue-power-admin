@@ -1,7 +1,6 @@
 import echarts, { ECOption } from '../useECharts'
 
-export const options: ECOption = {
-  //你的代码
+export const option: ECOption = {
   backgroundColor: 'transparent',
   tooltip: {
     trigger: 'axis',
@@ -18,7 +17,6 @@ export const options: ECOption = {
   },
   xAxis: [{
     type: 'category',
-    data: ['TS', 'Vue', 'JS', 'Handlebars', 'HTML', 'SCSS', 'Shell', 'Markdown', 'JSON'],
     axisLine: {
       show: false
     },
@@ -53,11 +51,10 @@ export const options: ECOption = {
     }
   }],
   series: [{
-    name: '使用率',
     type: 'bar',
-    data: [46, 32, 18.7, 11.1, 8.7, 6.1, 5.1, 4.1, 2.8],
     barWidth: 24,
-    animationDuration: function (idx: any) {
+    seriesLayoutBy: 'row',
+    animationDuration: function (idx: number) {
       return idx * 500 + 1000
     },
     backgroundStyle: {
@@ -75,7 +72,7 @@ export const options: ECOption = {
       shadowBlur: 20
     },
     itemStyle: {
-      borderRadius: [8, 8, 0, 0],
+      borderRadius: [4, 4, 0, 0],
       color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
         offset: 0,
         color: '#fa714e'

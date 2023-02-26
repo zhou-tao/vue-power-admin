@@ -1,13 +1,23 @@
 <script setup lang="ts" name="Bar">
-  import { initChart } from '../useECharts'
-  import { options } from './options'
+  import { vChart } from '@/directives/echarts'
+  import { ChartDataset } from '../useECharts'
+  import { option } from './option'
 
-  const barChartRef = ref<HTMLDivElement>()
-  onMounted(() => {
-    initChart(barChartRef.value!, options)
+  const props = defineProps<{
+    modelValue: ChartDataset
+  }>()
+
+  const emit = defineEmits(['update:modelValue'])
+
+  const data = computed({
+    set: v => {
+      emit('update:modelValue', v)
+    },
+    get: () => props.modelValue
   })
+
 </script>
 
 <template>
-  <div w-full h-full ref="barChartRef"></div>
+  <div h-full v-chart="{ option, data }"></div>
 </template>

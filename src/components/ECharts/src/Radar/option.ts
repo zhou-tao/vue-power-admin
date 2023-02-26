@@ -1,6 +1,7 @@
 import { ECOption } from '../useECharts'
 
-export const options: ECOption = {
+// radar chart is not support dataset now!
+export const option: ECOption = {
   color: ['#f43f5e', '#6366f1'],
   backgroundColor: 'transparent',
   tooltip: {},
@@ -8,7 +9,7 @@ export const options: ECOption = {
     radius: '70%',
     center: ['50%', '45%'],
     splitNumber: 5,
-    nameGap: 10,
+    axisNameGap: 10,
     axisName: {
       color: '#6b7280'
     },
@@ -53,7 +54,7 @@ export const options: ECOption = {
     }]
   },
   series: [{
-    name: '预算 vs 开销（Budget vs spending）',
+    name: '熟练度',
     type: 'radar',
     symbolSize: 0,
     areaStyle: {
@@ -65,10 +66,10 @@ export const options: ECOption = {
     },
     data: [{
       value: [80, 90, 80, 85, 60, 80],
-      name: '2023',
+      name: '2023年',
     }, {
       value: [90, 95, 45, 70, 80, 70],
-      name: '2022',
+      name: '2022年',
     }]
   }]
 }

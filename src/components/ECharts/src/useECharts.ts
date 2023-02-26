@@ -38,6 +38,9 @@ export type ECOption = echarts.ComposeOption<
   | LegendComponentOption
 >
 
+export type ChartInstance = echarts.ECharts
+export type ChartDataset = DatasetComponentOption
+
 // 注册必须的组件
 echarts.use([
   BarChart,
@@ -67,13 +70,20 @@ export function initChart(root: HTMLDivElement, options: ECOption) {
   }, {
     immediate: true
   })
-  onResize(root, myChart)
+  onResize(myChart, root)
   return myChart
 }
 
-export function onResize(root: HTMLDivElement, chart: echarts.ECharts) {
+export function setData(instance: ChartInstance, dataset: DatasetComponentOption) {
+  if (!dataset) return
+  instance.setOption({
+    dataset
+  })
+}
+
+export function onResize(instance: ChartInstance, root: HTMLDivElement) {
   const throttleResize = useThrottle(() => {
-    chart.resize({
+    instance.resize({
       width: 'auto',
       height: 'auto',
     })

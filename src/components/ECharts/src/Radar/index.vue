@@ -1,13 +1,8 @@
 <script setup lang="ts" name="Radar">
-  import { initChart } from '../useECharts'
-  import { options } from './options'
-
-  const radarChartRef = ref<HTMLDivElement>()
-  onMounted(() => {
-    initChart(radarChartRef.value!, options)
-  })
+  import { vChart } from '@/directives/echarts'
+  import { option } from './option'
 </script>
 
 <template>
-  <div w-full h-full ref="radarChartRef"></div>
+  <div h-full v-chart="{ option }"></div>
 </template>

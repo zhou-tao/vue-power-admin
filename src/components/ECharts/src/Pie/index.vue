@@ -1,13 +1,22 @@
 <script setup lang="ts" name="Pie">
-  import { initChart } from '../useECharts'
-  import { options } from './options'
+  import { option } from './option'
+  import { vChart } from '@/directives/echarts'
+  import { ChartDataset } from '../useECharts'
 
-  const pieChartRef = ref<HTMLDivElement>()
-  onMounted(() => {
-    initChart(pieChartRef.value!, options)
+  const props = defineProps<{
+    modelValue: ChartDataset
+  }>()
+
+  const emit = defineEmits(['update:modelValue'])
+
+  const data = computed({
+    set: v => {
+      emit('update:modelValue', v)
+    },
+    get: () => props.modelValue
   })
 </script>
 
 <template>
-  <div w-full h-full ref="pieChartRef"></div>
+  <div h-full v-chart="{ option, data }"></div>
 </template>
