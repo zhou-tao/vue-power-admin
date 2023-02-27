@@ -1,5 +1,5 @@
 import type { ObjectDirective } from 'vue'
-import { ChartDataset, ECOption, initChart, setData } from '@/components/ECharts/src/useECharts'
+import echarts, { ChartDataset, ECOption, initChart, setData } from '@/components/ECharts/src/useECharts'
 
 interface ChartOption {
   option: ECOption
@@ -17,5 +17,9 @@ export const vChart: ObjectDirective<HTMLDivElement, ChartOption> = {
         immediate: true
       })
     }
+  },
+
+  unmounted(el) {
+    echarts.dispose(el)
   }
 }
