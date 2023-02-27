@@ -39,4 +39,8 @@
     display: none;
   }
 }
+
+:deep(.el-drawer__header) {
+  @apply text-main;
+}
 </style>

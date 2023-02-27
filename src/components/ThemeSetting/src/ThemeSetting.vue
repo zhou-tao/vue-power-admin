@@ -30,20 +30,18 @@
 
 <template>
   <div
-    flex
-    items-center
-    justify-center
+    center
     fixed
     z-3
     right-0
     top="30%"
     w-12
     h-12
-    bg-gray-5
+    bg-light_hover
     text="1.7rem"
     rounded-l
     cursor-pointer
-    op-60
+    op-80
     hover:op-100
     transition-base
     @click="drawer = true"
@@ -56,11 +54,11 @@
     direction="rtl"
     size="20%"
   >
-    <div flex="~ col" items="center">
+    <div flex="~ col" items="between">
       <el-divider>主题</el-divider>
       <ThemeSwitch type="switch" />
       <el-divider mt-12>导航栏</el-divider>
-      <div flex items="center" gap="6" text="5xl regular">
+      <div center gap="6" text="5xl regular">
         <el-tooltip
           effect="dark"
           content="侧边菜单"
@@ -82,7 +80,7 @@
       </div>
       <el-divider mt-12>界面</el-divider>
       <div w-full flex="~ col" gap="2">
-        <div flex items="center" justify-between>
+        <div class="between">
           <span>面包屑</span>
           <el-switch
             v-model="hasBreadcrumb"
@@ -91,33 +89,33 @@
             inactive-text="关"
           />
         </div>
-        <div flex items="center" justify-between>
+        <div class="between">
           <span>标签页</span>
           <el-switch v-model="hasTabView" inline-prompt active-text="开" inactive-text="关" @change="onTabViewChange" />
         </div>
-        <div flex items="center" justify-between>
+        <div class="between">
           <span>页脚</span>
           <el-switch v-model="hasFooter" inline-prompt active-text="开" inactive-text="关" />
         </div>
       </div>
       <el-divider mt-12>功能</el-divider>
       <div w-full flex="~ col" gap="2">
-        <div flex items="center" justify-between>
+        <div class="between">
           <span>国际化</span>
           <el-switch v-model="hasLocales" inline-prompt active-text="开" inactive-text="关" />
         </div>
       </div>
       <el-divider mt-12>动效</el-divider>
       <div w-full flex="~ col" gap="2">
-        <div flex items="center" justify-between>
+        <div class="between">
           <span>首屏动画</span>
           <el-switch v-model="hasFpLoading" inline-prompt active-text="开" inactive-text="关" />
         </div>
-        <div flex items="center" justify-between>
+        <div class="between">
           <span>切换动画</span>
           <el-switch v-model="hasPageAnimate" inline-prompt active-text="开" inactive-text="关" />
         </div>
-        <div flex items="center" justify-between>
+        <div class="between">
           <span>进度条</span>
           <el-switch v-model="hasProgress" inline-prompt active-text="开" inactive-text="关" />
         </div>
@@ -129,5 +127,9 @@
 <style lang="scss" scoped>
 .active {
   @apply text-primary;
+}
+
+.between {
+  @apply flex justify-between items-center;
 }
 </style>

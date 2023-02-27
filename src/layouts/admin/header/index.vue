@@ -39,14 +39,16 @@
       <Breadcrumb v-if="hasBreadcrumb && isVerticalMenu" />
     </div>
     <Menu v-if="!isVerticalMenu" :mode="MenuLayout.HORIZONTAL" />
-    <div flex items="center" gap="6">
-      <span v-if="isSupported" cursor="pointer" leading="0" @click="toggleFullScreen">
+    <div flex items="center" gap="5">
+      <div class="icon-view" text="13px!" v-if="isSupported" @click="toggleFullScreen">
         <i-ri-fullscreen-fill v-show="!isFullScreen" />
         <i-ri-fullscreen-exit-fill v-show="isFullScreen" />
-      </span>
+      </div>
       <el-dropdown>
         <el-badge is-dot leading="none">
-          <i-ep-bell-filled cursor="pointer" text="base" />
+          <div class="icon-view">
+            <i-ep-bell-filled />
+          </div>
         </el-badge>
         <template #dropdown>
           <el-dropdown-menu>
@@ -67,7 +69,9 @@
         </template>
       </el-dropdown>
       <el-dropdown v-show="hasLocales">
-        <i-app-locale cursor="pointer" text="xl" />
+        <div class="icon-view">
+          <i-app-locale text="18px!" />
+        </div>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item>
@@ -82,12 +86,14 @@
         </template>
       </el-dropdown>
       <ThemeSwitch />
-      <div class="avatar" cursor="pointer">
+      <div cursor="pointer" ml="6">
         <el-dropdown>
-          <span flex items="center">
-            <i-emoji-chicken text="2xl" />
+          <div flex items="center">
+            <div class="avatar shadow-lg" b="solid light opacity-40">
+              <img class="avatar" src="https://avatars.githubusercontent.com/u/36221207?v=4" />
+            </div>
             <span text="base" ml="2">{{ username }}</span>
-          </span>
+          </div>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item>
@@ -107,3 +113,14 @@
     </div>
   </div>
 </template>
+
+<style scoped lang="scss">
+.icon-view {
+  @apply w-8 h-8 rounded-full flex justify-center items-center bg-light cursor-pointer text-15px transition-base hover:bg-light_hover;
+}
+
+.avatar {
+  @apply w-10 h-10 rounded-full;
+}
+
+</style>

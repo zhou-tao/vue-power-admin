@@ -19,11 +19,8 @@
         w="16"
         h="16"
         rounded
-        bg="stone-1"
-        dark:bg="#282C35"
-        flex
-        items="center"
-        justify="center"
+        bg="light"
+        center
         text="2.6rem"
         mr="12"
       >

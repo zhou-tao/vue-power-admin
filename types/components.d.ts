@@ -7,10 +7,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Area: typeof import('./../src/components/ECharts/src/Area/index.vue')['default']
     Bar: typeof import('./../src/components/ECharts/src/Bar/index.vue')['default']
     Card: typeof import('./../src/components/Card/src/Card.vue')['default']
-    copy: typeof import('./../src/components/ECharts/src/Bar copy/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
@@ -58,7 +56,6 @@ declare module '@vue/runtime-core' {
     IAppMoon: typeof import('~icons/app/moon')['default']
     IAppSun: typeof import('~icons/app/sun')['default']
     IEmojiArtistPalette: typeof import('~icons/fluent-emoji-flat/artist-palette')['default']
-    IEmojiChicken: typeof import('~icons/fluent-emoji-flat/chicken')['default']
     IEmojiCrescentMoon: typeof import('~icons/fluent-emoji-flat/crescent-moon')['default']
     IEmojiSun: typeof import('~icons/fluent-emoji-flat/sun')['default']
     IEpArrowDownBold: typeof import('~icons/ep/arrow-down-bold')['default']
@@ -70,7 +67,6 @@ declare module '@vue/runtime-core' {
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpSwitchButton: typeof import('~icons/ep/switch-button')['default']
     IRiAddFill: typeof import('~icons/ri/add-fill')['default']
-    IRiAlarmFill: typeof import('~icons/ri/alarm-fill')['default']
     IRiArrowGoBackFill: typeof import('~icons/ri/arrow-go-back-fill')['default']
     IRiDeleteBinLine: typeof import('~icons/ri/delete-bin-line')['default']
     IRiFullscreenExitFill: typeof import('~icons/ri/fullscreen-exit-fill')['default']
@@ -84,7 +80,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchModel: typeof import('./../src/components/SearchModel/src/SearchModel.vue')['default']
-    Src: typeof import('../src/components/ECharts/src/Area/index.vue')['default']
     TableModel: typeof import('./../src/components/TableModel/src/TableModel.vue')['default']
     ThemeSetting: typeof import('./../src/components/ThemeSetting/src/ThemeSetting.vue')['default']
     ThemeSwitch: typeof import('./../src/components/ThemeSwitch/src/ThemeSwitch.vue')['default']

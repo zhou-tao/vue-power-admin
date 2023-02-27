@@ -4,12 +4,28 @@
 
   const { menuCollapsed } = $(useSettingStore())
 
+  const router = useRouter()
+
 </script>
 
 <template>
-  <div h="header" flex justify="center" items="center">
+  <div
+    h="header"
+    flex
+    justify="center"
+    items="center"
+    cursor="pointer"
+    @click="router.push('/home')"
+  >
     <i-app-logo text="3xl" />
-    <h1 v-show="!menuCollapsed" text="xl regular" ml="2" font="bold mono" whitespace-nowrap>
+    <h1
+      v-show="!menuCollapsed"
+      text="xl main hover:regular"
+      ml="2"
+      font="bold mono"
+      whitespace-nowrap
+      select-none
+    >
       {{ config.APP.title }}
     </h1>
   </div>

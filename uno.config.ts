@@ -14,9 +14,12 @@ export default {
       page_light: '#ffffff', // 基础布局背景
       page_dark: '#18181B',
       primary: 'var(--el-color-primary)',
+      main: 'var(--el-text-color-primary)',
       regular: 'var(--el-text-color-regular)',
       secondary: 'var(--el-text-color-secondary)',
       placeholder: 'var(--el-text-color-placeholder)',
+      light: 'var(--el-color-info-light-9)',
+      light_hover: 'var(--el-color-info-light-8)'
     },
     height: {
       header: '64px',
@@ -42,6 +45,9 @@ export default {
     },
     {
       'page-card': 'page-base bg-page rounded px-6 py-5'
+    },
+    {
+      center: 'flex items-center justify-center'
     }
   ],
   // 自定义规则

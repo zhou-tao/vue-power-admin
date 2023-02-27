@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <div v-if="type === 'switch'" text="2xl" flex items="center" gap="4">
+  <div v-if="type === 'switch'" text="2xl" center gap="4">
     <i-emoji-sun />
     <el-switch
       v-model="isDark"
@@ -23,7 +23,7 @@
     />
     <i-emoji-crescent-moon />
   </div>
-  <span v-else @click="toggleDark()" text="regular xl" cursor="pointer" leading="none">
+  <span v-else @click="toggleDark()" class="icon-view" text="xl! regular">
     <i-app-sun v-if="isDark" />
     <i-app-moon v-else />
   </span>
