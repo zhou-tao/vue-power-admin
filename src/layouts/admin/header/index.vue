@@ -97,7 +97,7 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item>
-                <i-ep-lock />修改密码
+                <i-ep-lock />账号设置
               </el-dropdown-item>
               <el-dropdown-item
                 divided

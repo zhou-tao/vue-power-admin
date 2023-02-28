@@ -27,7 +27,7 @@ const initialUserState = {
   id: 0,
   name: '',
   userId: -1,
-  username: '管理员',
+  username: 'Tooz',
   gender: '0',
   deptCode: '',
   deptName: '',

@@ -1,39 +1,39 @@
 <script setup lang="ts" name="TotalCard">
   import { Icon } from '@iconify/vue'
 
-  defineProps<{
+  const props = withDefaults(defineProps<{
+    size: 'small' | 'default',
     title: string,
     total: number,
     icon: string,
     cls?: string,
     hover?: string
-  }>()
+  }>(), {
+    size: 'default'
+  })
 
   defineEmits(['query-list'])
+
+  const isSmallSize = computed(() => props.size === 'small')
 </script>
 
 <template>
   <Card :padding="false">
-    <div flex items="center" p="6">
+    <div flex items="center" :class="isSmallSize ? 'p-3' : 'p-6'">
       <div
-        w="16"
-        h="16"
-        rounded
+        :class="isSmallSize ? 'w-14 h-14 rounded-full text-3xl mr-4' : 'w-16 h-16 rounded text-2.6rem mr-12'"
         bg="light"
         center
-        text="2.6rem"
-        mr="12"
       >
         <Icon :icon="icon" :class="cls" />
       </div>
       <div flex="~ col">
         <span text="base secondary" tracking="wide">{{ title }}</span>
         <span
-          text="3xl"
           font="mono"
           mt="2"
           cursor="pointer"
-          :class="hover"
+          :class="`${hover} ${isSmallSize ? 'text-2xl' : 'text-3xl'}`"
           @click="$emit('query-list')"
         >
           {{ total }}
@@ -42,5 +42,3 @@
     </div>
   </Card>
 </template>
-
-<style lang="scss" scoped></style>
