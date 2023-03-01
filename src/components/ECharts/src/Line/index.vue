@@ -1,11 +1,17 @@
 <script setup lang="ts" name="AreaLine">
   import { vChart } from '@/directives/echarts'
   import { ChartDataset } from '../useECharts'
-  import { option } from './option'
+  import { getOption } from './option'
 
-  const props = defineProps<{
-    modelValue: ChartDataset
-  }>()
+  const props = withDefaults(defineProps<{
+    modelValue: ChartDataset,
+    colors?: string[][]
+  }>(), {
+    colors: () => [
+      ['#00ffa2', '#00f0ff'],
+      ['#ffba00', '#fff600']
+    ]
+  })
 
   const emit = defineEmits(['update:modelValue'])
 
@@ -15,6 +21,9 @@
     },
     get: () => props.modelValue
   })
+
+  const option = computed(() => getOption(props.colors))
+
 </script>
 
 <template>

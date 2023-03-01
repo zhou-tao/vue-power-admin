@@ -1,11 +1,6 @@
 import echarts, { ECOption } from '../useECharts'
 
-const colors = [
-  ['#00ffa2', '#00f0ff', '#00ffa230', '#00ffa220', '#00ffa210'],
-  ['#ffba00', '#fff600', '#ffba0030', '#ffba0020', '#ffba0010']
-]
-
-export const option: ECOption = {
+export const getOption = (colors: string[][]): ECOption => ({
   backgroundColor: 'transparent',
   tooltip: {
     trigger: 'axis',
@@ -90,19 +85,19 @@ export const option: ECOption = {
         [
           {
             offset: 0,
-            color: colors[i][2],
+            color: `${colors[i][0]}30`,
           },
           {
             offset: 0.6,
-            color: colors[i][3],
+            color: `${colors[i][0]}20`,
           },
           {
             offset: 1,
-            color: colors[i][4],
+            color: `${colors[i][0]}10`,
           },
         ],
         false
       ),
     }
   }))
-}
+})

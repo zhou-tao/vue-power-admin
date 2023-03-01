@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Avatar: typeof import('./../src/components/Avatar/src/Avatar.vue')['default']
     Bar: typeof import('./../src/components/ECharts/src/Bar/index.vue')['default']
     Card: typeof import('./../src/components/Card/src/Card.vue')['default']
     Container: typeof import('./../src/components/ShortCut/src/Container.vue')['default']
@@ -49,6 +50,7 @@ declare module '@vue/runtime-core' {
     ElTimelineItem: typeof import('element-plus/es')['ElTimelineItem']
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElTree: typeof import('element-plus/es')['ElTree']
+    IAppCoffee: typeof import('~icons/app/coffee')['default']
     IAppGrowth: typeof import('~icons/app/growth')['default']
     IAppHeart: typeof import('~icons/app/heart')['default']
     IAppLayout: typeof import('~icons/app/layout')['default']
@@ -67,6 +69,7 @@ declare module '@vue/runtime-core' {
     IEpExpand: typeof import('~icons/ep/expand')['default']
     IEpFold: typeof import('~icons/ep/fold')['default']
     IEpLock: typeof import('~icons/ep/lock')['default']
+    IEpRight: typeof import('~icons/ep/right')['default']
     IEpSwitchButton: typeof import('~icons/ep/switch-button')['default']
     IRiAddFill: typeof import('~icons/ri/add-fill')['default']
     IRiArrowGoBackFill: typeof import('~icons/ri/arrow-go-back-fill')['default']

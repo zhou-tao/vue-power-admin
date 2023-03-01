@@ -3,14 +3,16 @@
   import ShortCut from '@/components/ShortCut'
   import { useUserStore } from '@/store/modules/user'
   import type { ChartDataset } from '@/components/ECharts/src/useECharts'
+  import { useMessage } from '@/hooks/web/useMessage'
 
   const userStore = useUserStore()
+  const { $message } = useMessage()
 
   const cards = [
-    { title: '昨日新增', total: 99007, icon: 'ic:round-star', cls: 'text-5xl text-amber-5', hover: 'hover:text-amber-5' },
-    { title: '投放中内容', total: 1024, icon: 'ph:git-fork-bold', cls: 'text-rose-5', hover: 'hover:text-rose-5' },
-    { title: '日新增内容', total: 0, icon: 'octicon:issue-opened-16', cls: 'text-4xl text-green-5', hover: 'hover:text-green-5' },
-    { title: '较昨日新增', total: 996, icon: 'ph:git-pull-request-bold', cls: 'text-indigo-5', hover: 'hover:text-indigo-5' }
+    { title: '新增Star', total: 99007, icon: 'ic:round-star', cls: 'text-5xl text-amber-5', hover: 'hover:text-amber-5' },
+    { title: '新增Fork', total: 1024, icon: 'ph:git-fork-bold', cls: 'text-rose-5', hover: 'hover:text-rose-5' },
+    { title: '新增Issues', total: 0, icon: 'octicon:issue-opened-16', cls: 'text-4xl text-green-5', hover: 'hover:text-green-5' },
+    { title: '新增PR', total: 996, icon: 'ph:git-pull-request-bold', cls: 'text-indigo-5', hover: 'hover:text-indigo-5' }
   ]
 
   const lineData = reactive<ChartDataset>({
@@ -30,6 +32,24 @@
     { title: '内容管理', icon: 'ri:apple-line' },
     { title: '内容管理', icon: 'ri:apple-line' }
   ]
+
+  const taskList = Array(5).fill(0).map((_, i) => ({
+    id: i,
+    title: 'Evan You 今天早上 8：50 紧急修复了 Vue Power Admin 的一个功能缺陷',
+    description: '这个缺陷导致用户反馈上对其严重不满，Evan You 相当自责...',
+    avatar: `https://picsum.photos/seed/picsum/60/60?random=${i+1}`
+  }))
+
+  const infoList = Array(5).fill(0).map((_, i) => ({
+    id: i,
+    title: 'Evan You 今天早上 8：50 紧急修复了 Vue Power Admin 的一个功能缺陷',
+    description: '这个缺陷导致用户反馈上对其严重不满，Evan You 相当自责...',
+    avatar: `https://picsum.photos/seed/picsum/60/60?random=${i+6}`
+  }))
+
+  function drinkCoffee() {
+    $message.success('辛苦了，喝杯 JAVA~')
+  }
 </script>
 
 <template>
@@ -37,18 +57,23 @@
     <el-row mb="4" :gutter="16">
       <el-col :span="18">
         <Card>
-          <div text="3xl" flex items="center" py="4">
-            <i-emoji-clapping-hands />
-            <span text="2xl" ml="2">
-              欢迎回来，{{ userStore.username }} ~
-            </span>
+          <div text="3xl" flex items="center" justify-between py="4">
+            <div flex items="center">
+              <i-emoji-clapping-hands />
+              <span text="2xl" ml="2">
+                欢迎回来，{{ userStore.username }} ~
+              </span>
+            </div>
+            <div class="icon-view" @click="drinkCoffee">
+              <i-app-coffee mt="-1" />
+            </div>
           </div>
           <el-divider />
           <div flex justify-around items="center">
             <TotalCard v-for="card in cards" :key="card.title" v-bind="card" size="small" />
           </div>
           <div h="391px" mt="8" mb="-8">
-            <AreaLineChart v-model="lineData" />
+            <AreaLineChart v-model="lineData" :colors="[['#1d4ed8', '#1e40af'], ['#6d28d9', '#4c1d95']]" />
           </div>
         </Card>
       </el-col>
@@ -67,10 +92,23 @@
     </el-row>
     <el-row :gutter="16" mb="4">
       <el-col :span="12">
-        <Card title="任务待办" />
+        <Card title="任务待办">
+          <template #right>
+            <el-button type="primary" link>更多<i-ep-right /></el-button>
+          </template>
+          <List :data="taskList" mt="2" />
+        </Card>
       </el-col>
       <el-col :span="12">
-        <Card title="最新动态" />
+        <Card title="最新动态">
+          <template #right>
+            <el-button type="primary" link>
+              更多
+              <i-ep-right />
+            </el-button>
+          </template>
+          <List :data="infoList" mt="2" />
+        </Card>
       </el-col>
     </el-row>
   </div>
@@ -79,5 +117,9 @@
 <style lang="scss" scoped>
 :deep(.el-divider--horizontal) {
   border-top: 1px var(--el-border-color-lighter) var(--el-border-style);
+}
+
+.icon-view {
+  @apply w-18 h-18 rounded-full flex justify-center items-center bg-light cursor-pointer text-52px text-orange-6 transition-base hover:bg-light_hover;
 }
 </style>

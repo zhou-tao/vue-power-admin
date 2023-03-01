@@ -89,9 +89,7 @@
       <div cursor="pointer" ml="6">
         <el-dropdown>
           <div flex items="center">
-            <div class="avatar shadow-lg" b="solid light opacity-40">
-              <img class="avatar" src="https://avatars.githubusercontent.com/u/36221207?v=4" />
-            </div>
+            <Avatar src="https://avatars.githubusercontent.com/u/36221207?v=4" />
             <span text="base" ml="2">{{ username }}</span>
           </div>
           <template #dropdown>
@@ -117,10 +115,6 @@
 <style scoped lang="scss">
 .icon-view {
   @apply w-8 h-8 rounded-full flex justify-center items-center bg-light cursor-pointer text-15px transition-base hover:bg-light_hover;
-}
-
-.avatar {
-  @apply w-10 h-10 rounded-full;
 }
 
 </style>
