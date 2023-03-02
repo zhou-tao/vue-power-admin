@@ -2,7 +2,7 @@
   import { Icon } from '@iconify/vue'
 
   const props = withDefaults(defineProps<{
-    size: 'small' | 'default',
+    size?: 'small' | 'default',
     title: string,
     total: number,
     icon: string,

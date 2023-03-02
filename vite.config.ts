@@ -66,7 +66,8 @@ export default ({ mode }: ConfigEnv) => {
       devSourcemap: false,
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "./src/styles/common/index.scss" as *;'
+          // TODO: overload element-plus scss var error
+          // additionalData: '@use "./src/styles/common/index.scss" as *;'
         }
       },
       postcss: {

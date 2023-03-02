@@ -6,8 +6,8 @@ import { router, setupRouter } from '@/router'
 import { setupRouterGuard } from '@/router/guard'
 import 'uno:components.css'
 import 'uno.css'
-import '@/styles/main.scss'
-import '@/styles/element/index.scss'
+import '@/styles/common/index.scss'
+// import '@/styles/element/index.scss'
 import 'uno:utilities.css'
 
 const app = createApp(App)

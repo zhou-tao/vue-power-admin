@@ -1,4 +1,4 @@
-// 使用@use vite将无法加载
-@import 'var.scss';
-@import 'mixins.scss';
-@import 'normalize.scss';
+@use 'animation.scss' as *;
+@use 'transition.scss' as *;
+@use 'public.scss' as *;
+@use 'var.scss' as *;

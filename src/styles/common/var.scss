@@ -1,0 +1,12 @@
+// custom css vars
+:root {
+  // 内容区撑满页面最小高度（不出现滚动条）
+  // 169px: header[64+3] + tab[40] + main padding[12] + footer[50]
+  --content-base-height: calc(100vh - 169px);
+  // 隐藏tab时高度
+  --content-max-height: calc(100vh - 129px);
+  // 显示tab时高度
+  --content-min-height: calc(100vh - 169px);
+  // tab view高度
+  --tab-view-height: 40px;
+}

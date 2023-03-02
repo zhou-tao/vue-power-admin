@@ -40,7 +40,13 @@
   }
 }
 
-:deep(.el-drawer__header) {
-  @apply text-main;
+:deep(.el-drawer) {
+  .el-drawer__header {
+    @apply text-main;
+  }
+
+  .el-drawer__body {
+    padding: 0 20px 20px;
+  }
 }
 </style>

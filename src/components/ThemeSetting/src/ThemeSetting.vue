@@ -1,5 +1,6 @@
 <script setup lang="ts" name="ThemeSetting">
   import ThemeSwitch from '@/components/ThemeSwitch'
+  import ThemeColorPicker from './ThemeColorPicker.vue'
   import { MenuLayout } from '@/enums/menuEnum'
   import { useSettingStore } from '@/store/modules/setting'
 
@@ -78,6 +79,8 @@
           </span>
         </el-tooltip>
       </div>
+      <el-divider mt-12>主题色</el-divider>
+      <ThemeColorPicker />
       <el-divider mt-12>界面</el-divider>
       <div w-full flex="~ col" gap="2">
         <div class="between">
