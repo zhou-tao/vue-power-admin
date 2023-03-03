@@ -3,6 +3,8 @@
   import ThemeColorPicker from './ThemeColorPicker.vue'
   import { MenuLayout } from '@/enums/menuEnum'
   import { useSettingStore } from '@/store/modules/setting'
+  import { getCssVar, setCssVar } from '@/hooks/web/useCssVar'
+  import { CSSVarEnum } from '@/enums/appEnum'
 
   const {
     hasBreadcrumb,
@@ -19,12 +21,8 @@
   const drawer = ref(false)
 
   function onTabViewChange(value: boolean) {
-    // calc content height and set css var
-    const CONTENT_BASE_HEIGHT_VAR = '--content-base-height'
-    const CONTENT_HEIGHT = `var(--content-${value ? 'min' : 'max'}-height)`
-    document.documentElement.style.setProperty(
-      CONTENT_BASE_HEIGHT_VAR, CONTENT_HEIGHT
-    )
+    const height = getCssVar(value ? CSSVarEnum.CONTENT_MIN_HEIGHT : CSSVarEnum.CONTENT_NAX_HEIGHT)
+    setCssVar(CSSVarEnum.CONTENT_HEIGHT, height)
   }
 
 </script>
