@@ -1,11 +1,8 @@
-// 自行在此覆盖 element 默认样式
-// :root {
-//   --el-color-primary: #377dff;
-// }
-// @forward 'element-plus/theme-chalk/src/common/var.scss' with (
-//   $colors: (
-//     'primary': (
-//       'base': #377dff
-//     )
-//   )
-// )
+// 覆盖 element-plus 变量
+:root {
+  --el-color-primary: #377dff;
+}
+
+html.dark {
+  --el-color-primary: #377dff;
+}

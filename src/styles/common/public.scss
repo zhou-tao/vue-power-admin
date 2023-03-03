@@ -13,7 +13,7 @@ body,
   @apply pointer-events-none;
 
   .bar {
-    @apply fixed top-0 left-0 z-99999 w-full h-[2px] bg-primary opacity-75;
+    @apply fixed top-0 left-0 z-99999 w-full h-1 bg-primary opacity-80 rounded-r;
   }
 }
 

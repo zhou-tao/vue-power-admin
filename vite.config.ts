@@ -64,12 +64,6 @@ export default ({ mode }: ConfigEnv) => {
     },
     css: {
       devSourcemap: false,
-      preprocessorOptions: {
-        scss: {
-          // TODO: overload element-plus scss var error
-          // additionalData: '@use "./src/styles/common/index.scss" as *;'
-        }
-      },
       postcss: {
         plugins: [
           require('autoprefixer')
