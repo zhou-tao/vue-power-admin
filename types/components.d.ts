@@ -81,6 +81,7 @@ declare module '@vue/runtime-core' {
     IRiUser3Line: typeof import('~icons/ri/user3-line')['default']
     Line: typeof import('./../src/components/ECharts/src/Line/index.vue')['default']
     List: typeof import('./../src/components/List/src/List.vue')['default']
+    PageTitle: typeof import('./../src/components/PageTitle/src/PageTitle.vue')['default']
     Pie: typeof import('./../src/components/ECharts/src/Pie/index.vue')['default']
     Radar: typeof import('./../src/components/ECharts/src/Radar/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

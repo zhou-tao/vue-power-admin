@@ -12,25 +12,10 @@ const ComponentRoute: AppRouteConfig = {
   children: [{
     path: 'form',
     name: 'form',
+    component: () => import('@/views/admin/component/form/index.vue'),
     meta: {
       title: '表单'
-    },
-    children: [{
-      path: 'search-form',
-      name: 'search-form',
-      component: () => import('@/views/admin/component/form/search-form/index.vue'),
-      meta: {
-        title: '查询表单'
-      },
-    },
-    {
-      path: 'submit-form',
-      name: 'submit-form',
-      component: () => import('@/views/admin/component/form/submit-form/index.vue'),
-      meta: {
-        title: '操作表单'
-      },
-    }]
+    }
   },
   {
     path: 'table',
