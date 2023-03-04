@@ -6,7 +6,7 @@ import { envParse } from './build/utils'
 import { resolve } from 'path'
 
 // eslint-disable-next-line no-control-regex
-const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,]/g
+const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,_]/g
 const DRIVE_LETTER_REGEX = /^[a-z]:/i
 
 export default ({ mode }: ConfigEnv) => {

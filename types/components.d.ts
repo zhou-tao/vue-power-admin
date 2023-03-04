@@ -78,7 +78,6 @@ declare module '@vue/runtime-core' {
     IRiFullscreenExitFill: typeof import('~icons/ri/fullscreen-exit-fill')['default']
     IRiFullscreenFill: typeof import('~icons/ri/fullscreen-fill')['default']
     IRiRefreshLine: typeof import('~icons/ri/refresh-line')['default']
-    IRiSearch: typeof import('~icons/ri/search')['default']
     IRiSearchLine: typeof import('~icons/ri/search-line')['default']
     IRiUser3Line: typeof import('~icons/ri/user3-line')['default']
     Line: typeof import('./../src/components/ECharts/src/Line/index.vue')['default']
