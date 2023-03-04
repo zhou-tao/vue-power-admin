@@ -40,14 +40,6 @@ const ComponentRoute: AppRouteConfig = {
     meta: {
       title: '编辑器'
     }
-  },
-  {
-    path: 'chart',
-    name: 'chart',
-    component: () => import('@/views/admin/component/chart/index.vue'),
-    meta: {
-      title: '图表'
-    }
   }]
 }
 
