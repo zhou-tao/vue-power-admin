@@ -3,7 +3,7 @@
   interface ListItem {
     id: string
     title: string
-    description: string
+    description?: string
     avatar?: string
   }
 
@@ -17,10 +17,10 @@
     <template v-for="({ id, title, description, avatar }, index) in data" :key="id">
       <li my="2">
         <div flex items="center">
-          <Avatar :src="avatar" mr="4" />
+          <Avatar :src="avatar" mr="4" v-if="avatar" />
           <div text="sm">
             <p text="regular" my="2">{{ title }}</p>
-            <p text="secondary" my="2">{{ description }}</p>
+            <p v-if="description" text="secondary" my="2">{{ description }}</p>
           </div>
         </div>
       </li>
