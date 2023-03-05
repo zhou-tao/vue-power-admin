@@ -70,7 +70,7 @@
     </el-row>
     <el-row :gutter="16" mb="4">
       <el-col :span="18">
-        <Card title="热度趋势" height="320px">
+        <Card title="热度趋势" height="360px">
           <AreaLineChart v-model="lineData" />
           <template #right>
             <el-radio-group v-model="dateType" mr="5" @change="handleDateChange">
@@ -81,7 +81,7 @@
         </Card>
       </el-col>
       <el-col :span="6">
-        <Card title="贡献排行" height="320px">
+        <Card title="贡献排行" height="360px">
           <RankList />
         </Card>
       </el-col>

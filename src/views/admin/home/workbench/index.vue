@@ -82,7 +82,7 @@
           <div flex="~ wrap" justify-between mt="4">
             <ShortCut v-for="(r, i) in shortCuts" :key="i" v-bind="r" />
           </div>
-          <el-divider />
+          <el-divider style="margin: 39px 0" />
           <Card title="最近访问" :padding="false" />
           <div flex="~ wrap" justify-between mt="4">
             <ShortCut v-for="(r, i) in shortCuts" :key="i" v-bind="r" />
