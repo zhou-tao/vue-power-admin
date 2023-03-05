@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import { ThemeEnum } from '@/enums/appEnum'
 import { MenuLayout } from '@/enums/menuEnum'
 import { useDark } from '@vueuse/core'
+import { getLocalStorage, setLocalStorage } from '@/hooks/web/useStorage'
+import { LocalStorageEnum } from '@/enums/storageEnum'
 
 const isDark = useDark()
 const computedTheme = (dark: boolean) => dark ? ThemeEnum.DARK : ThemeEnum.LIGHT
@@ -28,7 +30,7 @@ export const useSettingStore = defineStore('setting', {
     hasTabView: true,
     hasFooter: true,
     hasLocales: true,
-    hasFpLoading: true,
+    hasFpLoading: getLocalStorage(LocalStorageEnum.VP_HAS_FP_LOADING),
     hasPageAnimate: true,
     hasProgress: true
   }),
@@ -56,6 +58,7 @@ export const useSettingStore = defineStore('setting', {
 
     toggleFpLoading() {
       this.hasFpLoading = !this.hasFpLoading
+      setLocalStorage(LocalStorageEnum.VP_HAS_FP_LOADING, this.hasFpLoading)
     },
 
     togglePageAnimate() {

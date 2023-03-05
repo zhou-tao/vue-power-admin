@@ -15,7 +15,8 @@
     hasPageAnimate,
     hasProgress,
     isVerticalMenu,
-    setLayout
+    setLayout,
+    toggleFpLoading
   } = $(useSettingStore())
 
   const drawer = ref(false)
@@ -23,6 +24,11 @@
   function onTabViewChange(value: boolean) {
     const height = getCssVar(value ? CSSVarEnum.CONTENT_MIN_HEIGHT : CSSVarEnum.CONTENT_NAX_HEIGHT)
     setCssVar(CSSVarEnum.CONTENT_HEIGHT, height)
+  }
+
+  function handleFpLoadingChange() {
+    toggleFpLoading()
+    return true
   }
 
 </script>
@@ -110,7 +116,7 @@
       <div w-full flex="~ col" gap="2">
         <div class="between">
           <span>首屏动画</span>
-          <el-switch v-model="hasFpLoading" inline-prompt active-text="开" inactive-text="关" />
+          <el-switch :model-value="hasFpLoading" inline-prompt active-text="开" inactive-text="关" :before-change="handleFpLoadingChange" />
         </div>
         <div class="between">
           <span>切换动画</span>

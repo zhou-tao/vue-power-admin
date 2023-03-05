@@ -126,7 +126,7 @@
   @apply flex center my-4;
 
   div {
-    @apply px-3 text-sm text-secondary tracking-1px;
+    @apply px-3 text-xs text-secondary tracking-1px;
   }
 
   &::before, &::after {
