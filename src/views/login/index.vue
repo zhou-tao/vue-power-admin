@@ -16,14 +16,6 @@
     dark:bg="gradient-dark"
   >
     <img src="@/assets/images/login_banner.svg" w="lg" />
-    <img
-      src="/.github/logo.svg"
-      alt="logo"
-      fixed
-      left="4%"
-      top="2%"
-      width="60"
-    />
     <div fixed top="3%" right="2%" text="xl">
       <ThemeSwitch />
     </div>

@@ -23,7 +23,7 @@
     />
     <i-emoji-crescent-moon />
   </div>
-  <span v-else @click="toggleDark()" class="icon-view" text="xl! regular">
+  <span v-else @click="toggleDark()" class="icon-view" text="xl! regular" cursor="pointer">
     <i-app-sun v-if="isDark" />
     <i-app-moon v-else />
   </span>

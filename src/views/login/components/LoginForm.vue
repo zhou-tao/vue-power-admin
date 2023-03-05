@@ -48,9 +48,9 @@
 
 <template>
   <div
-    w="xs"
-    bg="white"
-    dark:bg="dark-2"
+    w="21rem"
+    bg="#ffffff90"
+    dark:bg="#22222290"
     px="8"
     py="6"
     rounded-4
@@ -82,7 +82,7 @@
           <div w="360px" flex justify="between" items="center">
             <el-checkbox v-model="loginForm.rememberMe">记住密码</el-checkbox>
             <span
-              text="sm blue-5"
+              text="sm primary"
               cursor="pointer"
               @click="$message.info('敬请期待！')"
             >
@@ -90,7 +90,7 @@
             </span>
           </div>
         </el-form-item>
-        <el-form-item :style="{ marginTop: '50px' }">
+        <el-form-item :style="{ marginTop: '36px' }">
           <el-button
             auto-insert-space
             w="full"
@@ -105,11 +105,36 @@
         </el-form-item>
       </el-form>
     </div>
+    <div class="divider">
+      <div>更多登录方式</div>
+    </div>
+    <div center text="1.3rem placeholder">
+      <i-ri-github-fill class="link" />
+      <i-ri-wechat-fill class="link" />
+      <i-ri-twitter-fill class="link" />
+      <i-ri-google-fill class="link" text="1.2rem!" />
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 :deep(.el-checkbox__label) {
   font-weight: 400;
+}
+
+.divider {
+  @apply flex center my-4;
+
+  div {
+    @apply px-3 text-sm text-secondary tracking-1px;
+  }
+
+  &::before, &::after {
+    @apply content-none flex-1 h-1px bg-[var(--el-border-color)];
+  }
+}
+
+.link {
+  @apply cursor-pointer mx-3 hover:text-regular transition-base;
 }
 </style>
