@@ -53,7 +53,7 @@
     dark:bg="#22222290"
     px="8"
     py="6"
-    rounded-4
+    rounded-xl
     shadow-xl
   >
     <h1 text="3xl brand-gradient center" font="bold mono" m="t-lg b-0" select-none>
@@ -118,8 +118,15 @@
 </template>
 
 <style lang="scss" scoped>
-:deep(.el-checkbox__label) {
-  font-weight: 400;
+
+:deep(.el-form) {
+  .el-input__wrapper, .el-checkbox__inner {
+    @apply bg-transparent;
+  }
+
+  .el-checkbox__label {
+    @apply font-normal;
+  }
 }
 
 .divider {
@@ -135,6 +142,6 @@
 }
 
 .link {
-  @apply cursor-pointer mx-3 hover:text-regular transition-base;
+  @apply cursor-pointer mx-4 hover:text-regular transition-base;
 }
 </style>
