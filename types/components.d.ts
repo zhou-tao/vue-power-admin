@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Avatar: typeof import('./../src/components/Avatar/src/Avatar.vue')['default']
     Bar: typeof import('./../src/components/ECharts/src/Bar/index.vue')['default']
     Card: typeof import('./../src/components/Card/src/Card.vue')['default']
+    Editor: typeof import('./../src/components/Editor/src/Editor.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
