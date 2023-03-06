@@ -27,6 +27,7 @@
     "pinia": "^2.0.23",
     "pinia-plugin-persistedstate": "^2.3.0",
     "qs": "^6.11.0",
+    "viewerjs": "^1.11.3",
     "vue": "3.2.45",
     "vue-router": "^4.1.6"
   },

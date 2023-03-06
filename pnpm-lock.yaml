@@ -49,6 +49,7 @@ specifiers:
   unplugin-auto-import: ^0.11.2
   unplugin-icons: ^0.15.1
   unplugin-vue-components: ^0.22.8
+  viewerjs: ^1.11.3
   vite: 4.0.4
   vite-plugin-vue-setup-extend: ^0.4.0
   vue: 3.2.45
@@ -68,6 +69,7 @@ dependencies:
   pinia: 2.0.23_zwu2zepfy3m6u2gunxlolp35gi
   pinia-plugin-persistedstate: 2.3.0_pinia@2.0.23
   qs: 6.11.0
+  viewerjs: 1.11.3
   vue: 3.2.45
   vue-router: 4.1.6_vue@3.2.45
 
@@ -5615,6 +5617,10 @@ packages:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
     dev: true
+
+  /viewerjs/1.11.3:
+    resolution: {integrity: sha512-efG3U61Umuj/1x6JAtdvnY9m407C/RkrkFilsMcLEWKDivpjNU3/FeL+feCY1Vkur9aQeBJ+z6K4CCPP7hv6vA==}
+    dev: false
 
   /vite-plugin-vue-setup-extend/0.4.0_vite@4.0.4:
     resolution: {integrity: sha512-WMbjPCui75fboFoUTHhdbXzu4Y/bJMv5N9QT9a7do3wNMNHHqrk+Tn2jrSJU0LS5fGl/EG+FEDBYVUeWIkDqXQ==}
