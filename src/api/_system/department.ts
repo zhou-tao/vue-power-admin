@@ -2,7 +2,7 @@ import type { DepartmentModel } from './model/departmentModel'
 import { useFetch } from '@/utils/http'
 import { ListQuery, ListResult } from '../model/baseModel'
 
-enum Api {
+export enum Api {
   DEPARTMENT_LIST = '/sysadmin/department/list',
 }
 

@@ -2,7 +2,7 @@ import type { RoleModel } from './model/roleModel'
 import { useFetch } from '@/utils/http'
 import { ListQuery, ListResult } from '../model/baseModel'
 
-enum Api {
+export enum Api {
   ROLE_LIST = '/sysadmin/role/list',
 }
 

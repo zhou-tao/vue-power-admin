@@ -5,7 +5,7 @@ import { useCookie } from '@h/web/useCookie'
 import { useFetch } from '@/utils/http'
 import config from '@/config'
 
-enum Api {
+export enum Api {
   Auth = '/oauth/token'
 }
 

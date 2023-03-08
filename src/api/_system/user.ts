@@ -2,7 +2,7 @@ import type { ListQuery, ListResult } from '../model/baseModel'
 import type { UserInfoModel } from './model/userModel'
 import { useFetch } from '@/utils/http'
 
-enum Api {
+export enum Api {
   ACCOUNT_INFO = '/sysadmin/user/info',
   USER_LIST = '/sysadmin/user/list',
   USER_PRE = '/sysadmin/user',
