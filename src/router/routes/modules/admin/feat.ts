@@ -10,6 +10,22 @@ const FeatRoute: AppRouteConfig = {
     icon: 'ri:rocket-2-fill'
   },
   children: [{
+    path: 'guide',
+    name: 'guide',
+    component: () => import('@/views/admin/feat/guide/index.vue'),
+    meta: {
+      title: '页面引导'
+    }
+  },
+  {
+    path: 'watermark',
+    name: 'watermark',
+    component: () => import('@/views/admin/feat/watermark/index.vue'),
+    meta: {
+      title: '水印'
+    }
+  },
+  {
     path: 'image-preview',
     name: 'image_preview',
     component: () => import('@/views/admin/feat/image-preview/index.vue'),
@@ -23,14 +39,6 @@ const FeatRoute: AppRouteConfig = {
     component: () => import('@/views/admin/feat/lazy/index.vue'),
     meta: {
       title: '懒加载'
-    }
-  },
-  {
-    path: 'watermark',
-    name: 'watermark',
-    component: () => import('@/views/admin/feat/watermark/index.vue'),
-    meta: {
-      title: '水印'
     }
   }]
 }

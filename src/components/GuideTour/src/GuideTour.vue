@@ -1,9 +1,9 @@
-<script setup lang="ts" name="Guide">
+<script setup lang="ts" name="GuideTour">
 </script>
 
 <template>
   <div page-card>
-    引导页
+    <PageTitle />
   </div>
 </template>
 
