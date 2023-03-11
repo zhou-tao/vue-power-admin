@@ -24,7 +24,8 @@ export default {
     height: {
       header: '64px',
       footer: '50px',
-      tab: 'var(--tab-view-height)'
+      tab: 'var(--tab-view-height)',
+      content: 'var(--content-base-height)'
     },
     minHeight: {
       content: 'var(--content-base-height)'

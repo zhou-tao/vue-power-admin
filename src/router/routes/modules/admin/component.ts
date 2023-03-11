@@ -26,6 +26,14 @@ const ComponentRoute: AppRouteConfig = {
     }
   },
   {
+    path: 'split-pane',
+    name: 'split_pane',
+    component: () => import('@/views/admin/component/split-pane/index.vue'),
+    meta: {
+      title: '分栏器'
+    }
+  },
+  {
     path: 'icon',
     name: 'icon',
     component: () => import('@/views/admin/component/icon/index.vue'),
