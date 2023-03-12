@@ -59,7 +59,7 @@
 
 <template>
   <div ref="splitterRef" flex h-full :style="{ flexDirection: direction }">
-    <div class="prev pane" :style="{ [lengthType]: `${prevPercent}%` }">
+    <div class="prev pane" :style="{ [lengthType]: `${prevPercent}%` }" overflow-hidden>
       <slot name="prev"></slot>
     </div>
     <Trigger :direction="barDirection" :draggable="draggable" :size="triggerSize" @mousedown="handleMouseDown" />
