@@ -8,7 +8,7 @@
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'
   import { MenuLayout } from '@/enums/menuEnum'
 
-  const { username } = $(useUserStore())
+  const { username, avatar } = $(useUserStore())
   const {
     hasBreadcrumb,
     hasLocales,
@@ -89,12 +89,12 @@
       <div cursor="pointer" ml="6">
         <el-dropdown>
           <div flex items="center">
-            <Avatar src="https://avatars.githubusercontent.com/u/36221207?v=4" />
+            <Avatar :src="avatar" />
             <span text="base" ml="2">{{ username }}</span>
           </div>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item>
+              <el-dropdown-item @click="$router.push({ path: '/personal/index', query: { tab: 'password' } })">
                 <i-ep-lock />账号设置
               </el-dropdown-item>
               <el-dropdown-item

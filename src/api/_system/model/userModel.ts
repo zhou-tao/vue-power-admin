@@ -7,6 +7,7 @@ export interface UserInfoModel {
   userId: number
   username: string
   gender: string
+  avatar: string
   deptCode: Nullable<string>
   deptName: Nullable<string>
   mobile: Nullable<string>
