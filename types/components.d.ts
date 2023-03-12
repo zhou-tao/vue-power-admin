@@ -73,6 +73,7 @@ declare module '@vue/runtime-core' {
     IEpFold: typeof import('~icons/ep/fold')['default']
     IEpLock: typeof import('~icons/ep/lock')['default']
     IEpRight: typeof import('~icons/ep/right')['default']
+    IEpSearch: typeof import('~icons/ep/search')['default']
     IEpStar: typeof import('~icons/ep/star')['default']
     IEpSwitchButton: typeof import('~icons/ep/switch-button')['default']
     IRiAddFill: typeof import('~icons/ri/add-fill')['default']
@@ -95,6 +96,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchModel: typeof import('./../src/components/SearchModel/src/SearchModel.vue')['default']
+    SearchTree: typeof import('./../src/components/SearchTree/src/SearchTree.vue')['default']
     ShortCut: typeof import('./../src/components/ShortCut/src/ShortCut.vue')['default']
     Spliter: typeof import('./../src/components/Spliter/src/Spliter.vue')['default']
     SplitPane: typeof import('./../src/components/Spliter/src/SplitPane.vue')['default']
@@ -104,6 +106,7 @@ declare module '@vue/runtime-core' {
     ThemeSetting: typeof import('./../src/components/ThemeSetting/src/ThemeSetting.vue')['default']
     ThemeSwitch: typeof import('./../src/components/ThemeSwitch/src/ThemeSwitch.vue')['default']
     TotalCard: typeof import('./../src/components/Card/src/TotalCard.vue')['default']
+    Tree: typeof import('./../src/components/SearchTree/src/Tree.vue')['default']
     Trigger: typeof import('./../src/components/Splitter/src/Trigger.vue')['default']
   }
   export interface ComponentCustomProperties {

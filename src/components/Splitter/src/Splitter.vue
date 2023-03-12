@@ -63,7 +63,7 @@
       <slot name="prev"></slot>
     </div>
     <Trigger :direction="barDirection" :draggable="draggable" :size="triggerSize" @mousedown="handleMouseDown" />
-    <div class="next pane" flex-1>
+    <div class="next pane" flex-1 overflow-auto>
       <slot name="next"></slot>
     </div>
   </div>

@@ -158,86 +158,110 @@
     })
   }
 
+  const dictTypeData = [
+    { label: '菜单', value: 'MENU_TYPE', children: [] },
+    { label: '角色', value: 'AUTH_TYPE', children: [] },
+    { label: '性别', value: 'GENDER', children: [] },
+    { label: '职级', value: 'JOB_LEVEL', children: [] },
+    { label: '岗位', value: 'POST', children: [
+      { label: '开发', value: 'JOB_LEVEL', children: [] },
+      { label: '测试', value: 'JOB_LEVEL', children: [] },
+      { label: '运维', value: 'JOB_LEVEL', children: [] }
+    ] }
+  ]
+
+  function handleNodeClick(node: any) {
+    console.log('search by:', toRaw(node))
+    loadData()
+  }
+
 </script>
 
 <template>
-  <div page-card>
-    <SearchModel
-      v-model="queryData"
-      :config="config"
-      :per-line-count="4"
-      @query="handleQuery"
-      @reset="handleReset"
-    />
-    <div flex items="center">
-      <el-button type="primary" @click="handleAdd">
-        <i-ri-add-fill /> 新增
-      </el-button>
-      <el-button type="danger" :disabled="!selectedData.length" @click="handleDelete(selectedData)">
-        <i-ri-delete-bin-line /> 删除
-      </el-button>
-    </div>
-    <TableModel
-      ref="tableModelRef"
-      :loading="loading"
-      :columns="columns"
-      :data="tableData"
-      row-key="id"
-      @selection-change="handleSelectionChange"
-      v-model:pagination="pagination"
-      @page-change="handlePageChange"
-      @size-change="handleSizeChange"
-    />
-    <el-dialog
-      v-model="visible"
-      :width="600"
-      :title="submitType"
-      :show-close="false"
-      :close-on-click-modal="false"
-      @closed="submitFormRef?.resetFields()"
-    >
-      <el-form
-        ref="submitFormRef"
-        :model="submitForm"
-        :rules="rules"
-        label-width="100px"
-        style="width: 95%"
-        status-icon
-      >
-        <el-form-item label="名称" prop="name">
-          <el-input v-model="submitForm.name" placeholder="请输入" />
-        </el-form-item>
-        <el-form-item label="代码" prop="code">
-          <el-input v-model="submitForm.code" placeholder="请输入" />
-        </el-form-item>
-        <el-form-item label="选项" prop="options">
-          <div
-            w-full
-            flex
-            justify="between"
-            items="center"
-            gap="2"
-            my="2"
-            v-for="option in submitForm.options"
-            :key="option.value"
-          >
-            <el-input v-model="option.label" placeholder="请输入选项名" />
-            <el-input v-model="option.value" placeholder="请输入选项值" />
-          </div>
-          <el-button w="full" plain @click="submitForm.options.push({ label: '', value: '' })">添加</el-button>
-        </el-form-item>
-        <el-form-item label="描述" prop="description">
-          <el-input v-model="submitForm.description" type="textarea" placeholder="请输入" />
-        </el-form-item>
-      </el-form>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="visible = false">取消</el-button>
-          <el-button type="primary" @click="handleSubmit">
-            保存
-          </el-button>
-        </span>
+  <div page-pure>
+    <Splitter direction="row" :prevDefaultPercent="20" :draggable="false">
+      <template #prev>
+        <SearchTree enable-filter default-expand-all :data="dictTypeData" node-key="value" @node-click="handleNodeClick" />
       </template>
-    </el-dialog>
+      <template #next>
+        <SearchModel
+          v-model="queryData"
+          :config="config"
+          :per-line-count="3"
+          @query="handleQuery"
+          @reset="handleReset"
+        />
+        <div flex items="center">
+          <el-button type="primary" @click="handleAdd">
+            <i-ri-add-fill /> 新增
+          </el-button>
+          <el-button type="danger" :disabled="!selectedData.length" @click="handleDelete(selectedData)">
+            <i-ri-delete-bin-line /> 删除
+          </el-button>
+        </div>
+        <TableModel
+          ref="tableModelRef"
+          :loading="loading"
+          :columns="columns"
+          :data="tableData"
+          row-key="id"
+          @selection-change="handleSelectionChange"
+          v-model:pagination="pagination"
+          @page-change="handlePageChange"
+          @size-change="handleSizeChange"
+        />
+        <el-dialog
+          v-model="visible"
+          :width="600"
+          :title="submitType"
+          :show-close="false"
+          :close-on-click-modal="false"
+          @closed="submitFormRef?.resetFields()"
+        >
+          <el-form
+            ref="submitFormRef"
+            :model="submitForm"
+            :rules="rules"
+            label-width="100px"
+            style="width: 95%"
+            status-icon
+          >
+            <el-form-item label="名称" prop="name">
+              <el-input v-model="submitForm.name" placeholder="请输入" />
+            </el-form-item>
+            <el-form-item label="代码" prop="code">
+              <el-input v-model="submitForm.code" placeholder="请输入" />
+            </el-form-item>
+            <el-form-item label="选项" prop="options">
+              <div
+                w-full
+                flex
+                justify="between"
+                items="center"
+                gap="2"
+                my="2"
+                v-for="option in submitForm.options"
+                :key="option.value"
+              >
+                <el-input v-model="option.label" placeholder="请输入选项名" />
+                <el-input v-model="option.value" placeholder="请输入选项值" />
+              </div>
+              <el-button w="full" plain @click="submitForm.options.push({ label: '', value: '' })">添加</el-button>
+            </el-form-item>
+            <el-form-item label="描述" prop="description">
+              <el-input v-model="submitForm.description" type="textarea" placeholder="请输入" />
+            </el-form-item>
+          </el-form>
+          <template #footer>
+            <span class="dialog-footer">
+              <el-button @click="visible = false">取消</el-button>
+              <el-button type="primary" @click="handleSubmit">
+                保存
+              </el-button>
+            </span>
+          </template>
+        </el-dialog>
+      </template>
+    </Splitter>
   </div>
 </template>

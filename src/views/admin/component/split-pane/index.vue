@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <div page-base bg-page rounded h-content>
+  <div page-pure>
     <Splitter :direction="direction" :draggable="draggable" :triggerSize="8">
       <template #prev>
         <PageTitle title="分栏一" description="分栏通用动态拖拽组件, 支持 row、column 两种模式。" />

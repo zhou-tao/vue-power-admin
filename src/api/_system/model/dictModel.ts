@@ -7,8 +7,10 @@ export interface DictOption {
 
 export interface DictModel extends DateLogModel {
   id: number
-  code: string
+  typeName: string
+  typeCode: string
   name: string
+  code: string
   options: DictOption[]
   description?: string
 }

@@ -48,6 +48,9 @@ export default {
       'page-card': 'page-base bg-page rounded px-6 py-5'
     },
     {
+      'page-pure': 'page-base bg-page rounded h-content'
+    },
+    {
       center: 'flex items-center justify-center'
     }
   ],
