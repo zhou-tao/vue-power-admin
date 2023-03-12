@@ -2,13 +2,15 @@
   import Trigger from './Trigger.vue'
 
   const props = withDefaults(defineProps<{
-    direction?: 'row' | 'column',
+    direction?: 'row' | 'column'
+    draggable?: boolean
     prevDefaultPercent?: number
     minPercent?: number
     maxPercent?: number
     triggerSize?: number
   }>(), {
     direction: 'row',
+    draggable: true,
     prevDefaultPercent: 50,
     minPercent: 30,
     maxPercent: 70,
@@ -24,6 +26,7 @@
 
   // 按下滑动器
   function handleMouseDown (e: MouseEvent) {
+    if (!props.draggable) return
     const { pageX, pageY } = e
     const { left, top } = (e.target! as HTMLElement).getBoundingClientRect()
     triggerOffset.value = props.direction === 'row' ? pageX - left : pageY - top
@@ -59,7 +62,7 @@
     <div class="prev pane" :style="{ [lengthType]: `${prevPercent}%` }">
       <slot name="prev"></slot>
     </div>
-    <Trigger :direction="barDirection" :size="triggerSize" @mousedown="handleMouseDown" />
+    <Trigger :direction="barDirection" :draggable="draggable" :size="triggerSize" @mousedown="handleMouseDown" />
     <div class="next pane" flex-1>
       <slot name="next"></slot>
     </div>

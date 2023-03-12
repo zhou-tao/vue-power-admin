@@ -1,9 +1,11 @@
 <script setup lang="ts" name="DraggleBar">
   const props = withDefaults(defineProps<{
     direction?: 'row' | 'column',
+    draggable?: boolean
     size?: number
   }>(), {
     direction: 'row',
+    draggable: true,
     size: 8
   })
 
@@ -23,6 +25,13 @@
 
 <template>
   <div :style="computedStyle(direction)" bg-root center>
-    <div :style="computedStyle(direction, true)" rounded-full bg="placeholder hover:secondary active:regular" transition="base colors"></div>
+    <div
+      v-if="draggable"
+      :style="computedStyle(direction, true)"
+      bg="placeholder hover:secondary active:regular"
+      transition="base colors"
+      rounded-full
+      center
+    ></div>
   </div>
 </template>
