@@ -108,42 +108,36 @@
           </div>
         </template>
         <div class="pane">
-          <el-row :gutter="16">
-            <el-col :span="20">
-              <el-descriptions size="large" title="用户信息" :column="2" border>
-                <template #extra>
-                  <el-button type="primary" @click="openDialog">
-                    <i-ep-edit />
-                    资料修改
-                  </el-button>
-                </template>
-                <el-descriptions-item label="用户名">{{ userStore.username }}</el-descriptions-item>
-                <el-descriptions-item label="用户编号">{{ userStore.userId }}</el-descriptions-item>
-                <el-descriptions-item label="姓名">{{ userStore.name }}</el-descriptions-item>
-                <el-descriptions-item label="性别">{{ userStore.gender === '1' ? '男' : '女' }}</el-descriptions-item>
-                <el-descriptions-item label="电话">{{ userStore.mobile }}</el-descriptions-item>
-                <el-descriptions-item label="账号权限">
-                  <el-tag v-for="role in userStore.roles" :key="role.id" type="success">{{ role.name }}</el-tag>
-                </el-descriptions-item>
-                <el-descriptions-item label="部门">{{ userStore.deptName }}</el-descriptions-item>
-                <el-descriptions-item label="岗位">
-                  <el-tag v-for="post in userStore.posts" :key="post.id" type="warning" class="mx-1">{{ post.name }}</el-tag>
-                </el-descriptions-item>
-                <el-descriptions-item label="个人说明">树叶的一生，只是为了归根么？</el-descriptions-item>
-              </el-descriptions>
-            </el-col>
-            <el-col :span="4">
+          <el-descriptions size="large" title="用户信息" :column="2" border>
+            <template #extra>
+              <el-button type="primary" @click="openDialog">
+                <i-ep-edit />
+                资料修改
+              </el-button>
+            </template>
+            <el-descriptions-item label="用户名">{{ userStore.username }}</el-descriptions-item>
+            <el-descriptions-item label="头像">
               <img
                 ref="avatar"
                 :src="userStore.avatar"
                 alt="avatar"
-                w-full
+                width="80"
                 rounded
-                mt-13
                 cursor="pointer"
               />
-            </el-col>
-          </el-row>
+            </el-descriptions-item>
+            <el-descriptions-item label="姓名">{{ userStore.name }}</el-descriptions-item>
+            <el-descriptions-item label="性别">{{ userStore.gender === '1' ? '男' : '女' }}</el-descriptions-item>
+            <el-descriptions-item label="电话">{{ userStore.mobile }}</el-descriptions-item>
+            <el-descriptions-item label="角色">
+              <el-tag v-for="role in userStore.roles" :key="role.id" type="success">{{ role.name }}</el-tag>
+            </el-descriptions-item>
+            <el-descriptions-item label="部门">{{ userStore.deptName }}</el-descriptions-item>
+            <el-descriptions-item label="岗位">
+              <el-tag v-for="post in userStore.posts" :key="post.id" type="warning" class="mx-1">{{ post.name }}</el-tag>
+            </el-descriptions-item>
+            <el-descriptions-item label="个人说明">树叶的一生，只是为了归根么？</el-descriptions-item>
+          </el-descriptions>
         </div>
       </el-tab-pane>
       <el-tab-pane name="password">

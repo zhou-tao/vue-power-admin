@@ -5,7 +5,6 @@
   import { useMessage } from '@h/web/useMessage'
   // import { useLoginByPassword } from '@h/logic/useLogin'
   import { FormInstance, FormRules } from 'element-plus'
-
   import { useRouter } from 'vue-router'
 
   const router = useRouter()
@@ -100,7 +99,7 @@
             class="login-btn"
             @click="doLogin(loginFormRef)"
           >
-            登录
+            {{ $t('message.login') }}
           </el-button>
         </el-form-item>
       </el-form>

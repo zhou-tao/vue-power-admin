@@ -6,11 +6,9 @@
 <template>
   <div
     h-full
-    bg-white
-    flex
+    bg-root
+    center
     flex-col
-    justify-center
-    items-center
   >
     <img src="@/assets/images/not_found.svg" width="600" alt="not_found" />
     <el-button
@@ -20,9 +18,6 @@
       type="primary"
       @click="router.replace('/login?redirect=404')"
     >
-      <template #icon>
-        <i-ep-arrow-left-bold />
-      </template>
       返回首页
     </el-button>
   </div>

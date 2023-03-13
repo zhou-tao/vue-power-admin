@@ -3,7 +3,6 @@ import HomeRoute from './home'
 import SystemRoute from './system'
 import ComponentRoute from './component'
 import FeatRoute from './feat'
-import AboutRoute from './about'
 import PersonalRoute from './personal'
 
 const AdminRoutes: AppRouteConfig[] = [
@@ -11,8 +10,7 @@ const AdminRoutes: AppRouteConfig[] = [
   SystemRoute,
   ComponentRoute,
   FeatRoute,
-  PersonalRoute,
-  AboutRoute
+  PersonalRoute
 ]
 
 export default AdminRoutes
