@@ -1,13 +1,17 @@
 <script setup lang="ts" name="LayoutHeader">
   import Breadcrumb from './components/Breadcrumb.vue'
   import ThemeSwitch from '@/components/ThemeSwitch'
-  import LogoView from '../sider/components/LogoView.vue'
-  import Menu from '../sider/components/menu/index.vue'
+  import LogoView from '@/layouts/admin/sider/components/LogoView.vue'
+  import Menu from '@/layouts/admin/sider/components/menu/index.vue'
   import { useUserStore } from '@/store/modules/user'
   import { useSettingStore } from '@/store/modules/setting'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'
   import { MenuLayout } from '@/enums/menuEnum'
+  import { getLocaleTypes } from '@/i18n'
+  import { useI18n } from 'vue-i18n'
+  import { useMessage } from '@/hooks/web/useMessage'
 
+  const { $message } = useMessage()
   const { username, avatar } = $(useUserStore())
   const {
     hasBreadcrumb,
@@ -18,6 +22,16 @@
   } = $(useSettingStore())
 
   autoRemoveListener()
+
+  const localeTypes = getLocaleTypes()
+
+  const { t, locale } = useI18n()
+
+  function handleLocaleChange(language: string, name: string) {
+    locale.value = language
+    $message.success(`${t('header.changeLocale')}: ${name}`)
+  }
+
 </script>
 
 <template>
@@ -53,17 +67,7 @@
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item>
-              您收到一条临时紧急加班通知 ！！
-            </el-dropdown-item>
-            <el-dropdown-item
-              divided
-            >
-              You received a temporary overtime notice!!
-            </el-dropdown-item>
-            <el-dropdown-item
-              divided
-            >
-              臨時の緊急残業の通知を受け取りました!!
+              {{ t('header.message') }}
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -74,13 +78,8 @@
         </div>
         <template #dropdown>
           <el-dropdown-menu>
-            <el-dropdown-item>
-              中文简体
-            </el-dropdown-item>
-            <el-dropdown-item
-              divided
-            >
-              English
+            <el-dropdown-item v-for="({ value, name }, i) in localeTypes" :key="value" :divided="!!i" @click="handleLocaleChange(value, name)">
+              {{ name }}
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -95,14 +94,14 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="$router.push({ path: '/personal/index', query: { tab: 'password' } })">
-                <i-ep-lock />账号设置
+                <i-ep-lock />{{ t('header.setup') }}
               </el-dropdown-item>
               <el-dropdown-item
                 divided
                 @click="$router.replace('/login?redirect=logout')"
               >
                 <i-ep-switch-button />
-                注销登录
+                {{ t('header.logout') }}
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>

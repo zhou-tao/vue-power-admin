@@ -6,9 +6,11 @@
   // import { useLoginByPassword } from '@h/logic/useLogin'
   import { FormInstance, FormRules } from 'element-plus'
   import { useRouter } from 'vue-router'
+  import { useI18n } from 'vue-i18n'
 
+  const { t } = useI18n()
   const router = useRouter()
-  const { $message, $notify } = useMessage()
+  const { $notify } = useMessage()
   const loginForm = reactive<LoginParams>({
     username: '',
     password: '',
@@ -16,8 +18,8 @@
   })
   const loginFormRef = $ref<FormInstance>()
   const loginRules = reactive<FormRules>({
-    username: [{ required: true, message: '请输入账号', trigger: 'blur' }],
-    password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+    username: [{ required: true, message: t('home.usernameRule'), trigger: 'blur' }],
+    password: [{ required: true, message: t('home.passwordRule'), trigger: 'blur' }]
   })
   let loginLoading = $ref<boolean>(false)
 
@@ -38,7 +40,7 @@
       router.push('/home')
       $notify({
         title: 'Welcome',
-        message: '尊贵的VIP用户，您已登录成功！',
+        message: t('home.welcome'),
         type: 'success',
       })
     })
@@ -64,7 +66,7 @@
           <el-input
             size="large"
             v-model="loginForm.username"
-            placeholder="账号"
+            :placeholder="t('home.account')"
           />
         </el-form-item>
         <el-form-item prop="password" :style="{ marginTop: '38px' }">
@@ -72,20 +74,19 @@
             v-model="loginForm.password"
             type="password"
             size="large"
-            placeholder="密码"
+            :placeholder="t('home.password')"
             show-password
             @keyup.enter="doLogin(loginFormRef)"
           />
         </el-form-item>
         <el-form-item>
           <div w="360px" flex justify="between" items="center">
-            <el-checkbox v-model="loginForm.rememberMe">记住密码</el-checkbox>
+            <el-checkbox v-model="loginForm.rememberMe">{{ t('home.remember') }}</el-checkbox>
             <span
               text="sm primary"
               cursor="pointer"
-              @click="$message.info('敬请期待！')"
             >
-              忘记密码？
+              {{ t('home.forgot') }}
             </span>
           </div>
         </el-form-item>
@@ -99,13 +100,13 @@
             class="login-btn"
             @click="doLogin(loginFormRef)"
           >
-            {{ $t('message.login') }}
+            {{ t('home.login') }}
           </el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="divider">
-      <div>更多登录方式</div>
+      <div>{{ t('home.moreLoginType') }}</div>
     </div>
     <div center text="1.3rem placeholder">
       <i-ri-github-fill class="link" />
