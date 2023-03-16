@@ -83,6 +83,7 @@ declare module '@vue/runtime-core' {
     IEpSwitchButton: typeof import('~icons/ep/switch-button')['default']
     IRiAddFill: typeof import('~icons/ri/add-fill')['default']
     IRiArrowGoBackFill: typeof import('~icons/ri/arrow-go-back-fill')['default']
+    IRiCheckFill: typeof import('~icons/ri/check-fill')['default']
     IRiDeleteBinLine: typeof import('~icons/ri/delete-bin-line')['default']
     IRiFullscreenExitFill: typeof import('~icons/ri/fullscreen-exit-fill')['default']
     IRiFullscreenFill: typeof import('~icons/ri/fullscreen-fill')['default']

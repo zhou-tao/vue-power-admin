@@ -79,7 +79,8 @@
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item v-for="({ value, name }, i) in localeTypes" :key="value" :divided="!!i" @click="handleLocaleChange(value, name)">
-              {{ name }}
+              <div inline-block w-18>{{ name }}</div>
+              <i-ri-check-fill v-if="value === locale" />
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>

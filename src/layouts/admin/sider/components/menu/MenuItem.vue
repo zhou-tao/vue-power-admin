@@ -2,6 +2,7 @@
   import type { RouteRecordName } from 'vue-router'
   import type { Menu, MenuItemComponent } from '@h/logic/useMenu'
   import { Icon } from '@iconify/vue'
+  import { useI18n } from 'vue-i18n'
 
   const props = defineProps<{
     component: MenuItemComponent,
@@ -10,6 +11,8 @@
     icon?: string,
     children?: Menu[]
   }>()
+
+  const { t } = useI18n()
 
   const isSubMenu = computed(() => !!props.children?.length)
 
@@ -20,7 +23,7 @@
     <Icon class="icon" v-if="icon && !isSubMenu" :icon="icon" />
     <template #title>
       <Icon class="icon" v-if="icon && isSubMenu" :icon="icon" />
-      <span>{{ title }}</span>
+      <span>{{ t(title) }}</span>
     </template>
     <template v-if="children?.length">
       <MenuItem v-for="child in children" :key="child.index" v-bind="child" />

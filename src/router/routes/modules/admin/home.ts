@@ -7,7 +7,7 @@ const HomeRoute: AppRouteConfig = {
   component: AdminLayout,
   redirect: '/home/dashboard',
   meta: {
-    title: '首页',
+    title: 'menu.home.root',
     icon: 'ep:home-filled'
   },
   children: [{
@@ -15,14 +15,14 @@ const HomeRoute: AppRouteConfig = {
     name: 'dashboard',
     component: () => import('@/views/admin/home/dashboard/index.vue'),
     meta: {
-      title: '仪表盘'
+      title: 'menu.home.dashboard'
     }
   },{
     path: 'workbench',
     name: 'workbench',
     component: () => import('@/views/admin/home/workbench/index.vue'),
     meta: {
-      title: '工作台'
+      title: 'menu.home.workbench'
     }
   }]
 }
