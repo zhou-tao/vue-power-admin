@@ -7,7 +7,7 @@ const PersonalRoute: AppRouteConfig = {
   component: AdminLayout,
   redirect: '/personal/index',
   meta: {
-    title: '个人中心',
+    title: 'menu.personal',
     icon: 'ri:checkbox-multiple-fill'
   },
   children: [{
@@ -15,7 +15,7 @@ const PersonalRoute: AppRouteConfig = {
     name: 'personal_page',
     component: () => import('@/views/admin/personal/index.vue'),
     meta: {
-      title: '个人中心',
+      title: 'menu.personal',
       hideMenu: true
     }
   }]

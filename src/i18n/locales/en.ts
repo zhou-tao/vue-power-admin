@@ -16,5 +16,43 @@ export default {
     setup: 'Setup',
     logout: 'Sign out',
     changeLocale: 'switch locale to'
+  },
+  tab: {
+    refresh: 'refresh',
+    close: 'close',
+    closeOther: 'closeOther'
+  },
+  menu: {
+    home: {
+      root: 'home',
+      dashboard: 'dashboard',
+      workbench: 'workbench'
+    },
+    system: {
+      root: 'system',
+      menu: 'menu',
+      role: 'role',
+      dict: 'dict',
+      user: 'user',
+      userDetail: 'userDetail',
+      department: 'department',
+      post: 'post',
+    },
+    component: {
+      root: 'component',
+      form: 'form',
+      table: 'table',
+      splitPane: 'splitPane',
+      icon: 'icon',
+      editor: 'editor'
+    },
+    feat: {
+      root: 'feature',
+      guide: 'guide',
+      watermark: 'watermark',
+      imagePreview: 'imagePreview',
+      lazyLoad: 'lazyLoad'
+    },
+    personal: 'personal'
   }
 }

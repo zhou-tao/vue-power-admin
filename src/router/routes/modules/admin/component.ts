@@ -6,7 +6,7 @@ const ComponentRoute: AppRouteConfig = {
   name: 'component',
   component: AdminLayout,
   meta: {
-    title: '组件',
+    title: 'menu.component.root',
     icon: 'ri:dashboard-fill'
   },
   children: [{
@@ -14,7 +14,7 @@ const ComponentRoute: AppRouteConfig = {
     name: 'form',
     component: () => import('@/views/admin/component/form/index.vue'),
     meta: {
-      title: '表单'
+      title: 'menu.component.form'
     }
   },
   {
@@ -22,7 +22,7 @@ const ComponentRoute: AppRouteConfig = {
     name: 'table',
     component: () => import('@/views/admin/component/table/index.vue'),
     meta: {
-      title: '表格'
+      title: 'menu.component.table'
     }
   },
   {
@@ -30,7 +30,7 @@ const ComponentRoute: AppRouteConfig = {
     name: 'split_pane',
     component: () => import('@/views/admin/component/split-pane/index.vue'),
     meta: {
-      title: '分栏器'
+      title: 'menu.component.splitPane'
     }
   },
   {
@@ -38,7 +38,7 @@ const ComponentRoute: AppRouteConfig = {
     name: 'icon',
     component: () => import('@/views/admin/component/icon/index.vue'),
     meta: {
-      title: '图标'
+      title: 'menu.component.icon'
     }
   },
   {
@@ -46,7 +46,7 @@ const ComponentRoute: AppRouteConfig = {
     name: 'editor',
     component: () => import('@/views/admin/component/editor/index.vue'),
     meta: {
-      title: '编辑器'
+      title: 'menu.component.editor'
     }
   }]
 }

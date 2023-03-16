@@ -6,7 +6,7 @@ const FeatRoute: AppRouteConfig = {
   name: 'feat',
   component: AdminLayout,
   meta: {
-    title: '功能',
+    title: 'menu.feat.root',
     icon: 'ri:rocket-2-fill'
   },
   children: [{
@@ -14,7 +14,7 @@ const FeatRoute: AppRouteConfig = {
     name: 'guide',
     component: () => import('@/views/admin/feat/guide/index.vue'),
     meta: {
-      title: '页面引导'
+      title: 'menu.feat.guide'
     }
   },
   {
@@ -22,7 +22,7 @@ const FeatRoute: AppRouteConfig = {
     name: 'watermark',
     component: () => import('@/views/admin/feat/watermark/index.vue'),
     meta: {
-      title: '水印'
+      title: 'menu.feat.watermark'
     }
   },
   {
@@ -30,7 +30,7 @@ const FeatRoute: AppRouteConfig = {
     name: 'image_preview',
     component: () => import('@/views/admin/feat/image-preview/index.vue'),
     meta: {
-      title: '图片预览'
+      title: 'menu.feat.imagePreview'
     }
   },
   {
@@ -38,7 +38,7 @@ const FeatRoute: AppRouteConfig = {
     name: 'lazy',
     component: () => import('@/views/admin/feat/lazy/index.vue'),
     meta: {
-      title: '懒加载'
+      title: 'menu.feat.lazyLoad'
     }
   }]
 }

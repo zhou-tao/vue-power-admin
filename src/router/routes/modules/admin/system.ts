@@ -6,7 +6,7 @@ const SystemRoute: AppRouteConfig = {
   name: 'system',
   component: AdminLayout,
   meta: {
-    title: '系统管理',
+    title: 'menu.system.root',
     icon: 'ri:settings-4-fill'
   },
   children: [{
@@ -14,7 +14,7 @@ const SystemRoute: AppRouteConfig = {
     name: 'menu',
     component: () => import('@/views/admin/_system/menu/index.vue'),
     meta: {
-      title: '菜单管理'
+      title: 'menu.system.menu'
     }
   },
   {
@@ -22,7 +22,7 @@ const SystemRoute: AppRouteConfig = {
     name: 'role',
     component: () => import('@/views/admin/_system/role/index.vue'),
     meta: {
-      title: '权限管理'
+      title: 'menu.system.role'
     }
   },
   {
@@ -30,7 +30,7 @@ const SystemRoute: AppRouteConfig = {
     name: 'dict',
     component: () => import('@/views/admin/_system/dict/index.vue'),
     meta: {
-      title: '字典管理'
+      title: 'menu.system.dict'
     }
   },
   {
@@ -38,7 +38,7 @@ const SystemRoute: AppRouteConfig = {
     name: 'user',
     component: () => import('@/views/admin/_system/user/index.vue'),
     meta: {
-      title: '用户管理'
+      title: 'menu.system.user'
     }
   },
   {
@@ -46,7 +46,7 @@ const SystemRoute: AppRouteConfig = {
     name: 'user_detail',
     component: () => import('@/views/admin/_system/user/detail.vue'),
     meta: {
-      title: '用户详情',
+      title: 'menu.system.userDetail',
       hideMenu: true,
       activeMenu: '/system/user'
     }
@@ -56,7 +56,7 @@ const SystemRoute: AppRouteConfig = {
     name: 'department',
     component: () => import('@/views/admin/_system/department/index.vue'),
     meta: {
-      title: '部门管理'
+      title: 'menu.system.dict'
     }
   },
   {
@@ -64,7 +64,7 @@ const SystemRoute: AppRouteConfig = {
     name: 'post',
     component: () => import('@/views/admin/_system/post/index.vue'),
     meta: {
-      title: '岗位管理'
+      title: 'menu.system.post'
     }
   }]
 }
