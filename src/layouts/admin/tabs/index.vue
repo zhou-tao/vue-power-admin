@@ -1,10 +1,8 @@
 <script setup lang="ts" name="LayoutTabs">
   import type { AppRouteConfig } from '@/router/types'
   import { useAppStore } from '@/store/modules/app'
-  import { useI18n } from 'vue-i18n'
 
   let { visitedViews, addVisitedView, deleteVisitedView } = $(useAppStore())
-  const { t } = useI18n()
   const router = useRouter()
   const route = useRoute()
   const tabRef = ref<HTMLDivElement>()
@@ -68,13 +66,13 @@
         @close="removeTag(v)"
         @contextmenu.prevent="openMenu(v)"
       >
-        {{ t(v?.meta?.title!) }}
+        {{ $t(v?.meta?.title!) }}
       </el-tag>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item @click="router.replace(v.path)">{{ t('tab.refresh') }}</el-dropdown-item>
-          <el-dropdown-item @click="removeTag(v)" :disabled="visitedViews.length === 1">{{ t('tab.close') }}</el-dropdown-item>
-          <el-dropdown-item @click="removeOtherTag(v)" :disabled="visitedViews.length === 1">{{ t('tab.closeOther') }}</el-dropdown-item>
+          <el-dropdown-item @click="router.replace(v.path)">{{ $t('tab.refresh') }}</el-dropdown-item>
+          <el-dropdown-item @click="removeTag(v)" :disabled="visitedViews.length === 1">{{ $t('tab.close') }}</el-dropdown-item>
+          <el-dropdown-item @click="removeOtherTag(v)" :disabled="visitedViews.length === 1">{{ $t('tab.closeOther') }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>

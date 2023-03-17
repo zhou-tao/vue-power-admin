@@ -1,23 +1,23 @@
 import type { App } from 'vue'
-import { createI18n } from 'vue-i18n'
+import { createI18n, I18nOptions } from 'vue-i18n'
 
 export interface LocaleType {
   name: string
   value: string
 }
 
+export const i18n = createI18n({
+  legacy: false,
+  locale: 'zh-cn',
+  fallbackLocale: 'en',
+  messages: getLocaleData()
+})
+
 export function setupI18n(app: App) {
-  const locales = getLocaleData()
-  const i18n = createI18n({
-    legacy: false,
-    locale: 'zh-cn',
-    fallbackLocale: 'en',
-    messages: locales
-  })
   app.use(i18n)
 }
 
-function getLocaleData() {
+function getLocaleData(): I18nOptions['messages'] {
   const modules = import.meta.glob('./locales/*.ts', { eager: true })
   const locales: Record<string, any> = {}
   for (const path in modules) {

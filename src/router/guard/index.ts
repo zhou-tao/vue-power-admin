@@ -5,6 +5,7 @@ import { AxiosCanceler } from '@/utils/http/axiosCancel'
 import { useSettingStore } from '@/store/modules/setting'
 import NProgress from 'nprogress'
 import config from '@/config'
+import { i18n } from '@/i18n'
 
 /**
  * @description 设置路由守卫
@@ -23,7 +24,7 @@ export function setupRouterGuard(router: Router) {
  */
 const createTitleGuard = (router: Router) => {
   router.beforeEach(to => {
-    document.title = (to.meta.title || config.APP.title) as string
+    document.title = i18n.global.t((to.meta.title || config.APP.title) as string)
   })
 }
 
