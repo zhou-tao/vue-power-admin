@@ -1,5 +1,6 @@
 <script lang="ts">
-  import type { GuideStep } from '@/components/GuideStep'
+  import type { GuideStep } from './type'
+
   export const STEPS_KEY = Symbol('steps')
 </script>
 

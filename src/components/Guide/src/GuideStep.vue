@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import { STEPS_KEY } from '@/components/Guide/src/Guide.vue'
-  import { GuideStep } from '..'
+  import type { GuideStep } from './type'
+  import { STEPS_KEY } from '@c/Guide/src/Guide.vue'
 
   const props = withDefaults(defineProps<{
     title?: string

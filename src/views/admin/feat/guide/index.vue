@@ -1,6 +1,5 @@
 <script setup lang="ts" name="Guide">
-  import Guide from '@/components/Guide'
-  import GuideStep from '@/components/GuideStep'
+  import { Guide, GuideStep } from '@/components/Guide'
 
   const guideRef = ref<typeof Guide>()
 
