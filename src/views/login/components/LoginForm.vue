@@ -66,7 +66,7 @@
           <el-input
             size="large"
             v-model="loginForm.username"
-            :placeholder="t('home.account')"
+            :placeholder="$t('home.account')"
           />
         </el-form-item>
         <el-form-item prop="password" :style="{ marginTop: '38px' }">
@@ -74,19 +74,19 @@
             v-model="loginForm.password"
             type="password"
             size="large"
-            :placeholder="t('home.password')"
+            :placeholder="$t('home.password')"
             show-password
             @keyup.enter="doLogin(loginFormRef)"
           />
         </el-form-item>
         <el-form-item>
           <div w="360px" flex justify="between" items="center">
-            <el-checkbox v-model="loginForm.rememberMe">{{ t('home.remember') }}</el-checkbox>
+            <el-checkbox v-model="loginForm.rememberMe">{{ $t('home.remember') }}</el-checkbox>
             <span
               text="sm primary"
               cursor="pointer"
             >
-              {{ t('home.forgot') }}
+              {{ $t('home.forgot') }}
             </span>
           </div>
         </el-form-item>
@@ -100,13 +100,13 @@
             class="login-btn"
             @click="doLogin(loginFormRef)"
           >
-            {{ t('home.login') }}
+            {{ $t('home.login') }}
           </el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="divider">
-      <div>{{ t('home.moreLoginType') }}</div>
+      <div>{{ $t('home.moreLoginType') }}</div>
     </div>
     <div center text="1.3rem placeholder">
       <i-ri-github-fill class="link" />

@@ -56,7 +56,7 @@ const SystemRoute: AppRouteConfig = {
     name: 'department',
     component: () => import('@/views/admin/_system/department/index.vue'),
     meta: {
-      title: 'menu.system.dict'
+      title: 'menu.system.department'
     }
   },
   {

@@ -102,7 +102,7 @@
                 @click="$router.replace('/login?redirect=logout')"
               >
                 <i-ep-switch-button />
-                {{ t('header.logout') }}
+                {{ $t('header.logout') }}
               </el-dropdown-item>
             </el-dropdown-menu>
           </template>
