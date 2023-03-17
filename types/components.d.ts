@@ -59,6 +59,7 @@ declare module '@vue/runtime-core' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     ElTree: typeof import('element-plus/es')['ElTree']
     Guide: typeof import('./../src/components/Guide/src/Guide.vue')['default']
+    GuideStep: typeof import('./../src/components/GuideStep/src/GuideStep.vue')['default']
     GuideTour: typeof import('./../src/components/GuideTour/src/GuideTour.vue')['default']
     IAppCoffee: typeof import('~icons/app/coffee')['default']
     IAppGrowth: typeof import('~icons/app/growth')['default']

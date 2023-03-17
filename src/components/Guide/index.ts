@@ -1,3 +1,1 @@
-import Guide from './src/Guide.vue'
-
-export default Guide
+export { default } from './src/Guide.vue'
