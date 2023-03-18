@@ -122,6 +122,10 @@
 :deep(.el-form) {
   .el-input__wrapper, .el-checkbox__inner {
     @apply bg-transparent;
+
+    &::after {
+      @apply b-primary;
+    }
   }
 
   .el-checkbox__label {
