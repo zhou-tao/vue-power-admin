@@ -19,7 +19,7 @@
 - **Theme:** Configurable runtime multiple themes.
 - **International:** Built-in mainstream internationalization solutions.
 - **Layouts:** Multiple classic layouts can be switched by configuration and can be customized.
-- **Permissions:** Multi-level permission control, including role permission, menu permission, and button permission.
+- **Permissions:** Multi-level permission control, including role permission, menu permission, and button permission(in v2).
 - **Unocss:** Use the lightest atomized CSS solution.
 - **Components:** Encapsulate a large number of common background components.
 - **Generator:** Integrated code template generator to improve development efficiency.
@@ -46,6 +46,15 @@ pnpm dev
 
 ```
 
+### :heart: Contribute
+
+Very much welcome your pull request or issues! 
+
+Thank you to all the people who already contributed to [Vue Power Admin](https://zhou-tao.github.io/vue-power-admin)!
+
+
 ### :bookmark_tabs: License
 
 [MIT](https://github.com/zhou-tao/vue-power-admin/LICENSE)
+
+Copyright (c) 2022 zhou-tao

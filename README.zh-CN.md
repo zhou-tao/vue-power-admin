@@ -19,7 +19,7 @@
 - **主题** 可配置的运行时多主题。
 - **国际化** 内置主流的国际化方案。
 - **多布局** 封装多种经典布局通过配置切换且支持新增自定义布局。
-- **权限** 封装多层级权限控制，包括角色权限、菜单权限、按钮权限。
+- **权限** 封装多层级权限控制，包括角色权限、菜单权限、按钮权限(在v2版本)。
 - **Unocss** 使用最轻量的原子化 CSS 解决方案。
 - **组件** 封装大量中后台常用组件。
 - **生成器** 集成了代码模版生成器，提高开发效率。
@@ -46,6 +46,14 @@ pnpm dev
 
 ```
 
+### :heart: Contribute
+
+非常欢迎您为本仓库提交PR或者Issues! 
+
+特别感谢所有 [Vue Power Admin](https://zhou-tao.github.io/vue-power-admin) 的贡献者！
+
 ### :bookmark_tabs: License
 
 [MIT](https://github.com/zhou-tao/vue-power-admin/LICENSE)
+
+Copyright (c) 2022 zhou-tao
