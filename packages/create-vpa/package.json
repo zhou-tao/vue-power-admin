@@ -1,0 +1,23 @@
+{
+  "name": "create-vpa",
+  "version": "0.0.1",
+  "description": "vue-power-admin's cli",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "create-vpa": "index.js",
+    "cvpa": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue3",
+    "vue3 admin",
+    "vue power admin",
+    "typescript",
+    "vite"
+  ],
+  "author": "tooz",
+  "license": "MIT"
+}

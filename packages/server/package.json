@@ -1,0 +1,12 @@
+{
+  "name": "@vue-power-admin/server",
+  "private": true,
+  "description": "vue-power-admin's server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "tooz",
+  "license": "MIT"
+}
