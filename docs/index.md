@@ -1,18 +1,21 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "Vue Power Admin"
-  text: "vue-power-admin docs."
-  tagline: My great project tagline
+  name: Vue Power Admin
+  text: A powerful admin based on Vue3.
+  tagline: vue3 + typescript + vite
+  image:
+    src: /logo.svg
+    width: 400
+    alt: Blog
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: Getting Started
       link: /markdown-examples
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: View on Github
+      link: https://github.com/zhou-tao/vue-power-admin
 
 features:
   - title: Feature A

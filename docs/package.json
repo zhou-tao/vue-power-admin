@@ -5,7 +5,7 @@
   "description": "vue-power-admin's docs",
   "main": "index.js",
   "scripts": {
-    "dev": "vitepress dev",
+    "dev": "vitepress dev --open",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
