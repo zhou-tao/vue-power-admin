@@ -1,10 +1,52 @@
 {
-  "name": "@vue-power-admin/monorepo",
   "private": true,
-  "scripts": {
-    "dev": "pnpm -C packages/client dev",
-    "dev:docs": "pnpm -C docs dev"
-  },
   "author": "tooz",
+  "workspaces": {
+
+  },
+  "scripts": {
+    "commit": "git cz",
+    "dev": "pnpm -C apps/web dev",
+    "dev:docs": "pnpm -C docs dev",
+    "lint:eslint": "eslint \"apps/web/src/**/*.{ts,tsx,vue}\" --fix",
+    "lint:staged": "lint-staged",
+    "prepare": "husky install && chmod ug+x .husky/*"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/node": "^18.15.5",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.4.1",
+    "eslint": "^8.36.0",
+    "eslint-plugin-vue": "^9.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "plop": "^3.1.2",
+    "typescript": "^5.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhou-tao/vue-power-admin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhou-tao/vue-power-admin/issues"
+  },
+  "homepage": "https://github.com/zhou-tao/vue-power-admin",
+  "engines": {
+    "node": ">=14"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,vue}": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
   "license": "MIT"
 }

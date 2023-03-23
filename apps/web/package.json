@@ -3,16 +3,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "commit": "git cz",
     "plop": "plop",
-    "log": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "build": "vue-tsc && vite build",
     "build:test": "vue-tsc && vite build --mode test",
-    "prepare": "husky install && chmod ug+x .husky/*",
     "preview": "yarn build && vite preview",
-    "preview:test": "yarn build:test && vite preview",
-    "lint:eslint": "eslint \"src/**/*.{ts,tsx,vue}\" --fix",
-    "lint:staged": "lint-staged"
+    "preview:test": "yarn build:test && vite preview"
   },
   "dependencies": {
     "@vueuse/core": "^9.3.0",
@@ -33,19 +28,14 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
     "@iconify-json/ep": "^1.1.8",
     "@iconify-json/fluent-emoji-flat": "^1.1.8",
     "@iconify-json/ri": "^1.1.4",
     "@iconify/vue": "^4.1.0",
     "@types/js-cookie": "^3.0.2",
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "18.8.0",
     "@types/nprogress": "^0.2.0",
     "@types/qs": "^6.9.7",
-    "@typescript-eslint/eslint-plugin": "^5.40.0",
-    "@typescript-eslint/parser": "^5.40.0",
     "@unocss/preset-attributify": "^0.45.29",
     "@unocss/preset-uno": "^0.45.29",
     "@unocss/transformer-directives": "^0.45.29",
@@ -53,18 +43,9 @@
     "@vitejs/plugin-vue": "^3.1.2",
     "@vue/compiler-sfc": "^3.2.45",
     "autoprefixer": "^10.4.13",
-    "commitizen": "^4.3.0",
-    "conventional-changelog-cli": "^2.2.2",
-    "cz-git": "^1.4.1",
-    "eslint": "^8.25.0",
-    "eslint-plugin-vue": "^9.6.0",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
     "mockjs": "^1.1.0",
-    "plop": "^3.1.2",
     "sass": "^1.55.0",
     "terser": "^5.16.1",
-    "typescript": "^4.8.4",
     "unocss": "^0.45.29",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-icons": "^0.15.1",
@@ -72,27 +53,6 @@
     "vite": "4.0.4",
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vue-tsc": "^1.0.9"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/zhou-tao/vue-power-admin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/zhou-tao/vue-power-admin/issues"
-  },
-  "homepage": "https://github.com/zhou-tao/vue-power-admin",
-  "engines": {
-    "node": ">=14"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,vue}": [
-      "eslint --fix"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-git"
-    }
   },
   "browserslist": [
     "last 1 version",

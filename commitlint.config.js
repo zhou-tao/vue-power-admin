@@ -1,28 +1,4 @@
-const fs = require('fs')
-const path = require('path')
-const { execSync } = require('child_process')
-
-// 读取src下顶层目录作为默认scope选项（api、assets、components...）
-const scopes = fs
-  .readdirSync(path.resolve(__dirname, 'src'), { withFileTypes: true })
-  .filter(dirent => dirent.isDirectory())
-  .map(dirent => dirent.name.replace(/s$/, ''))
-
-// 获取git状态
-const gitStatus = execSync('git status --porcelain || true')
-  .toString()
-  .trim()
-  .split('\n')
-
-// precomputed scope
-const scopeComplete = gitStatus
-  .find(r => ~r.indexOf('M  src'))
-  ?.replace(/\//g, '%%')
-  ?.match(/src%%((\w|-)*)/)?.[1]
-  ?.replace(/s$/, '')
-
 module.exports = {
-  ignores: [commit => commit.includes('init')],
   extends: ['@commitlint/config-conventional'],
   rules: {
     'body-leading-blank': [2, 'always'],
@@ -54,12 +30,8 @@ module.exports = {
   },
   prompt: {
     useEmoji: true,
-    customScopesAlign: !scopeComplete ? 'top' : 'bottom',
-    defaultScope: scopeComplete,
-    scopes: [...scopes],
     typesAppend: [
-      { value: 'wip', name: 'wip:      work in process' },
-      { value: 'types', name: 'types:    type definition file changes' }
+      { value: 'wip', name: 'wip:      work in process' }
     ]
   }
 }
