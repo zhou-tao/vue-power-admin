@@ -8,15 +8,19 @@
     "cvpa": "index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": ""
   },
   "keywords": [
     "vue3",
     "vue3 admin",
     "vue power admin",
     "typescript",
-    "vite"
+    "vite",
+    "create-vpa"
   ],
   "author": "tooz",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "download-git-repo": "^3.0.2"
+  }
 }
