@@ -82,7 +82,7 @@
   },
   "homepage": "https://github.com/zhou-tao/vue-power-admin",
   "engines": {
-    "node": ">=14"
+    "node": "^14.18.0 || >=16.0.0"
   },
   "lint-staged": {
     "*.{ts,tsx,vue}": [
