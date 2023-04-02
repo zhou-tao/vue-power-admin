@@ -1,12 +1,10 @@
 {
   "private": true,
   "author": "tooz",
-  "workspaces": {
-
-  },
   "scripts": {
     "commit": "git cz",
     "dev": "pnpm -C apps/web dev",
+    "dev:server": "pnpm -C apps/server start:dev",
     "dev:docs": "pnpm -C docs dev",
     "lint:eslint": "eslint \"apps/web/src/**/*.{ts,tsx,vue}\" --fix",
     "lint:staged": "lint-staged",
@@ -15,6 +13,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
+    "@tooz/tsconfig": "^0.0.5",
     "@types/node": "^18.15.5",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",

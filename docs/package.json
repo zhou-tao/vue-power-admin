@@ -1,18 +1,13 @@
 {
   "name": "@vue-power-admin/docs",
   "private": true,
-  "version": "1.0.0",
-  "description": "vue-power-admin's docs",
-  "main": "index.js",
   "scripts": {
     "dev": "vitepress dev --open",
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "vitepress": "1.0.0-alpha.60"
-  }
+  },
+  "license": "MIT"
 }
