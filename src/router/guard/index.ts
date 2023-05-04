@@ -12,7 +12,7 @@ import { i18n } from '@/i18n'
  * @param router
  */
 export function setupRouterGuard(router: Router) {
-  // createPermissionGuard(router)
+  // createPermissionGuard(router) // 需对接token
   createTitleGuard(router)
   createHttpGuard(router)
   createNProgressGuard(router)

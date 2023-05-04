@@ -19,12 +19,12 @@ export const createPermissionGuard = (router: Router) => {
         console.error('token expires')
         await reLogin()
         await addAsyncRoutes()
-        next(to.fullPath)
+        next({ replace: true, ...to })
       } else {
         invalid && (await setUserInfo())
         if (!menuStore.hasRoutes) {
           await addAsyncRoutes()
-          next(to.fullPath)
+          next({ replace: true, ...to })
         } else {
           next()
         }
