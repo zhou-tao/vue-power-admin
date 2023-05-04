@@ -6,7 +6,7 @@ export interface BuildMenuModel
   name: Nullable<string>
   component: string
   redirect?: Nullable<string>
-  children: BuildMenuModel[]
+  children?: BuildMenuModel[]
 }
 
 export interface MenuModel
