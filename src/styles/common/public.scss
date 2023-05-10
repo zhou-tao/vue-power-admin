@@ -25,3 +25,8 @@ body,
 *::-webkit-scrollbar {
   display: none;
 }
+
+// clear Remember password entry box background color By Google Chrome
+input:-webkit-autofill {
+  transition:background-color 5000s ease-in-out 0s;
+}
