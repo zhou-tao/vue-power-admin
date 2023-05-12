@@ -8,7 +8,8 @@ import { buildMenuApi } from '@/api/_system/menu'
 import { defineStore } from 'pinia'
 
 interface MenuState {
-  routes: AppRouteConfig[]
+  routes: AppRouteConfig[],
+  refreshRoute: boolean,
 }
 
 type RawRouteComponent = RouteComponent | (() => Promise<RouteComponent>)
@@ -21,7 +22,8 @@ function componentMap(path: string): RawRouteComponent {
       return AdminLayout
     default: {
       const joinPath = `admin/${path}`.replace(/\/\//, '/')
-      return pages[`../../views/${joinPath}.vue`]
+      const component = defineAsyncComponent(() => import(`/src/views/${joinPath}`/* @vite-ignore */))
+      return component
     }
   }
 }
@@ -41,12 +43,16 @@ function mapRoutes(serverRoutes: BuildMenuModel[]): AppRouteConfig[] {
 
 export const useMenuStore = defineStore('menu', {
   state: (): MenuState => ({
-    routes: []
+    routes: [],
+    refreshRoute: false,
   }),
   getters: {
     hasRoutes: state => state.routes.length > 0
   },
   actions: {
+    async updateRefreshRoute(bool: boolean){
+      this.refreshRoute = bool
+    },
     async generateRoutes() {
       const serverRoutes = await buildMenuApi()
       try {
