@@ -6,6 +6,9 @@
   const router = useRouter()
   const route = useRoute()
   const tabRef = ref<HTMLDivElement>()
+  const dropdownRefs = ref<{
+    handleClose: () => void
+  }[]>([])
 
   watch(route, v => {
     const { path, meta } = v
@@ -30,8 +33,14 @@
     visitedViews = visitedViews.filter(view => view.path === v.path)
   }
 
-  function openMenu(v: AppRouteConfig) {
-    if (v.path !== route.path) router.push(v.path)
+  function closeOtherDropdowns(index: number) {
+    console.log('closeOtherDropdowns: ', dropdownRefs.value, index)
+
+    dropdownRefs.value.forEach((dropdown, i) => {
+      if (i !== index) {
+        dropdown.handleClose()
+      }
+    })
   }
 
   async function scrollToActiveTag() {
@@ -53,8 +62,9 @@
     overflow-x="auto"
   >
     <el-dropdown
-      v-for="v in visitedViews"
+      v-for="(v, i) in visitedViews"
       :key="v.path"
+      ref="dropdownRefs"
       trigger="contextmenu"
     >
       <el-tag
@@ -64,7 +74,7 @@
         :closable="v.path === route.path && visitedViews.length > 1"
         @click="router.push(v.path)"
         @close="removeTag(v)"
-        @contextmenu.prevent="openMenu(v)"
+        @contextmenu.prevent="closeOtherDropdowns(i)"
       >
         {{ $t(v?.meta?.title!) }}
       </el-tag>
