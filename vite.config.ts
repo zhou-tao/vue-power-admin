@@ -49,6 +49,21 @@ export default ({ mode }: ConfigEnv) => {
       reportCompressedSize: false,
       chunkSizeWarningLimit: 800,
       rollupOptions: {
+        external: [
+          '@wangeditor/editor-for-vue',
+          'mockjs',
+          'echarts/core',
+          'echarts/charts',
+          'echarts/components',
+          'vue',
+          'vue-router',
+          'pinia',
+          'element-plus',
+          'viewerjs',
+          'vue-i18n',
+          'axios',
+          'nprogress'
+        ],
         output: {
           // fix: github page not found _plugin-vue_export-helper.xxx.js
           sanitizeFileName(name) {
