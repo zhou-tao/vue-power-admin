@@ -12,7 +12,8 @@ export enum Api {
 
 export const getAccountInfo = () => {
   return useFetch.GET<UserInfoModel>({
-    url: Api.ACCOUNT_INFO
+    url: Api.ACCOUNT_INFO,
+    useMock: true
   })
 }
 

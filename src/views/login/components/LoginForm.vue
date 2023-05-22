@@ -3,14 +3,14 @@
   import config from '@/config'
   import { LoginParams } from '@/api/_auth/model'
   import { useMessage } from '@h/web/useMessage'
-  // import { useLoginByPassword } from '@h/logic/useLogin'
+  import { useLoginByPassword } from '@h/logic/useLogin'
   import { FormInstance, FormRules } from 'element-plus'
   import { useRouter } from 'vue-router'
   import { useI18n } from 'vue-i18n'
 
   const { t } = useI18n()
   const router = useRouter()
-  const { $notify } = useMessage()
+  const { $notify, $message } = useMessage()
   const loginForm = reactive<LoginParams>({
     username: '',
     password: '',
@@ -27,22 +27,22 @@
     if (!formEl) return
     await formEl.validate(async valid => {
       if (!valid) return false
-      // loginLoading = true
-      // const [success, data] = await useLoginByPassword(loginForm)
-      // console.log(data)
-      // loginLoading = false
-      // if (success) {
-      //   $message.success({
-      //     message: '登录成功'
-      //   })
-      //   router.push('/home')
-      // }
-      router.push('/home')
-      $notify({
-        title: 'Welcome',
-        message: t('home.welcome'),
-        type: 'success',
-      })
+      loginLoading = true
+      const [success] = await useLoginByPassword(loginForm)
+      loginLoading = false
+      if (success) {
+        $message.success({
+          message: '登录成功'
+        })
+        router.push('/home')
+        $notify({
+          title: 'Welcome',
+          message: t('home.welcome'),
+          type: 'success',
+        })
+      } else {
+        $message.error('账户名不存在或密码错误！')
+      }
     })
   }
 </script>

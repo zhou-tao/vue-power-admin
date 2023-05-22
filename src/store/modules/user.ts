@@ -54,6 +54,9 @@ export const useUserStore = defineStore('user', {
       password
     }: LoginParams): Promise<LoginResultModel> {
       const data = await loginApi({ username, password })
+      if (!data) {
+        return Promise.reject('login failed!')
+      }
       setTokenHelper(data)
       this.security = checkPassword(password)
       await this.setUserInfo()

@@ -16,3 +16,7 @@ export const userResult = {
 }
 
 export const userMockApi = ({ body = {} }) => generatePageData(body, () => userResult)
+
+export const userInfoMockApi = () => ({
+
+})

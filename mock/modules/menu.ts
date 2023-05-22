@@ -15,3 +15,5 @@ export const MenuResult = {
 }
 
 export const menuMockApi = ({ body = {} }) => generatePageData(body, () => MenuResult)
+
+export const menuBuildMockApi = () => []
