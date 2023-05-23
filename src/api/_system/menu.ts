@@ -9,14 +9,14 @@ enum Api {
 
 export const buildMenuApi = () => {
   return useFetch.GET<BuildMenuModel[]>({
-    url: Api.BUILD_MENU
+    url: Api.BUILD_MENU,
+    useMock: true
   })
 }
 
 export const getMenuList = (data: ListQuery) => {
   return useFetch.POST<ListResult<MenuModel>>({
     url: Api.MENU_LIST,
-    withToken: false,
     useMock: true,
     data
   })

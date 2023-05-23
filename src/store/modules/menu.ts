@@ -13,27 +13,26 @@ interface MenuState {
 
 type RawRouteComponent = RouteComponent | (() => Promise<RouteComponent>)
 
-const pages = import.meta.glob('../../views/**/*.vue')
-
 function componentMap(path: string): RawRouteComponent {
   switch (path) {
     case 'Layout':
       return AdminLayout
     default: {
       const joinPath = `admin/${path}`.replace(/\/\//, '/')
-      return pages[`../../views/${joinPath}.vue`]
+      return defineAsyncComponent(() => import(`../../views/${joinPath}.vue`/* @vite-ignore */))
     }
   }
 }
 
 function mapRoutes(serverRoutes: BuildMenuModel[]): AppRouteConfig[] {
   const routes: any[] = serverRoutes.map(
-    ({ name, redirect, component, children, ...rest }) => ({
+    ({ path, name, redirect, component, children, ...rest }) => ({
+      path,
       name: name ?? '',
       redirect: redirect ?? '',
       component: componentMap(component),
       ...(children?.length && { children: mapRoutes(children) }),
-      ...rest
+      meta: rest
     })
   )
   return routes as AppRouteConfig[]

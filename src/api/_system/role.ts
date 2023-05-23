@@ -9,7 +9,6 @@ export enum Api {
 export const getRoleList = (data: ListQuery) => {
   return useFetch.POST<ListResult<RoleModel>>({
     url: Api.ROLE_LIST,
-    withToken: false,
     useMock: true,
     data
   })

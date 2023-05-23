@@ -2,6 +2,7 @@ import { generatePageData } from '../util'
 import { MenuResult } from './menu'
 import { PostResult } from './post'
 import { RoleResult } from './role'
+import { userInfo } from '../static/users'
 
 export const userResult = {
   'id|+1': 1,
@@ -17,6 +18,4 @@ export const userResult = {
 
 export const userMockApi = ({ body = {} }) => generatePageData(body, () => userResult)
 
-export const userInfoMockApi = () => ({
-
-})
+export const userInfoMockApi = () => userInfo

@@ -1,4 +1,5 @@
 import { generatePageData } from '../util'
+import { buildMenus } from '../static/menus'
 
 export const MenuResult = {
   'id|+1': 1,
@@ -16,4 +17,4 @@ export const MenuResult = {
 
 export const menuMockApi = ({ body = {} }) => generatePageData(body, () => MenuResult)
 
-export const menuBuildMockApi = () => []
+export const menuBuildMockApi = () => buildMenus

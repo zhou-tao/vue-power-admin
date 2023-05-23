@@ -20,7 +20,6 @@ export const getAccountInfo = () => {
 export const getUserList = (data: ListQuery) => {
   return useFetch.POST<ListResult<UserInfoModel>>({
     url: Api.USER_LIST,
-    withToken: false,
     useMock: true,
     data
   })

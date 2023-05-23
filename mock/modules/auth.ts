@@ -1,16 +1,11 @@
-// 默认mock登录账号
-
-export const userList = [
-  { username: 'admin', password: '123456' },
-  { username: 'tooz', password: '123456' }
-]
+import { userAccounts } from '../static/users'
 
 export const authMockApi = ({ body = {} }: Record<string, any>) => {
   const { username, password } = body
-  if(userList.some(u => u.username === username && u.password === password)) {
+  if(userAccounts.some(u => u.username === username && u.password === password)) {
     return {
-      access_token: 'sioweijdkxciuhek',
-      refresh_token: 'xjdisjeirjdsjd',
+      access_token: 'mock_access_token',
+      refresh_token: 'mock_refresh_token',
       expires_in: '999999',
       token_type: ''
     }

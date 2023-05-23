@@ -1,5 +1,5 @@
 import type { Router } from 'vue-router'
-// import { createPermissionGuard } from '@/router/guard/permissionGuard'
+import { createPermissionGuard } from '@/router/guard/permissionGuard'
 // import { isBasicRoute } from '@/router/helper'
 import { AxiosCanceler } from '@/utils/http/axiosCancel'
 import { useSettingStore } from '@/store/modules/setting'
@@ -12,7 +12,7 @@ import { i18n } from '@/i18n'
  * @param router
  */
 export function setupRouterGuard(router: Router) {
-  // createPermissionGuard(router) // 需对接token
+  createPermissionGuard(router)
   createTitleGuard(router)
   createHttpGuard(router)
   createNProgressGuard(router)

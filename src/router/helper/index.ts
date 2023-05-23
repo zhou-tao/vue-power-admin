@@ -25,8 +25,11 @@ export function isRequiresAuthRoute(route: RouteLocationNormalized) {
 
 export async function addAsyncRoutes() {
   const { routes, generateRoutes } = $(useMenuStore())
-  if (!routes || routes.length === 0) {
+  if (!routes?.length) {
     await generateRoutes()
   }
-  routes.forEach(route => router.addRoute(route as any))
+  routes.forEach(route => {
+    router.addRoute(toRaw(route) as any)
+  })
+  console.log(router.getRoutes())
 }

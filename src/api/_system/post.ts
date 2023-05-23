@@ -9,7 +9,6 @@ export enum Api {
 export const getPostList = (data: ListQuery) => {
   return useFetch.POST<ListResult<PostModel>>({
     url: Api.POST_LIST,
-    withToken: false,
     useMock: true,
     data
   })

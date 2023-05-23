@@ -9,7 +9,6 @@ export enum Api {
 export const getDictList = (data: ListQuery) => {
   return useFetch.POST<ListResult<DictModel>>({
     url: Api.DICT_LIST,
-    withToken: false,
     useMock: true,
     data
   })

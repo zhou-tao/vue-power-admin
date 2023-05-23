@@ -15,8 +15,8 @@ export const createPermissionGuard = (router: Router) => {
     const { invalid, setUserInfo, reLogin } = $(useUserStore())
     const menuStore = useMenuStore()
     if (isRequiresAuthRoute(to)) {
+      console.log('check token', checkAccessToken())
       if (!checkAccessToken()) {
-        console.error('token expires')
         await reLogin()
         await addAsyncRoutes()
         next({ replace: true, ...to })

@@ -9,7 +9,6 @@ export enum Api {
 export const getDepartmentList = (data: ListQuery) => {
   return useFetch.POST<ListResult<DepartmentModel>>({
     url: Api.DEPARTMENT_LIST,
-    withToken: false,
     useMock: true,
     data
   })
