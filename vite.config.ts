@@ -49,22 +49,22 @@ export default ({ mode }: ConfigEnv) => {
       reportCompressedSize: false,
       chunkSizeWarningLimit: 800,
       rollupOptions: {
-        external: [
-          '@wangeditor/editor-for-vue',
-          'mockjs',
-          'echarts/core',
-          'echarts/charts',
-          'echarts/components',
-          'vue',
-          'vue-router',
-          'pinia',
-          'element-plus',
-          'viewerjs',
-          'vue-i18n',
-          'axios',
-          'nprogress'
-        ],
         output: {
+          manualChunks: {
+            '@wangeditor/editor-for-vue': ['@wangeditor/editor-for-vue'],
+            'mockjs': ['mockjs'],
+            'echarts/core': ['echarts/core'],
+            'echarts/charts': ['echarts/charts'],
+            'echarts/components': ['echarts/components'],
+            'vue': ['vue'],
+            'vue-router': ['vue-router'],
+            'pinia': ['pinia'],
+            'element-plus': ['element-plus'],
+            'viewerjs': ['viewerjs'],
+            'vue-i18n': ['vue-i18n'],
+            'axios': ['axios'],
+            'nprogress': ['nprogress']
+          },
           // fix: github page not found _plugin-vue_export-helper.xxx.js
           sanitizeFileName(name) {
             const match = DRIVE_LETTER_REGEX.exec(name)
