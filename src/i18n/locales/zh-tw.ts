@@ -53,6 +53,15 @@ export default {
       imagePreview: '圖片預覽',
       lazyLoad: '懶加載'
     },
-    personal: '個人中心'
+    dynamic: {
+      root: '動態路由',
+      first: '子路由-1',
+      second: '子路由-2'
+    },
+    personal: '個人中心',
+    login: '登錄',
+    error: {
+      notFound: '404 - 頁面找不到'
+    }
   }
 }

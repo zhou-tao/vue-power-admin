@@ -1,10 +1,10 @@
 export const buildMenus = [
   {
     id: 1,
-    title: '动态路由',
+    title: 'menu.dynamic.root',
     path: '/dynamic',
     name: 'Dynamic',
-    icon: '',
+    icon: 'ep:promotion',
     leaf: false,
     order: 1,
     component: 'Layout',
@@ -13,25 +13,25 @@ export const buildMenus = [
     children: [
       {
         id: 2,
-        title: '子路由1',
+        title: 'menu.dynamic.first',
         path: 'first',
         name: 'First',
-        icon: 'ri:rocket-2-fill',
+        icon: '',
         leaf: true,
         order: 1,
-        component: 'dynamic/first',
+        component: 'dynamic/first/index',
         parentId: null,
         children: []
       },
       {
         id: 3,
-        title: '子路由2',
+        title: 'menu.dynamic.second',
         path: 'second',
         name: 'Second',
-        icon: 'ri:rocket-2-fill',
+        icon: '',
         leaf: true,
         order: 1,
-        component: 'dynamic/second',
+        component: 'dynamic/second/index',
         parentId: null,
         children: []
       }

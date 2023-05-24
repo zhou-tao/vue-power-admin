@@ -6,10 +6,7 @@ import ScreenRoute from './modules/screen'
 const RootRoute: AppRouteConfig = {
   path: '/',
   name: 'Root',
-  redirect: '/login',
-  meta: {
-    title: 'Root'
-  }
+  redirect: '/login'
 }
 
 const LoginRoute: AppRouteConfig = {
@@ -17,7 +14,7 @@ const LoginRoute: AppRouteConfig = {
   name: 'Login',
   component: () => import('@/views/login/index.vue'),
   meta: {
-    title: '登陆',
+    title: 'menu.login',
     requiresAuth: false
   }
 }

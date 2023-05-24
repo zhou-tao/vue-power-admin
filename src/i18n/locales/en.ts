@@ -53,6 +53,15 @@ export default {
       imagePreview: 'imagePreview',
       lazyLoad: 'lazyLoad'
     },
-    personal: 'personal'
+    dynamic: {
+      root: 'dynamic',
+      first: 'child-first',
+      second: 'child-second'
+    },
+    personal: 'personal',
+    login: 'login',
+    error: {
+      notFound: '404 - Page Not Found'
+    }
   }
 }

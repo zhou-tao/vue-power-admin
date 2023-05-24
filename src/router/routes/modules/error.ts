@@ -4,7 +4,7 @@ export const PageNotFoundRoute = {
   component: () => import('@/views/error/PageNotFound.vue'),
   hidden: true,
   meta: {
-    title: '404 - Page Not Found',
+    title: 'menu.error.notFound',
     requiresAuth: false
   }
 }

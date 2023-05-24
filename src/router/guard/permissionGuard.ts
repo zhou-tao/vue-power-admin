@@ -1,4 +1,4 @@
-import type { Router } from 'vue-router'
+import type { RouteLocationNormalized, Router } from 'vue-router'
 import { useUserStore } from '@/store/modules/user'
 import { useMenuStore } from '@/store/modules/menu'
 import {
@@ -14,17 +14,18 @@ export const createPermissionGuard = (router: Router) => {
   router.beforeEach(async (to, from, next) => {
     const { invalid, setUserInfo, reLogin } = $(useUserStore())
     const menuStore = useMenuStore()
+    // fix async route 404 after refresh page
+    const goAsyncRoute = (route: RouteLocationNormalized) => route.matched.length ? next() : next({ ...to, replace: true })
     if (isRequiresAuthRoute(to)) {
-      console.log('check token', checkAccessToken())
       if (!checkAccessToken()) {
         await reLogin()
         await addAsyncRoutes()
-        next({ replace: true, ...to })
+        goAsyncRoute(to)
       } else {
         invalid && (await setUserInfo())
         if (!menuStore.hasRoutes) {
           await addAsyncRoutes()
-          next({ replace: true, ...to })
+          goAsyncRoute(to)
         } else {
           next()
         }

@@ -53,6 +53,15 @@ export default {
       imagePreview: '图片预览',
       lazyLoad: '懒加载'
     },
-    personal: '个人中心'
+    dynamic: {
+      root: '动态路由',
+      first: '子路由-1',
+      second: '子路由-2'
+    },
+    personal: '个人中心',
+    login: '登录',
+    error: {
+      notFound: '404 - 页面找不到'
+    }
   }
 }

@@ -13,13 +13,15 @@ interface MenuState {
 
 type RawRouteComponent = RouteComponent | (() => Promise<RouteComponent>)
 
+const pages = import.meta.glob('../../views/**/*.vue')
+
 function componentMap(path: string): RawRouteComponent {
   switch (path) {
     case 'Layout':
       return AdminLayout
     default: {
       const joinPath = `admin/${path}`.replace(/\/\//, '/')
-      return defineAsyncComponent(() => import(`../../views/${joinPath}.vue`/* @vite-ignore */))
+      return pages[(`../../views/${joinPath}.vue`)]
     }
   }
 }

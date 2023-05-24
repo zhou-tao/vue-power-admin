@@ -16,7 +16,7 @@
 </script>
 
 <template>
-  <component :is="component" :index="index">
+  <component :is="component" :index="(index as any)">
     <Icon class="icon" v-if="icon && !isSubMenu" :icon="icon" />
     <template #title>
       <Icon class="icon" v-if="icon && isSubMenu" :icon="icon" />

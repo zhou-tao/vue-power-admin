@@ -2,6 +2,7 @@
   import { MenuLayout } from '@/enums/menuEnum'
   import { routeToMenu } from '@h/logic/useMenu'
   import { useSettingStore } from '@/store/modules/setting'
+  import { useMenuStore } from '@/store/modules/menu'
   import AdminRoutes from '@/router/routes/modules/admin'
   import MenuItem from './MenuItem.vue'
 
@@ -16,8 +17,11 @@
   const activeRoute = computed(() => route.matched.findLast(r => !r?.meta?.hideMenu) || route) // last route of no `hideMenu` in meta
 
   const settingStore = useSettingStore()
+  const menuStore = useMenuStore()
 
-  const menuData = routeToMenu(AdminRoutes)
+  const menuData = computed(() => {
+    return routeToMenu(AdminRoutes.concat(menuStore.routes))
+  })
 
 </script>
 
