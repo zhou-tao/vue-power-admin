@@ -29,8 +29,6 @@ export async function addAsyncRoutes() {
     await generateRoutes()
   }
   routes.forEach(route => {
-    const routeValue = toRaw(route)
-    router.addRoute(routeValue as any)
-    router.push(routeValue)
+    router.addRoute(route as any)
   })
 }

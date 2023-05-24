@@ -14,8 +14,9 @@ export const createPermissionGuard = (router: Router) => {
   router.beforeEach(async (to, from, next) => {
     const { invalid, setUserInfo, reLogin } = $(useUserStore())
     const menuStore = useMenuStore()
+    console.log('permission', to.matched)
     // fix async route 404 after refresh page
-    const goAsyncRoute = (route: RouteLocationNormalized) => route.matched.length ? next() : next({ ...to, replace: true })
+    const goAsyncRoute = (route: RouteLocationNormalized) => route.matched[0].name === 'PageNotFound' ? router.replace(to.fullPath) : next({ ...to, replace: true })
     if (isRequiresAuthRoute(to)) {
       if (!checkAccessToken()) {
         await reLogin()
