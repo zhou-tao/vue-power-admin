@@ -34,8 +34,6 @@
   }
 
   function closeOtherDropdowns(index: number) {
-    console.log('closeOtherDropdowns: ', dropdownRefs.value, index)
-
     dropdownRefs.value.forEach((dropdown, i) => {
       if (i !== index) {
         dropdown.handleClose()
