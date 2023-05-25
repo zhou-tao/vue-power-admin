@@ -1,4 +1,4 @@
-import type { RouteLocationNormalized } from 'vue-router'
+import type { RouteLocationNormalized, RouteRecordName, RouteRecordRaw } from 'vue-router'
 import { useMenuStore } from '@/store/modules/menu'
 import { TokenTypeEnum } from '@/enums/authEnum'
 import { useCookie } from '@h/web/useCookie'
@@ -29,6 +29,9 @@ export async function addAsyncRoutes() {
     await generateRoutes()
   }
   routes.forEach(route => {
-    router.addRoute(route as any)
+    const routeName = route.name as RouteRecordName
+    const hasRoute = router.hasRoute(routeName)
+    if (hasRoute) router.removeRoute(routeName) // if already exists, remove it before adding
+    router.addRoute(route as RouteRecordRaw)
   })
 }

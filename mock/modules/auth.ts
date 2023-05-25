@@ -1,14 +1,11 @@
 import { userAccounts } from '../static/users'
+import { authToken } from '../static/auth'
 
 export const authMockApi = ({ body = {} }: Record<string, any>) => {
-  const { username, password } = body
+  const { grant_type, username, password } = body
+  if (grant_type === 'refresh_token') return authToken // 仅用于模拟，真实场景下可能存在refresh_token失效，需返回401状态
   if(userAccounts.some(u => u.username === username && u.password === password)) {
-    return {
-      access_token: 'mock_access_token',
-      refresh_token: 'mock_refresh_token',
-      expires_in: '999999',
-      token_type: ''
-    }
+    return authToken
   } else {
     return null
   }
