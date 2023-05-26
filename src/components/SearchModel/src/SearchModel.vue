@@ -65,7 +65,7 @@
                 <component
                   :is="component"
                   v-for="opt in options"
-                  :key="opt.value"
+                  :key="opt.value.toString()"
                   :label="opt.value"
                 >
                   {{ opt.label }}
