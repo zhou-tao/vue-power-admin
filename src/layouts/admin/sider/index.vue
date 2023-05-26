@@ -2,8 +2,9 @@
   import Menu from './components/menu/index.vue'
   import LogoView from './components/LogoView.vue'
   import { useSettingStore } from '@/store/modules/setting'
+  import { storeToRefs } from 'pinia'
 
-  const { isVerticalMenu, menuCollapsed } = $(useSettingStore())
+  const { isVerticalMenu, menuCollapsed } = storeToRefs(useSettingStore())
 </script>
 
 <template>

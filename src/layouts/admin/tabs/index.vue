@@ -2,7 +2,7 @@
   import type { AppRouteConfig } from '@/router/types'
   import { useAppStore } from '@/store/modules/app'
 
-  let { visitedViews, addVisitedView, deleteVisitedView } = $(useAppStore())
+  const appStore = useAppStore()
   const router = useRouter()
   const route = useRoute()
   const tabRef = ref<HTMLDivElement>()
@@ -12,7 +12,7 @@
 
   watch(route, v => {
     const { path, meta } = v
-    const success = addVisitedView({
+    const success = appStore.addVisitedView({
       path,
       meta
     })
@@ -22,15 +22,15 @@
   }, { immediate: true })
 
   function removeTag(v: AppRouteConfig) {
-    deleteVisitedView(v)
+    appStore.deleteVisitedView(v)
     if (v.path === route.path) {
-      const lastTag = visitedViews[visitedViews.length - 1]
+      const lastTag = appStore.visitedViews[appStore.visitedViews.length - 1]
       router.push(lastTag.path)
     }
   }
 
   function removeOtherTag(v: AppRouteConfig) {
-    visitedViews = visitedViews.filter(view => view.path === v.path)
+    appStore.visitedViews = appStore.visitedViews.filter(view => view.path === v.path)
   }
 
   function closeOtherDropdowns(index: number) {
@@ -60,7 +60,7 @@
     overflow-x="auto"
   >
     <el-dropdown
-      v-for="(v, i) in visitedViews"
+      v-for="(v, i) in appStore.visitedViews"
       :key="v.path"
       ref="dropdownRefs"
       trigger="contextmenu"
@@ -69,7 +69,7 @@
         size="large"
         :class="{ active: v.path === route.path }"
         :type="v.path === route.path ? '' : 'info'"
-        :closable="v.path === route.path && visitedViews.length > 1"
+        :closable="v.path === route.path && appStore.visitedViews.length > 1"
         @click="router.push(v.path)"
         @close="removeTag(v)"
         @contextmenu.prevent="closeOtherDropdowns(i)"
@@ -79,8 +79,8 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item @click="router.replace(v.path)">{{ $t('tab.refresh') }}</el-dropdown-item>
-          <el-dropdown-item @click="removeTag(v)" :disabled="visitedViews.length === 1">{{ $t('tab.close') }}</el-dropdown-item>
-          <el-dropdown-item @click="removeOtherTag(v)" :disabled="visitedViews.length === 1">{{ $t('tab.closeOther') }}</el-dropdown-item>
+          <el-dropdown-item @click="removeTag(v)" :disabled="appStore.visitedViews.length === 1">{{ $t('tab.close') }}</el-dropdown-item>
+          <el-dropdown-item @click="removeOtherTag(v)" :disabled="appStore.visitedViews.length === 1">{{ $t('tab.closeOther') }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>

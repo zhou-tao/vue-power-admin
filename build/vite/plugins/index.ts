@@ -10,9 +10,7 @@ export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
   const { VITE_USE_LEGACY, VITE_USE_MOCK } = viteEnv
 
   const vitePlugins: PluginOption = [
-    vue({
-      reactivityTransform: true
-    }),
+    vue(),
 
     // 使setup标签支持name属性配置
     vueSetupExtend(),

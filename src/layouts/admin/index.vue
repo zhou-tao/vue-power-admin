@@ -7,8 +7,9 @@
   import ThemeSetting from '@/components/ThemeSetting'
 
   import { useSettingStore } from '@/store/modules/setting'
+  import { storeToRefs } from 'pinia'
 
-  const { hasTabView } = $(useSettingStore())
+  const { hasTabView } = storeToRefs(useSettingStore())
 
 </script>
 

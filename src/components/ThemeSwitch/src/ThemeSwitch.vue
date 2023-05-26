@@ -1,4 +1,5 @@
 <script setup lang="ts" name="ThemeSwitch">
+  import { storeToRefs } from 'pinia'
   import { useSettingStore } from '@/store/modules/setting'
 
   withDefaults(defineProps<{
@@ -6,8 +7,8 @@
   }>(), {
     type: 'base'
   })
-
-  const { isDark, toggleDark } = $(useSettingStore())
+  const settingStore = useSettingStore()
+  const { isDark } = storeToRefs(settingStore)
 
 </script>
 
@@ -23,7 +24,7 @@
     />
     <i-emoji-crescent-moon />
   </div>
-  <span v-else @click="toggleDark()" class="icon-view" text="xl! regular" cursor="pointer">
+  <span v-else @click="settingStore.toggleDark()" class="icon-view" text="xl! regular" cursor="pointer">
     <i-app-sun v-if="isDark" />
     <i-app-moon v-else />
   </span>

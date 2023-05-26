@@ -5,7 +5,9 @@
   import { useSettingStore } from '@/store/modules/setting'
   import { getCssVar, setCssVar } from '@/hooks/web/useCssVar'
   import { CSSVarEnum } from '@/enums/appEnum'
+  import { storeToRefs } from 'pinia'
 
+  const settingStore = useSettingStore()
   const {
     hasBreadcrumb,
     hasTabView,
@@ -14,10 +16,8 @@
     hasFpLoading,
     hasPageAnimate,
     hasProgress,
-    isVerticalMenu,
-    setLayout,
-    toggleFpLoading
-  } = $(useSettingStore())
+    isVerticalMenu
+  } = storeToRefs(settingStore)
 
   const drawer = ref(false)
 
@@ -27,7 +27,7 @@
   }
 
   function handleFpLoadingChange() {
-    toggleFpLoading()
+    settingStore.toggleFpLoading()
     return true
   }
 
@@ -69,7 +69,7 @@
           content="侧边菜单"
           placement="bottom"
         >
-          <span :class="{ active: isVerticalMenu }" @click="setLayout(MenuLayout.VERTICAL)">
+          <span :class="{ active: isVerticalMenu }" @click="settingStore.setLayout(MenuLayout.VERTICAL)">
             <i-app-layout cursor="pointer" />
           </span>
         </el-tooltip>
@@ -78,7 +78,7 @@
           content="顶部菜单"
           placement="bottom"
         >
-          <span :class="{ active: !isVerticalMenu }" @click="setLayout(MenuLayout.HORIZONTAL)">
+          <span :class="{ active: !isVerticalMenu }" @click="settingStore.setLayout(MenuLayout.HORIZONTAL)">
             <i-app-layout transform rotate-90 cursor="pointer" />
           </span>
         </el-tooltip>

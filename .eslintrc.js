@@ -102,12 +102,6 @@ module.exports = {
     }
   ],
   globals: {
-    $ref: 'readonly',
-    $computed: 'readonly',
-    $shallowRef: 'readonly',
-    $customRef: 'readonly',
-    $toRef: 'readonly',
-    $: 'readonly',
     EffectScope: 'readonly',
     computed: 'readonly',
     createApp: 'readonly',

@@ -45,8 +45,7 @@ const createHttpGuard = (router: Router) => {
 const createNProgressGuard = (router: Router) => {
   router.beforeEach(() => {
     // !isBasicRoute(from) && NProgress.start()
-    const { hasProgress } = $(useSettingStore())
-    hasProgress && NProgress.start()
+    useSettingStore().hasProgress && NProgress.start()
   })
   router.afterEach(() => {
     NProgress.done()

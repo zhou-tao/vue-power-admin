@@ -12,5 +12,5 @@ import 'element-plus/theme-chalk/el-notification.css'
 import 'element-plus/theme-chalk/el-message-box.css'
 
 export function registerGlobComp(app: App) {
-  Consoler.WARN('registerGlobComp', app)
+  Consoler.SUCCESS('registerGlobComp', app)
 }

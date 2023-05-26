@@ -1,7 +1,8 @@
 <script setup lang="ts" name="LayoutContent">
   import { useSettingStore } from '@/store/modules/setting'
+  import { storeToRefs } from 'pinia'
 
-  const { hasPageAnimate } = $(useSettingStore())
+  const { hasPageAnimate } = storeToRefs(useSettingStore())
 </script>
 
 <template>

@@ -16,20 +16,20 @@
     password: '',
     rememberMe: false
   })
-  const loginFormRef = $ref<FormInstance>()
+  const loginFormRef = ref<FormInstance>()
   const loginRules = reactive<FormRules>({
     username: [{ required: true, message: t('home.usernameRule'), trigger: 'blur' }],
     password: [{ required: true, message: t('home.passwordRule'), trigger: 'blur' }]
   })
-  let loginLoading = $ref<boolean>(false)
+  const loading = ref<boolean>(false)
 
   async function doLogin(formEl: FormInstance | undefined) {
     if (!formEl) return
     await formEl.validate(async valid => {
       if (!valid) return false
-      loginLoading = true
+      loading.value = true
       const [success] = await useLoginByPassword(loginForm)
-      loginLoading = false
+      loading.value = false
       if (success) {
         $message.success({
           message: '登录成功'
@@ -96,7 +96,7 @@
             w="full"
             size="large"
             type="primary"
-            :loading="loginLoading"
+            :loading="loading"
             class="login-btn"
             @click="doLogin(loginFormRef)"
           >

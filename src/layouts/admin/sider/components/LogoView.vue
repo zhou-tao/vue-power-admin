@@ -2,7 +2,7 @@
   import config from '@/config'
   import { useSettingStore } from '@/store/modules/setting'
 
-  const { menuCollapsed } = $(useSettingStore())
+  const settingStore = useSettingStore()
 
   const router = useRouter()
 
@@ -19,7 +19,7 @@
   >
     <i-app-logo text="3xl" />
     <h1
-      v-show="!menuCollapsed"
+      v-show="!settingStore.menuCollapsed"
       text="xl main hover:regular"
       ml="2"
       font="bold mono"

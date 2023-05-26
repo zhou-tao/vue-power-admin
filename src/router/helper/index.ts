@@ -24,11 +24,11 @@ export function isRequiresAuthRoute(route: RouteLocationNormalized) {
 }
 
 export async function addAsyncRoutes() {
-  const { routes, generateRoutes } = $(useMenuStore())
-  if (!routes?.length) {
-    await generateRoutes()
+  const menuStore = useMenuStore()
+  if (!menuStore.routes?.length) {
+    await menuStore.generateRoutes()
   }
-  routes.forEach(route => {
+  menuStore.routes.forEach(route => {
     const routeName = route.name as RouteRecordName
     const hasRoute = router.hasRoute(routeName)
     if (hasRoute) router.removeRoute(routeName) // if already exists, remove it before adding

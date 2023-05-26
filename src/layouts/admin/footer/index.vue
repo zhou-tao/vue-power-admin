@@ -1,7 +1,8 @@
 <script setup lang="ts" name="LayoutFooter">
   import { useSettingStore } from '@/store/modules/setting'
+  import { storeToRefs } from 'pinia'
 
-  const { hasFooter } = $(useSettingStore())
+  const { hasFooter } = storeToRefs(useSettingStore())
 </script>
 
 <template>

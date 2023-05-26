@@ -10,16 +10,17 @@
   import { getLocaleTypes } from '@/i18n'
   import { useI18n } from 'vue-i18n'
   import { useMessage } from '@/hooks/web/useMessage'
+  import { storeToRefs } from 'pinia'
 
   const { $message } = useMessage()
-  const { username, avatar } = $(useUserStore())
+  const { username, avatar } = storeToRefs(useUserStore())
+  const settingStore = useSettingStore()
   const {
     hasBreadcrumb,
     hasLocales,
     menuCollapsed,
-    isVerticalMenu,
-    toggleCollapse
-  } = $(useSettingStore())
+    isVerticalMenu
+  } = storeToRefs(settingStore)
 
   autoRemoveListener()
 
@@ -45,7 +46,7 @@
     dark:border-b="root_dark"
   >
     <div flex items="center" gap="6">
-      <span v-if="isVerticalMenu" cursor="pointer" leading="0" @click="toggleCollapse()">
+      <span v-if="isVerticalMenu" cursor="pointer" leading="0" @click="settingStore.toggleCollapse()">
         <i-ep-expand v-show="menuCollapsed" />
         <i-ep-fold v-show="!menuCollapsed" />
       </span>
