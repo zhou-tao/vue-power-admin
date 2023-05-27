@@ -33,14 +33,6 @@
     appStore.visitedViews = appStore.visitedViews.filter(view => view.path === v.path)
   }
 
-  function closeOtherDropdowns(index: number) {
-    dropdownRefs.value.forEach((dropdown, i) => {
-      if (i !== index) {
-        dropdown.handleClose()
-      }
-    })
-  }
-
   async function scrollToActiveTag() {
     await nextTick()
     // Todo: need handle -> active tag is existed & scroll to back
@@ -60,8 +52,9 @@
     overflow-x="auto"
   >
     <el-dropdown
-      v-for="(v, i) in appStore.visitedViews"
+      v-for="v in appStore.visitedViews"
       :key="v.path"
+      :disabled="v.path !== route.path"
       ref="dropdownRefs"
       trigger="contextmenu"
     >
@@ -72,7 +65,6 @@
         :closable="v.path === route.path && appStore.visitedViews.length > 1"
         @click="router.push(v.path)"
         @close="removeTag(v)"
-        @contextmenu.prevent="closeOtherDropdowns(i)"
       >
         {{ $t(v?.meta?.title!) }}
       </el-tag>
