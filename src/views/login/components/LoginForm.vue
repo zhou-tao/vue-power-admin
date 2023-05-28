@@ -66,7 +66,7 @@
           <el-input
             size="large"
             v-model="loginForm.username"
-            :placeholder="$t('home.account')"
+            :placeholder="$t('home.account') + ' admin'"
           />
         </el-form-item>
         <el-form-item prop="password" :style="{ marginTop: '38px' }">
@@ -74,7 +74,7 @@
             v-model="loginForm.password"
             type="password"
             size="large"
-            :placeholder="$t('home.password')"
+            :placeholder="$t('home.password') + ' 123456'"
             show-password
             @keyup.enter="doLogin(loginFormRef)"
           />
