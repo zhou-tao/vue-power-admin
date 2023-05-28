@@ -83,6 +83,10 @@ export function setData(instance: ChartInstance, dataset: DatasetComponentOption
 
 export function onResize(instance: ChartInstance, root: HTMLDivElement) {
   const throttleResize = useThrottle(() => {
+    if (instance.isDisposed()) {
+      resizeObserver.disconnect()
+      return
+    }
     instance.resize({
       width: 'auto',
       height: 'auto',
