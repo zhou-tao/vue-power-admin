@@ -1,4 +1,5 @@
 import type { DateLogModel } from '@/api/model/baseModel'
+import { ButtonEnum } from '@/enums/permissionEnum'
 import type { AppRouteConfig } from '@/router/types'
 
 export interface BuildMenuModel
@@ -6,7 +7,8 @@ export interface BuildMenuModel
   name: Nullable<string>
   component: string
   redirect?: Nullable<string>
-  children?: BuildMenuModel[]
+  permissions: ButtonEnum[],
+  children?: BuildMenuModel[],
 }
 
 export interface MenuModel

@@ -21,7 +21,8 @@ export const buildMenus = [
         order: 1,
         component: 'dynamic/first/index',
         parentId: null,
-        children: []
+        children: [],
+        permissions: ['add', 'update', 'delete']
       },
       {
         id: 3,
@@ -33,7 +34,8 @@ export const buildMenus = [
         order: 1,
         component: 'dynamic/second/index',
         parentId: null,
-        children: []
+        children: [],
+        permissions: ['update']
       }
     ]
   }

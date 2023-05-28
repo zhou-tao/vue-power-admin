@@ -32,6 +32,6 @@ export async function addAsyncRoutes() {
     const routeName = route.name as RouteRecordName
     const hasRoute = router.hasRoute(routeName)
     if (hasRoute) router.removeRoute(routeName) // if already exists, remove it before adding
-    router.addRoute(route as RouteRecordRaw)
+    router.addRoute(toRaw(route) as RouteRecordRaw)
   })
 }
