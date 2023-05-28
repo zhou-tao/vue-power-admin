@@ -118,4 +118,7 @@
   @apply w-8 h-8 rounded-full flex justify-center items-center bg-light cursor-pointer text-15px transition-base hover:bg-light_hover;
 }
 
+:deep(.el-dropdown [role=button]) {
+  outline: none;
+}
 </style>
