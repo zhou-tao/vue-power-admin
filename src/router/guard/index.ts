@@ -5,7 +5,7 @@ import { AxiosCanceler } from '@/utils/http/axiosCancel'
 import { useSettingStore } from '@/store/modules/setting'
 import NProgress from 'nprogress'
 import config from '@/config'
-import { i18n } from '@/i18n'
+import { i18n } from '@/locales'
 
 /**
  * @description 设置路由守卫

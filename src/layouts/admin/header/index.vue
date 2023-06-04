@@ -7,7 +7,7 @@
   import { useSettingStore } from '@/store/modules/setting'
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'
   import { MenuLayout } from '@/enums/menuEnum'
-  import { getLocaleTypes } from '@/i18n'
+  import { getLocaleTypes } from '@/locales'
   import { useI18n } from 'vue-i18n'
   import { useMessage } from '@/hooks/web/useMessage'
   import { storeToRefs } from 'pinia'

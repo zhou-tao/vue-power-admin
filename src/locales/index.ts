@@ -18,21 +18,21 @@ export function setupI18n(app: App) {
 }
 
 function getLocaleData(): I18nOptions['messages'] {
-  const modules = import.meta.glob('./locales/*.ts', { eager: true })
-  const locales: Record<string, any> = {}
+  const modules = import.meta.glob('./lang/*.ts', { eager: true })
+  const lang: Record<string, any> = {}
   for (const path in modules) {
-    const name: string = path.match(/locales\/(\S*).ts/)![1]
+    const name: string = path.match(/lang\/(\S*).ts/)![1]
     // @ts-ignore
-    locales[name] = modules[path].default
+    lang[name] = modules[path].default
   }
-  return locales
+  return lang
 }
 
 export function getLocaleTypes(): LocaleType[] {
-  const modules = import.meta.glob('./locales/*.ts', { eager: true })
+  const modules = import.meta.glob('./lang/*.ts', { eager: true })
   const localeTypes: LocaleType[] = []
   for (const path in modules) {
-    const value: string = path.match(/locales\/(\S*).ts/)![1]
+    const value: string = path.match(/lang\/(\S*).ts/)![1]
     // @ts-ignore
     localeTypes.push({
       value,
