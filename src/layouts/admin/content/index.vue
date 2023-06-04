@@ -1,8 +1,8 @@
 <script setup lang="ts" name="LayoutContent">
   import { useSettingStore } from '@/store/modules/setting'
-  import { storeToRefs } from 'pinia'
 
-  const { hasPageAnimate } = storeToRefs(useSettingStore())
+  const settingStore = useSettingStore()
+
 </script>
 
 <template>
@@ -12,7 +12,7 @@
     relative
   >
     <router-view v-slot="{ Component, route }">
-      <transition :name="hasPageAnimate ? 'fade-slide' : ''">
+      <transition :name="settingStore.hasPageAnimate ? 'fade-slide' : ''">
         <component :is="Component" :key="route.path" />
       </transition>
     </router-view>

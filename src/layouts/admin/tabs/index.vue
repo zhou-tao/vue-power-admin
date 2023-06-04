@@ -1,78 +1,70 @@
 <script setup lang="ts" name="LayoutTabs">
-  import type { AppRouteConfig } from '@/router/types'
+  import type { TabsPaneContext } from 'element-plus'
   import { useAppStore } from '@/store/modules/app'
 
   const appStore = useAppStore()
   const router = useRouter()
   const route = useRoute()
-  const tabRef = ref<HTMLDivElement>()
-  const dropdownRefs = ref<{
-    handleClose: () => void
-  }[]>([])
 
   watch(route, v => {
     const { path, meta } = v
-    const success = appStore.addVisitedView({
+    appStore.addVisitedView({
       path,
       meta
     })
-    if (success) {
-      scrollToActiveTag()
-    }
   }, { immediate: true })
 
-  function removeTag(v: AppRouteConfig) {
-    appStore.deleteVisitedView(v)
-    if (v.path === route.path) {
+  function handleClickTab (tab: TabsPaneContext) {
+    router.push(tab.paneName as string)
+  }
+
+  function handleRemoveTab(path: string) {
+    appStore.deleteVisitedView({ path })
+    if (path === route.path) {
       const lastTag = appStore.visitedViews[appStore.visitedViews.length - 1]
       router.push(lastTag.path)
     }
   }
 
-  function removeOtherTag(v: AppRouteConfig) {
-    appStore.visitedViews = appStore.visitedViews.filter(view => view.path === v.path)
-  }
-
-  async function scrollToActiveTag() {
-    await nextTick()
-    // Todo: need handle -> active tag is existed & scroll to back
-    tabRef.value?.scrollTo({ behavior: 'smooth', left: tabRef.value.scrollWidth })
+  function handleRemoveOtherTab() {
+    appStore.visitedViews = appStore.visitedViews.filter(view => view.path === route.path)
   }
 
 </script>
 
 <template>
   <div
-    ref="tabRef"
     flex
-    items="center"
-    gap="2"
+    justify-between
     h="tab"
-    px-5
-    overflow-x="auto"
+    overflow="hidden"
   >
-    <el-dropdown
-      v-for="v in appStore.visitedViews"
-      :key="v.path"
-      :disabled="v.path !== route.path"
-      ref="dropdownRefs"
-      trigger="contextmenu"
+    <el-tabs
+      type="card"
+      closable
+      style="width: calc(100% - 60px)"
+      :model-value="route.path"
+      @tab-click="handleClickTab"
+      @tab-remove="handleRemoveTab"
     >
-      <el-tag
-        size="large"
-        :class="{ active: v.path === route.path }"
-        :type="v.path === route.path ? '' : 'info'"
-        :closable="v.path === route.path && appStore.visitedViews.length > 1"
-        @click="router.push(v.path)"
-        @close="removeTag(v)"
-      >
-        {{ $t(v?.meta?.title!) }}
-      </el-tag>
+      <el-tab-pane
+        v-for="v in appStore.visitedViews"
+        :key="v.path"
+        :name="v.path"
+        :label="$t(v?.meta?.title!)"
+      />
+    </el-tabs>
+    <el-dropdown
+      trigger="click"
+    >
+      <div w-50px center border-l="solid root_light dark:root_dark" cursor-pointer>
+        <i-ep-more-filled />
+      </div>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item @click="router.replace(v.path)">{{ $t('tab.refresh') }}</el-dropdown-item>
-          <el-dropdown-item @click="removeTag(v)" :disabled="appStore.visitedViews.length === 1">{{ $t('tab.close') }}</el-dropdown-item>
-          <el-dropdown-item @click="removeOtherTag(v)" :disabled="appStore.visitedViews.length === 1">{{ $t('tab.closeOther') }}</el-dropdown-item>
+          <el-dropdown-item @click="$router.replace(route.path)">{{ $t('tab.refresh') }}</el-dropdown-item>
+          <el-dropdown-item @click="handleRemoveTab(route.path)" :disabled="appStore.visitedViews.length === 1">{{ $t('tab.close') }}</el-dropdown-item>
+          <el-dropdown-item @click="handleRemoveOtherTab" :disabled="appStore.visitedViews.length === 1">{{ $t('tab.closeOther') }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -80,11 +72,31 @@
 </template>
 
 <style lang="scss" scoped>
-:deep(.el-tag) {
-  @apply cursor-pointer h-7;
+:deep(.el-tabs) {
+  flex: 1;
+  flex-shrink: 0;
+  &.el-tabs--card > .el-tabs__header {
+    @apply border-b-none;
+    .el-tabs__nav {
+      @apply b-0 rounded-0 border-r border-r-solid border-r-root_light dark:border-r-root_dark;
+    }
 
-  .el-tag__content {
-    @apply select-none;
+    .el-tabs__item {
+      font-weight: 400;
+      @apply border-l border-l-solid border-l-root_light dark:border-l-root_dark;
+
+      &:not(.is-active) {
+        color: var(--el-text-color-regular);
+      }
+
+      &.is-active {
+        background-color: var(--el-color-primary-light-9);
+
+        .is-icon-close:hover {
+          background-color: var(--el-color-primary);
+        }
+      }
+    }
   }
 }
 </style>
