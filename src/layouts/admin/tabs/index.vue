@@ -1,6 +1,7 @@
 <script setup lang="ts" name="LayoutTabs">
   import type { TabsPaneContext } from 'element-plus'
   import { useAppStore } from '@/store/modules/app'
+  import { refresh } from '../content/useContent'
 
   const appStore = useAppStore()
   const router = useRouter()
@@ -13,6 +14,8 @@
       meta
     })
   }, { immediate: true })
+
+  const isSingleVisitedView = computed(() => appStore.visitedViews.length === 1)
 
   function handleClickTab (tab: TabsPaneContext) {
     router.push(tab.paneName as string)
@@ -62,9 +65,18 @@
       </div>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item @click="$router.replace(route.path)">{{ $t('tab.refresh') }}</el-dropdown-item>
-          <el-dropdown-item @click="handleRemoveTab(route.path)" :disabled="appStore.visitedViews.length === 1">{{ $t('tab.close') }}</el-dropdown-item>
-          <el-dropdown-item @click="handleRemoveOtherTab" :disabled="appStore.visitedViews.length === 1">{{ $t('tab.closeOther') }}</el-dropdown-item>
+          <el-dropdown-item @click="refresh = !refresh">
+            <i-ep-refresh />
+            {{ $t('tab.refresh') }}
+          </el-dropdown-item>
+          <el-dropdown-item @click="handleRemoveTab(route.path)" :disabled="isSingleVisitedView">
+            <i-ep-close />
+            {{ $t('tab.close') }}
+          </el-dropdown-item>
+          <el-dropdown-item @click="handleRemoveOtherTab" :disabled="isSingleVisitedView">
+            <i-ep-delete />
+            {{ $t('tab.closeOther') }}
+          </el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>

@@ -18,9 +18,9 @@ export default {
     changeLocale: '切换语言为'
   },
   tab: {
-    refresh: '刷新页面',
-    close: '关闭当前页面',
-    closeOther: '关闭其他页面'
+    refresh: '刷新',
+    close: '关闭当前',
+    closeOther: '关闭其他'
   },
   menu: {
     home: {
