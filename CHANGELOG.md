@@ -1,3 +1,32 @@
+# [1.1.0](https://github.com/zhou-tao/vue-power-admin/compare/v1.0.1...v1.1.0) (2023-06-05)
+
+
+### Bug Fixes
+
+* :bug: input style ([ac6a1ee](https://github.com/zhou-tao/vue-power-admin/commit/ac6a1eea5bec75a6db2d46a47a3c17780ca7d7b2))
+* external to manualChunks ([f87814d](https://github.com/zhou-tao/vue-power-admin/commit/f87814db10bab1fe3671458fb556be1cbbcec6f5))
+* **header:** :bug: remove outline style in el-dropdown ([db348a6](https://github.com/zhou-tao/vue-power-admin/commit/db348a6fcc715a579791107407e951dd2f983dad))
+* route tabs should close others when one of them is right clicked ([bb39780](https://github.com/zhou-tao/vue-power-admin/commit/bb397805907758bfbf7241023d522019b8fb47bd))
+* **router:** :bug: default page redirect incorrect after login ([3ec4aa9](https://github.com/zhou-tao/vue-power-admin/commit/3ec4aa9846c572c0bd3f98346d0b183408875942))
+* **router:** :bug: permission guard console warning when refresh page in dynamic router pages ([a132bb8](https://github.com/zhou-tao/vue-power-admin/commit/a132bb87938e5f788f3ee4c0de755302c8c4409d))
+* **types:** :bug: fix BuildMenuModel type ([edcf1cb](https://github.com/zhou-tao/vue-power-admin/commit/edcf1cb9b63fdebe959c35540819f3f499705284))
+* **useEcharts:** :bug: disconnect observer when echart disposed ([60ae707](https://github.com/zhou-tao/vue-power-admin/commit/60ae707aa17ecfbb772caea03a9d5996439017f2))
+
+
+### Features
+
+* :sparkles: add login account tips ([9bfa6a8](https://github.com/zhou-tao/vue-power-admin/commit/9bfa6a83d7f5100b4af2a17170c14456819ae1d7))
+* :sparkles: login api for mock ([5a09092](https://github.com/zhou-tao/vue-power-admin/commit/5a09092df8702085a379f8fc6ed183dc033f6da0))
+* :sparkles: refresh token ([607fba1](https://github.com/zhou-tao/vue-power-admin/commit/607fba10ba56e078019464452e5ee8f7b9ffc16b))
+* **layout:** :sparkles: optimize tab interaction ([09a775a](https://github.com/zhou-tao/vue-power-admin/commit/09a775a933a50e1ea9ebed16733d9de491f93b9f))
+* **layout:** :sparkles: refresh content view ([3de2ba7](https://github.com/zhou-tao/vue-power-admin/commit/3de2ba78850bcc9bac1b14f31fdfaec356449549))
+* **permission:** :sparkles: add button permission in router & v-permission directive ([8032aa6](https://github.com/zhou-tao/vue-power-admin/commit/8032aa655eb9b99ab7636796e1904a0f0ab80a22))
+* **router:** :sparkles: add async routes & menus ([7074c74](https://github.com/zhou-tao/vue-power-admin/commit/7074c7409689c3dd24ae0c728cabe0214752f659))
+* **tab:** :sparkles: disable dropdown selection in inactive tags ([680723d](https://github.com/zhou-tao/vue-power-admin/commit/680723d1f2103115b5793b1adc18b35e57cb2af0))
+* **util:** :sparkles: optimize consoler ([0cf528f](https://github.com/zhou-tao/vue-power-admin/commit/0cf528f5e92dd7445245b19e7fb8d9c89cbad7a3))
+
+
+
 ## [1.0.1](https://github.com/zhou-tao/vue-power-admin/compare/v1.0.0...v1.0.1) (2023-04-02)
 
 
