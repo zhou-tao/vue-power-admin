@@ -2,8 +2,9 @@ import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
 import { createVitePlugins } from './build/vite/plugins'
 import { createProxy } from './build/vite/proxy'
+import { createOptimizeDeps } from './build/vite/optimize-deps'
 import { envParse } from './build/utils'
-import { resolve } from 'path'
+import { resolve } from 'node:path'
 
 // eslint-disable-next-line no-control-regex
 const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,_]/g
@@ -85,6 +86,8 @@ export default ({ mode }: ConfigEnv) => {
         ]
       },
     },
-    plugins: createVitePlugins(env, mode === 'production')
+    plugins: createVitePlugins(env, mode === 'production'),
+    // fix(vite): optimized dependencies changed. reloading
+    optimizeDeps: createOptimizeDeps()
   })
 }

@@ -1,6 +1,6 @@
-const fs = require('fs')
-const path = require('path')
-const { execSync } = require('child_process')
+const fs = require('node:fs')
+const path = require('node:path')
+const { execSync } = require('node:child_process')
 
 // 读取src下顶层目录作为默认scope选项（api、assets、components...）
 const scopes = fs
