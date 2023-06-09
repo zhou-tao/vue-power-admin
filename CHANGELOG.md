@@ -1,3 +1,18 @@
+## [1.1.1](https://github.com/zhou-tao/vue-power-admin/compare/v1.1.0...v1.1.1) (2023-06-09)
+
+
+### Bug Fixes
+
+* :bug: theme switch ([1969fae](https://github.com/zhou-tao/vue-power-admin/commit/1969fae453eb06cd2c5e3533bfa29ad10cda057d))
+* **vite:** :bug: page reloading by optimized dependencies changed ([2eaddbe](https://github.com/zhou-tao/vue-power-admin/commit/2eaddbee7447f421521de54c809d7a4fb5edbffe))
+
+
+### Features
+
+* :sparkles: add optimize deps config ([5bd9afe](https://github.com/zhou-tao/vue-power-admin/commit/5bd9afee712c9854694f3008881ef5742e25d134))
+
+
+
 # [1.1.0](https://github.com/zhou-tao/vue-power-admin/compare/v1.0.1...v1.1.0) (2023-06-05)
 
 
