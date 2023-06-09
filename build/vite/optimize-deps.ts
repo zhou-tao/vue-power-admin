@@ -1,15 +1,15 @@
+// used components for element-plus
+const ElementPlusComponents = [
+  'form', 'form-item', 'button', 'row', 'col',
+  'checkbox', 'input', 'radio-group', 'radio-button',
+  'dialog', 'table', 'select', 'option', 'loading', 'pagination',
+  'table-column', 'tree', 'descriptions', 'descriptions-item', 'tag'
+]
 
-// TODO: glob import generate function
+// preload all deps
 export const createOptimizeDeps = () => ({
   include: [
-    'element-plus/es/components/form/style/index',
-    'element-plus/es/components/button/style/index',
-    'element-plus/es/components/row/style/index',
-    'element-plus/es/components/col/style/index',
-    'element-plus/es/components/checkbox/style/index',
-    'element-plus/es/components/form-item/style/index',
-    'element-plus/es/components/input/style/index',
-    'element-plus/es/components/radio-group/style/index',
-    'element-plus/es/components/radio-button/style/index'
+    '@wangeditor/editor-for-vue',
+    ...ElementPlusComponents.map(comp => `element-plus/es/components/${comp}/style/index`)
   ]
 })
