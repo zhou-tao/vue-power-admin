@@ -1,11 +1,11 @@
 import type { ObjectDirective } from 'vue'
-// import { ButtonEnum } from '@/enums/permissionEnum'
+import type { ButtonEnum } from '@/enums/permissionEnum'
 
 export const vPermission: ObjectDirective<HTMLElement, any> = {
-  created (el, { arg }, vnode) {
-    // @ts-ignore
-    const { permissions } = vnode.ctx.appContext.app._instance.appContext.config.globalProperties.$route.meta
-    const noPermission = !permissions.includes(arg)
+  created (el, { arg, instance }) {
+    const permissions = (instance?.$route?.meta?.permissions || []) as ButtonEnum[]
+    console.log('v-permission', permissions)
+    const noPermission = !permissions.includes(arg as ButtonEnum)
     if (noPermission) {
       el.style.display = 'none'
     }
