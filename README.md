@@ -48,13 +48,11 @@ pnpm dev
 
 All kinds of contributions are welcomed!
 
-[Contributors here](https://zhou-tao.github.io/vue-power-admin)!
-
-### :bookmark_tabs: License
+[Contributors here](https://zhou-tao.github.io/vue-power-admin)
 
 ### Thanks
 
-This project cannot be done without these project:
+This project cannot be done without these projects:
 
 * Vite
 * Vue3
