@@ -48,6 +48,14 @@ const ComponentRoute: AppRouteConfig = {
     meta: {
       title: 'menu.component.editor'
     }
+  },
+  {
+    path: 'verification-code',
+    name: 'verification_code',
+    component: () => import('@/views/admin/component/verification-code/index.vue'),
+    meta: {
+      title: 'menu.component.verificationCode'
+    }
   }]
 }
 

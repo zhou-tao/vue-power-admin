@@ -44,7 +44,8 @@ export default {
       table: '表格',
       splitPane: '分欄器',
       icon: '圖標',
-      editor: '編輯器'
+      editor: '編輯器',
+      verificationCode: '驗證碼'
     },
     feat: {
       root: '功能',

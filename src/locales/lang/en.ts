@@ -44,7 +44,8 @@ export default {
       table: 'table',
       splitPane: 'splitPane',
       icon: 'icon',
-      editor: 'editor'
+      editor: 'editor',
+      verificationCode: 'verificationCode'
     },
     feat: {
       root: 'feature',
