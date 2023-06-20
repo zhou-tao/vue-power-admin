@@ -1,17 +1,21 @@
 <script setup lang="ts" name="SlideBlock">
 
   const image = ref()
-  const clip = ref()
+  const overlay = ref()
+
   const dragger = ref(false)
   const scrollView = ref()
-  const offset = ref(0)
-  const left = ref(0)
+  const offset = ref(0) // 鼠标初始按下时偏移距离
+  const left = ref(0) // 移动偏移距离
   const refresh = ref(false)
   const targetPosition = ref([0, 0])
-  const errorRange = ref(8) // 误差范围
+  const errorRange = ref(8) // 拖动终止重合误差范围
   const succeed = ref(false)
   const showResult = ref(false)
   const loading = ref(false)
+
+  const size = ref(40) // 移动卡片正方形部分长度
+  const radius = ref(8) // 移动卡片切圆半径
 
   const emit = defineEmits(['succeed'])
 
@@ -20,44 +24,74 @@
   })
 
   function renderCode () {
-    const ctx = image.value.getContext('2d', {
+    const ctx = image.value.getContext('2d')
+    const ctx2 = overlay.value.getContext('2d', {
       willReadFrequently: true
     })
-    const ctx2 = clip.value.getContext('2d')
     const img = new Image()
     img.setAttribute('crossOrigin', 'anonymous')
     img.onload = () => {
+      // 初始化状态
       left.value = 0
+      succeed.value = false
       showResult.value = false
       loading.value = false
-      ctx.drawImage(img, 0, 0)
-      targetPosition.value = [Math.floor(Math.random()*120 + 150), Math.floor(Math.random()*100 + 1)]
+      setRandomPosition()
       const [x, y] = targetPosition.value
-      const clipImage = ctx.getImageData(x, y, 50, 50)
-      ctx2.putImageData(clipImage, 0 ,0)
-      imageClipper(ctx, x, y)
+
+      // 绘制图片并裁剪（有留白）
+      overlay.value.width = 320
+      ctx2.clearRect(0, 0, 320, 150)
+      drawClipPath(ctx2, x, y)
+      ctx2.clip()
+      ctx2.drawImage(img, 0, 0)
+
+      // 裁剪去除空白部分
+      const clippedImageData = ctx2.getImageData(x, y-radius.value, size.value+radius.value, size.value+radius.value)
+      overlay.value.width = size.value+radius.value
+      ctx2.putImageData(clippedImageData, 0, y-radius.value)
+
+      // 增加阴影与边框
+      drawClipPath(ctx2, 0, y)
+      ctx2.shadowColor = '#000'
+      ctx2.shadowBlur = 6
+      ctx2.strokeStyle = '#52525B'
+      ctx2.stroke()
+
+      // 底图绘制与镂空留白
+      ctx.drawImage(img, 0, 0)
+      drawClipPath(ctx, x, y)
+      ctx.fillStyle = '#fff'
+      ctx.fill()
       refresh.value = false
     }
     img.src = 'https://picsum.photos/320/150'
     watch(refresh, v => {
       if (v) {
-        if (succeed.value) {
-          emit('succeed')
-          img.src = `https://picsum.photos/320/150?id=${Date.now()}`
-        }
+        if (succeed.value) emit('succeed')
+        img.src = `https://picsum.photos/320/150?id=${Date.now()}`
       }
     })
   }
 
-  function imageClipper(ctx: CanvasRenderingContext2D, x: number, y: number) {
-    // ctx.shadowColor = '#000'
-    // ctx.shadowBlur = 5
-    ctx.fillStyle = '#fff'
-    ctx.fillRect(x, y, 50, 50)
-    // ctx.beginPath()
-    // const region = new Path2D()
-    // region.rect(50, 50, 50, 50)
-    // ctx.clip(region)
+  // 拼图卡片路径绘制
+  function drawClipPath(ctx: CanvasRenderingContext2D, x: number, y: number) {
+    const width = size.value
+    ctx.beginPath()
+    ctx.moveTo(x, y)
+    ctx.arc(x+width/2, y, radius.value, Math.PI, 2*Math.PI)
+    ctx.lineTo(x+width, y)
+    ctx.arc(x+width, y+width/2, radius.value, -Math.PI/2, Math.PI/2)
+    ctx.lineTo(x+width, y+width)
+    ctx.lineTo(x, y+width)
+    ctx.arc(x, y+width/2, radius.value, Math.PI/2, Math.PI*1.5, true)
+    ctx.closePath()
+  }
+
+  // 生成随机位置
+  function setRandomPosition () {
+    const randomNum = (min: number, max: number) => Math.floor(Math.random()*(max-min) + min)
+    targetPosition.value = [randomNum(80, 250), randomNum(40, 100)]
   }
 
   function onMouseDown (e: MouseEvent) {
@@ -91,20 +125,19 @@
     <div rounded overflow-hidden text-0 relative>
       <canvas ref="image" width="320" height="150"></canvas>
       <canvas
-        ref="clip"
+        ref="overlay"
         absolute
         z-2
-        width="50"
-        height="50"
-        shadow
-        :style="{ left: `${left}px`, top: `${targetPosition[1]}px` }"
+        width="320"
+        height="150"
+        :style="{ left: `${left}px` }"
       ></canvas>
       <div
         absolute
         z-3
         top-1
         right-0
-        text="20px zinc-2 hover:zinc-3"
+        text="20px zinc-2 hover:primary"
         cursor-pointer
         @click="loading = true; refresh = true"
       >
