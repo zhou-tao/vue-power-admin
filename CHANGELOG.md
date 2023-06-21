@@ -1,3 +1,19 @@
+## [1.1.2](https://github.com/zhou-tao/vue-power-admin/compare/v1.1.1...v1.1.2) (2023-06-21)
+
+
+### Features
+
+* :sparkles: add verification code login ([ddfc98a](https://github.com/zhou-tao/vue-power-admin/commit/ddfc98a46883c39b7f6b967d2f90708cb4ea537d))
+* **component:** :sparkles: add verification code ([048fc94](https://github.com/zhou-tao/vue-power-admin/commit/048fc94f5a96f0748e83d45a134b351428d921ea))
+* **verification-code:** :sparkles: optimize card shape ([f043ce7](https://github.com/zhou-tao/vue-power-admin/commit/f043ce7fe83c12d69fcee62b222e8cfb3d4cc8ac))
+
+
+### Performance Improvements
+
+* **v-permission:** :zap: optimize router call in directive hook ([5a9de56](https://github.com/zhou-tao/vue-power-admin/commit/5a9de564132caaebf4f246188e837d52db92c558))
+
+
+
 ## [1.1.1](https://github.com/zhou-tao/vue-power-admin/compare/v1.1.0...v1.1.1) (2023-06-09)
 
 
