@@ -1,7 +1,7 @@
-import RandomCharCode from './src/RandomChar.vue'
-import SlideBlockCode from './src/SlideBlock.vue'
+import VerificationCode from './src/VerificationCode.vue'
+import VerifyDialog from './src/VerifyDialog.vue'
 
 export {
-  RandomCharCode,
-  SlideBlockCode
+  VerificationCode,
+  VerifyDialog
 }

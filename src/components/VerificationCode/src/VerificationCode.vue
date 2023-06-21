@@ -1,4 +1,10 @@
-<script setup lang="ts" name="SlideBlock">
+<script setup lang="ts" name="VerificationCode">
+
+  const props = withDefaults(defineProps<{
+    mode: 'base' | 'modal'
+  }>(), {
+    mode: 'base'
+  })
 
   const image = ref()
   const overlay = ref()
@@ -17,7 +23,7 @@
   const size = ref(40) // 移动卡片正方形部分长度
   const radius = ref(8) // 移动卡片切圆半径
 
-  const emit = defineEmits(['succeed'])
+  const emit = defineEmits(['change'])
 
   onMounted(() => {
     renderCode()
@@ -68,7 +74,8 @@
     img.src = 'https://picsum.photos/320/150'
     watch(refresh, v => {
       if (v) {
-        if (succeed.value) emit('succeed')
+        emit('change', succeed.value)
+        if (succeed.value && props.mode === 'modal') return
         img.src = `https://picsum.photos/320/150?id=${Date.now()}`
       }
     })

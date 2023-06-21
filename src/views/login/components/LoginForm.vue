@@ -10,6 +10,7 @@
 
   const { t } = useI18n()
   const router = useRouter()
+  const showVerifyDialog = ref(false)
   const { $notify, $message } = useMessage()
   const loginForm = reactive<LoginParams>({
     username: '',
@@ -31,18 +32,23 @@
       const [success] = await useLoginByPassword(loginForm)
       loading.value = false
       if (success) {
-        $message.success({
-          message: '登录成功'
-        })
-        router.push('/home')
-        $notify({
-          title: 'Welcome',
-          message: t('home.welcome'),
-          type: 'success',
-        })
+        showVerifyDialog.value = true
       } else {
         $message.error('账户名不存在或密码错误！')
       }
+    })
+  }
+
+  function handleVerifyChange(success: boolean) {
+    if (!success) return
+    $message.success({
+      message: '登录成功'
+    })
+    router.push('/home')
+    $notify({
+      title: 'Welcome',
+      message: t('home.welcome'),
+      type: 'success',
     })
   }
 </script>
@@ -114,6 +120,7 @@
       <i-ri-twitter-fill class="link" />
       <i-ri-google-fill class="link" text="1.2rem!" />
     </div>
+    <VerifyDialog v-model="showVerifyDialog" @change="handleVerifyChange" />
   </div>
 </template>
 

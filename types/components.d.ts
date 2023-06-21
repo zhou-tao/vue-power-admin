@@ -127,6 +127,8 @@ declare module '@vue/runtime-core' {
     ThemeSwitch: typeof import('./../src/components/ThemeSwitch/src/ThemeSwitch.vue')['default']
     TotalCard: typeof import('./../src/components/Card/src/TotalCard.vue')['default']
     Trigger: typeof import('./../src/components/Splitter/src/Trigger.vue')['default']
+    VerificationCode: typeof import('./../src/components/VerificationCode/src/VerificationCode.vue')['default']
+    VerifyDialog: typeof import('./../src/components/VerificationCode/src/VerifyDialog.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
