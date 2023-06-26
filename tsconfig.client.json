@@ -1,0 +1,18 @@
+{
+  "extends": "@tooz/tsconfig/web",
+  "compilerOptions": {
+    "composite": true,
+    "sourceMap": true,
+    "types": ["vite/client"],
+    "paths": {
+      "@/*": ["src/*"],
+      "@c/*": ["src/components/*"],
+      "@h/*": ["src/hooks/*"],
+      "#/*": ["types/*"]
+    }
+  },
+  "include": [
+    "app/client/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.js"]
+}

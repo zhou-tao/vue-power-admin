@@ -1,0 +1,32 @@
+html,
+body {
+  @apply p-0 m-0;
+}
+
+html,
+body,
+#app {
+  @apply h-full;
+}
+
+#nprogress {
+  @apply pointer-events-none;
+
+  .bar {
+    @apply fixed top-0 left-0 z-99999 w-full h-1 bg-primary opacity-80 rounded-r;
+  }
+}
+
+.icon {
+  @apply m-x-1 text-current outline-none;
+}
+
+// hide all scrollbar
+*::-webkit-scrollbar {
+  display: none;
+}
+
+// clear Remember password entry box background color By Google Chrome
+input:-webkit-autofill {
+  transition:background-color 5000s ease-in-out 0s;
+}
