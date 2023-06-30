@@ -1,19 +1,20 @@
 {
   "name": "create-vpa",
   "version": "0.0.1",
-  "description": "vue-power-admin's cli",
+  "description": "vue-power-admin cli",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.js",
   "bin": {
     "create-vpa": "index.js",
     "cvpa": "index.js"
   },
   "files": [
-    "index.js",
-    "dist"
+    "dist",
+    "index.js"
   ],
   "scripts": {
-    "build": ""
+    "dev": "unbuild --stub",
+    "build": "unbuild"
   },
   "repository": {
     "type": "git",
@@ -34,10 +35,11 @@
   ],
   "author": "tooz",
   "license": "MIT",
-  "dependencies": {
-    "download-git-repo": "^3.0.2"
-  },
   "devDependencies": {
+    "download-git-repo": "^3.0.2",
+    "kolorist": "^1.8.0",
+    "minimist": "^1.2.8",
+    "prompts": "^2.4.2",
     "unbuild": "^1.1.2"
   }
 }

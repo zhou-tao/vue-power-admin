@@ -1,0 +1,12 @@
+{
+  "extends": "@tooz/tsconfig",
+  "compilerOptions": {
+    "composite": true,
+    "esModuleInterop": true,
+    "outDir": "dist"
+  },
+  "include": [
+    "packages/create-vpa/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.js"]
+}

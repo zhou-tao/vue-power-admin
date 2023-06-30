@@ -6,6 +6,8 @@
     "dev": "pnpm -C app/client dev",
     "dev:server": "pnpm -C app/server start:dev",
     "dev:docs": "pnpm -C docs dev",
+    "dev:cli": "pnpm -C packages/create-vpa dev",
+    "build:cli": "pnpm -C packages/create-vpa build",
     "lint:eslint": "eslint \"app/client/src/**/*.{ts,tsx,vue}\" --fix",
     "lint:staged": "lint-staged",
     "prepare": "husky install && chmod ug+x .husky/*"
@@ -18,6 +20,7 @@
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "commitizen": "^4.3.0",
+    "create-vpa": "workspace:^0.0.1",
     "cz-git": "^1.4.1",
     "eslint": "^8.36.0",
     "eslint-plugin-vue": "^9.6.0",
