@@ -1,6 +1,6 @@
 {
   "name": "create-vpa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "vue-power-admin cli",
   "type": "module",
   "main": "dist/index.js",
@@ -20,6 +20,10 @@
     "type": "git",
     "url": "git+https://github.com/zhou-tao/vue-power-admin.git",
     "directory": "packages/create-vpa"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "bugs": {
     "url": "https://github.com/zhou-tao/vue-power-admin/issues"
