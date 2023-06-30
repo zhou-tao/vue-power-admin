@@ -1,6 +1,6 @@
 {
   "name": "create-vpa",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "vue-power-admin cli",
   "type": "module",
   "main": "dist/index.js",
@@ -36,9 +36,12 @@
   "author": "tooz",
   "license": "MIT",
   "devDependencies": {
+    "@types/minimist": "^1.2.2",
+    "@types/prompts": "^2.4.4",
     "download-git-repo": "^3.0.2",
     "kolorist": "^1.8.0",
     "minimist": "^1.2.8",
+    "ora": "^6.3.1",
     "prompts": "^2.4.2",
     "unbuild": "^1.1.2"
   }
