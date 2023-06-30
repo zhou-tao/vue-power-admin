@@ -4,4 +4,4 @@
 
 ### Minor Changes
 
-- download via command: `npm/yarn/pnpm create xxx`
+- download via command: `npm/yarn/pnpm create vpa xxx`
