@@ -4,7 +4,7 @@ import minimist from 'minimist'
 import prompts from 'prompts'
 import { formatTargetDir, isEmpty, isValidPackageName, toValidPackageName, getSignText, cleanDir, getPkgManager, logPkgText } from './lib/util'
 import { cyan, lightGreen, red } from 'kolorist'
-import { downloadRepo } from './lib/create'
+import { downloadRepo, writePackageJson } from './lib/create'
 
 interface Template {
   name: string
@@ -21,7 +21,7 @@ const argv = minimist<{
 const cwd = process.cwd()
 
 const templates: Template[] = [
-  { name: 'v1', display: 'vpa-frontend', repo: 'zhou-tao/vue-power-admin', color: lightGreen },
+  { name: 'v1', display: 'vpa-frontend', repo: 'zhou-tao/vue-power-admin#main', color: lightGreen },
   { name: 'v2', display: 'vpa-fullstack', repo: 'zhou-tao/vue-power-admin#2.x', color: cyan }
 ]
 
@@ -92,7 +92,7 @@ async function init() {
         throw new Error(red('✖') + ' Operation cancelled')
       },
     })
-    const { overwrite, projectType } = answers
+    const { overwrite, projectName, projectType } = answers
     const root = path.join(cwd, targetDir)
 
     if (overwrite) {
@@ -101,6 +101,7 @@ async function init() {
       fs.mkdirSync(root, { recursive: true })
     }
     await downloadRepo(projectType, targetDir)
+    writePackageJson(path.join(root, 'package.json'), projectName)
     console.log(lightGreen(getSignText()))
     const pkgManageInfo = getPkgManager()
     const pkgManagerName = pkgManageInfo?.name || 'npm'

@@ -45,6 +45,9 @@ export function toValidPackageName(projectName: string) {
 }
 
 export function logPkgText(pkgManager: string) {
+  console.log()
+  console.log()
+  console.log('Done. Now run:')
   switch (pkgManager) {
     case 'yarn':
       console.log(`
