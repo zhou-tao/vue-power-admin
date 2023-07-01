@@ -92,7 +92,7 @@ async function init() {
         throw new Error(red('✖') + ' Operation cancelled')
       },
     })
-    const { overwrite, projectName, projectType } = answers
+    const { overwrite, projectType } = answers
     const root = path.join(cwd, targetDir)
 
     if (overwrite) {
@@ -101,11 +101,11 @@ async function init() {
       fs.mkdirSync(root, { recursive: true })
     }
     await downloadRepo(projectType, targetDir)
-    writePackageJson(path.join(root, 'package.json'), projectName)
+    writePackageJson(path.join(root, 'package.json'), targetDir)
     console.log(lightGreen(getSignText()))
     const pkgManageInfo = getPkgManager()
     const pkgManagerName = pkgManageInfo?.name || 'npm'
-    logPkgText(pkgManagerName)
+    logPkgText(targetDir, pkgManagerName)
   } catch (e: any) {
     console.log(red(e.message))
     return

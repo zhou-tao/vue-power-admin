@@ -44,20 +44,20 @@ export function toValidPackageName(projectName: string) {
     .replace(/[^a-z\d\-~]+/g, '-')
 }
 
-export function logPkgText(pkgManager: string) {
+export function logPkgText(dirName: string, pkgManager: string) {
   console.log()
   console.log()
   console.log('Done. Now run:')
+  console.log()
+  console.log(`  cd ${dirName}`)
   switch (pkgManager) {
     case 'yarn':
-      console.log(`
-    yarn
+      console.log(`  yarn
     yarn dev
       `)
       break
     default:
-      console.log(`
-  ${pkgManager} install
+      console.log(`  ${pkgManager} install
   ${pkgManager} run dev
       `)
       break
