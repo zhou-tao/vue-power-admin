@@ -1,5 +1,11 @@
 # create-vpa
 
+## 0.1.3
+
+### Patch Changes
+
+- fix: set name field in package.json
+
 ## 0.1.2
 
 ### Patch Changes
