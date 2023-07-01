@@ -1,5 +1,11 @@
 # create-vpa
 
+## 0.1.2
+
+### Patch Changes
+
+- set download way to clone
+
 ## 0.1.1
 
 ### Patch Changes
