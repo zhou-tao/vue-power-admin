@@ -1,19 +1,19 @@
 import fs from 'node:fs'
-import ora from 'ora'
-import download from 'download-git-repo'
+import { spawnSync } from 'node:child_process'
 
-export function downloadRepo (repo: string, dir: string): Promise<void> {
+const GITHUB_BASE_URL = 'https://github.com/'
+
+export function downloadRepo (repo: string, dir: string) {
+  const [url, branch = 'main'] = repo.split('#')
   return new Promise((resolve, reject) => {
-    const spinner = ora('DOWNLOADING...').start()
-    download(repo, dir, { clone: true }, (err: any) => {
-      if (err) {
-        spinner.fail('Download failure, please try again later!')
-        reject(err)
-      } else {
-        spinner.succeed('Scaffolding initialization succeeded!')
-        resolve()
-      }
-    })
+    try {
+      spawnSync('git', ['clone', '--depth=1', `${GITHUB_BASE_URL}${url}`, '-b', branch, dir])
+      console.log('DOWNLOADING...')
+      spawnSync('rm', ['-rf', `${dir}/.git`])
+      resolve(null)
+    } catch (err) {
+      reject(err)
+    }
   })
 }
 
