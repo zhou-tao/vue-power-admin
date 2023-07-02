@@ -14,7 +14,9 @@
   ],
   "scripts": {
     "dev": "unbuild --stub",
-    "build": "unbuild"
+    "build": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
