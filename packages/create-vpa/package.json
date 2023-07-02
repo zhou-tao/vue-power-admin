@@ -1,6 +1,6 @@
 {
   "name": "create-vpa",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "vue-power-admin cli",
   "type": "module",
   "main": "dist/index.js",
