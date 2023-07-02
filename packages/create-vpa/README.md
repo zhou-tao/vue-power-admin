@@ -1,11 +1,34 @@
 # create-vpa
 
 ### Introduction
-> create-vpa is a CLI for easy downloading the vue power admin project.
+> create-vpa is a CLI for initialize the [Vue Power Admin](https://github.com/zhou-tao/vue-power-admin) template project.
 
 ### Getting started
 
-```shell
-# You can replace `vpa-app` to your project name
-pnpm create vpa vpa-app
+With NPM:
+
 ```
+npm create vpa
+```
+
+With Yarn:
+```
+$ yarn create vpa
+```
+
+With PNPM:
+```
+pnpm create vpa
+```
+
+Then follow the prompts!
+
+ProjectType options are currently supported:
+
+- vpa-frontend: [vue-power-admin](https://github.com/zhou-tao/vue-power-admin)
+
+- vpa-fullstack: [vue-power-admin#2.x](https://github.com/zhou-tao/vue-power-admin/tree/2.x)
+
+### LICENSE
+
+:heart: [MIT](https://github.com/zhou-tao/vue-power-admin/blob/2.x/packages/create-vpa/LICENSE)
