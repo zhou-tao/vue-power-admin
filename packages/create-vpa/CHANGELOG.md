@@ -1,5 +1,11 @@
 # create-vpa
 
+## 0.1.4
+
+### Patch Changes
+
+- implement git clone with child_process instead of download-git-repo
+
 ## 0.1.3
 
 ### Patch Changes
