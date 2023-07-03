@@ -2,8 +2,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import minimist from 'minimist'
 import prompts from 'prompts'
-import { formatTargetDir, isEmpty, isValidPackageName, toValidPackageName, getSignText, cleanDir, getPkgManager, logPkgText } from './lib/util'
-import { cyan, lightGreen, red } from 'kolorist'
+import { formatTargetDir, isEmpty, isValidPackageName, toValidPackageName, getSignText, cleanDir, getPkgManager, printPkgText } from './lib/util'
+import { lightCyan, lightGreen, lightRed } from 'kolorist'
 import { downloadRepo, writePackageJson } from './lib/create'
 
 interface Template {
@@ -22,11 +22,11 @@ const cwd = process.cwd()
 
 const templates: Template[] = [
   { name: 'v1', display: 'vpa-frontend', repo: 'zhou-tao/vue-power-admin#main', color: lightGreen },
-  { name: 'v2', display: 'vpa-fullstack', repo: 'zhou-tao/vue-power-admin#2.x', color: cyan }
+  { name: 'v2', display: 'vpa-fullstack', repo: 'zhou-tao/vue-power-admin#2.x', color: lightCyan }
 ]
 
 async function init() {
-  const defaultTargetDir = 'vpa-project'
+  const defaultTargetDir = 'vpa-app'
 
   const argTargetDir = formatTargetDir(argv._[0])
 
@@ -59,7 +59,7 @@ async function init() {
       {
         type: (_, { overwrite }: { overwrite?: boolean }) => {
           if (overwrite === false) {
-            throw new Error(red('✖') + ' Operation cancelled')
+            throw new Error(lightRed('✖') + ' Operation cancelled')
           }
           return null
         },
@@ -89,7 +89,7 @@ async function init() {
     ],
     {
       onCancel: () => {
-        throw new Error(red('✖') + ' Operation cancelled')
+        throw new Error(lightRed('✖') + ' Operation cancelled')
       },
     })
     const { overwrite, projectType } = answers
@@ -105,10 +105,11 @@ async function init() {
     console.log(lightGreen(getSignText()))
     const pkgManageInfo = getPkgManager()
     const pkgManagerName = pkgManageInfo?.name || 'npm'
-    logPkgText(targetDir, pkgManagerName)
+    printPkgText(targetDir, pkgManagerName)
+    process.exit(0)
   } catch (e: any) {
-    console.log(red(e.message))
-    return
+    console.log(lightRed(e.message))
+    process.exit(1)
   }
 }
 

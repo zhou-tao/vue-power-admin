@@ -13,7 +13,7 @@ npm create vpa
 
 With Yarn:
 ```
-$ yarn create vpa
+yarn create vpa
 ```
 
 With PNPM:

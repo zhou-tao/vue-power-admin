@@ -44,7 +44,7 @@ export function toValidPackageName(projectName: string) {
     .replace(/[^a-z\d\-~]+/g, '-')
 }
 
-export function logPkgText(dirName: string, pkgManager: string) {
+export function printPkgText(dirName: string, pkgManager: string) {
   console.log()
   console.log()
   console.log('Done. Now run:')
