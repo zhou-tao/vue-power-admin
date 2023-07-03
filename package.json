@@ -8,6 +8,7 @@
     "dev:docs": "pnpm -C docs dev",
     "dev:cli": "pnpm -C packages/create-vpa dev",
     "build:cli": "pnpm -C packages/create-vpa build",
+    "build:docs": "pnpm -C docs build",
     "lint:eslint": "eslint \"app/client/src/**/*.{ts,tsx,vue}\" --fix",
     "lint:staged": "lint-staged",
     "prepare": "husky install && chmod ug+x .husky/*"
