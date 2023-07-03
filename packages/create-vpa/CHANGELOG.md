@@ -1,5 +1,11 @@
 # create-vpa
 
+## 0.1.7
+
+### Patch Changes
+
+- add loading
+
 ## 0.1.6
 
 ### Patch Changes
