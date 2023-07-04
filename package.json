@@ -1,6 +1,7 @@
 {
   "name": "vue-power-admin",
   "version": "1.1.2",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "commit": "git cz",
