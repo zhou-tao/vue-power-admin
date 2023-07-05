@@ -74,7 +74,6 @@
     img.src = 'https://picsum.photos/320/150'
     watch(refresh, v => {
       if (v) {
-        emit('change', succeed.value)
         if (succeed.value && props.mode === 'modal') return
         img.src = `https://picsum.photos/320/150?id=${Date.now()}`
       }
@@ -120,9 +119,12 @@
       const isSuccess = Math.abs(left.value - targetPosition.value[0]) <= errorRange.value
       succeed.value = isSuccess
       showResult.value = true
+      emit('change', succeed.value)
+      refresh.value = true
+    } else if (!showResult.value) {
+      left.value = 0
     }
     dragger.value = false
-    refresh.value = true
   }
 
 </script>

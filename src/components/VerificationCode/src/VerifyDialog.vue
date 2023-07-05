@@ -31,7 +31,6 @@
     :class="['verify--dialog', failed ? 'animate-shake-x animate-duration-0.5s' : '']"
     width="360"
     v-model="visible"
-    :close-on-click-modal="false"
     :close-on-press-escape="false"
     :show-close="false"
     destroy-on-close
