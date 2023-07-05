@@ -1,3 +1,12 @@
+## [1.1.3](https://github.com/zhou-tao/vue-power-admin/compare/v1.1.2...v1.1.3) (2023-07-05)
+
+
+### Bug Fixes
+
+* **component:** :bug: `VerificationCode` interaction in modal ([db51bba](https://github.com/zhou-tao/vue-power-admin/commit/db51bbaa1ffd125842348e287e15cc235a25c724))
+
+
+
 ## [1.1.2](https://github.com/zhou-tao/vue-power-admin/compare/v1.1.1...v1.1.2) (2023-06-21)
 
 
