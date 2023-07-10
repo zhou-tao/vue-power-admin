@@ -61,20 +61,20 @@
       trigger="click"
     >
       <div w-50px flex-center border-l="solid root_light dark:root_dark" cursor-pointer>
-        <i-ep-more-filled />
+        <div i-ep-more-filled></div>
       </div>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item @click="refresh = !refresh">
-            <i-ep-refresh />
+            <div i-ep-refresh mr="1"></div>
             {{ $t('tab.refresh') }}
           </el-dropdown-item>
           <el-dropdown-item @click="handleRemoveTab(route.path)" :disabled="isSingleVisitedView">
-            <i-ep-close />
+            <div i-ep-close mr="1"></div>
             {{ $t('tab.close') }}
           </el-dropdown-item>
           <el-dropdown-item @click="handleRemoveOtherTab" :disabled="isSingleVisitedView">
-            <i-ep-delete />
+            <div i-ep-delete mr="1"></div>
             {{ $t('tab.closeOther') }}
           </el-dropdown-item>
         </el-dropdown-menu>

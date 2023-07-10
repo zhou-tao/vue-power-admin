@@ -75,10 +75,10 @@
       </div>
       <div flex="center">
         <el-button type="primary" plain v-if="activeStep > 0" @click="stepBackward" size="small">
-          <i-ep-arrow-left-bold />
+          <div i-ep-arrow-left-bold></div>
         </el-button>
         <el-button type="primary" plain v-if="activeStep < steps.length - 1" @click="stepForward" size="small">
-          <i-ep-arrow-right-bold />
+          <div i-ep-arrow-right-bold></div>
         </el-button>
         <el-button type="primary" plain v-if="activeStep === steps.length - 1" @click="handleEnd" size="small">
           我知道了

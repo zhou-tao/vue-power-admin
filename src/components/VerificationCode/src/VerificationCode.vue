@@ -145,12 +145,12 @@
         absolute
         z-3
         top-1
-        right-0
+        right-1
         text="20px zinc-2 hover:primary"
         cursor-pointer
         @click="loading = true; refresh = true"
       >
-        <i-ep-refresh :class="{ 'animate-spin': loading }" />
+        <div i-ep-refresh :class="{ 'animate-spin': loading }"></div>
       </div>
       <div
         v-show="showResult"
@@ -194,7 +194,7 @@
         @mouseleave="handleScrollBack(false)"
         @mouseup="handleScrollBack(true)"
       >
-        <i-app-double-arrow />
+        <div i-app-double-arrow></div>
       </div>
       <div
         absolute

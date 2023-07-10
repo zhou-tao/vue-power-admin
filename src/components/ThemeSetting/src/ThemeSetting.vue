@@ -5,7 +5,6 @@
   import { useSettingStore } from '@/store/modules/setting'
   import { getCssVar, setCssVar } from '@/hooks/web/useCssVar'
   import { CSSVarEnum } from '@/enums/appEnum'
-  import { storeToRefs } from 'pinia'
 
   const settingStore = useSettingStore()
   const {
@@ -50,7 +49,7 @@
     transition-base
     @click="drawer = true"
   >
-    <i-emoji-artist-palette />
+    <div i-fluent-emoji-flat-artist-palette></div>
   </div>
   <el-drawer
     v-model="drawer"
@@ -69,7 +68,7 @@
           placement="bottom"
         >
           <span :class="{ active: isVerticalMenu }" @click="settingStore.setLayout(MenuLayout.VERTICAL)">
-            <i-app-layout cursor="pointer" />
+            <div i-app-layout cursor="pointer"></div>
           </span>
         </el-tooltip>
         <el-tooltip
@@ -78,7 +77,7 @@
           placement="bottom"
         >
           <span :class="{ active: !isVerticalMenu }" @click="settingStore.setLayout(MenuLayout.HORIZONTAL)">
-            <i-app-layout transform rotate-90 cursor="pointer" />
+            <div i-app-layout transform rotate-90 cursor="pointer"></div>
           </span>
         </el-tooltip>
       </div>

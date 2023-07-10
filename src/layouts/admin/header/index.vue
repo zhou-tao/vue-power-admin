@@ -10,7 +10,6 @@
   import { getLocaleTypes } from '@/locales'
   import { useI18n } from 'vue-i18n'
   import { useMessage } from '@/hooks/web/useMessage'
-  import { storeToRefs } from 'pinia'
 
   const { $message } = useMessage()
   const { username, avatar } = storeToRefs(useUserStore())
@@ -45,22 +44,22 @@
   >
     <div flex items="center" gap="6">
       <span v-if="isVerticalMenu" cursor="pointer" leading="0" @click="settingStore.toggleCollapse()">
-        <i-ep-expand v-show="menuCollapsed" />
-        <i-ep-fold v-show="!menuCollapsed" />
+        <div i-ep-expand v-show="menuCollapsed"></div>
+        <div i-ep-fold v-show="!menuCollapsed"></div>
       </span>
       <LogoView mr="6" v-else />
       <Breadcrumb v-if="hasBreadcrumb && isVerticalMenu" />
     </div>
     <Menu v-if="!isVerticalMenu" :mode="MenuLayout.HORIZONTAL" />
     <div flex items="center" gap="5">
-      <div class="icon-view" text="13px!" v-if="isSupported" @click="toggleFullScreen">
-        <i-ri-fullscreen-fill v-show="!isFullScreen" />
-        <i-ri-fullscreen-exit-fill v-show="isFullScreen" />
+      <div class="icon-view" v-if="isSupported" @click="toggleFullScreen">
+        <div i-ri-fullscreen-fill v-show="!isFullScreen"></div>
+        <div i-ri-fullscreen-exit-fill v-show="isFullScreen"></div>
       </div>
       <el-dropdown>
         <el-badge is-dot leading="none">
           <div class="icon-view">
-            <i-ep-bell-filled />
+            <div i-ep-bell-filled></div>
           </div>
         </el-badge>
         <template #dropdown>
@@ -73,13 +72,13 @@
       </el-dropdown>
       <el-dropdown v-show="hasLocales">
         <div class="icon-view">
-          <i-app-locale text="18px!" />
+          <div i-app-locale text="18px!"></div>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item v-for="({ value, name }, i) in localeTypes" :key="value" :divided="!!i" @click="handleLocaleChange(value, name)">
               <div inline-block w-18>{{ name }}</div>
-              <i-ri-check-fill v-if="value === locale" />
+              <div i-ri-check-fill v-if="value === locale"></div>
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -94,13 +93,13 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="$router.push({ path: '/personal/index', query: { tab: 'password' } })">
-                <i-ep-lock />{{ t('header.setup') }}
+                <div i-ep-lock mr="1"></div>{{ t('header.setup') }}
               </el-dropdown-item>
               <el-dropdown-item
                 divided
                 @click="$router.replace('/login?redirect=logout')"
               >
-                <i-ep-switch-button />
+                <div i-ep-switch-button mr="1"></div>
                 {{ $t('header.logout') }}
               </el-dropdown-item>
             </el-dropdown-menu>

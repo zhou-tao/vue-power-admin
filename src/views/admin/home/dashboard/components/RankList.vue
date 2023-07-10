@@ -38,7 +38,7 @@
         </div>
         <div flex items="center">
           <span mr="2" text="green-5" :class="{ decline: MoM < 0 }">
-            <i-app-growth />
+            <div i-app-growth></div>
           </span>
           <div font="medium" w="18">{{ getPercent(MoM) }}</div>
         </div>

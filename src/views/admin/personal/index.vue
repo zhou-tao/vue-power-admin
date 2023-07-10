@@ -103,7 +103,7 @@
       <el-tab-pane name="info">
         <template #label>
           <div flex-center>
-            <i-ep-avatar />
+            <div i-ep-avatar mr-1></div>
             <span>账户信息</span>
           </div>
         </template>
@@ -111,7 +111,7 @@
           <el-descriptions size="large" title="用户信息" :column="2" border>
             <template #extra>
               <el-button type="primary" @click="openDialog">
-                <i-ep-edit />
+                <div i-ep-edit mr-1></div>
                 资料修改
               </el-button>
             </template>
@@ -143,7 +143,7 @@
       <el-tab-pane name="password">
         <template #label>
           <div flex-center>
-            <i-ep-lock />
+            <div i-ep-lock mr-1></div>
             <span>密码修改</span>
           </div>
         </template>

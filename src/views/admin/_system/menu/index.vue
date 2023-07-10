@@ -171,10 +171,10 @@
     />
     <div flex items="center">
       <el-button type="primary" @click="handleAdd">
-        <i-ri-add-fill /> 新增
+        <div i-ri-add-fill mr-1></div> 新增
       </el-button>
       <el-button type="danger" :disabled="!selectedData.length" @click="handleDelete(selectedData)">
-        <i-ri-delete-bin-line /> 删除
+        <div i-ri-delete-bin-line mr-1></div> 删除
       </el-button>
     </div>
     <TableModel

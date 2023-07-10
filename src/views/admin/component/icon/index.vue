@@ -11,15 +11,15 @@
     <PageTitle title="静态图标" description="通过 unplugin-icons 对下载过的iconify图标集合进行按需自动引入。更多动态引入配置请查看 build/vite/plugins/auto-import.ts" />
     <div mt="6" mb="10" flex gap="4">
       <div class="box">
-        <i-ep-star />
+        <div i-ep-star mr-1></div>
         <span>{{ getIconCode('i-ep-star') }}</span>
       </div>
       <div class="box">
-        <i-ri-search-line />
+        <div i-ri-search-line mr-1></div>
         <span>{{ getIconCode('i-ri-search-line') }}</span>
       </div>
       <div class="box">
-        <i-emoji-sun />
+        <div i-fluent-emoji-flat-sun mr-1></div>
         <span>{{ getIconCode('i-emoji-sun') }}</span>
       </div>
     </div>

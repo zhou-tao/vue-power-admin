@@ -6,7 +6,7 @@
   <div page-card>
     <div flex items="center" mb-4>
       <el-button @click="router.go(-1)">
-        <i-ri-arrow-go-back-fill />
+        <div i-ri-arrow-go-back-fill mr-1></div>
         返回
       </el-button>
     </div>
@@ -19,7 +19,7 @@
       <el-descriptions-item :span="3">
         <template #label>
           <div flex items="center">
-            <i-ri-user-3-line />
+            <div i-ri-user-3-line mr-1></div>
             用户名
           </div>
         </template>

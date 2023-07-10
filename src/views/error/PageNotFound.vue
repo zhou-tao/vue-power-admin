@@ -1,5 +1,4 @@
 <script setup lang="ts" name="PageNotFound">
-  import { useRouter } from 'vue-router'
   const router = useRouter()
 </script>
 

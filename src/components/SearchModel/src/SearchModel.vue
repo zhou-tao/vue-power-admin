@@ -79,10 +79,10 @@
         <el-form-item>
           <div flex h="15.5" items="end">
             <el-button type="primary" @click="emit('query')">
-              <i-ri-search-line />查询
+              <div i-ri-search-line mr-1></div>查询
             </el-button>
             <el-button @click="handleReset">
-              <i-ri-refresh-line />重置
+              <div i-ri-refresh-line mr-1></div>重置
             </el-button>
             <el-button
               v-if="showCollapseBtn"
@@ -91,8 +91,8 @@
               m="l-1! b-1!"
               @click="collapsed = !collapsed"
             >
-              <i-ep-arrow-down-bold v-show="collapsed" text="xs!" />
-              <i-ep-arrow-up-bold v-show="!collapsed" text="xs!" />
+              <div i-ep-arrow-down-bold v-show="collapsed" text="xs!"></div>
+              <div i-ep-arrow-up-bold v-show="!collapsed" text="xs!"></div>
               {{ collapsed ? '展开' : '收起' }}
             </el-button>
           </div>

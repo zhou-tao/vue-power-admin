@@ -15,7 +15,7 @@
     cursor="pointer"
     @click="router.push('/home')"
   >
-    <i-app-logo text="3xl" />
+    <img src="@/assets/icons/logo.svg" width="28" />
     <h1
       v-show="!settingStore.menuCollapsed"
       text="xl main hover:regular"

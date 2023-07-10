@@ -59,13 +59,13 @@
         <Card>
           <div text="3xl" flex="center" justify-between py="4">
             <div flex items="center">
-              <i-emoji-clapping-hands />
+              <div i-fluent-emoji-flat-clapping-hands></div>
               <span text="2xl" ml="2">
                 欢迎回来，{{ userStore.username }} ~
               </span>
             </div>
             <div class="icon-view" @click="drinkCoffee">
-              <i-app-coffee mt="-1" />
+              <div i-app-coffee></div>
             </div>
           </div>
           <el-divider />
@@ -94,7 +94,7 @@
       <el-col :span="12">
         <Card title="任务待办">
           <template #right>
-            <el-button type="primary" link>更多<i-ep-right /></el-button>
+            <el-button type="primary" link>更多<div i-ep-right></div></el-button>
           </template>
           <List :data="taskList" mt="2" />
         </Card>
@@ -104,7 +104,7 @@
           <template #right>
             <el-button type="primary" link>
               更多
-              <i-ep-right />
+              <div i-ep-right></div>
             </el-button>
           </template>
           <List :data="infoList" mt="2" />

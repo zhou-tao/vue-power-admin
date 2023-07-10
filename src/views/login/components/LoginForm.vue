@@ -5,7 +5,6 @@
   import { useMessage } from '@h/web/useMessage'
   import { useLoginByPassword } from '@h/logic/useLogin'
   import { FormInstance, FormRules } from 'element-plus'
-  import { useRouter } from 'vue-router'
   import { useI18n } from 'vue-i18n'
 
   const { t } = useI18n()
@@ -115,10 +114,10 @@
       <div>{{ $t('home.moreLoginType') }}</div>
     </div>
     <div flex="center" text="1.3rem placeholder">
-      <i-ri-github-fill class="link" />
-      <i-ri-wechat-fill class="link" />
-      <i-ri-twitter-fill class="link" />
-      <i-ri-google-fill class="link" text="1.2rem!" />
+      <div i-ri-github-fill class="link"></div>
+      <div i-ri-wechat-fill class="link"></div>
+      <div i-ri-twitter-fill class="link"></div>
+      <div i-ri-google-fill class="link" text="1.2rem!"></div>
     </div>
     <VerifyDialog v-model="showVerifyDialog" @change="handleVerifyChange" />
   </div>

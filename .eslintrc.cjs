@@ -147,6 +147,7 @@ module.exports = {
     watch: 'readonly',
     watchEffect: 'readonly',
     watchPostEffect: 'readonly',
-    watchSyncEffect: 'readonly'
+    watchSyncEffect: 'readonly',
+    storeToRefs: 'readonly'
   }
 }

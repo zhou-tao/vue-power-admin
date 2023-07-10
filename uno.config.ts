@@ -1,9 +1,9 @@
-// import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 import {
   defineConfig,
   presetUno,
   presetAttributify,
-  // presetIcons,
+  presetIcons,
   transformerDirectives,
   transformerVariantGroup
 } from 'unocss'
@@ -13,12 +13,12 @@ export default defineConfig({
   presets: [
     presetUno(),
     presetAttributify(),
-    // presetIcons({
-    //   warn: true,
-    //   collections: {
-    //     app: FileSystemIconLoader('./src/assets/icon')
-    //   }
-    // })
+    presetIcons({
+      warn: true,
+      collections: {
+        app: FileSystemIconLoader('./src/assets/icons')
+      }
+    })
   ],
   // 提供指令功能
   transformers: [transformerDirectives(), transformerVariantGroup()],

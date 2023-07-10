@@ -14,7 +14,7 @@
 
 <template>
   <div v-if="type === 'switch'" text="2xl" flex="center" gap="4">
-    <i-emoji-sun />
+    <div i-fluent-emoji-flat-sun></div>
     <el-switch
       :model-value="darkTheme"
       size="large"
@@ -23,11 +23,11 @@
       inactive-text="亮"
       @click="settingStore.toggleDark()"
     />
-    <i-emoji-crescent-moon />
+    <div i-fluent-emoji-flat-crescent-moon></div>
   </div>
   <span v-else @click="settingStore.toggleDark()" class="icon-view" text="xl! regular" cursor="pointer">
-    <i-app-sun v-if="darkTheme" />
-    <i-app-moon v-else />
+    <div i-app-sun v-if="darkTheme"></div>
+    <div i-app-moon v-else></div>
   </span>
 </template>
 

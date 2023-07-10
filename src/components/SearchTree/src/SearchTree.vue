@@ -31,7 +31,7 @@
     class="mb-3"
   >
     <template #suffix>
-      <i-ep-search />
+      <div i-ep-search></div>
     </template>
   </el-input>
   <el-tree
