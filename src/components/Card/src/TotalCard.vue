@@ -23,7 +23,7 @@
       <div
         :class="isSmallSize ? 'w-14 h-14 rounded-full text-3xl mr-4' : 'w-16 h-16 rounded text-2.6rem mr-12'"
         bg="light"
-        center
+        flex="center"
       >
         <Icon :icon="icon" :class="cls" />
       </div>

@@ -17,7 +17,7 @@
 </script>
 
 <template>
-  <div center>
+  <div flex="center">
     <div
       v-for="c in predefineColors"
       :key="c"

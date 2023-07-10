@@ -35,7 +35,7 @@
 
 <template>
   <div
-    center
+    flex="center"
     fixed
     z-3
     right-0
@@ -46,8 +46,7 @@
     text="1.7rem"
     rounded-l
     cursor-pointer
-    op-80
-    hover:op-100
+    op="80 hover:100"
     transition-base
     @click="drawer = true"
   >
@@ -63,7 +62,7 @@
       <el-divider>主题</el-divider>
       <ThemeSwitch type="switch" />
       <el-divider mt-12>导航栏</el-divider>
-      <div center gap="6" text="5xl regular">
+      <div flex="center" gap="6" text="5xl regular">
         <el-tooltip
           effect="dark"
           content="侧边菜单"
@@ -137,6 +136,6 @@
 }
 
 .between {
-  @apply flex justify-between items-center;
+  @apply flex-center justify-between;
 }
 </style>

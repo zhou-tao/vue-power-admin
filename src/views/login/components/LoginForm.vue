@@ -86,7 +86,7 @@
           />
         </el-form-item>
         <el-form-item>
-          <div w="360px" flex justify="between" items="center">
+          <div w="360px" flex="center" justify="between">
             <el-checkbox v-model="loginForm.rememberMe">{{ $t('home.remember') }}</el-checkbox>
             <span
               text="sm primary"
@@ -114,7 +114,7 @@
     <div class="divider">
       <div>{{ $t('home.moreLoginType') }}</div>
     </div>
-    <div center text="1.3rem placeholder">
+    <div flex="center" text="1.3rem placeholder">
       <i-ri-github-fill class="link" />
       <i-ri-wechat-fill class="link" />
       <i-ri-twitter-fill class="link" />
@@ -141,7 +141,7 @@
 }
 
 .divider {
-  @apply flex center my-4;
+  @apply flex-center my-4;
 
   div {
     @apply px-3 text-xs text-secondary tracking-1px;

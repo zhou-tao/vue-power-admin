@@ -57,7 +57,7 @@
     <el-row mb="4" :gutter="16">
       <el-col :span="18">
         <Card>
-          <div text="3xl" flex items="center" justify-between py="4">
+          <div text="3xl" flex="center" justify-between py="4">
             <div flex items="center">
               <i-emoji-clapping-hands />
               <span text="2xl" ml="2">
@@ -69,7 +69,7 @@
             </div>
           </div>
           <el-divider />
-          <div flex justify-around items="center">
+          <div flex="center" justify-around>
             <TotalCard v-for="card in cards" :key="card.title" v-bind="card" size="small" />
           </div>
           <div h="391px" mt="8" mb="-8">

@@ -7,8 +7,7 @@
   <div
     h-full
     bg-root
-    center
-    flex-col
+    flex="center col"
   >
     <img src="@/assets/images/not_found.svg" width="600" alt="not_found" />
     <el-button

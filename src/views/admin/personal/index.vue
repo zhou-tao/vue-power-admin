@@ -102,7 +102,7 @@
     <el-tabs v-model="currentTab" stretch tab-position="left" class="h-full" style="--el-tabs-header-height: 50px">
       <el-tab-pane name="info">
         <template #label>
-          <div center>
+          <div flex-center>
             <i-ep-avatar />
             <span>账户信息</span>
           </div>
@@ -142,12 +142,12 @@
       </el-tab-pane>
       <el-tab-pane name="password">
         <template #label>
-          <div center>
+          <div flex-center>
             <i-ep-lock />
             <span>密码修改</span>
           </div>
         </template>
-        <div class="pane" center>
+        <div class="pane" flex-center>
           <el-form
             ref="passwordFormRef"
             size="large"

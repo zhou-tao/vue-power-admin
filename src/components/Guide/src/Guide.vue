@@ -73,7 +73,7 @@
           {{ step.description }}
         </p>
       </div>
-      <div center>
+      <div flex="center">
         <el-button type="primary" plain v-if="activeStep > 0" @click="stepBackward" size="small">
           <i-ep-arrow-left-bold />
         </el-button>

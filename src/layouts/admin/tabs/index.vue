@@ -60,7 +60,7 @@
     <el-dropdown
       trigger="click"
     >
-      <div w-50px center border-l="solid root_light dark:root_dark" cursor-pointer>
+      <div w-50px flex-center border-l="solid root_light dark:root_dark" cursor-pointer>
         <i-ep-more-filled />
       </div>
       <template #dropdown>

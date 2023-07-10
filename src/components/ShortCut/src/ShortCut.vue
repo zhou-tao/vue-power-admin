@@ -12,9 +12,8 @@
       w-12
       h-12
       rounded
-      bg="light"
-      hover:bg="light_hover"
-      center
+      bg="light hover:light_hover"
+      flex="center"
       mb="4"
       cursor="pointer"
     >

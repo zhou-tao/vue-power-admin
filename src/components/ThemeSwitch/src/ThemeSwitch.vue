@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <div v-if="type === 'switch'" text="2xl" center gap="4">
+  <div v-if="type === 'switch'" text="2xl" flex="center" gap="4">
     <i-emoji-sun />
     <el-switch
       :model-value="darkTheme"

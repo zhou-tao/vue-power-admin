@@ -17,7 +17,7 @@
 <template>
   <ul list="none" pl="0">
     <li v-for="({ name, commits, MoM }, index) in contributors" :key="name" my="4.5">
-      <div flex justify="between" items="center">
+      <div flex="center" justify="between">
         <div flex items="center">
           <div
             w="8"

@@ -235,9 +235,8 @@
             <el-form-item label="选项" prop="options">
               <div
                 w-full
-                flex
+                flex="center"
                 justify="between"
-                items="center"
                 gap="2"
                 my="2"
                 v-for="option in submitForm.options"

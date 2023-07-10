@@ -173,7 +173,7 @@
       rounded
       mt-12px
       relative
-      center
+      flex="center"
       text-zinc
       select-none
     >
@@ -181,15 +181,13 @@
         absolute
         w-50px
         h-50px
-        bg="stone-1 hover:stone-2"
+        bg="stone-1 hover:stone-2 active:blue"
         shadow-card-dark
         cursor-pointer
         rounded-sm
-        text-primary
-        center
+        text="primary active:main"
+        flex="center"
         text-20px
-        active:bg-blue
-        active:text-main
         :style="{ left: `${left}px` }"
         @mousedown="onMouseDown"
         @mousemove="onMouseMove"
@@ -213,7 +211,7 @@
 
 <style lang="scss" scoped>
 .open {
-  @apply h-26px bg-rose text-12px text-#fff center;
+  @apply h-26px bg-rose text-12px text-#fff flex-center;
 }
 .succeed {
   @apply bg-green;

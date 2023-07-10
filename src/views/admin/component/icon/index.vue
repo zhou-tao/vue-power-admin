@@ -35,7 +35,7 @@
 
 <style lang="scss" scoped>
 .box {
-  @apply px-3 py-2 border-solid border-light center flex-col hover:border-light_hover rounded transition-base cursor-pointer text-xl text-regular;
+  @apply px-3 py-2 border-solid border-light flex-center flex-col hover:border-light_hover rounded transition-base cursor-pointer text-xl text-regular;
 
   span {
     @apply mt-1 text-base;

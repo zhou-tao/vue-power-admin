@@ -24,14 +24,14 @@
 </script>
 
 <template>
-  <div :style="computedStyle(direction)" bg-root center>
+  <div :style="computedStyle(direction)" bg-root flex="center">
     <div
       v-if="draggable"
       :style="computedStyle(direction, true)"
       bg="placeholder hover:secondary active:regular"
       transition="base colors"
       rounded-full
-      center
+      flex-center
     ></div>
   </div>
 </template>

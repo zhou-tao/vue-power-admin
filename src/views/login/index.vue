@@ -8,12 +8,10 @@
     relative
     w="screen"
     h="screen"
-    flex
+    flex="center"
     justify="around"
-    items="center"
     overflow="hidden"
-    bg="gradient-light"
-    dark:bg="gradient-dark"
+    bg="gradient-light dark:gradient-dark"
   >
     <img src="@/assets/images/login_banner.svg" w="lg" />
     <div fixed top="3%" right="2%" text="xl">

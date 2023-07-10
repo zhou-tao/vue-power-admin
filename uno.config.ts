@@ -1,12 +1,27 @@
-import presetUno from '@unocss/preset-uno'
-import presetAttributify from '@unocss/preset-attributify'
-import transformerDirective from '@unocss/transformer-directives'
+// import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
+import {
+  defineConfig,
+  presetUno,
+  presetAttributify,
+  // presetIcons,
+  transformerDirectives,
+  transformerVariantGroup
+} from 'unocss'
 
-export default {
+export default defineConfig({
   // 添加 windicss 预设、属性化模式
-  presets: [presetUno(), presetAttributify()],
+  presets: [
+    presetUno(),
+    presetAttributify(),
+    // presetIcons({
+    //   warn: true,
+    //   collections: {
+    //     app: FileSystemIconLoader('./src/assets/icon')
+    //   }
+    // })
+  ],
   // 提供指令功能
-  transformers: [transformerDirective()],
+  transformers: [transformerDirectives(), transformerVariantGroup()],
   theme: {
     colors: {
       root_light: '#f5f6fa', // 最底层背景
@@ -51,7 +66,7 @@ export default {
       'page-pure': 'page-base bg-page rounded h-content'
     },
     {
-      center: 'flex items-center justify-center'
+      'flex-center': 'flex items-center justify-center'
     }
   ],
   // 自定义规则
@@ -85,4 +100,4 @@ export default {
       }
     ]
   ]
-}
+})

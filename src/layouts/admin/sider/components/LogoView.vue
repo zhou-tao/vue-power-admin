@@ -11,9 +11,7 @@
 <template>
   <div
     h="header"
-    flex
-    justify="center"
-    items="center"
+    flex="center"
     cursor="pointer"
     @click="router.push('/home')"
   >
