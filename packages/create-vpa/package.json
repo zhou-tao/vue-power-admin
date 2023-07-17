@@ -39,7 +39,7 @@
     "vite",
     "create-vpa"
   ],
-  "author": "tooz",
+  "author": "toryz",
   "license": "MIT",
   "devDependencies": {
     "@types/minimist": "^1.2.2",

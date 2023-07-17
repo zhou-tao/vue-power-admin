@@ -1,8 +1,25 @@
 {
-  "extends": "@tooz/tsconfig/web",
   "compilerOptions": {
     "composite": true,
     "sourceMap": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "jsx": "preserve",
+
+    /* Lint */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* module */
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+
     "types": ["vite/client"],
     "paths": {
       "@/*": ["src/*"],

@@ -1,13 +1,26 @@
 {
-  "extends": "@tooz/tsconfig",
   "compilerOptions": {
     "outDir": "dist",
     "target": "ES2016",
     "module": "ES2020",
     "composite": true,
     "esModuleInterop": true,
-    "sourceMap": false
+    "sourceMap": false,
+  
+    /* Lint */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+  
+    /* module */
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "noEmit": true
   },
+
   "include": [
     "packages/create-vpa/**/*.ts"
   ],

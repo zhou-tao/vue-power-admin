@@ -1,6 +1,6 @@
 <script setup lang="ts" name="RankList">
   const contributors = [
-    { name: 'Tooz', commits: 192, MoM: 0.2117 },
+    { name: 'Toryz', commits: 192, MoM: 0.2117 },
     { name: 'Dongs', commits: 123, MoM: 0.1223 },
     { name: 'EvanYou', commits: 90, MoM: -0.1131 },
     { name: 'AntFu', commits: 68, MoM: 0.0889 },

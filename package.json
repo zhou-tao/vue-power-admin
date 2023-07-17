@@ -1,6 +1,6 @@
 {
   "private": true,
-  "author": "tooz",
+  "author": "toryz",
   "scripts": {
     "commit": "git cz",
     "dev": "pnpm -C app/client dev",
@@ -17,7 +17,6 @@
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
-    "@tooz/tsconfig": "^1.0.2",
     "@types/node": "^18.15.5",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",

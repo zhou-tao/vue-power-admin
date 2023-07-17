@@ -7,7 +7,6 @@ importers:
       '@changesets/cli': ^2.26.2
       '@commitlint/cli': ^17.1.2
       '@commitlint/config-conventional': ^17.1.0
-      '@tooz/tsconfig': ^1.0.2
       '@types/node': ^18.15.5
       '@typescript-eslint/eslint-plugin': ^5.56.0
       '@typescript-eslint/parser': ^5.56.0
@@ -23,7 +22,6 @@ importers:
       '@changesets/cli': 2.26.2
       '@commitlint/cli': 17.4.4
       '@commitlint/config-conventional': 17.4.4
-      '@tooz/tsconfig': 1.0.2
       '@types/node': 18.15.5
       '@typescript-eslint/eslint-plugin': 5.56.0_2hcjazgfnbtq42tcc73br2vup4
       '@typescript-eslint/parser': 5.56.0_j4766f7ecgqbon3u7zlxn5zszu
@@ -1802,10 +1800,6 @@ packages:
   /@sxzz/popperjs-es/2.11.7:
     resolution: {integrity: sha512-Ccy0NlLkzr0Ex2FKvh2X+OyERHXJ88XJ1MXtsI9y9fGexlaXaVTPzBCRBwIxFkORuOb+uBqeu+RqnpgYTEZRUQ==}
     dev: false
-
-  /@tooz/tsconfig/1.0.2:
-    resolution: {integrity: sha512-BjRKcUWvt8ZrkWP86LtvYKQlUNfoKChu8hsJM0G62p0UhkrQio8rpa/2dZWRptm1OKNILKvvOi2l2Ib+uLdTVA==}
-    dev: true
 
   /@transloadit/prettier-bytes/0.0.7:
     resolution: {integrity: sha512-VeJbUb0wEKbcwaSlj5n+LscBl9IPgLPkHVGBkh00cztv6X4L/TJXK58LzFuBKX7/GAfiGhIwH67YTLTlzvIzBA==}

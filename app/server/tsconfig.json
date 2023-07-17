@@ -1,7 +1,26 @@
 {
-  "extends": "@tooz/tsconfig/nestjs",
   "compilerOptions": {
-    "outDir": "dist"
+    "target": "ESNext",
+    "outDir": "dist",
+    /* Lint */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* module */
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "sourceMap": true,
+    "incremental": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
   },
   "include": [
     "src/**/*.ts"
