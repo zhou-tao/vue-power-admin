@@ -1,11 +1,10 @@
 <script setup lang="ts" name="LayoutContent">
-  import { useSettingStore } from '@/store/modules/setting'
   import { useRefresh } from './useContent'
+  import { useSettingStore } from '@/store/modules/setting'
 
   const settingStore = useSettingStore()
 
   const { componentKey } = useRefresh()
-
 </script>
 
 <template>

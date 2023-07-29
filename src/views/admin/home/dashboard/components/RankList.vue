@@ -10,7 +10,7 @@
   const rankClass = ['first', 'second', 'third']
 
   function getPercent(val: number) {
-    return `${val > 0 ? '+' : ''}${(val*100).toFixed(2)}%`
+    return `${val > 0 ? '+' : ''}${(val * 100).toFixed(2)}%`
   }
 </script>
 
@@ -29,7 +29,7 @@
             mr="4"
             :class="rankClass[index] || 'base'"
           >
-            {{ index+1 }}
+            {{ index + 1 }}
           </div>
           <div flex="~ col">
             <span>{{ name }}</span>
@@ -38,9 +38,11 @@
         </div>
         <div flex items="center">
           <span mr="2" text="green-5" :class="{ decline: MoM < 0 }">
-            <div i-app-growth></div>
+            <div i-app-growth />
           </span>
-          <div font="medium" w="18">{{ getPercent(MoM) }}</div>
+          <div font="medium" w="18">
+            {{ getPercent(MoM) }}
+          </div>
         </div>
       </div>
     </li>

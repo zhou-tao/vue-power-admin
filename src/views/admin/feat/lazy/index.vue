@@ -12,7 +12,7 @@
   <div page-card>
     <PageTitle description="使用 v-lazy 指令，完成对指定图片资源懒加载。" />
     <List :data="list" mt="2" />
-    <img v-lazy="{ src: 'https://picsum.photos/seed/picsum/400/260?random=1' }" alt="懒加载图片" />
+    <img v-lazy="{ src: 'https://picsum.photos/seed/picsum/400/260?random=1' }" alt="懒加载图片">
   </div>
 </template>
 

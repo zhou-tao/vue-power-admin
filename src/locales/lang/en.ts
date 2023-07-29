@@ -36,7 +36,7 @@ export default {
       user: 'user',
       userDetail: 'userDetail',
       department: 'department',
-      post: 'post',
+      post: 'post'
     },
     component: {
       root: 'component',

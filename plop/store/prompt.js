@@ -1,4 +1,5 @@
 const { notEmpty } = require('../utils.js')
+
 module.exports = {
   description: '生成store基础模板',
   prompts: [{
@@ -18,7 +19,7 @@ module.exports = {
     ],
     default: 'no'
   }],
-  actions ({ name, persist }) {
+  actions({ name, persist }) {
     const actions = [{
       type: 'add',
       path: `src/store/modules/${name}.ts`,

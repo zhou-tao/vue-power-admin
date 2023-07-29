@@ -36,7 +36,7 @@ export default {
       user: '用户管理',
       userDetail: '用户详情',
       department: '部门管理',
-      post: '岗位管理',
+      post: '岗位管理'
     },
     component: {
       root: '组件',

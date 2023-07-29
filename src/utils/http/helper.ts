@@ -1,9 +1,9 @@
 import type { AxiosResponse } from 'axios'
+import { envParse } from '../../../build/utils'
 import type { RequestConfig, Result } from '#/http'
 import { ErrorCodeEnum, HttpMethodEnum, CodeEnum } from '@/enums/httpEnum'
 import { alertErrMsg } from '@/utils/message'
 import { isDevMode } from '@/utils/env'
-import { envParse } from '../../../build/utils'
 
 // 生成token
 export const generateBaseToken = (token: Nullable<string>) => `bearer ${token}`
@@ -42,7 +42,8 @@ export const transformResponse = (
   const { code, data, message: msg } = res.data
   if (code === CodeEnum.SUCCESS) {
     return data
-  } else {
+  }
+  else {
     alertErrMsg(`${ErrorCodeEnum.B}${code}`, msg)
     throw new Error(code.toString())
   }

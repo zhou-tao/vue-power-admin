@@ -1,5 +1,5 @@
 import AdminLayout from '@/layouts/admin/index.vue'
-import { AppRouteConfig } from '@/router/types'
+import type { AppRouteConfig } from '@/router/types'
 
 const HomeRoute: AppRouteConfig = {
   path: '/home',
@@ -17,7 +17,7 @@ const HomeRoute: AppRouteConfig = {
     meta: {
       title: 'menu.home.dashboard'
     }
-  },{
+  }, {
     path: 'workbench',
     name: 'workbench',
     component: () => import('@/views/admin/home/workbench/index.vue'),

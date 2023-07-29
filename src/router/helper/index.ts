@@ -1,7 +1,7 @@
 import type { RouteLocationNormalized, RouteRecordName, RouteRecordRaw } from 'vue-router'
+import { useCookie } from '@h/web/useCookie'
 import { useMenuStore } from '@/store/modules/menu'
 import { TokenTypeEnum } from '@/enums/authEnum'
-import { useCookie } from '@h/web/useCookie'
 import { basicRoutes } from '@/router/routes'
 import { router } from '@/router'
 import config from '@/config'
@@ -13,7 +13,8 @@ export function checkAccessToken() {
 export function isBasicRoute(route: RouteLocationNormalized) {
   if (route.matched?.length > 0) {
     return basicRoutes.map(r => r.path).includes(route.matched[0]?.path)
-  } else {
+  }
+  else {
     return false
   }
 }
@@ -28,7 +29,7 @@ export async function addAsyncRoutes() {
   if (!menuStore.routes?.length) {
     await menuStore.generateRoutes()
   }
-  menuStore.routes.forEach(route => {
+  menuStore.routes.forEach((route) => {
     const routeName = route.name as RouteRecordName
     const hasRoute = router.hasRoute(routeName)
     if (hasRoute) router.removeRoute(routeName) // if already exists, remove it before adding

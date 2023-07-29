@@ -37,14 +37,14 @@
     id: i,
     title: 'Evan You 今天早上 8：50 紧急修复了 Vue Power Admin 的一个功能缺陷',
     description: '这个缺陷导致用户反馈上对其严重不满，Evan You 相当自责...',
-    avatar: `https://picsum.photos/seed/picsum/60/60?random=${i+1}`
+    avatar: `https://picsum.photos/seed/picsum/60/60?random=${i + 1}`
   }))
 
   const infoList = Array(5).fill(0).map((_, i) => ({
     id: i,
     title: 'Evan You 今天早上 8：50 紧急修复了 Vue Power Admin 的一个功能缺陷',
     description: '这个缺陷导致用户反馈上对其严重不满，Evan You 相当自责...',
-    avatar: `https://picsum.photos/seed/picsum/60/60?random=${i+6}`
+    avatar: `https://picsum.photos/seed/picsum/60/60?random=${i + 6}`
   }))
 
   function drinkCoffee() {
@@ -59,13 +59,13 @@
         <Card>
           <div text="3xl" flex="center" justify-between py="4">
             <div flex items="center">
-              <div i-fluent-emoji-flat-clapping-hands></div>
+              <div i-fluent-emoji-flat-clapping-hands />
               <span text="2xl" ml="2">
                 欢迎回来，{{ userStore.username }} ~
               </span>
             </div>
             <div class="icon-view" @click="drinkCoffee">
-              <div i-app-coffee></div>
+              <div i-app-coffee />
             </div>
           </div>
           <el-divider />
@@ -94,7 +94,9 @@
       <el-col :span="12">
         <Card title="任务待办">
           <template #right>
-            <el-button type="primary" link>更多<div i-ep-right></div></el-button>
+            <el-button type="primary" link>
+              更多<div i-ep-right />
+            </el-button>
           </template>
           <List :data="taskList" mt="2" />
         </Card>
@@ -104,7 +106,7 @@
           <template #right>
             <el-button type="primary" link>
               更多
-              <div i-ep-right></div>
+              <div i-ep-right />
             </el-button>
           </template>
           <List :data="infoList" mt="2" />

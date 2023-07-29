@@ -1,4 +1,4 @@
-import { LoginParams, LoginResultModel } from '@/api/_auth/model'
+import type { LoginParams, LoginResultModel } from '@/api/_auth/model'
 import { useUserStore } from '@/store/modules/user'
 
 type LoginResult = [success: boolean, data?: LoginResultModel]
@@ -10,7 +10,8 @@ export async function useLoginByPassword(
   try {
     const data = await userStore.login(loginForm)
     return [true, data]
-  } catch {
+  }
+  catch {
     return [false]
   }
 }

@@ -1,4 +1,4 @@
-import { LocalStorageEnum } from '@/enums/storageEnum'
+import type { LocalStorageEnum } from '@/enums/storageEnum'
 
 export const setLocalStorage = (key: LocalStorageEnum, value: any) => {
   localStorage[key] = value

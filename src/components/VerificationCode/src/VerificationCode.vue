@@ -1,11 +1,13 @@
 <script setup lang="ts" name="VerificationCode">
-
   const props = withDefaults(defineProps<{
     mode: 'base' | 'modal'
   }>(), {
     mode: 'base'
   })
 
+  // 移动卡片切圆半径
+
+  const emit = defineEmits(['change'])
   const image = ref()
   const overlay = ref()
 
@@ -21,15 +23,13 @@
   const loading = ref(false)
 
   const size = ref(40) // 移动卡片正方形部分长度
-  const radius = ref(8) // 移动卡片切圆半径
-
-  const emit = defineEmits(['change'])
+  const radius = ref(8)
 
   onMounted(() => {
     renderCode()
   })
 
-  function renderCode () {
+  function renderCode() {
     const ctx = image.value.getContext('2d')
     const ctx2 = overlay.value.getContext('2d', {
       willReadFrequently: true
@@ -53,9 +53,9 @@
       ctx2.drawImage(img, 0, 0)
 
       // 裁剪去除空白部分
-      const clippedImageData = ctx2.getImageData(x, y-radius.value, size.value+radius.value, size.value+radius.value)
-      overlay.value.width = size.value+radius.value
-      ctx2.putImageData(clippedImageData, 0, y-radius.value)
+      const clippedImageData = ctx2.getImageData(x, y - radius.value, size.value + radius.value, size.value + radius.value)
+      overlay.value.width = size.value + radius.value
+      ctx2.putImageData(clippedImageData, 0, y - radius.value)
 
       // 增加阴影与边框
       drawClipPath(ctx2, 0, y)
@@ -72,7 +72,7 @@
       refresh.value = false
     }
     img.src = 'https://picsum.photos/320/150'
-    watch(refresh, v => {
+    watch(refresh, (v) => {
       if (v) {
         if (succeed.value && props.mode === 'modal') return
         img.src = `https://picsum.photos/320/150?id=${Date.now()}`
@@ -85,28 +85,28 @@
     const width = size.value
     ctx.beginPath()
     ctx.moveTo(x, y)
-    ctx.arc(x+width/2, y, radius.value, Math.PI, 2*Math.PI)
-    ctx.lineTo(x+width, y)
-    ctx.arc(x+width, y+width/2, radius.value, -Math.PI/2, Math.PI/2)
-    ctx.lineTo(x+width, y+width)
-    ctx.lineTo(x, y+width)
-    ctx.arc(x, y+width/2, radius.value, Math.PI/2, Math.PI*1.5, true)
+    ctx.arc(x + width / 2, y, radius.value, Math.PI, 2 * Math.PI)
+    ctx.lineTo(x + width, y)
+    ctx.arc(x + width, y + width / 2, radius.value, -Math.PI / 2, Math.PI / 2)
+    ctx.lineTo(x + width, y + width)
+    ctx.lineTo(x, y + width)
+    ctx.arc(x, y + width / 2, radius.value, Math.PI / 2, Math.PI * 1.5, true)
     ctx.closePath()
   }
 
   // 生成随机位置
-  function setRandomPosition () {
-    const randomNum = (min: number, max: number) => Math.floor(Math.random()*(max-min) + min)
+  function setRandomPosition() {
+    const randomNum = (min: number, max: number) => Math.floor(Math.random() * (max - min) + min)
     targetPosition.value = [randomNum(80, 250), randomNum(40, 100)]
   }
 
-  function onMouseDown (e: MouseEvent) {
+  function onMouseDown(e: MouseEvent) {
     dragger.value = true
     left.value = 0
     offset.value = e.offsetX
   }
 
-  function onMouseMove (e: MouseEvent) {
+  function onMouseMove(e: MouseEvent) {
     if (dragger.value) {
       const boxLeft = scrollView.value.getBoundingClientRect().left
       const scrollLeft = e.x - boxLeft - offset.value
@@ -114,25 +114,25 @@
     }
   }
 
-  function handleScrollBack (up: Boolean) {
+  function handleScrollBack(up: boolean) {
     if (up) {
       const isSuccess = Math.abs(left.value - targetPosition.value[0]) <= errorRange.value
       succeed.value = isSuccess
       showResult.value = true
       emit('change', succeed.value)
       refresh.value = true
-    } else if (!showResult.value) {
+    }
+    else if (!showResult.value) {
       left.value = 0
     }
     dragger.value = false
   }
-
 </script>
 
 <template>
   <div w-320px>
     <div rounded overflow-hidden text-0 relative>
-      <canvas ref="image" width="320" height="150"></canvas>
+      <canvas ref="image" width="320" height="150" />
       <canvas
         ref="overlay"
         absolute
@@ -140,7 +140,7 @@
         width="320"
         height="150"
         :style="{ left: `${left}px` }"
-      ></canvas>
+      />
       <div
         absolute
         z-3
@@ -150,7 +150,7 @@
         cursor-pointer
         @click="loading = true; refresh = true"
       >
-        <div i-ep-refresh :class="{ 'animate-spin': loading }"></div>
+        <div i-ep-refresh :class="{ 'animate-spin': loading }" />
       </div>
       <div
         v-show="showResult"
@@ -161,7 +161,7 @@
         right-0
         h-0
         overflow-hidden
-        :class="{ open: true, succeed }"
+        class="open" :class="{ succeed }"
       >
         {{ succeed ? '验证通过！' : '验证失败，请重试！' }}
       </div>
@@ -194,7 +194,7 @@
         @mouseleave="handleScrollBack(false)"
         @mouseup="handleScrollBack(true)"
       >
-        <div i-app-double-arrow></div>
+        <div i-app-double-arrow />
       </div>
       <div
         absolute
@@ -203,7 +203,7 @@
         bg-sky
         opacity-60
         :style="{ width: `${left}px` }"
-      ></div>
+      />
       拖动滑块完成拼图
     </div>
   </div>

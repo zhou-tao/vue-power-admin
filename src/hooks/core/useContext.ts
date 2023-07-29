@@ -1,10 +1,12 @@
+import type {
+  InjectionKey,
+  UnwrapRef
+} from 'vue'
 import {
   inject,
-  InjectionKey,
   provide,
   reactive,
-  readonly as defineReadonly,
-  UnwrapRef
+  readonly as defineReadonly
 } from 'vue'
 
 interface ContextOptions {
@@ -17,7 +19,7 @@ type ShallowUnwrap<T> = {
 }
 
 export function createContext<T>(
-  key: InjectionKey<T> = Symbol(),
+  key: InjectionKey<T> = Symbol('inject_key'),
   context: any,
   options: ContextOptions = {}
 ) {
@@ -28,7 +30,7 @@ export function createContext<T>(
 }
 
 export function useContext<T>(
-  key: InjectionKey<T> = Symbol(),
+  key: InjectionKey<T> = Symbol('inject_key'),
   defaultValue?: any
 ): ShallowUnwrap<T> {
   return inject(key, defaultValue || {})

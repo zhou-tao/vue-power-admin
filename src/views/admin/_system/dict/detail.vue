@@ -6,7 +6,7 @@
   <div page-card>
     <div flex items="center" mb-4>
       <el-button @click="router.go(-1)">
-        <div i-ri-arrow-go-back-fill mr-1></div>
+        <div i-ri-arrow-go-back-fill mr-1 />
         返回
       </el-button>
     </div>
@@ -19,7 +19,7 @@
       <el-descriptions-item :span="3">
         <template #label>
           <div flex items="center">
-            <div i-ri-user-3-line mr-1></div>
+            <div i-ri-user-3-line mr-1 />
             用户名
           </div>
         </template>
@@ -55,7 +55,9 @@
             权限
           </div>
         </template>
-        <el-tag size="small">用户</el-tag>
+        <el-tag size="small">
+          用户
+        </el-tag>
       </el-descriptions-item>
       <el-descriptions-item>
         <template #label>
@@ -74,7 +76,9 @@
         前端
       </el-descriptions-item>
     </el-descriptions>
-    <div text="lg" font="medium" mt-6 mb-2>职业生涯</div>
+    <div text="lg" font="medium" mt-6 mb-2>
+      职业生涯
+    </div>
     <el-timeline>
       <el-timeline-item timestamp="2018/4/12" placement="top">
         <el-card>

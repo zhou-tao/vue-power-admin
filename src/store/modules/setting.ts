@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
+import { useDark } from '@vueuse/core'
 import { ThemeEnum } from '@/enums/appEnum'
 import { MenuLayout } from '@/enums/menuEnum'
-import { useDark } from '@vueuse/core'
 import { getLocalStorage, setLocalStorage } from '@/hooks/web/useStorage'
 import { LocalStorageEnum } from '@/enums/storageEnum'
 
@@ -9,15 +9,15 @@ const isDark = useDark()
 const computedTheme = (dark: boolean) => dark ? ThemeEnum.DARK : ThemeEnum.LIGHT
 
 interface SettingState {
-  theme: ThemeEnum,
-  menuLayout: MenuLayout,
-  menuCollapsed: boolean,
-  hasBreadcrumb: boolean,
-  hasTabView: boolean,
-  hasFooter: boolean,
-  hasLocales: boolean,
-  hasFpLoading: boolean,
-  hasPageAnimate: boolean,
+  theme: ThemeEnum
+  menuLayout: MenuLayout
+  menuCollapsed: boolean
+  hasBreadcrumb: boolean
+  hasTabView: boolean
+  hasFooter: boolean
+  hasLocales: boolean
+  hasFpLoading: boolean
+  hasPageAnimate: boolean
   hasProgress: boolean
 }
 

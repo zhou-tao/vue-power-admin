@@ -17,7 +17,8 @@ export function toggleFullScreen() {
   document.addEventListener(Full_Screen_Event, setFullScreenVal)
   if (isFullScreen.value) {
     document.exitFullscreen()
-  } else {
+  }
+  else {
     document.body.requestFullscreen()
   }
 }

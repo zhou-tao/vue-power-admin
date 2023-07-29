@@ -10,8 +10,12 @@
 
 <template>
   <div>
-    <h2 m="0" text="main">{{ title || $t(route.meta?.title!) }}</h2>
-    <p text="placeholder">{{ description }}</p>
+    <h2 m="0" text="main">
+      {{ title || $t(route.meta?.title!) }}
+    </h2>
+    <p text="placeholder">
+      {{ description }}
+    </p>
   </div>
 </template>
 

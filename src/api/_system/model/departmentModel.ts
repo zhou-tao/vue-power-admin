@@ -1,4 +1,4 @@
-import { DateLogModel } from '@/api/model/baseModel'
+import type { DateLogModel } from '@/api/model/baseModel'
 
 export interface DepartmentModel extends DateLogModel {
   id: number

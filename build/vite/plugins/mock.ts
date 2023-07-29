@@ -1,5 +1,5 @@
 import type { PluginOption, Connect } from 'vite'
-// @ts-ignore
+
 import Mock from 'mockjs'
 import mockTemplates from '../../../mock'
 
@@ -17,18 +17,16 @@ const mockPlugin: (options?: MockOptions) => PluginOption = ({
   base: MOCK_DEFAULT_BASE,
   isBuild: false
 }) => {
-
   return {
     name: '@vue-power-admin/vite-plugin-mock',
     configureServer(server) {
-
       return () => {
         server.middlewares.use(base, mockMiddleware)
       }
     },
     transform(src, id) {
-      if(id.endsWith('/src/main.ts')) {
-        if(isBuild) {
+      if (id.endsWith('/src/main.ts')) {
+        if (isBuild) {
           const codeWithMockInjected = `
 import __injectMock from '../mock/production-inject';
 ${src}
@@ -42,7 +40,6 @@ __injectMock('${base}');
 }
 
 const mockMiddleware: Connect.NextHandleFunction = function (req, res, next) {
-
   const writeJson = (body: Record<string, any> = {}) => {
     res.writeHead(200, { 'Content-Type': 'application/json' })
     res.end(JSON.stringify({
@@ -57,7 +54,7 @@ const mockMiddleware: Connect.NextHandleFunction = function (req, res, next) {
 
   const url = req.url?.split('?')[0] ?? ''
 
-  if(req.method && !acceptMethods.includes(req.method)) {
+  if (req.method && !acceptMethods.includes(req.method)) {
     next()
     return
   }
@@ -65,15 +62,15 @@ const mockMiddleware: Connect.NextHandleFunction = function (req, res, next) {
   const mockTemplate = mockTemplates[url]
 
   // If the url not in mock templates. Do nothing
-  if(!mockTemplate) {
+  if (!mockTemplate) {
     next()
     return
   }
 
   let reqChunk = ''
 
-  if(req.headers['content-type']?.includes('application/json')) {
-    req.on('data', chunk => {
+  if (req.headers['content-type']?.includes('application/json')) {
+    req.on('data', (chunk) => {
       reqChunk += chunk
     })
     req.on('end', () => {

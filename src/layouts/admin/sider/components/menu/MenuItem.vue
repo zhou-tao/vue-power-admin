@@ -4,22 +4,21 @@
   import { Icon } from '@iconify/vue'
 
   const props = defineProps<{
-    component: MenuItemComponent,
+    component: MenuItemComponent
     title: string
     index: RouteRecordName | undefined
-    icon?: string,
+    icon?: string
     children?: Menu[]
   }>()
 
   const isSubMenu = computed(() => !!props.children?.length)
-
 </script>
 
 <template>
-  <component :is="component" :index="(index as any)">
-    <Icon class="icon" v-if="icon && !isSubMenu" :icon="icon" />
+  <component :is="component" :index="index as any">
+    <Icon v-if="icon && !isSubMenu" class="icon" :icon="icon" />
     <template #title>
-      <Icon class="icon" v-if="icon && isSubMenu" :icon="icon" />
+      <Icon v-if="icon && isSubMenu" class="icon" :icon="icon" />
       <span>{{ $t(title) }}</span>
     </template>
     <template v-if="children?.length">

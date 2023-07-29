@@ -5,8 +5,8 @@
  * @LastEditTime: 2021-03-30 13:58:54
  * @Description: 错误码提示
  */
-import { ErrorCodeEnum } from '@/enums/httpEnum'
 import { useMessage } from '@h/web/useMessage'
+import { ErrorCodeEnum } from '@/enums/httpEnum'
 
 // 后端逻辑错误码展示格式（B+xxx）
 export type ErrorCode_B = `${ErrorCodeEnum.B}${number}`

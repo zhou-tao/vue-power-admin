@@ -1,4 +1,5 @@
-import echarts, { ECOption } from '../useECharts'
+import type { ECOption } from '../useECharts'
+import echarts from '../useECharts'
 
 export const getOption = (colors: string[][]): ECOption => ({
   backgroundColor: 'transparent',
@@ -6,7 +7,7 @@ export const getOption = (colors: string[][]): ECOption => ({
     trigger: 'axis',
     axisPointer: {
       type: 'line'
-    },
+    }
   },
   legend: {
     show: true,
@@ -22,13 +23,13 @@ export const getOption = (colors: string[][]): ECOption => ({
     top: '11%',
     left: '4%',
     right: '2%',
-    bottom: '18%',
+    bottom: '18%'
   },
   xAxis: {
     type: 'category',
     axisLabel: {
       color: '#6b7280',
-      fontSize: 14,
+      fontSize: 14
     },
     axisLine: {
       show: false
@@ -37,9 +38,9 @@ export const getOption = (colors: string[][]): ECOption => ({
       show: false
     },
     axisTick: {
-      show: false,
+      show: false
     },
-    boundaryGap: false,
+    boundaryGap: false
   },
   yAxis: {
     type: 'value',
@@ -51,7 +52,7 @@ export const getOption = (colors: string[][]): ECOption => ({
       lineStyle: {
         color: '#9ca3af40',
         type: 'solid'
-      },
+      }
     },
     axisLine: {
       show: false
@@ -61,7 +62,7 @@ export const getOption = (colors: string[][]): ECOption => ({
       fontSize: 14
     },
     axisTick: {
-      show: false,
+      show: false
     }
   },
   series: Array(2).fill(0).map((_, i) => ({
@@ -71,7 +72,7 @@ export const getOption = (colors: string[][]): ECOption => ({
     smooth: true,
     lineStyle: {
       width: 3,
-      color: colors[i][0],
+      color: colors[i][0]
     },
     itemStyle: {
       color: colors[i][1]
@@ -85,19 +86,19 @@ export const getOption = (colors: string[][]): ECOption => ({
         [
           {
             offset: 0,
-            color: `${colors[i][0]}30`,
+            color: `${colors[i][0]}30`
           },
           {
             offset: 0.6,
-            color: `${colors[i][0]}20`,
+            color: `${colors[i][0]}20`
           },
           {
             offset: 1,
-            color: `${colors[i][0]}10`,
-          },
+            color: `${colors[i][0]}10`
+          }
         ],
         false
-      ),
+      )
     }
   }))
 })

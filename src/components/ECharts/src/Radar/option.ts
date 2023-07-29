@@ -1,4 +1,4 @@
-import { ECOption } from '../useECharts'
+import type { ECOption } from '../useECharts'
 
 // radar chart is not support dataset now!
 export const option: ECOption = {
@@ -30,7 +30,7 @@ export const option: ECOption = {
         shadowBlur: 45,
         shadowColor: 'rgba(0, 0, 0, 0.5)',
         shadowOffsetX: 0,
-        shadowOffsetY: 15,
+        shadowOffsetY: 15
       }
     },
     indicator: [{
@@ -66,10 +66,10 @@ export const option: ECOption = {
     },
     data: [{
       value: [80, 90, 80, 85, 60, 80],
-      name: '2023年',
+      name: '2023年'
     }, {
       value: [90, 95, 45, 70, 80, 70],
-      name: '2022年',
+      name: '2022年'
     }]
   }]
 }

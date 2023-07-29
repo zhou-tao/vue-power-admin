@@ -1,5 +1,4 @@
 <script setup lang="ts" name="SearchTree">
-
   defineProps<{
     enableFilter?: boolean
     data: Record<string, any>[]
@@ -31,7 +30,7 @@
     class="mb-3"
   >
     <template #suffix>
-      <div i-ep-search></div>
+      <div i-ep-search />
     </template>
   </el-input>
   <el-tree

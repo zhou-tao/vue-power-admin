@@ -8,7 +8,7 @@ module.exports = {
     message: '请输入组件名称',
     validate: notEmpty('name')
   }],
-  actions ({ name }) {
+  actions({ name }) {
     const actions = [{
       type: 'add',
       path: `src/components/${name}/src/${name}.vue`,

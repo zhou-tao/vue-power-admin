@@ -18,16 +18,19 @@ export const createPermissionGuard = (router: Router) => {
         await userStore.reLogin()
         await addAsyncRoutes()
         next({ replace: true, ...nextRoute })
-      } else {
+      }
+      else {
         userStore.invalid && (await userStore.setUserInfo())
         if (!menuStore.hasRoutes) {
           await addAsyncRoutes()
           next({ replace: true, ...nextRoute })
-        } else {
+        }
+        else {
           next()
         }
       }
-    } else {
+    }
+    else {
       next()
     }
   })

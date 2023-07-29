@@ -9,7 +9,9 @@
 <template>
   <div page-card>
     <div mb-4>
-      <el-button @click="start">开始引导</el-button>
+      <el-button @click="start">
+        开始引导
+      </el-button>
     </div>
     <div grid grid-cols-12 gap-8>
       <Guide ref="guideRef">

@@ -1,9 +1,9 @@
+import type { ListQuery, ListResult } from '../model/baseModel'
 import type { PostModel } from './model/postModel'
 import { useFetch } from '@/utils/http'
-import { ListQuery, ListResult } from '../model/baseModel'
 
 export enum Api {
-  POST_LIST = '/sysadmin/post/list',
+  POST_LIST = '/sysadmin/post/list'
 }
 
 export const getPostList = (data: ListQuery) => {

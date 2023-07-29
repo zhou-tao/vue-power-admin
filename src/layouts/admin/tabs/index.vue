@@ -1,13 +1,13 @@
 <script setup lang="ts" name="LayoutTabs">
   import type { TabsPaneContext } from 'element-plus'
-  import { useAppStore } from '@/store/modules/app'
   import { refresh } from '../content/useContent'
+  import { useAppStore } from '@/store/modules/app'
 
   const appStore = useAppStore()
   const router = useRouter()
   const route = useRoute()
 
-  watch(route, v => {
+  watch(route, (v) => {
     const { path, meta } = v
     appStore.addVisitedView({
       path,
@@ -17,7 +17,7 @@
 
   const isSingleVisitedView = computed(() => appStore.visitedViews.length === 1)
 
-  function handleClickTab (tab: TabsPaneContext) {
+  function handleClickTab(tab: TabsPaneContext) {
     router.push(tab.paneName as string)
   }
 
@@ -32,7 +32,6 @@
   function handleRemoveOtherTab() {
     appStore.visitedViews = appStore.visitedViews.filter(view => view.path === route.path)
   }
-
 </script>
 
 <template>
@@ -61,20 +60,20 @@
       trigger="click"
     >
       <div w-50px flex-center border-l="solid root_light dark:root_dark" cursor-pointer>
-        <div i-ep-more-filled></div>
+        <div i-ep-more-filled />
       </div>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item @click="refresh = !refresh">
-            <div i-ep-refresh mr="1"></div>
+            <div i-ep-refresh mr="1" />
             {{ $t('tab.refresh') }}
           </el-dropdown-item>
-          <el-dropdown-item @click="handleRemoveTab(route.path)" :disabled="isSingleVisitedView">
-            <div i-ep-close mr="1"></div>
+          <el-dropdown-item :disabled="isSingleVisitedView" @click="handleRemoveTab(route.path)">
+            <div i-ep-close mr="1" />
             {{ $t('tab.close') }}
           </el-dropdown-item>
-          <el-dropdown-item @click="handleRemoveOtherTab" :disabled="isSingleVisitedView">
-            <div i-ep-delete mr="1"></div>
+          <el-dropdown-item :disabled="isSingleVisitedView" @click="handleRemoveOtherTab">
+            <div i-ep-delete mr="1" />
             {{ $t('tab.closeOther') }}
           </el-dropdown-item>
         </el-dropdown-menu>

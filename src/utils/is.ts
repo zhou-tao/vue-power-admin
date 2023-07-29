@@ -54,10 +54,10 @@ export function isNumber(val: unknown): val is number {
 
 export function isPromise<T = any>(val: unknown): val is Promise<T> {
   return (
-    is(val, 'Promise') &&
-    isObject(val) &&
-    isFunction(val.then) &&
-    isFunction(val.catch)
+    is(val, 'Promise')
+    && isObject(val)
+    && isFunction(val.then)
+    && isFunction(val.catch)
   )
 }
 
@@ -68,8 +68,9 @@ export function isString(val: unknown): val is string {
 export function isJsonString(val: unknown): boolean {
   if (!isString(val)) return false
   try {
-    return isObject(JSON.parse(val)) ? true : false
-  } catch (err) {
+    return !!isObject(JSON.parse(val))
+  }
+  catch (err) {
     return false
   }
 }

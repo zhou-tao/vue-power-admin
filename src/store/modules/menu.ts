@@ -1,11 +1,11 @@
 import type { RouteComponent } from 'vue-router'
+import { defineStore } from 'pinia'
 import type { AppRouteConfig } from '@/router/types'
 import type { BuildMenuModel } from '@/api/_system/model/menuModel'
 import AdminLayout from '@/layouts/admin/index.vue'
 import { alertErrMsg } from '@/utils/message'
 import { ErrorCodeEnum } from '@/enums/httpEnum'
 import { buildMenuApi } from '@/api/_system/menu'
-import { defineStore } from 'pinia'
 
 interface MenuState {
   routes: AppRouteConfig[]
@@ -52,7 +52,8 @@ export const useMenuStore = defineStore('menu', {
       const serverRoutes = await buildMenuApi()
       try {
         this.routes = mapRoutes(serverRoutes)
-      } catch (error) {
+      }
+      catch (error) {
         alertErrMsg(ErrorCodeEnum.C100, '路由转化异常')
       }
     },

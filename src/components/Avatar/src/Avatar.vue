@@ -6,7 +6,7 @@
 
 <template>
   <div class="avatar shadow-lg" b="solid light opacity-40">
-    <img class="avatar" :src="src" alt="avatar" />
+    <img class="avatar" :src="src" alt="avatar">
   </div>
 </template>
 

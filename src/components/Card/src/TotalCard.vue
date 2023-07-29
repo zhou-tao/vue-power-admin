@@ -2,17 +2,17 @@
   import { Icon } from '@iconify/vue'
 
   const props = withDefaults(defineProps<{
-    size?: 'small' | 'default',
-    title: string,
-    total: number,
-    icon: string,
-    cls?: string,
+    size?: 'small' | 'default'
+    title: string
+    total: number
+    icon: string
+    cls?: string
     hover?: string
   }>(), {
     size: 'default'
   })
 
-  defineEmits(['query-list'])
+  defineEmits(['queryList'])
 
   const isSmallSize = computed(() => props.size === 'small')
 </script>
@@ -34,7 +34,7 @@
           mt="2"
           cursor="pointer"
           :class="`${hover} ${isSmallSize ? 'text-2xl' : 'text-3xl'}`"
-          @click="$emit('query-list')"
+          @click="$emit('queryList')"
         >
           {{ total }}
         </span>

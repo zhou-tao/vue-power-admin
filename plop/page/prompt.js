@@ -1,4 +1,5 @@
 const { notEmpty } = require('../utils.js')
+
 module.exports = {
   description: '生成页面基础模版',
   prompts: [{
@@ -18,13 +19,13 @@ module.exports = {
     name: 'model',
     message: '请输入列表数据类型名(eg. UserInfoModel)',
     default: 'YourModel'
-  },{
+  }, {
     type: 'confirm',
     name: 'isSystemPage',
     message: '是否为系统设置功能页面',
     default: false
-  },],
-  actions ({ name, api, model, isSystemPage }) {
+  }],
+  actions({ name, api, model, isSystemPage }) {
     const actions = [{
       type: 'add',
       path: `src/views/admin/${isSystemPage ? '_sys/' : ''}${name}/index.vue`,

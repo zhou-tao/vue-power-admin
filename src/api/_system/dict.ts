@@ -1,9 +1,9 @@
+import type { ListQuery, ListResult } from '../model/baseModel'
 import type { DictModel } from './model/dictModel'
 import { useFetch } from '@/utils/http'
-import { ListQuery, ListResult } from '../model/baseModel'
 
 export enum Api {
-  DICT_LIST = '/sysadmin/dict/list',
+  DICT_LIST = '/sysadmin/dict/list'
 }
 
 export const getDictList = (data: ListQuery) => {

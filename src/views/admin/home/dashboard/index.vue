@@ -1,14 +1,14 @@
 <script setup lang="ts" name="Dashboard">
-  import RankList from './components/RankList.vue'
   import { AreaLineChart, BarChart, PieChart, RadarChart } from '@c/ECharts'
+  import RankList from './components/RankList.vue'
   import { useMessage } from '@/hooks/web/useMessage'
-  import { ChartDataset } from '@/components/ECharts/src/useECharts'
+  import type { ChartDataset } from '@/components/ECharts/src/useECharts'
 
   interface Card {
     title: string
-    total: number,
-    icon: string,
-    cls?: string,
+    total: number
+    icon: string
+    cls?: string
     hover?: string
   }
 
@@ -64,7 +64,7 @@
 <template>
   <div page-base>
     <el-row :gutter="16" mb="4">
-      <el-col :span="6" v-for="card in cards" :key="card.title">
+      <el-col v-for="card in cards" :key="card.title" :span="6">
         <TotalCard v-bind="card" @query-list="handleQueryList" />
       </el-col>
     </el-row>
@@ -74,8 +74,12 @@
           <AreaLineChart v-model="lineData" />
           <template #right>
             <el-radio-group v-model="dateType" mr="5" @change="handleDateChange">
-              <el-radio-button :label="0">月</el-radio-button>
-              <el-radio-button :label="1">年</el-radio-button>
+              <el-radio-button :label="0">
+                月
+              </el-radio-button>
+              <el-radio-button :label="1">
+                年
+              </el-radio-button>
             </el-radio-group>
           </template>
         </Card>

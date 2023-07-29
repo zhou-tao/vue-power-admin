@@ -8,7 +8,7 @@
   const emit = defineEmits(['update:modelValue', 'change'])
 
   const visible = computed({
-    set: v => {
+    set: (v) => {
       emit('update:modelValue', v)
     },
     get: () => props.modelValue
@@ -16,21 +16,20 @@
 
   const failed = ref(false)
 
-  function handleChange (success: boolean) {
+  function handleChange(success: boolean) {
     failed.value = !success
     setTimeout(() => {
       emit('change', success)
       failed.value = false
     }, 500)
   }
-
 </script>
 
 <template>
   <el-dialog
-    :class="['verify--dialog', failed ? 'animate-shake-x animate-duration-0.5s' : '']"
+    v-model="visible" class="verify--dialog"
+    :class="[failed ? 'animate-shake-x animate-duration-0.5s' : '']"
     width="360"
-    v-model="visible"
     :close-on-press-escape="false"
     :show-close="false"
     destroy-on-close

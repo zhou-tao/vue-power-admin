@@ -1,7 +1,8 @@
+import { useCookie } from '@h/web/useCookie'
 import type { LoginParams, LoginResultModel } from './model'
+
 // import { ContentTypeEnum } from '@/enums/httpEnum'
 import { AuthTypeEnum, GrantTypeEnum, TokenTypeEnum } from '@/enums/authEnum'
-import { useCookie } from '@h/web/useCookie'
 import { useFetch } from '@/utils/http'
 import config from '@/config'
 

@@ -1,5 +1,5 @@
-import type { AppRouteConfig } from '@/router/types'
 import { defineStore } from 'pinia'
+import type { AppRouteConfig } from '@/router/types'
 
 interface AppState {
   visitedViews: AppRouteConfig[]
@@ -16,7 +16,8 @@ export const useAppStore = defineStore('app', {
       if (this.visitedViews.every(r => r.path !== view.path)) {
         this.visitedViews.push(view)
         return true
-      } else {
+      }
+      else {
         return false
       }
     },

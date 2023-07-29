@@ -5,7 +5,6 @@
   const settingStore = useSettingStore()
 
   const router = useRouter()
-
 </script>
 
 <template>
@@ -15,7 +14,7 @@
     cursor="pointer"
     @click="router.push('/home')"
   >
-    <img src="@/assets/icons/logo.svg" width="28" />
+    <img src="@/assets/icons/logo.svg" width="28">
     <h1
       v-show="!settingStore.menuCollapsed"
       text="xl main hover:regular"

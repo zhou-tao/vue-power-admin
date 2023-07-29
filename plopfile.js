@@ -4,7 +4,7 @@ const pageGenerator = require('./plop/page/prompt.js')
 
 module.exports = function (plop) {
   plop.setHelper('upperCase', str => str ? str.toUpperCase() : str)
-  plop.setHelper('camelCase', str => {
+  plop.setHelper('camelCase', (str) => {
     if (!str) return str
     // upper case first letter only
     return `${str[0].toUpperCase()}${str.slice(1)}`

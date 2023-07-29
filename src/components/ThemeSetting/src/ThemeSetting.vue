@@ -1,6 +1,6 @@
 <script setup lang="ts" name="ThemeSetting">
-  import ThemeSwitch from '@/components/ThemeSwitch'
   import ThemeColorPicker from './ThemeColorPicker.vue'
+  import ThemeSwitch from '@/components/ThemeSwitch'
   import { MenuLayout } from '@/enums/menuEnum'
   import { useSettingStore } from '@/store/modules/setting'
   import { getCssVar, setCssVar } from '@/hooks/web/useCssVar'
@@ -29,7 +29,6 @@
     settingStore.toggleFpLoading()
     return true
   }
-
 </script>
 
 <template>
@@ -49,7 +48,7 @@
     transition-base
     @click="drawer = true"
   >
-    <div i-fluent-emoji-flat-artist-palette></div>
+    <div i-fluent-emoji-flat-artist-palette />
   </div>
   <el-drawer
     v-model="drawer"
@@ -60,7 +59,9 @@
     <div flex="~ col" items="between">
       <el-divider>主题</el-divider>
       <ThemeSwitch type="switch" />
-      <el-divider mt-12>导航栏</el-divider>
+      <el-divider mt-12>
+        导航栏
+      </el-divider>
       <div flex="center" gap="6" text="5xl regular">
         <el-tooltip
           effect="dark"
@@ -68,7 +69,7 @@
           placement="bottom"
         >
           <span :class="{ active: isVerticalMenu }" @click="settingStore.setLayout(MenuLayout.VERTICAL)">
-            <div i-app-layout cursor="pointer"></div>
+            <div i-app-layout cursor="pointer" />
           </span>
         </el-tooltip>
         <el-tooltip
@@ -77,13 +78,17 @@
           placement="bottom"
         >
           <span :class="{ active: !isVerticalMenu }" @click="settingStore.setLayout(MenuLayout.HORIZONTAL)">
-            <div i-app-layout transform rotate-90 cursor="pointer"></div>
+            <div i-app-layout transform rotate-90 cursor="pointer" />
           </span>
         </el-tooltip>
       </div>
-      <el-divider mt-12>主题色</el-divider>
+      <el-divider mt-12>
+        主题色
+      </el-divider>
       <ThemeColorPicker />
-      <el-divider mt-12>界面</el-divider>
+      <el-divider mt-12>
+        界面
+      </el-divider>
       <div w-full flex="~ col" gap="2">
         <div class="between">
           <span>面包屑</span>
@@ -103,14 +108,18 @@
           <el-switch v-model="hasFooter" inline-prompt active-text="开" inactive-text="关" />
         </div>
       </div>
-      <el-divider mt-12>功能</el-divider>
+      <el-divider mt-12>
+        功能
+      </el-divider>
       <div w-full flex="~ col" gap="2">
         <div class="between">
           <span>国际化</span>
           <el-switch v-model="hasLocales" inline-prompt active-text="开" inactive-text="关" />
         </div>
       </div>
-      <el-divider mt-12>动效</el-divider>
+      <el-divider mt-12>
+        动效
+      </el-divider>
       <div w-full flex="~ col" gap="2">
         <div class="between">
           <span>首屏动画</span>

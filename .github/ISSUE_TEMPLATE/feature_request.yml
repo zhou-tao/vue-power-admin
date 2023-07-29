@@ -1,12 +1,12 @@
 name: 🚀 New feature proposal
 description: Suggest an idea for this project
-labels: ["enhancement: pending triage"]
+labels: ['enhancement: pending triage']
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for your interest in the project and taking the time to fill out this feature report!
-  
+
   - type: textarea
     id: feature-description
     attributes:

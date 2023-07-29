@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": "@toryz",
+  "rules": {
+    "import/no-named-as-default-member": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/no-invalid-this": "off",
+    "@typescript-eslint/ban-types": "off"
+  }
+}

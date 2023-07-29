@@ -14,7 +14,7 @@ export default class Previewer {
     return this.instance
   }
 
-  setOptions (opts: Record<string, any>) {
+  setOptions(opts: Record<string, any>) {
     Viewer.setDefaults(opts)
   }
 }

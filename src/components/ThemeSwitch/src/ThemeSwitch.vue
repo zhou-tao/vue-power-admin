@@ -9,12 +9,11 @@
   const settingStore = useSettingStore()
 
   const darkTheme = computed(() => settingStore.isDark.value)
-
 </script>
 
 <template>
   <div v-if="type === 'switch'" text="2xl" flex="center" gap="4">
-    <div i-fluent-emoji-flat-sun></div>
+    <div i-fluent-emoji-flat-sun />
     <el-switch
       :model-value="darkTheme"
       size="large"
@@ -23,11 +22,11 @@
       inactive-text="亮"
       @click="settingStore.toggleDark()"
     />
-    <div i-fluent-emoji-flat-crescent-moon></div>
+    <div i-fluent-emoji-flat-crescent-moon />
   </div>
-  <span v-else @click="settingStore.toggleDark()" class="icon-view" text="xl! regular" cursor="pointer">
-    <div i-app-sun v-if="darkTheme"></div>
-    <div i-app-moon v-else></div>
+  <span v-else class="icon-view" text="xl! regular" cursor="pointer" @click="settingStore.toggleDark()">
+    <div v-if="darkTheme" i-app-sun />
+    <div v-else i-app-moon />
   </span>
 </template>
 

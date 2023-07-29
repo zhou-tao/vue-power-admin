@@ -1,24 +1,28 @@
 import * as echarts from 'echarts/core'
-import {
-  LineChart,
+import type {
   LineSeriesOption,
-  BarChart,
   BarSeriesOption,
-  PieChart,
   PieSeriesOption,
-  RadarChart,
   RadarSeriesOption
 } from 'echarts/charts'
 import {
-  TooltipComponent,
+  LineChart,
+  BarChart,
+  PieChart,
+  RadarChart
+} from 'echarts/charts'
+import type {
   TooltipComponentOption,
-  GridComponent,
   GridComponentOption,
-  DatasetComponent,
   DatasetComponentOption,
-  TransformComponent,
-  LegendComponent,
   LegendComponentOption
+} from 'echarts/components'
+import {
+  TooltipComponent,
+  GridComponent,
+  DatasetComponent,
+  TransformComponent,
+  LegendComponent
 } from 'echarts/components'
 
 import { LabelLayout, UniversalTransition } from 'echarts/features'
@@ -63,7 +67,7 @@ export function initChart(root: HTMLDivElement, options: ECOption) {
   const myChart = echarts.init(root)
   myChart.setOption(options)
   const settingStore = useSettingStore()
-  watch(settingStore.isDark, v => {
+  watch(settingStore.isDark, (v) => {
     myChart.setOption({
       darkMode: v
     })
@@ -89,7 +93,7 @@ export function onResize(instance: ChartInstance, root: HTMLDivElement) {
     }
     instance.resize({
       width: 'auto',
-      height: 'auto',
+      height: 'auto'
     })
   }, 400)
   const resizeObserver = new ResizeObserver(() => throttleResize())

@@ -1,7 +1,7 @@
 <script setup lang="ts" name="Pie">
+  import type { ChartDataset } from '../useECharts'
   import { option } from './option'
   import { vChart } from '@/directives/echarts'
-  import { ChartDataset } from '../useECharts'
 
   const props = defineProps<{
     modelValue: ChartDataset
@@ -10,7 +10,7 @@
   const emit = defineEmits(['update:modelValue'])
 
   const data = computed({
-    set: v => {
+    set: (v) => {
       emit('update:modelValue', v)
     },
     get: () => props.modelValue
@@ -18,5 +18,5 @@
 </script>
 
 <template>
-  <div h-full v-chart="{ option, data }"></div>
+  <div v-chart="{ option, data }" h-full />
 </template>

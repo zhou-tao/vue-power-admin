@@ -9,7 +9,6 @@
   import { useSettingStore } from '@/store/modules/setting'
 
   const { hasTabView } = storeToRefs(useSettingStore())
-
 </script>
 
 <template>

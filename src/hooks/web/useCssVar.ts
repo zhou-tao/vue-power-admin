@@ -1,4 +1,4 @@
-import { CSSVarEnum } from '@/enums/appEnum'
+import type { CSSVarEnum } from '@/enums/appEnum'
 
 const RootEl = document.documentElement
 

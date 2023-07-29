@@ -1,4 +1,4 @@
-import { ECOption } from '../useECharts'
+import type { ECOption } from '../useECharts'
 
 export const option: ECOption = {
   color: ['#f59e0b', '#f43f5e', '#10b981', '#6366f1'],

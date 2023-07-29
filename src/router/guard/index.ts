@@ -1,9 +1,10 @@
 import type { Router } from 'vue-router'
+import NProgress from 'nprogress'
 import { createPermissionGuard } from '@/router/guard/permissionGuard'
+
 // import { isBasicRoute } from '@/router/helper'
 import { AxiosCanceler } from '@/utils/http/axiosCancel'
 import { useSettingStore } from '@/store/modules/setting'
-import NProgress from 'nprogress'
 import config from '@/config'
 import { i18n } from '@/locales'
 
@@ -22,8 +23,8 @@ export function setupRouterGuard(router: Router) {
  * @description 动态标题守卫
  * @param router
  */
-const createTitleGuard = (router: Router) => {
-  router.beforeEach(to => {
+function createTitleGuard(router: Router) {
+  router.beforeEach((to) => {
     document.title = i18n.global.t((to.meta.title || config.APP.title) as string)
   })
 }
@@ -32,7 +33,7 @@ const createTitleGuard = (router: Router) => {
  * @description 取消上一个页面未完成请求
  * @param router
  */
-const createHttpGuard = (router: Router) => {
+function createHttpGuard(router: Router) {
   router.beforeEach(() => {
     new AxiosCanceler().removeAllPending()
   })
@@ -42,7 +43,7 @@ const createHttpGuard = (router: Router) => {
  * @description 进度条守卫
  * @param router
  */
-const createNProgressGuard = (router: Router) => {
+function createNProgressGuard(router: Router) {
   router.beforeEach(() => {
     // !isBasicRoute(from) && NProgress.start()
     useSettingStore().hasProgress && NProgress.start()

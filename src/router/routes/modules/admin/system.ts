@@ -1,5 +1,5 @@
 import AdminLayout from '@/layouts/admin/index.vue'
-import { AppRouteConfig } from '@/router/types'
+import type { AppRouteConfig } from '@/router/types'
 
 const SystemRoute: AppRouteConfig = {
   path: '/system',

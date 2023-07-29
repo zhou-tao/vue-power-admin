@@ -1,4 +1,3 @@
-
 export enum MockApi {
   AUTH = '/oauth/token',
   USER_LIST = '/sysadmin/user/list',

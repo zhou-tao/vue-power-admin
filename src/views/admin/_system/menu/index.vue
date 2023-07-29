@@ -1,12 +1,13 @@
 <script setup lang="ts" name="Menu">
   import type { FormInstance, FormRules } from 'element-plus'
-  import SearchModel from '@/components/SearchModel'
-  import TableModel, { ColumnAttrs, useSlotButton } from '@/components/TableModel'
-  import { getMenuList } from '@/api/_system/menu'
-  import { MenuModel } from '@/api/_system/model/menuModel'
-  import { useMessage } from '@/hooks/web/useMessage'
-  import { config, staticColumns, SubmitTypeEnum } from './usePage'
   import { cloneDeep } from 'lodash-es'
+  import { config, staticColumns, SubmitTypeEnum } from './usePage'
+  import SearchModel from '@/components/SearchModel'
+  import type { ColumnAttrs } from '@/components/TableModel'
+  import TableModel, { useSlotButton } from '@/components/TableModel'
+  import { getMenuList } from '@/api/_system/menu'
+  import type { MenuModel } from '@/api/_system/model/menuModel'
+  import { useMessage } from '@/hooks/web/useMessage'
 
   const tableModelRef = ref()
   const { $message } = useMessage()
@@ -20,9 +21,9 @@
   const columns = ref([
     ...staticColumns,
     {
-      fixed:'right',
-      label:'操作',
-      width:'160',
+      fixed: 'right',
+      label: '操作',
+      width: '160',
       slot: ({ row }: ColumnAttrs<MenuModel>) =>
         [
           useSlotButton('编辑', () => {
@@ -76,7 +77,7 @@
       {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        type: 'warning',
+        type: 'warning'
       }
     ).then(() => {
       console.log('do delete:', rows)
@@ -94,7 +95,7 @@
       pagination = { current, size, total }
       loading.value = false
       tableData.value = list
-    },300)
+    }, 300)
   }
 
   loadData()
@@ -137,27 +138,26 @@
     ],
     component: [
       { required: true, message: '请输入页面组件目录', trigger: 'blur' }
-    ],
+    ]
   })
 
   function handleUpdate(row: MenuModel) {
     submitType.value = SubmitTypeEnum.UPDATE
-    // @ts-ignore
     submitForm = reactive(cloneDeep(toRaw(row)))
     visible.value = true
   }
 
   function handleSubmit() {
-    submitFormRef.value?.validate(valid => {
+    submitFormRef.value?.validate((valid) => {
       if (valid) {
         visible.value = false
         $message.success('保存成功！')
-      } else {
+      }
+      else {
         $message.warning('请完善必填选项！')
       }
     })
   }
-
 </script>
 
 <template>
@@ -171,20 +171,20 @@
     />
     <div flex items="center">
       <el-button type="primary" @click="handleAdd">
-        <div i-ri-add-fill mr-1></div> 新增
+        <div i-ri-add-fill mr-1 /> 新增
       </el-button>
       <el-button type="danger" :disabled="!selectedData.length" @click="handleDelete(selectedData)">
-        <div i-ri-delete-bin-line mr-1></div> 删除
+        <div i-ri-delete-bin-line mr-1 /> 删除
       </el-button>
     </div>
     <TableModel
       ref="tableModelRef"
+      v-model:pagination="pagination"
       :loading="loading"
       :columns="columns"
       :data="tableData"
       row-key="id"
       @selection-change="handleSelectionChange"
-      v-model:pagination="pagination"
       @page-change="handlePageChange"
       @size-change="handleSizeChange"
     />

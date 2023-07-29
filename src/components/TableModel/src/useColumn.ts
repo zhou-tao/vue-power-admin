@@ -1,10 +1,11 @@
 import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults'
-import { ButtonProps, ElButton, TagProps, ElTag } from 'element-plus'
+import type { ButtonProps, TagProps } from 'element-plus'
+import { ElButton, ElTag } from 'element-plus'
 
 export interface ColumnAttrs<T> {
-  row: T,
-  column: TableColumnCtx<T>,
-  rowIndex: number;
+  row: T
+  column: TableColumnCtx<T>
+  rowIndex: number
 }
 
 export type SlotButtonProps = Partial<ButtonProps>
@@ -15,7 +16,7 @@ export const useSlotButton = (text: string, onClick?: () => void, props: SlotBut
   const defaultProps: SlotButtonProps = {
     link: true,
     type: 'primary',
-    size:'small'
+    size: 'small'
   }
   return h(
     ElButton,
@@ -32,7 +33,7 @@ export const useSlotButton = (text: string, onClick?: () => void, props: SlotBut
 
 export const useSlotTag = (text: string, onClick?: () => void, props: SlotTagProps = {}) => {
   const defaultProps: SlotTagProps = {
-    size:'default'
+    size: 'default'
   }
   return h(
     ElTag,

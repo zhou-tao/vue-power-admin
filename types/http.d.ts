@@ -2,7 +2,8 @@ import type { HttpMethodEnum, ResponseTypeEnum } from '@/enums/httpEnum'
 import type {
   AxiosError,
   AxiosRequestConfig,
-  RawAxiosRequestHeaders
+  RawAxiosRequestHeaders,
+  InternalAxiosRequestConfig
 } from 'axios'
 
 export type ResponseError = Error | AxiosError
@@ -18,6 +19,14 @@ export interface RequestConfig<T = any> extends AxiosRequestConfig {
   data?: T
   params?: T
   headers?: RequestHeaders
+  withToken?: boolean
+  isTransformResponse?: boolean
+  responseType?: ResponseTypeEnum
+  ignoreCancelToken?: boolean
+  useMock?: boolean
+}
+
+export interface InternalRequestConfig extends InternalAxiosRequestConfig {
   withToken?: boolean
   isTransformResponse?: boolean
   responseType?: ResponseTypeEnum

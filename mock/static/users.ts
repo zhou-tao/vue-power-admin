@@ -21,5 +21,5 @@ export const userInfo = {
   roles: [
     { id: 0, code: 'ADMIN', name: '管理员', menu: [] }
   ],
-  security: true //密码安全性
+  security: true // 密码安全性
 }

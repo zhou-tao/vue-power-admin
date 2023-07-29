@@ -1,12 +1,13 @@
 <script setup lang="ts" name="Dict">
   import type { FormInstance, FormRules } from 'element-plus'
-  import SearchModel from '@/components/SearchModel'
-  import TableModel, { ColumnAttrs, useSlotButton } from '@/components/TableModel'
-  import { getDictList } from '@/api/_system/dict'
-  import { DictModel } from '@/api/_system/model/dictModel'
-  import { useMessage } from '@/hooks/web/useMessage'
-  import { config, staticColumns, SubmitTypeEnum } from './usePage'
   import { cloneDeep } from 'lodash-es'
+  import { config, staticColumns, SubmitTypeEnum } from './usePage'
+  import SearchModel from '@/components/SearchModel'
+  import type { ColumnAttrs } from '@/components/TableModel'
+  import TableModel, { useSlotButton } from '@/components/TableModel'
+  import { getDictList } from '@/api/_system/dict'
+  import type { DictModel } from '@/api/_system/model/dictModel'
+  import { useMessage } from '@/hooks/web/useMessage'
 
   const tableModelRef = ref()
   const router = useRouter()
@@ -20,9 +21,9 @@
   const columns = ref([
     ...staticColumns,
     {
-      fixed:'right',
-      label:'操作',
-      width:'160',
+      fixed: 'right',
+      label: '操作',
+      width: '160',
       slot: ({ row }: ColumnAttrs<DictModel>) =>
         [
           useSlotButton('详情', () => {
@@ -79,7 +80,7 @@
       {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
-        type: 'warning',
+        type: 'warning'
       }
     ).then(() => {
       console.log('do delete:', rows)
@@ -97,7 +98,7 @@
       pagination = { current, size, total }
       loading.value = false
       tableData.value = list
-    },300)
+    }, 300)
   }
 
   loadData()
@@ -142,17 +143,17 @@
 
   function handleUpdate(row: DictModel) {
     submitType.value = SubmitTypeEnum.UPDATE
-    // @ts-ignore
     submitForm = reactive(cloneDeep(toRaw(row)))
     visible.value = true
   }
 
   function handleSubmit() {
-    submitFormRef.value?.validate(valid => {
+    submitFormRef.value?.validate((valid) => {
       if (valid) {
         visible.value = false
         $message.success('保存成功！')
-      } else {
+      }
+      else {
         $message.warning('请完善必填选项！')
       }
     })
@@ -163,23 +164,26 @@
     { label: '角色', value: 'AUTH_TYPE', children: [] },
     { label: '性别', value: 'GENDER', children: [] },
     { label: '职级', value: 'JOB_LEVEL', children: [] },
-    { label: '岗位', value: 'POST', children: [
-      { label: '开发', value: 'JOB_LEVEL', children: [] },
-      { label: '测试', value: 'JOB_LEVEL', children: [] },
-      { label: '运维', value: 'JOB_LEVEL', children: [] }
-    ] }
+    {
+      label: '岗位',
+      value: 'POST',
+      children: [
+        { label: '开发', value: 'JOB_LEVEL', children: [] },
+        { label: '测试', value: 'JOB_LEVEL', children: [] },
+        { label: '运维', value: 'JOB_LEVEL', children: [] }
+      ]
+    }
   ]
 
   function handleNodeClick(node: any) {
     console.log('search by:', toRaw(node))
     loadData()
   }
-
 </script>
 
 <template>
   <div page-pure>
-    <Splitter direction="row" :prevDefaultPercent="20" :draggable="false">
+    <Splitter direction="row" :prev-default-percent="20" :draggable="false">
       <template #prev>
         <SearchTree enable-filter default-expand-all :data="dictTypeData" node-key="value" @node-click="handleNodeClick" />
       </template>
@@ -193,20 +197,20 @@
         />
         <div flex items="center">
           <el-button type="primary" @click="handleAdd">
-            <div i-ri-add-fill mr-1></div> 新增
+            <div i-ri-add-fill mr-1 /> 新增
           </el-button>
           <el-button type="danger" :disabled="!selectedData.length" @click="handleDelete(selectedData)">
-            <div i-ri-delete-bin-line mr-1></div> 删除
+            <div i-ri-delete-bin-line mr-1 /> 删除
           </el-button>
         </div>
         <TableModel
           ref="tableModelRef"
+          v-model:pagination="pagination"
           :loading="loading"
           :columns="columns"
           :data="tableData"
           row-key="id"
           @selection-change="handleSelectionChange"
-          v-model:pagination="pagination"
           @page-change="handlePageChange"
           @size-change="handleSizeChange"
         />
@@ -234,18 +238,20 @@
             </el-form-item>
             <el-form-item label="选项" prop="options">
               <div
+                v-for="option in submitForm.options"
+                :key="option.value"
                 w-full
                 flex="center"
                 justify="between"
                 gap="2"
                 my="2"
-                v-for="option in submitForm.options"
-                :key="option.value"
               >
                 <el-input v-model="option.label" placeholder="请输入选项名" />
                 <el-input v-model="option.value" placeholder="请输入选项值" />
               </div>
-              <el-button w="full" plain @click="submitForm.options.push({ label: '', value: '' })">添加</el-button>
+              <el-button w="full" plain @click="submitForm.options.push({ label: '', value: '' })">
+                添加
+              </el-button>
             </el-form-item>
             <el-form-item label="描述" prop="description">
               <el-input v-model="submitForm.description" type="textarea" placeholder="请输入" />

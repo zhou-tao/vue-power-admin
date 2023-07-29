@@ -1,8 +1,8 @@
 <script setup lang="ts" name="Radar">
-  import { vChart } from '@/directives/echarts'
   import { option } from './option'
+  import { vChart } from '@/directives/echarts'
 </script>
 
 <template>
-  <div h-full v-chart="{ option }"></div>
+  <div v-chart="{ option }" h-full />
 </template>

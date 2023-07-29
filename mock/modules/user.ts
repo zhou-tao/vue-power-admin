@@ -1,8 +1,8 @@
 import { generatePageData } from '../util'
+import { userInfo } from '../static/users'
 import { MenuResult } from './menu'
 import { PostResult } from './post'
 import { RoleResult } from './role'
-import { userInfo } from '../static/users'
 
 export const userResult = {
   'id|+1': 1,

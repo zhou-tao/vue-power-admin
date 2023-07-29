@@ -1,5 +1,4 @@
 <script setup lang="ts" name="App">
-  //@ts-ignore
   import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 </script>
 

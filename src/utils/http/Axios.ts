@@ -1,8 +1,10 @@
-import type { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse } from 'axios'
+import type { AxiosInstance, AxiosResponse } from 'axios'
+import { useCookie } from '@h/web/useCookie'
+import axios from 'axios'
+import qs from 'qs'
 import type { RequestConfig, ResponseError, Result } from '#/http'
 import { ContentTypeEnum, HttpMethodEnum } from '@/enums/httpEnum'
 import { TokenTypeEnum } from '@/enums/authEnum'
-import { useCookie } from '@h/web/useCookie'
 import { AxiosCanceler } from '@/utils/http/axiosCancel'
 import { useUserStore } from '@/store/modules/user'
 import checkStatus from '@/utils/http/checkStatus'
@@ -12,8 +14,6 @@ import {
   transformRequest,
   transformResponse
 } from '@/utils/http/helper'
-import axios from 'axios'
-import qs from 'qs'
 
 /**
  *  @description: axios 实例化封装
@@ -55,12 +55,11 @@ export class CustomAxios {
     const axiosCanceler = new AxiosCanceler()
     // 请求拦截
     this.axiosInstance.interceptors.request.use(
-      async (config: InternalAxiosRequestConfig) => {
-        // @ts-ignore
+      async (config: any) => {
         const { headers, withToken, ignoreCancelToken } = config
         // 当请求函数内未设置 ignoreCancelToken 时才采用默认初始化配置
-        const ignoreCancel =
-          ignoreCancelToken !== undefined
+        const ignoreCancel
+          = ignoreCancelToken !== undefined
             ? ignoreCancelToken
             : this.options?.ignoreCancelToken
         !ignoreCancel && axiosCanceler.addPending(config)
@@ -73,7 +72,6 @@ export class CustomAxios {
             const { access_token } = await userStore.reLogin()
             accessToken = access_token
           }
-          // @ts-ignore
           headers.Authorization = generateBaseToken(accessToken)
         }
         return config
@@ -83,11 +81,11 @@ export class CustomAxios {
 
     // 响应拦截
     this.axiosInstance.interceptors.response.use(
-      res => {
+      (res) => {
         axiosCanceler.removePending(res.config)
         return res
       },
-      async err => {
+      async (err) => {
         const response: AxiosResponse<Result, any> = err.response
         // 满足 isAxiosError 或 isCancel 的请求均已被 axios取消
         const canBeRemove = !axios.isAxiosError(err) && !axios.isCancel(err)
@@ -111,9 +109,9 @@ export class CustomAxios {
     const { headers } = config || this.options
     const contentType = headers?.['Content-Type'] || headers?.['content-type']
     if (
-      contentType !== ContentTypeEnum.FORM_URLENCODED ||
-      !Reflect.has(config, 'data') ||
-      config.method === HttpMethodEnum.GET
+      contentType !== ContentTypeEnum.FORM_URLENCODED
+      || !Reflect.has(config, 'data')
+      || config.method === HttpMethodEnum.GET
     ) {
       return config
     }
@@ -148,7 +146,7 @@ export class CustomAxios {
     let conf: RequestConfig = Object.assign({}, this.options, config)
     conf = this.supportFormData(conf)
     conf = transformRequest(conf)
-    if(conf.useMock) {
+    if (conf.useMock) {
       conf.url = `/mock${conf.url}`
     }
     return new Promise((resolve, reject) => {
@@ -157,7 +155,8 @@ export class CustomAxios {
         .then((res: AxiosResponse<Result>) => {
           try {
             resolve(transformResponse(res, conf) as unknown as T)
-          } catch (err) {
+          }
+          catch (err) {
             reject(err || new Error('请求失败!'))
           }
         })

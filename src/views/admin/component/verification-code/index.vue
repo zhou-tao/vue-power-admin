@@ -1,15 +1,16 @@
 <script setup lang="ts" name="VerificationCode">
-  import { useMessage } from '@/hooks/web/useMessage'
   import { VerificationCode, VerifyDialog } from '@c/VerificationCode'
+  import { useMessage } from '@/hooks/web/useMessage'
 
   const { $message } = useMessage()
   const showVerifyDialog = ref(false)
 
-  function handleSucceed (v: boolean) {
+  function handleSucceed(v: boolean) {
     if (v) {
       $message.success('验证通过！')
       showVerifyDialog.value = false
-    } else {
+    }
+    else {
       $message.error('验证失败！')
     }
   }
@@ -19,7 +20,9 @@
   <div page-card>
     <PageTitle description="通用滑动验证码组件。" />
     <VerificationCode @change="handleSucceed" />
-    <el-button type="primary" @click="showVerifyDialog = true" class="mt-4">开启弹窗验证</el-button>
+    <el-button type="primary" class="mt-4" @click="showVerifyDialog = true">
+      开启弹窗验证
+    </el-button>
     <VerifyDialog v-model="showVerifyDialog" @change="handleSucceed" />
   </div>
 </template>

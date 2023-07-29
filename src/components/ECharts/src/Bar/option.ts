@@ -1,4 +1,5 @@
-import echarts, { ECOption } from '../useECharts'
+import type { ECOption } from '../useECharts'
+import echarts from '../useECharts'
 
 export const option: ECOption = {
   backgroundColor: 'transparent',
@@ -21,7 +22,7 @@ export const option: ECOption = {
       show: false
     },
     axisTick: {
-      show: false,
+      show: false
     },
     axisLabel: {
       show: true,
@@ -38,7 +39,7 @@ export const option: ECOption = {
       fontSize: 14
     },
     axisTick: {
-      show: false,
+      show: false
     },
     axisLine: {
       show: false
@@ -54,7 +55,7 @@ export const option: ECOption = {
     type: 'bar',
     barWidth: 24,
     seriesLayoutBy: 'row',
-    animationDuration: function (idx: number) {
+    animationDuration(idx: number) {
       return idx * 500 + 1000
     },
     backgroundStyle: {
@@ -80,9 +81,8 @@ export const option: ECOption = {
         offset: 1,
         color: '#e43346'
       }]),
-      opacity: 1,
+      opacity: 1
     }
-  },
+  }
   ]
 }
-

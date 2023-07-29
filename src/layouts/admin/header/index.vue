@@ -1,4 +1,5 @@
 <script setup lang="ts" name="LayoutHeader">
+  import { useI18n } from 'vue-i18n'
   import Breadcrumb from './components/Breadcrumb.vue'
   import ThemeSwitch from '@/components/ThemeSwitch'
   import LogoView from '@/layouts/admin/sider/components/LogoView.vue'
@@ -8,7 +9,6 @@
   import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'
   import { MenuLayout } from '@/enums/menuEnum'
   import { getLocaleTypes } from '@/locales'
-  import { useI18n } from 'vue-i18n'
   import { useMessage } from '@/hooks/web/useMessage'
 
   const { $message } = useMessage()
@@ -31,7 +31,6 @@
     locale.value = language
     $message.success(`${t('header.changeLocale')}: ${name}`)
   }
-
 </script>
 
 <template>
@@ -44,22 +43,22 @@
   >
     <div flex items="center" gap="6">
       <span v-if="isVerticalMenu" cursor="pointer" leading="0" @click="settingStore.toggleCollapse()">
-        <div i-ep-expand v-show="menuCollapsed"></div>
-        <div i-ep-fold v-show="!menuCollapsed"></div>
+        <div v-show="menuCollapsed" i-ep-expand />
+        <div v-show="!menuCollapsed" i-ep-fold />
       </span>
-      <LogoView mr="6" v-else />
+      <LogoView v-else mr="6" />
       <Breadcrumb v-if="hasBreadcrumb && isVerticalMenu" />
     </div>
     <Menu v-if="!isVerticalMenu" :mode="MenuLayout.HORIZONTAL" />
     <div flex items="center" gap="5">
-      <div class="icon-view" v-if="isSupported" @click="toggleFullScreen">
-        <div i-ri-fullscreen-fill v-show="!isFullScreen"></div>
-        <div i-ri-fullscreen-exit-fill v-show="isFullScreen"></div>
+      <div v-if="isSupported" class="icon-view" @click="toggleFullScreen">
+        <div v-show="!isFullScreen" i-ri-fullscreen-fill />
+        <div v-show="isFullScreen" i-ri-fullscreen-exit-fill />
       </div>
       <el-dropdown>
         <el-badge is-dot leading="none">
           <div class="icon-view">
-            <div i-ep-bell-filled></div>
+            <div i-ep-bell-filled />
           </div>
         </el-badge>
         <template #dropdown>
@@ -72,13 +71,15 @@
       </el-dropdown>
       <el-dropdown v-show="hasLocales">
         <div class="icon-view">
-          <div i-app-locale text="18px!"></div>
+          <div i-app-locale text="18px!" />
         </div>
         <template #dropdown>
           <el-dropdown-menu>
             <el-dropdown-item v-for="({ value, name }, i) in localeTypes" :key="value" :divided="!!i" @click="handleLocaleChange(value, name)">
-              <div inline-block w-18>{{ name }}</div>
-              <div i-ri-check-fill v-if="value === locale"></div>
+              <div inline-block w-18>
+                {{ name }}
+              </div>
+              <div v-if="value === locale" i-ri-check-fill />
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -93,13 +94,13 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="$router.push({ path: '/personal/index', query: { tab: 'password' } })">
-                <div i-ep-lock mr="1"></div>{{ t('header.setup') }}
+                <div i-ep-lock mr="1" />{{ t('header.setup') }}
               </el-dropdown-item>
               <el-dropdown-item
                 divided
                 @click="$router.replace('/login?redirect=logout')"
               >
-                <div i-ep-switch-button mr="1"></div>
+                <div i-ep-switch-button mr="1" />
                 {{ $t('header.logout') }}
               </el-dropdown-item>
             </el-dropdown-menu>

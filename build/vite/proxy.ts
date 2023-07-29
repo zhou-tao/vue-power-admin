@@ -9,7 +9,7 @@ const httpsRE = /^https:\/\//
 export function createProxy(prefixList: ProxyPrefixList = [], target: string) {
   const isHttps = httpsRE.test(target)
   const proxy: ProxyTargetList = {}
-  prefixList.forEach(prefix => {
+  prefixList.forEach((prefix) => {
     proxy[prefix] = {
       target,
       changeOrigin: true,

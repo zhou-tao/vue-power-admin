@@ -1,11 +1,11 @@
 import { resolve } from 'node:path'
 import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
+import autoprefixer from 'autoprefixer'
 import { createVitePlugins } from './build/vite/plugins'
 import { createProxy } from './build/vite/proxy'
 import { createOptimizeDeps } from './build/vite/optimize-deps'
 import { envParse } from './build/utils'
-import autoprefixer from 'autoprefixer'
 
 // eslint-disable-next-line no-control-regex
 const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,_]/g
@@ -72,11 +72,11 @@ export default ({ mode }: ConfigEnv) => {
             const match = DRIVE_LETTER_REGEX.exec(name)
             const driveLetter = match ? match[0] : ''
             return (
-              driveLetter +
-              name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
+              driveLetter
+              + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
             )
-          },
-        },
+          }
+        }
       }
     },
     css: {
@@ -85,7 +85,7 @@ export default ({ mode }: ConfigEnv) => {
         plugins: [
           autoprefixer
         ]
-      },
+      }
     },
     plugins: createVitePlugins(env, mode === 'production'),
     // fix(vite): optimized dependencies changed. reloading

@@ -1,6 +1,6 @@
 import type { AxiosRequestConfig, Canceler } from 'axios'
-import { isFunction } from '@/utils/is'
 import axios from 'axios'
+import { isFunction } from '@/utils/is'
 
 // 存储 pending中的请求
 let pendingMap = new Map<string, Canceler>()
@@ -21,9 +21,9 @@ export class AxiosCanceler {
     // 移除上一个重复请求
     this.removePending(config)
     const url = getPendingUrl(config)
-    config.cancelToken =
-      config.cancelToken ||
-      new axios.CancelToken(cancel => {
+    config.cancelToken
+      = config.cancelToken
+      || new axios.CancelToken((cancel) => {
         if (!pendingMap.has(url)) {
           // If there is no current request in pending, add it
           pendingMap.set(url, cancel)
@@ -35,7 +35,7 @@ export class AxiosCanceler {
    * @description: 清除所有 pending请求
    */
   removeAllPending() {
-    pendingMap.forEach(cancel => {
+    pendingMap.forEach((cancel) => {
       cancel && isFunction(cancel) && cancel()
     })
     pendingMap.clear()

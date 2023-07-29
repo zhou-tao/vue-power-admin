@@ -1,8 +1,8 @@
-import { RoleModel } from './roleModel'
-import { PostModel } from './postModel'
+import type { RoleModel } from './roleModel'
+import type { PostModel } from './postModel'
 
 export interface UserInfoModel {
-  id: string | number,
+  id: string | number
   name: string
   userId: number
   username: string

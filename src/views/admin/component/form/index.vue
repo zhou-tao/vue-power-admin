@@ -1,15 +1,16 @@
 <script setup lang="ts" name="SearchForm">
-  import { SearchItemConfig, useComponent } from '@/components/SearchModel'
+  import type { SearchItemConfig } from '@/components/SearchModel'
+  import { useComponent } from '@/components/SearchModel'
   import { useMessage } from '@/hooks/web/useMessage'
 
   const { ElInput, ElSelect } = useComponent()
   const config: SearchItemConfig[] = [
-    { component: ElInput , label: '用户名', field: 'username', placeholder: '请输入' },
-    { component: ElInput , label: '姓名', field: 'name', placeholder: '请输入' },
-    { component: ElSelect , label: '性别', field: 'gender', clearable: true, options: [{ label: '男', value: '1' }, { label: '女', value: '0' }] },
-    { component: ElSelect , label: '权限', field: 'role', clearable: true, options: [{ label: '用户', value: '1' }, { label: '管理员', value: '0' }] },
-    { component: ElInput , label: '部门', field: 'deptName', placeholder: '请输入' },
-    { component: ElInput , label: '岗位', field: 'post', placeholder: '请输入' }
+    { component: ElInput, label: '用户名', field: 'username', placeholder: '请输入' },
+    { component: ElInput, label: '姓名', field: 'name', placeholder: '请输入' },
+    { component: ElSelect, label: '性别', field: 'gender', clearable: true, options: [{ label: '男', value: '1' }, { label: '女', value: '0' }] },
+    { component: ElSelect, label: '权限', field: 'role', clearable: true, options: [{ label: '用户', value: '1' }, { label: '管理员', value: '0' }] },
+    { component: ElInput, label: '部门', field: 'deptName', placeholder: '请输入' },
+    { component: ElInput, label: '岗位', field: 'post', placeholder: '请输入' }
   ]
 
   const queryData = reactive({
@@ -30,7 +31,6 @@
   function handleReset() {
     $message.success('do reset!')
   }
-
 </script>
 
 <template>

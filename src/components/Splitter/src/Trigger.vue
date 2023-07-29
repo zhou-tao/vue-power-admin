@@ -1,6 +1,6 @@
 <script setup lang="ts" name="DraggleBar">
   const props = withDefaults(defineProps<{
-    direction?: 'row' | 'column',
+    direction?: 'row' | 'column'
     draggable?: boolean
     size?: number
   }>(), {
@@ -11,15 +11,17 @@
 
   function computedStyle(direction: string, isBtn = false) {
     const length = isBtn ? '36px' : '100%'
-    return direction === 'row' ? {
-      width: length,
-      height: `${props.size}px`,
-      cursor: isBtn ? 'ns-resize' : ''
-    } : {
-      width: `${props.size}px`,
-      height: length,
-      cursor: isBtn ? 'ew-resize' : ''
-    }
+    return direction === 'row'
+      ? {
+        width: length,
+        height: `${props.size}px`,
+        cursor: isBtn ? 'ns-resize' : ''
+      }
+      : {
+        width: `${props.size}px`,
+        height: length,
+        cursor: isBtn ? 'ew-resize' : ''
+      }
   }
 </script>
 
@@ -32,6 +34,6 @@
       transition="base colors"
       rounded-full
       flex-center
-    ></div>
+    />
   </div>
 </template>

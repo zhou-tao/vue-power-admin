@@ -1,7 +1,8 @@
-<script setup lang="ts" name="ThemeColorPicker">import { CSSVarEnum } from '@/enums/appEnum'
+<script setup lang="ts" name="ThemeColorPicker">
+  import { CSSVarEnum } from '@/enums/appEnum'
   import { getCssVar, setCssVar } from '@/hooks/web/useCssVar'
 
-  let color = ref(getCssVar(CSSVarEnum.COLOR_PRIMARY))
+  const color = ref(getCssVar(CSSVarEnum.COLOR_PRIMARY))
   const predefineColors = ref([
     '#e11d48',
     '#ea580c',
@@ -11,7 +12,7 @@
     '#8b5cf6'
   ])
 
-  watch(color, v => {
+  watch(color, (v) => {
     setCssVar(CSSVarEnum.COLOR_PRIMARY, v)
   })
 </script>
@@ -36,7 +37,7 @@
         rounded="2px"
         border="1px solid secondary"
         :style="{ backgroundColor: c }"
-      ></div>
+      />
     </div>
     <el-color-picker v-model="color" show-alpha :predefine="predefineColors" />
   </div>

@@ -1,5 +1,6 @@
 import type { App } from 'vue'
-import { createI18n, I18nOptions } from 'vue-i18n'
+import type { I18nOptions } from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 
 export interface LocaleType {
   name: string
@@ -22,7 +23,6 @@ function getLocaleData(): I18nOptions['messages'] {
   const lang: Record<string, any> = {}
   for (const path in modules) {
     const name: string = path.match(/lang\/(\S*).ts/)![1]
-    // @ts-ignore
     lang[name] = modules[path].default
   }
   return lang
@@ -33,10 +33,8 @@ export function getLocaleTypes(): LocaleType[] {
   const localeTypes: LocaleType[] = []
   for (const path in modules) {
     const value: string = path.match(/lang\/(\S*).ts/)![1]
-    // @ts-ignore
     localeTypes.push({
       value,
-      // @ts-ignore
       name: modules[path].default.name
     })
   }

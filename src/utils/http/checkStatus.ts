@@ -26,10 +26,11 @@ const checkStatus: (status: number, msg: string, isCancel?: boolean) => void = (
     const isAxiosTimeout = msg === ErrorMsgMap.get(ErrorCodeEnum.A200)
     if (isAxiosTimeout) {
       alertErrMsg(ErrorCodeEnum.A200, msg)
-    } else {
+    }
+    else {
       // 被 AxiosCanceler取消的请求不需要提示
-      !isCancel &&
-        alertErrMsg(ErrorCodeEnum.A100, ErrorMsgMap.get(ErrorCodeEnum.A100))
+      !isCancel
+        && alertErrMsg(ErrorCodeEnum.A100, ErrorMsgMap.get(ErrorCodeEnum.A100))
     }
     // 被 axios取消的请求：1.多次重复点击被 AxiosCanceler取消 2. 超时被自动取消 3. 其他未知 axios错误
     console.error('The request was cancelled by axios!')

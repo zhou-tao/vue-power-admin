@@ -4,10 +4,11 @@ export const componentKey = ref()
 
 export const useRefresh = () => {
   const route = useRoute()
-  watch(refresh, v => {
+  watch(refresh, (v) => {
     if (v) {
       componentKey.value = `${route.path}/refresh`
-    } else {
+    }
+    else {
       componentKey.value = route.path
     }
   })

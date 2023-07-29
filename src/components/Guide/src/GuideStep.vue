@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import type { GuideStep } from './type'
   import { STEPS_KEY } from '@c/Guide/src/Guide.vue'
+  import type { GuideStepProps } from './type'
 
   const props = withDefaults(defineProps<{
     title?: string
@@ -8,15 +8,15 @@
     placement?: string
   }>(), {
     title: '',
-    description: '',
+    description: ''
   })
 
-  const steps = inject<GuideStep[]>(STEPS_KEY, [])
+  const steps = inject<GuideStepProps[]>(STEPS_KEY, [])
 
   const guideStepRef = ref<HTMLDivElement>()
 
   onMounted(() => {
-    if(guideStepRef.value) {
+    if (guideStepRef.value) {
       steps.push({
         title: props.title,
         description: props.description,
@@ -26,8 +26,9 @@
     }
   })
 </script>
+
 <template>
-  <div contents ref="guideStepRef">
-    <slot></slot>
+  <div ref="guideStepRef" contents>
+    <slot />
   </div>
 </template>

@@ -17,8 +17,8 @@ export enum ComponentName {
 }
 
 export const isRadio = (component: ComponentType) =>
-  component.name === ComponentName.ElRadio ||
-    component.name === ComponentName.ElRadioButton
+  component.name === ComponentName.ElRadio
+    || component.name === ComponentName.ElRadioButton
 
 // 组件转化
 export const getElComponent = (component: ComponentType) => {

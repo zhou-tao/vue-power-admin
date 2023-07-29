@@ -25,7 +25,7 @@
   const triggerOffset = ref(0)
 
   // 按下滑动器
-  function handleMouseDown (e: MouseEvent) {
+  function handleMouseDown(e: MouseEvent) {
     if (!props.draggable) return
     const { pageX, pageY } = e
     const { left, top } = (e.target! as HTMLElement).getBoundingClientRect()
@@ -41,7 +41,8 @@
     if (props.direction === 'row') {
       const offset = e.pageX - left - triggerOffset.value
       percent = Number(((offset / width) * 100).toFixed(2))
-    } else {
+    }
+    else {
       const offset = e.pageY - top - triggerOffset.value
       percent = Number(((offset / height) * 100).toFixed(2))
     }
@@ -54,17 +55,16 @@
   function handleMouseUp() {
     document.removeEventListener('mousemove', handleMouseMove)
   }
-
 </script>
 
 <template>
   <div ref="splitterRef" flex h-full :style="{ flexDirection: direction }">
     <div class="prev pane" :style="{ [lengthType]: `${prevPercent}%` }" overflow-hidden>
-      <slot name="prev"></slot>
+      <slot name="prev" />
     </div>
     <Trigger :direction="barDirection" :draggable="draggable" :size="triggerSize" @mousedown="handleMouseDown" />
     <div class="next pane" flex-1 overflow-auto>
-      <slot name="next"></slot>
+      <slot name="next" />
     </div>
   </div>
 </template>

@@ -1,10 +1,10 @@
 <script setup lang="ts" name="Menu">
-  import { MenuLayout } from '@/enums/menuEnum'
   import { routeToMenu } from '@h/logic/useMenu'
+  import MenuItem from './MenuItem.vue'
+  import { MenuLayout } from '@/enums/menuEnum'
   import { useSettingStore } from '@/store/modules/setting'
   import { useMenuStore } from '@/store/modules/menu'
   import AdminRoutes from '@/router/routes/modules/admin'
-  import MenuItem from './MenuItem.vue'
 
   const props = withDefaults(defineProps<{
     mode?: MenuLayout
@@ -13,7 +13,6 @@
   })
 
   const route = useRoute()
-  // @ts-ignore
   const activeRoute = computed(() => route.matched.findLast(r => !r?.meta?.hideMenu) || route) // last route of no `hideMenu` in meta
 
   const settingStore = useSettingStore()
@@ -22,7 +21,6 @@
   const menuData = computed(() => {
     return routeToMenu(AdminRoutes.concat(menuStore.routes))
   })
-
 </script>
 
 <template>

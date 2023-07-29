@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { GuideStep } from './type'
+  import type { GuideStepProps } from './type'
 
   export const STEPS_KEY = Symbol('steps')
 </script>
@@ -7,7 +7,7 @@
 <script setup lang="ts" name="Guide">
   const activeStep = ref(0)
 
-  const steps = reactive<GuideStep[]>([])
+  const steps = reactive<GuideStepProps[]>([])
   provide(STEPS_KEY, steps)
 
   const step = computed(() => steps[activeStep.value])
@@ -20,7 +20,7 @@
   })
 
   const stepChanged = () => {
-    if(!step.value) return
+    if (!step.value) return
     const { top, left, width, height } = step.value.el.getBoundingClientRect()
     pos.value = {
       top,
@@ -57,6 +57,7 @@
     }
   })
 </script>
+
 <template>
   <el-tooltip
     v-if="step && !transitioning && show"
@@ -74,23 +75,23 @@
         </p>
       </div>
       <div flex="center">
-        <el-button type="primary" plain v-if="activeStep > 0" @click="stepBackward" size="small">
-          <div i-ep-arrow-left-bold></div>
+        <el-button v-if="activeStep > 0" type="primary" plain size="small" @click="stepBackward">
+          <div i-ep-arrow-left-bold />
         </el-button>
-        <el-button type="primary" plain v-if="activeStep < steps.length - 1" @click="stepForward" size="small">
-          <div i-ep-arrow-right-bold></div>
+        <el-button v-if="activeStep < steps.length - 1" type="primary" plain size="small" @click="stepForward">
+          <div i-ep-arrow-right-bold />
         </el-button>
-        <el-button type="primary" plain v-if="activeStep === steps.length - 1" @click="handleEnd" size="small">
+        <el-button v-if="activeStep === steps.length - 1" type="primary" plain size="small" @click="handleEnd">
           我知道了
         </el-button>
       </div>
     </template>
-    <div class="focus-helper" :style="`--g-top: ${pos.top}px;--g-left: ${pos.left}px;--g-scale-x:${pos.width / 100};--g-scale-y: ${pos.height / 100};--g-width: ${pos.width}px; --g-height: ${pos.height}px;`"></div>
+    <div class="focus-helper" :style="`--g-top: ${pos.top}px;--g-left: ${pos.left}px;--g-scale-x:${pos.width / 100};--g-scale-y: ${pos.height / 100};--g-width: ${pos.width}px; --g-height: ${pos.height}px;`" />
   </el-tooltip>
-  <div v-if="show" class="animation-helper" @transitionend="() => transitioning = false" :style="`--g-top: ${pos.top}px;--g-left: ${pos.left}px;--g-scale-x:${pos.width / 100};--g-scale-y: ${pos.height / 100};--g-width: ${pos.width}px; --g-height: ${pos.height}px;`">
-  </div>
-  <slot></slot>
+  <div v-if="show" class="animation-helper" :style="`--g-top: ${pos.top}px;--g-left: ${pos.left}px;--g-scale-x:${pos.width / 100};--g-scale-y: ${pos.height / 100};--g-width: ${pos.width}px; --g-height: ${pos.height}px;`" @transitionend="() => transitioning = false" />
+  <slot />
 </template>
+
 <style lang="scss" scoped>
 @keyframes fade-in {
   from { opacity: 0; }
@@ -121,6 +122,7 @@
   box-shadow: rgba(22, 22, 22, 0.8) 0px 0px 1px 2px, rgba(22, 22, 22, 0.5) 0px 0px 0px 5000px;
 }
 </style>
+
 <style>
 .dark .animation-helper {
   box-shadow: rgba(200, 200, 200, 0.8) 0px 0px 1px 2px, rgba(200, 200, 200, 0.5) 0px 0px 0px 5000px;

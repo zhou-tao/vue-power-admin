@@ -1,10 +1,10 @@
+import type { ListQuery, ListResult } from '../model/baseModel'
 import type { BuildMenuModel, MenuModel } from './model/menuModel'
 import { useFetch } from '@/utils/http'
-import { ListQuery, ListResult } from '../model/baseModel'
 
 enum Api {
   BUILD_MENU = '/sysadmin/menu/build',
-  MENU_LIST = '/sysadmin/menu/list',
+  MENU_LIST = '/sysadmin/menu/list'
 }
 
 export const buildMenuApi = () => {
