@@ -7,6 +7,8 @@ export interface LocaleType {
   value: string
 }
 
+type LocaleModules = Record<string, any>
+
 export const i18n = createI18n({
   legacy: false,
   locale: 'zh-cn',
@@ -19,7 +21,7 @@ export function setupI18n(app: App) {
 }
 
 function getLocaleData(): I18nOptions['messages'] {
-  const modules = import.meta.glob('./lang/*.ts', { eager: true })
+  const modules: LocaleModules = import.meta.glob('./lang/*.ts', { eager: true })
   const lang: Record<string, any> = {}
   for (const path in modules) {
     const name: string = path.match(/lang\/(\S*).ts/)![1]
@@ -29,7 +31,7 @@ function getLocaleData(): I18nOptions['messages'] {
 }
 
 export function getLocaleTypes(): LocaleType[] {
-  const modules = import.meta.glob('./lang/*.ts', { eager: true })
+  const modules: LocaleModules = import.meta.glob('./lang/*.ts', { eager: true })
   const localeTypes: LocaleType[] = []
   for (const path in modules) {
     const value: string = path.match(/lang\/(\S*).ts/)![1]
