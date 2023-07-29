@@ -10,11 +10,9 @@ export const vWatermark: ObjectDirective<HTMLDivElement, WatermarkerOption> = {
     printWaterMarker(el, text, color)
     const watermark = el.style.backgroundImage
     const observer = new MutationObserver(([e]) => {
-      // @ts-expect-error update style
-      if (e.attributeName === 'style' && e.target.style.backgroundImage !== watermark) {
+      if (e.attributeName === 'style' && (e.target as HTMLElement).style.backgroundImage !== watermark) {
         // 防止样式被F12手动更改，赋值为之前的值
-      // @ts-expect-error update style
-        el.style = e.oldValue
+        el.style.cssText = e.oldValue ?? ''
       }
     })
     observer.observe(el, { childList: true, subtree: true, attributes: true, attributeOldValue: true })
