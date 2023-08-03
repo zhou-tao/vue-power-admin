@@ -1,6 +1,7 @@
 import { resolve } from 'node:path'
 import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
+
 import autoprefixer from 'autoprefixer'
 import { createVitePlugins } from './build/vite/plugins'
 import { createProxy } from './build/vite/proxy'
@@ -83,7 +84,7 @@ export default ({ mode }: ConfigEnv) => {
       devSourcemap: false,
       postcss: {
         plugins: [
-          autoprefixer
+          autoprefixer as any
         ]
       }
     },

@@ -1,8 +1,8 @@
 <div align="center">
   <p align="center"><img alt="Vue-Power-Admin" align="center" src="./.github/logo.svg" width="100" /></p><br>
   <p align="center">
-    <a href="https://github.com/nodejs/release#release-schedule"><img src="https://img.shields.io/badge/node-%5E14.18.0%20%7C%7C%20%3E%3D16.0.0-brightgreen?style=flat-square&logo=node.js" alt="Node"></a>
-    <a href="https://github.com/zhou-tao/vue-power-admin/releases"><img src="https://img.shields.io/badge/release-v1-important?style=flat-square&logo=github" alt="release"></a>
+    <a href="https://github.com/zhou-tao/vue-power-admin/releases"><img src="https://img.shields.io/github/v/release/zhou-tao/vue-power-admin.svg" alt="release version"></a>
+    <a href="https://github.com/zhou-tao/vue-power-admin/actions/workflows/deploy.yml"><img src="https://github.com/zhou-tao/vue-power-admin/actions/workflows/deploy.yml/badge.svg?branch=main" alt="deploy status"></a>
   </p>
   <h1>Vue Power Admin</h1>
 </div>
@@ -21,7 +21,7 @@
 - **Fine-grained to actions level authority models**
 - **Rich built-in components** - Many built-in components that can help you sovle the daily usage scenarios
 - **Code automation** - Save time on repetitive works
-- **Coding with confidence** - Fine integrated with Husky and ESLint, ensure your code quality and make the code format more uniform in style
+- **Coding with confidence** - Fine integrated with Simple-git-hooks and ESLint, ensure your code quality and make the code format more uniform in style
 - **Data mock** - Provide built-in mock support for realtime development api and production injection
 
 ### :alarm_clock: Getting started
@@ -61,10 +61,10 @@ This project cannot be done without these projects:
 * Typescript
 * ElementPlus
 * Unocss
-* Vue-I18n
+* Vue-i18n
 * MockJS
 * Eslint
-* Husky
+* Simple-git-hooks
 
 ### LICENSE
 
