@@ -1,8 +1,8 @@
-const componentGenerator = require('./plop/component/prompt.js')
-const storeGenerator = require('./plop/store/prompt.js')
-const pageGenerator = require('./plop/page/prompt.js')
+import componentGenerator from './plop/component/prompt.js'
+import storeGenerator from './plop/store/prompt.js'
+import pageGenerator from './plop/page/prompt.js'
 
-module.exports = function (plop) {
+export default (plop) => {
   plop.setHelper('upperCase', str => str ? str.toUpperCase() : str)
   plop.setHelper('camelCase', (str) => {
     if (!str) return str

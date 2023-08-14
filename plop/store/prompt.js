@@ -1,6 +1,6 @@
-const { notEmpty } = require('../utils.js')
+import { notEmpty } from '../utils.js'
 
-module.exports = {
+export default {
   description: '生成store基础模板',
   prompts: [{
     type: 'input',

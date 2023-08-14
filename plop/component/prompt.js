@@ -1,15 +1,28 @@
-const { notEmpty } = require('../utils.js')
+import { notEmpty } from '../utils.js'
 
-module.exports = {
+export default {
   description: '生成组件基础模版',
   prompts: [{
     type: 'input',
     name: 'name',
     message: '请输入组件名称',
     validate: notEmpty('name')
+  }, {
+    type: 'confirm',
+    name: 'multiple',
+    message: '是否新建组件目录',
+    default: false
   }],
-  actions({ name }) {
-    const actions = [{
+  actions({ name, multiple }) {
+    const defaultActions = [{
+      type: 'add',
+      path: `src/components/${name}.vue`,
+      templateFile: 'plop/component/component.hbs',
+      data: {
+        name
+      }
+    }]
+    const multipleActions = [{
       type: 'add',
       path: `src/components/${name}/src/${name}.vue`,
       templateFile: 'plop/component/component.hbs',
@@ -24,6 +37,6 @@ module.exports = {
         name
       }
     }]
-    return actions
+    return multiple ? multipleActions : defaultActions
   }
 }
