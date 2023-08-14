@@ -48,7 +48,7 @@ pnpm dev
 
 All kinds of contributions are welcomed!
 
-[Contributors here](https://zhou-tao.github.io/vue-power-admin)
+[Contributors here](https://github.com/zhou-tao/vue-power-admin/graphs/contributors)
 
 ### Thanks
 
@@ -68,6 +68,4 @@ This project cannot be done without these projects:
 
 ### LICENSE
 
-[MIT](https://github.com/zhou-tao/vue-power-admin/LICENSE)
-
-Copyright (c) 2022 zhou-tao
+[MIT](./LICENSE) License &copy; 2022-PRESENT toryz

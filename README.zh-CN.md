@@ -50,10 +50,8 @@ pnpm dev
 
 非常欢迎您为本仓库提交PR或者Issues! 
 
-特别感谢所有 [Vue Power Admin](https://zhou-tao.github.io/vue-power-admin) 的贡献者！
+特别感谢所有 [Vue Power Admin](https://github.com/zhou-tao/vue-power-admin/graphs/contributors) 的贡献者！
 
 ### :bookmark_tabs: License
 
-[MIT](https://github.com/zhou-tao/vue-power-admin/LICENSE)
-
-Copyright (c) 2022 zhou-tao
+[MIT](./LICENSE) License &copy; 2022-PRESENT toryz
