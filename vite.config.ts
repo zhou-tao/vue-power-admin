@@ -1,12 +1,11 @@
 import { resolve } from 'node:path'
 import type { ConfigEnv } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
-
+import { parse } from 'vite-plugin-env-parser'
 import autoprefixer from 'autoprefixer'
 import { createVitePlugins } from './build/vite/plugins'
 import { createProxy } from './build/vite/proxy'
 import { createOptimizeDeps } from './build/vite/optimize-deps'
-import { envParse } from './build/utils'
 
 // eslint-disable-next-line no-control-regex
 const INVALID_CHAR_REGEX = /[\x00-\x1F\x7F<>*#"{}|^[\]`;?:&=+$,_]/g
@@ -15,7 +14,7 @@ const DRIVE_LETTER_REGEX = /^[a-z]:/i
 export default ({ mode }: ConfigEnv) => {
   const root = process.cwd()
   const envDir = resolve(__dirname, 'env')
-  const env = envParse(loadEnv(mode, envDir) as ImportMetaEnv)
+  const env = parse(loadEnv(mode, envDir))
   const {
     VITE_PORT,
     VITE_BASE_API,
@@ -42,7 +41,7 @@ export default ({ mode }: ConfigEnv) => {
       open: true,
       https: false,
       ...(VITE_USE_PROXY
-        ? { proxy: createProxy(VITE_PROXY_PREFIX, VITE_BASE_API as string) }
+        ? { proxy: createProxy(VITE_PROXY_PREFIX, VITE_BASE_API) }
         : {})
     },
     esbuild: {

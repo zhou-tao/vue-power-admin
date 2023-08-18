@@ -1,16 +1,22 @@
 import type { PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
+import envParser from 'vite-plugin-env-parser'
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'
 import { configUnocss } from './unocss'
 import { configAutoImportPlugins } from './auto-imports'
 import mockPlugin from './mock'
 
-export const createVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
+export const createVitePlugins = (viteEnv: Record<string, any>, isBuild: boolean) => {
   const { VITE_USE_LEGACY, VITE_USE_MOCK } = viteEnv
 
   const vitePlugins: PluginOption = [
     vue(),
+
+    envParser({
+      dts: 'types/vite-env.d.ts',
+      injectViteDTS: true
+    }),
 
     // 使setup标签支持name属性配置
     vueSetupExtend(),
