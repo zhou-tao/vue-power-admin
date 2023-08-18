@@ -78,7 +78,7 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
-    "commit-msg": "node scripts/verifyCommit.js"
+    "commit-msg": "node build/verifyCommit.js"
   },
   "lint-staged": {
     "*": "eslint --fix"
