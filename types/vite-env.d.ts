@@ -9,4 +9,5 @@ declare module "vite-env" {
   readonly const VITE_PROXY_PREFIX: string[]
   readonly const VITE_USE_MOCK: boolean
   readonly const VITE_DROP_CONSOLE: boolean
+  readonly const VITE_USE_LEGACY: boolean
 }
