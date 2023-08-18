@@ -16,7 +16,7 @@
     "preview:test": "yarn build:test && vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "vue-tsc",
     "postinstall": "simple-git-hooks"
   },
   "dependencies": {
