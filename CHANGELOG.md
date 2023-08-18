@@ -1,3 +1,23 @@
+# [1.2.0](https://github.com/zhou-tao/vue-power-admin/compare/v1.1.3...v1.2.0) (2023-08-18)
+
+
+### Bug Fixes
+
+* git hook for commit-msg ([c781660](https://github.com/zhou-tao/vue-power-admin/commit/c7816609ce6242dcf656ecee5ff33bd39c5507b4))
+* **layout:** :bug: disable closable when only one tab ([e227cdf](https://github.com/zhou-tao/vue-power-admin/commit/e227cdf6f3b5a7423b56776d189d9cf9ed987f52))
+* optimize handle ts error ([96a167e](https://github.com/zhou-tao/vue-power-admin/commit/96a167ec2349aded60b67cd26b3949ab92be7a39))
+* typecheck scripts ([5e0c9a8](https://github.com/zhou-tao/vue-power-admin/commit/5e0c9a876e510d137d78fc735beff0ee60d7b78d))
+
+
+### Features
+
+* :sparkles: optimize unocss usage ([5c18320](https://github.com/zhou-tao/vue-power-admin/commit/5c183206af8689e8d31d85e7813ff7a348476876))
+* :sparkles: use unocss icon presets instead of unplugin-icons ([f9a0ab0](https://github.com/zhou-tao/vue-power-admin/commit/f9a0ab051237fd93eeef637d09ffb5c0f21233c6))
+* add plugin for env parser ([5ebe5a8](https://github.com/zhou-tao/vue-power-admin/commit/5ebe5a8cfdbbd1fa28928bbc5c8c0191fcd83dca))
+* **plop:** migrate to ESM ([6e0ae54](https://github.com/zhou-tao/vue-power-admin/commit/6e0ae546a88ba47a5cb5e854187ae4503e485424))
+
+
+
 ## [1.1.3](https://github.com/zhou-tao/vue-power-admin/compare/v1.1.2...v1.1.3) (2023-07-05)
 
 
