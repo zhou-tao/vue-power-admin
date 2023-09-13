@@ -2,7 +2,7 @@
   <p align="center"><img alt="Vue-Power-Admin" align="center" src="./.github/logo.svg" width="100" /></p><br>
   <p align="center">
     <a href="https://github.com/zhou-tao/vue-power-admin/releases"><img src="https://img.shields.io/github/v/release/zhou-tao/vue-power-admin.svg" alt="release version"></a>
-    <a href="https://github.com/zhou-tao/vue-power-admin/actions/workflows/deploy.yml"><img src="https://github.com/zhou-tao/vue-power-admin/actions/workflows/deploy.yml/badge.svg?branch=main" alt="deploy status"></a>
+    <a href="https://app.netlify.com/sites/vue-power-admin/deploys"><img src="https://api.netlify.com/api/v1/badges/309500b2-63d7-4313-a4e0-24ac7eb5ccab/deploy-status" alt="deploy status"></a>
   </p>
   <h1>Vue Power Admin</h1>
 </div>
@@ -11,7 +11,7 @@
 
 ### :loudspeaker: Introduction
 
-> [Vue Power Admin](https://zhou-tao.github.io/vue-power-admin) is a fullstack project template for management systems. Built with Vite, Vue3 and [elements-plus](https://element-plus.org/zh-CN/).
+> [Vue Power Admin](https://vue-power-admin.netlify.app) is a fullstack project template for management systems. Built with Vite, Vue3 and [elements-plus](https://element-plus.org/zh-CN/).
 
 ### :rocket: Features
 

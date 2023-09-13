@@ -2,7 +2,7 @@
   <p align="center"><img alt="Vue-Power-Admin" align="center" src="./.github/logo.svg" width="100" /></p><br>
   <p align="center">
     <a href="https://github.com/zhou-tao/vue-power-admin/releases"><img src="https://img.shields.io/github/v/release/zhou-tao/vue-power-admin.svg" alt="release version"></a>
-    <a href="https://github.com/zhou-tao/vue-power-admin/actions/workflows/deploy.yml"><img src="https://github.com/zhou-tao/vue-power-admin/actions/workflows/deploy.yml/badge.svg?branch=main" alt="deploy status"></a>
+    <a href="https://app.netlify.com/sites/vue-power-admin/deploys"><img src="https://api.netlify.com/api/v1/badges/309500b2-63d7-4313-a4e0-24ac7eb5ccab/deploy-status" alt="deploy status"></a>
   </p>
   <h1>Vue Power Admin</h1>
 </div>
@@ -11,7 +11,7 @@
 
 ### :loudspeaker: 简介
 
-> [Vue Power Admin](https://zhou-tao.github.io/vue-power-admin) 是一个标准的中后台前端开发模板。基于当下最流行的 Vue3 + Typescript 技术栈构建，使用 Element-Plus 作为 UI 库。
+> [Vue Power Admin](https://vue-power-admin.netlify.app) 是一个标准的中后台前端开发模板。基于当下最流行的 Vue3 + Typescript 技术栈构建，使用 Element-Plus 作为 UI 库。
 
 ### :rocket: 特性
 
