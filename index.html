@@ -9,15 +9,15 @@
   <body>
     <script>
       (() => {
-        var htmlRoot = document.documentElement
-        var theme = window.localStorage.getItem('vueuse-color-scheme');
-        var hasLoading = window.localStorage.getItem('vp_has_fp_loading');
+        let htmlRoot = document.documentElement
+        let theme = window.localStorage.getItem('vueuse-color-scheme')
+        const hasLoading = window.localStorage.getItem('vp_has_fp_loading')
         if (hasLoading === 'false') htmlRoot.classList.add('hide-loading')
         if (htmlRoot && theme) {
-          htmlRoot.setAttribute('data-theme', theme);
-          theme = htmlRoot = null;
+          htmlRoot.setAttribute('data-theme', theme)
+          theme = htmlRoot = null
         }
-      })();
+      })()
     </script>
     <div id="app">
       <style>
