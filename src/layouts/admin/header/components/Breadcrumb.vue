@@ -1,6 +1,16 @@
 <script setup lang="ts" name="BreadCrumb">
   const route = useRoute()
-  const matched = computed(() => route.matched.filter(r => !r?.meta?.hideMenu && r?.meta?.title))
+  const router = useRouter()
+
+  const matched = computed(() => {
+    const validMatched: any[] = route.matched.filter(r => r?.meta?.title)
+    if (route?.meta?.activeMenu) {
+      const parent = router.resolve(route.meta.activeMenu)
+      const current = validMatched.pop()
+      validMatched.push(parent, current)
+    }
+    return validMatched
+  })
 </script>
 
 <template>
