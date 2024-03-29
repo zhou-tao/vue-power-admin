@@ -1,9 +1,9 @@
 <script setup lang="ts" name="Workbench">
   import { AreaLineChart } from '@c/ECharts'
+  import { useMessage } from '@h/web/useMessage'
   import ShortCut from '@/components/ShortCut'
   import { useUserStore } from '@/store/modules/user'
   import type { ChartDataset } from '@/components/ECharts/src/useECharts'
-  import { useMessage } from '@/hooks/web/useMessage'
 
   const userStore = useUserStore()
   const { $message } = useMessage()

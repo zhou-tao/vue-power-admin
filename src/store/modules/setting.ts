@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia'
 import { useDark } from '@vueuse/core'
+import { getLocalStorage, setLocalStorage } from '@h/web/useStorage'
 import { ThemeEnum } from '@/enums/appEnum'
 import { MenuLayout } from '@/enums/menuEnum'
-import { getLocalStorage, setLocalStorage } from '@/hooks/web/useStorage'
 import { LocalStorageEnum } from '@/enums/storageEnum'
 
 const isDark = useDark()

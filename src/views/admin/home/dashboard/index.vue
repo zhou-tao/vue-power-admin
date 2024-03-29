@@ -1,7 +1,7 @@
 <script setup lang="ts" name="Dashboard">
   import { AreaLineChart, BarChart, PieChart, RadarChart } from '@c/ECharts'
+  import { useMessage } from '@h/web/useMessage'
   import RankList from './components/RankList.vue'
-  import { useMessage } from '@/hooks/web/useMessage'
   import type { ChartDataset } from '@/components/ECharts/src/useECharts'
 
   interface Card {

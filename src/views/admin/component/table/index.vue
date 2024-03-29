@@ -1,7 +1,7 @@
 <script setup lang="ts" name="Table">
+  import { useMessage } from '@h/web/useMessage'
   import type { ColumnAttrs } from '@/components/TableModel'
   import { useSlotButton } from '@/components/TableModel'
-  import { useMessage } from '@/hooks/web/useMessage'
 
   interface TableDemoModel {
     id: number

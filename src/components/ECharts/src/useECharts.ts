@@ -28,8 +28,8 @@ import {
 import { LabelLayout, UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
 
+import { useThrottle } from '@h/logic/useDelay'
 import { useSettingStore } from '@/store/modules/setting'
-import { useThrottle } from '@/hooks/logic/useDelay'
 
 export type ECOption = echarts.ComposeOption<
   BarSeriesOption

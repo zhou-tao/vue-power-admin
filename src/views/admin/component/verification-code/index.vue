@@ -1,6 +1,6 @@
 <script setup lang="ts" name="VerificationCode">
   import { VerificationCode, VerifyDialog } from '@c/VerificationCode'
-  import { useMessage } from '@/hooks/web/useMessage'
+  import { useMessage } from '@h/web/useMessage'
 
   const { $message } = useMessage()
   const showVerifyDialog = ref(false)

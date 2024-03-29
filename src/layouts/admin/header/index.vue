@@ -1,15 +1,15 @@
 <script setup lang="ts" name="LayoutHeader">
   import { useI18n } from 'vue-i18n'
+  import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@h/web/useFullScreen'
+  import { useMessage } from '@h/web/useMessage'
   import Breadcrumb from './components/Breadcrumb.vue'
   import ThemeSwitch from '@/components/ThemeSwitch'
   import LogoView from '@/layouts/admin/sider/components/LogoView.vue'
   import Menu from '@/layouts/admin/sider/components/menu/index.vue'
   import { useUserStore } from '@/store/modules/user'
   import { useSettingStore } from '@/store/modules/setting'
-  import { isSupported, isFullScreen, toggleFullScreen, autoRemoveListener } from '@/hooks/web/useFullScreen'
   import { MenuLayout } from '@/enums/menuEnum'
   import { getLocaleTypes } from '@/locales'
-  import { useMessage } from '@/hooks/web/useMessage'
 
   const { $message } = useMessage()
   const { username, avatar } = storeToRefs(useUserStore())

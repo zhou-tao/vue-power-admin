@@ -1,7 +1,7 @@
 <script setup lang="ts" name="SearchForm">
+  import { useMessage } from '@h/web/useMessage'
   import type { SearchItemConfig } from '@/components/SearchModel'
   import { useComponent } from '@/components/SearchModel'
-  import { useMessage } from '@/hooks/web/useMessage'
 
   const { ElInput, ElSelect } = useComponent()
   const config: SearchItemConfig[] = [

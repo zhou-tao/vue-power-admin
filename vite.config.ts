@@ -30,7 +30,7 @@ export default ({ mode }: ConfigEnv) => {
       alias: {
         '@': resolve(__dirname, 'src'),
         '@c': resolve(__dirname, 'src/components'),
-        '@h': resolve(__dirname, 'src/hooks'),
+        '@h': resolve(__dirname, 'src/composables'),
         '#': resolve(__dirname, 'types')
       }
     },

@@ -1,9 +1,9 @@
 <script setup lang="ts" name="ThemeSetting">
+  import { getCssVar, setCssVar } from '@h/web/useCssVar'
   import ThemeColorPicker from './ThemeColorPicker.vue'
   import ThemeSwitch from '@/components/ThemeSwitch'
   import { MenuLayout } from '@/enums/menuEnum'
   import { useSettingStore } from '@/store/modules/setting'
-  import { getCssVar, setCssVar } from '@/hooks/web/useCssVar'
   import { CSSVarEnum } from '@/enums/appEnum'
 
   const settingStore = useSettingStore()

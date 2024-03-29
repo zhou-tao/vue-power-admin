@@ -1,13 +1,13 @@
 <script setup lang="ts" name="Department">
   import type { FormInstance, FormRules } from 'element-plus'
   import { cloneDeep } from 'lodash-es'
+  import { useMessage } from '@h/web/useMessage'
   import { config, staticColumns, SubmitTypeEnum } from './usePage'
   import SearchModel from '@/components/SearchModel'
   import type { ColumnAttrs } from '@/components/TableModel'
   import TableModel, { useSlotButton } from '@/components/TableModel'
   import { getDepartmentList } from '@/api/_system/department'
   import type { DepartmentModel } from '@/api/_system/model/departmentModel'
-  import { useMessage } from '@/hooks/web/useMessage'
 
   const tableModelRef = ref()
   const { $message } = useMessage()

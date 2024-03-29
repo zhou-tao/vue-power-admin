@@ -1,6 +1,6 @@
 <script setup lang="ts" name="ThemeColorPicker">
+  import { getCssVar, setCssVar } from '@h/web/useCssVar'
   import { CSSVarEnum } from '@/enums/appEnum'
-  import { getCssVar, setCssVar } from '@/hooks/web/useCssVar'
 
   const color = ref(getCssVar(CSSVarEnum.COLOR_PRIMARY))
   const predefineColors = ref([

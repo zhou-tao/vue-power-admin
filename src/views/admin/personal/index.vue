@@ -1,6 +1,6 @@
 <script setup lang="ts" name="Personal">
   import cloneDeep from 'lodash-es/cloneDeep'
-  import { useMessage } from '@/hooks/web/useMessage'
+  import { useMessage } from '@h/web/useMessage'
   import { useUserStore } from '@/store/modules/user'
   import Previewer from '@/utils/previewer'
 

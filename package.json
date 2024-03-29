@@ -67,7 +67,7 @@
     "sass": "^1.55.0",
     "simple-git-hooks": "^2.9.0",
     "terser": "^5.19.4",
-    "typescript": "^5.2.2",
+    "typescript": "5.1.6",
     "unocss": "^0.55.7",
     "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.8",
