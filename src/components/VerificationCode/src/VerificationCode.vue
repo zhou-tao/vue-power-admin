@@ -10,6 +10,7 @@
   const emit = defineEmits(['change'])
   const image = ref()
   const overlay = ref()
+  const imageLoading = ref(true)
 
   const dragger = ref(false)
   const scrollView = ref()
@@ -37,6 +38,7 @@
     const img = new Image()
     img.setAttribute('crossOrigin', 'anonymous')
     img.onload = () => {
+      imageLoading.value = false
       // 初始化状态
       left.value = 0
       succeed.value = false
@@ -71,10 +73,12 @@
       ctx.fill()
       refresh.value = false
     }
+    imageLoading.value = true
     img.src = 'https://picsum.photos/320/150'
     watch(refresh, (v) => {
       if (v) {
         if (succeed.value && props.mode === 'modal') return
+        imageLoading.value = true
         img.src = `https://picsum.photos/320/150?id=${Date.now()}`
       }
     })
@@ -130,7 +134,7 @@
 </script>
 
 <template>
-  <div w-320px>
+  <div v-loading="imageLoading" w-320px>
     <div rounded overflow-hidden text-0 relative>
       <canvas ref="image" width="320" height="150" />
       <canvas
